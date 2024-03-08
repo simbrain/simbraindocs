@@ -1,3 +1,7 @@
+# Simbrain 4.0 Docs
+
+This is where documentation for Simbrain 4.0 will be developed. Changes can be made in the `src > `docs` folder. All documentation is markdown and is compiled to html using [https://just-the-docs.com/docs/utilities]
+
 # Set up
 
 - Clone this project
