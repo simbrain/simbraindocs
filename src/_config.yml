@@ -1,0 +1,18 @@
+title: Simbrain Docs
+description: A starter template for a Jeykll site using the Just the Docs theme!
+theme: just-the-docs
+
+url: https://www.simbrain.net/
+
+aux_links:
+  Simbrain Repository: https://github.com/simbrain/simbrain
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - dev-server.sh
