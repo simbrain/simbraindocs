@@ -5,3 +5,4 @@ src/_site
 vendor
 
 .idea
+.DS_Store
