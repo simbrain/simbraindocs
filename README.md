@@ -18,8 +18,6 @@ This is where documentation for Simbrain 4.0 will be developed. Changes can be m
 
 # Force Restart
 - Run `docker-compose down` followed by `docker-compose up -d --build`
-- To to restart first stop then use `docker-compose up -d --build` again
-  - You might have to restart after big changes to markdown files
 
 # Deployment
 
