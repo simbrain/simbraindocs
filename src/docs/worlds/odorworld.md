@@ -3,7 +3,7 @@ title: Odor World
 parent: Worlds
 layout: default
 has_children: false
-nav_order: 10
+nav_order: 55
 ---
 
 # Odor World

@@ -2,7 +2,7 @@
 title: Intro
 layout: default
 has_children: false
-nav_order: 10
+nav_order: 5
 ---
 
 # What's new in 4.0

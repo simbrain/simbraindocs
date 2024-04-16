@@ -3,7 +3,7 @@ title: Neurons
 parent: Network
 layout: default
 has_children: false
-nav_order: 10
+nav_order: 20
 ---
 
 # Neuron Groups

@@ -2,7 +2,7 @@
 title: Computational Neuroscience
 layout: default
 has_children: false
-nav_order: 20
+nav_order: 45
 ---
 
 # Computational Neuroscience

@@ -1,8 +1,8 @@
 ---
 title: Evolution
 layout: default
-has_children: true
-nav_order: 10
+has_children: false
+nav_order: 80
 ---
 
 # Evolution
