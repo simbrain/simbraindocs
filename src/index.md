@@ -1,63 +1,42 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+# Feel free to add content and custom Front Matter t this file.
+# To modify the layout, see https://jekyllrb.com/docs/hemes/#overriding-theme-defaults
 
 layout: default
 ---
 
-![simbrain logo](/assets/images/simbrain-logo.gif)
-
 # Documentation for Simbrain 4.0
-
 Simbrain is a tool for building artificial neural networks that has been developed with the philosophy of ease-of-use and intuitive design. We encourage you to simply launch Simbrain and experiment. For in-depth documentation on each aspect of Simbrain follow the links below. Simbrain is open source and uses the GNU license. For credits click [here](https://simbrain.net/SimbrainCredits.html).
 
-## Nav Order
+# Workspace
+The Simbrain workspace is the encompassing framework which contains all simulation components (networks, worlds, etc.), as well as mechanisms for connecting them together via "couplings", scripting, etc. Other general topics concerning simbrain simulations.
 
-intro.md: nav_order:5
+# Network
+The network component of Simbrain represents a simulated neural circuit. Networks are the core component of a Simbrain simulation. They are built using a simple graphical interface.
 
-### Workspace
+# Worlds
+Worlds are components that interact with Network components by giving and/or receiving information. For example OdorWorld simulates a creature's ability to move and smell in a simple two-dimensional world.
 
-workspace.md: nav_order: 10
+# Plots
+Visualize network activity and other data with Bar charts, Pie Charts, Projections, Time Series, and other charts.
 
-### Network
+# Simulation
+Environment for building custom simulations. Can be used to create custom simulations, beyond what the built-in GUI tools provide.
 
-network.md: nav_order: 15
-neurons.md: nav_order: 20
-updaterules.md: nav_order: 25
-linear.md: nav_order: 30
-connections.md: nav_order: 35
-subnetworks.md: nav_order: 40
-computational_neuroscience.md: nav_order: 45
 
-### Worlds
 
-odorworld.md: nav_order: 55
-imageworld.md: nav_order: 60
+# Evolution
+Framework for evolving neural netwoks.
 
-### Plots
+# Terminal
+Running from terminal.
 
-plots.md: nav_order: 65
-projectionplot.md: nav_order: 70
+# Doc Viewer
+Compoent for embedding documents in a workspace.
 
-### Simulation
+# Utilities/Others
+Some utilities that are used throughout Simbrain.
 
-simulation.md: nav_order: 75
-
-### Evolution
-
-evolution.md: nav_order: 80
-
-### Terminal
-
-terminal.md: nav_order: 85
-
-### Doc Viewer
-
-docviewer.md: nav_order: 90
-
-### Utilities/Others
-
-simulation_scripting.md: nav_order: 95
 
 
 
