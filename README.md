@@ -21,4 +21,4 @@ This is where documentation for Simbrain 4.0 will be developed. Changes can be m
 
 # Deployment
 
-Coming later
+Commits are automatically deployed to https://docs.simbrain.net.
