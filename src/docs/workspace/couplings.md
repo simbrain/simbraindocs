@@ -14,6 +14,14 @@ The basic scheme is shown in the image below (this kind of depiction is used thr
 
 ![Basic coupling](/assets/images/Coupling_General.png)
 
+[//]: # (for illustration purposes, should be removed later)
+```mermaid
+flowchart LR
+    A o--o B
+    B <--> C
+    C x--x D
+```
+
 In the underlying java code, the producer is generally calling a "getter" function, which retrieves some information from a Simbrain object, and the consumer is generally passing information retrieved from a getter function on to a setter function.
 
 # Coupling Types

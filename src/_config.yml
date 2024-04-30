@@ -7,6 +7,11 @@ url: https://www.simbrain.net/
 aux_links:
   Simbrain Repository: https://github.com/simbrain/simbrain
 
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.3"
+
 exclude:
   - Gemfile
   - Gemfile.lock
