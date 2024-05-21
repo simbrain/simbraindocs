@@ -1,6 +1,7 @@
 ---
 title: Projection Plots
 layout: default
+parent: Plots
 has_children: false
 nav_order: 70
 ---

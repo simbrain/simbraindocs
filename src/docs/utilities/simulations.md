@@ -1,11 +1,14 @@
 ---
-title: Simulation Scripting
+title: Simulations
 layout: default
+parent: Other Stuff
 has_children: false
-nav_order: 95
+nav_order: 50
 ---
 
-# Simulation Scripting 
+# Simulations 
+
+Custom simulations must be coded directly in the source, but extensive tooling and support is available. This allows for custom updates, plots, logging, and pretty much anything,
 
 ## Setting up a Simulation (Kotlin)
 

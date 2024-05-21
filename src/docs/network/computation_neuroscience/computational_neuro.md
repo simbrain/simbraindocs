@@ -1,6 +1,7 @@
 ---
 title: Computational Neuroscience
 layout: default
+parent: Networks
 has_children: false
 nav_order: 45
 ---

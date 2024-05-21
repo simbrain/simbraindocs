@@ -1,13 +1,14 @@
 ---
 title: Image World
 layout: default
+parent: Worlds
 has_children: false
 nav_order: 60
 ---
 
-# ImageWorld
+# Image World
 
-## ImageWorld: General Information
+## General Information
 
 ImageWorld is a tool that allows for neural network representations of visual images. ImageWorld has two main components: a window for displaying an image and applying filters and a network coupled to said image. Each coupling is specific to the network-image pair, so changing the image, applying subsequent filters, or creating a new network will require creating a new coupling.
 
