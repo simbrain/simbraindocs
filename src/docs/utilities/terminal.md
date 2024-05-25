@@ -1,9 +1,9 @@
 ---
 title: Terminal
 layout: default
-parent: Other Stuff
+parent: Utilities
 has_children: false
-nav_order: 50
+nav_order: 110
 ---
 
 # Terminal

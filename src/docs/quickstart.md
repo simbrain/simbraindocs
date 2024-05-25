@@ -137,7 +137,8 @@ Don't delete the network you just created. We will now graph its activity using 
 
 3. Iterate the workspace a few times the step button  , or run the workspace using the play button . While it's running periodically reset the network using select all and randomize ("A" then "R" while the network component is in focus), and observe the changing pattern in the bar chart.
 
-# EXAMPLES
+# Examples
+
 Here are some quick tutorials on how to do specific things in Simbrain.    The basics of building a network and other simple examples are covered in the quick-start.
 
 ## Plot the activation of a node over time with a time-series plot.
@@ -202,53 +203,53 @@ Command-w: Close the component
 
 ## Network Component (Network must be in focus)
 
-1: Set selected nodes to source nodes
-2: Connect source to target nodes using current connection (by default all to all)
-5: Turn display of weights on and off. Performance goes way up when weights are off so this is a good one to know!
-c: "Clear" all. Set selected nodes and weights to zero. WARNING! Setting weights to zero is not always a desired outcome! Use with caution. A safer alternative is 'k' which only clears node activations.
-Command-c: Copy selected items (does not apply to all groups and subnetwork types)
-Command-d: Duplicate selected items
-Alt-d: print debug info to the console (only visible if Simbrain is run from a terminal command).
-Command-e: Edit selected neurons or weights
-f: Fit camera to screen
-F: Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
-g: Create a new neuron group
-Command-G: Add selected loose neurons to a neuron group
-i: Wand mode
-k: Clear all node activations. Leaves nodes selected so that, for example, this can be followed by a randomization (r).
-n: Select all neurons
-p: Add or "put" a new node. Nodes will be added next to selected nodes or where you last clicked in the network panel
-r: Randomize selected objects.
-s: Selection mode (the default mode)
-t: Text mode
-w: Select all weights
-Command-v: Paste selected items
-Command-x: Cut selected items
-Delete: Delete selected items
-Escape: Unselect all objects and remove source handles
-Arrows: Increment or decrement selected items (neurons or synapses).
-Option-Arrows: Contextually increment or decrement selected neurons.
-Shift-Arrow: Nudge objects (move them a few pixels)
-Space-bar: Update network
+- 1: Set selected nodes to source nodes
+- 2: Connect source to target nodes using current connection (by default all to all)
+5: Turn display of weights on and off. Performance goes way up when weights are - off so this is a good one to know!
+c: "Clear" all. Set selected nodes and weights to zero. WARNING! Setting weights to zero is not always a desired outcome! Use with caution. A safer alternative is - 'k' which only clears node activations.
+- Command-c: Copy selected items (does not apply to all groups and subnetwork types)
+- Command-d: Duplicate selected items
+Alt-d: print debug info to the console (only visible if Simbrain is run from a - terminal command).
+- Command-e: Edit selected neurons or weights
+- f: Fit camera to screen
+- F: Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
+- g: Create a new neuron group
+- Command-G: Add selected loose neurons to a neuron group
+- i: Wand mode
+k: Clear all node activations. Leaves nodes selected so that, for example, this - can be followed by a randomization (r).
+- n: Select all neurons
+p: Add or "put" a new node. Nodes will be added next to selected nodes or where - you last clicked in the network panel
+- r: Randomize selected objects.
+- s: Selection mode (the default mode)
+- t: Text mode
+- w: Select all weights
+- Command-v: Paste selected items
+- Command-x: Cut selected items
+- Delete: Delete selected items
+- Escape: Unselect all objects and remove source handles
+- Arrows: Increment or decrement selected items (neurons or synapses).
+- Option-Arrows: Contextually increment or decrement selected neurons.
+- Shift-Arrow: Nudge objects (move them a few pixels)
+- Space-bar: Update network
 
 ## Some Useful Key Sequences
 
-n > c   to clear all neurons (set them to 0)
-n > r    to randomize all neurons
-w > r   to randomize all weights
-a > r   to randomize all weights and neurons
+- n > c   to clear all neurons (set them to 0)
+- n > r    to randomize all neurons
+- w > r   to randomize all weights
+- a > r   to randomize all weights and neurons
 n > 1 > 2  > r (to create a recurrent network where each node connects to all others)
 
 ## Key Sequences for connecting neurons
 
-Select source neuron(s)  > press 1 >  select target neuron(s) > press 2  
+`Select source neuron(s)  > press 1 >  select target neuron(s) > press 2`  
 (Repeat as needed; when done, click in an empty part of the network window to-deselect all neurons, and press 1)
 
 ## Dataworld Component
 
-Command-r: randomize all cells within given bounds.
-Command-n: normalize all values relative to columns.
-Command-z: zero out all cells
+`Command-r`: randomize all cells within given bounds.
+`Command-n`: normalize all values relative to columns.
+`Command-z`: zero out all cells
 
 ## Notes
 

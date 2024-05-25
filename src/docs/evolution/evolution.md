@@ -2,10 +2,10 @@
 title: Evolution
 layout: default
 has_children: false
-nav_order: 80
+nav_order: 110
 ---
 
-# Evolution
+# Evolving Neural Networks
 
 ## Links
 

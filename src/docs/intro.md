@@ -7,9 +7,9 @@ nav_order: 5
 
 # What's new in 4.0
 
-Complete rewrite of almost everything with a software engineer, tons of unit tests, lots of refactoring, so everything is more stable and reliable.
+Simbrain 4.0 involved a complete rewrite over the course of nearly 10 years. Most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit tests were added, and many new new features were introduced.
 
-## Big stuff
+## Main things
 
 * Matrix backend and a carefully developed GUI for showing matrix operations and having communication between matrix objects.  Simbrain currently is all “scalar” based
     * All neuron and learning rules are now just prototypes which are applied to the data structures
@@ -34,11 +34,13 @@ Now directly available.  The color of the node is set by the upper bound, which 
 
 ## Update Rules
 
-The background idea is that rules operate on data.  The same rule can be applied to matrix or scalar data.
+The background idea is that rules now operate on data.  The same rule can be applied to matrix or scalar data.
 
-## Neuron Collection
+## Neuron Collections
 
-This is a loose assemblage around free nodes.  See javadocs for more info.
+This is a new way of organizing neurons, into loose assemblages around free nodes. 
+
+<!-- Develop this using javadocs which has good notes. Define free nodes and link. -->
 
 If you delete, the free nodes are still there.
 
@@ -96,6 +98,8 @@ In the discussion of Smile classifiers, include a discussion of how to choose wh
 * When making a sim, add models before setting locations
 
 ## Tiled
+
+In [Odor World](worlds/odorworld.html)
 
 * Tilemap
     * Width and height in number of tiles

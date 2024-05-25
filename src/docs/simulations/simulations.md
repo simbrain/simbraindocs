@@ -1,9 +1,8 @@
 ---
 title: Simulations
 layout: default
-parent: Other Stuff
 has_children: false
-nav_order: 50
+nav_order: 80
 ---
 
 # Simulations 
@@ -21,6 +20,8 @@ Custom simulations must be coded directly in the source, but extensive tooling a
 
 * Refer to that in RegisteredSimulations.kt
 
+* There is a java process but it is separate and not yet documented (**todo**)
+
 ### Fine-Tuning A Simulation
 
 * Find the name of the simulation using shift-shift or ctrl-shift-F (find all) and look for the sim name.
@@ -35,7 +36,9 @@ Custom simulations must be coded directly in the source, but extensive tooling a
 
 * For cases where you want immediate results and not the “buffered” results just make an update action as in the NLP examples (We have priority update but it is not convenient)
 
-## Setting up a Simulation (Old)
+## Setting up a java Simulation 
+
+We are phasing this out, but it still works fine and can be used if you prefer java. There is not quite as much tooling support, however.
 
 * Find the File “TestSim.java”. 
     * Suggest using Shift-Shift, then click on project tab and use the compass tool to see where you are.

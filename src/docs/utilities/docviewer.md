@@ -1,9 +1,9 @@
 ---
 title: Document Viewer
 layout: default
-parent: Other Stuff
+parent: Utilities
 has_children: false
-nav_order: 90
+nav_order: 155
 ---
 
 # Document Viewer
