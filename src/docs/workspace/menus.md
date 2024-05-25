@@ -17,13 +17,13 @@ Save Workspace As: Save the current workspace and specify a name for the file.
 
 Clear Workspace: Remove all components and couplings from current workspace, and remove any additional windows from the desktop.
 
-Edit Update Sequence:Open the Edit Update Sequence dialog; see **update**.
+Edit Update Sequence:Open the Edit Update Sequence dialog; see [update](update.html).
 
-Workspace Properties: Open workspace **preferences** dialog.
+Workspace Properties: Open workspace [preferences](preferences.html) dialog.
 
 ## View
 
-Property Tabs: Opens **Property Tabs**, which is used to monitor the state of the workspace and set properties.
+Property Tabs: Opens [Property Tabs](propertyTabs.html), which is used to monitor the state of the workspace and set properties.
 
 Resize All Windows: Resize all windows on screen so they fit on the current desktop. Helpful when windows get lost offscreen, or when opening a workspace created on a larger monitor than the one you are using.
 
@@ -69,16 +69,16 @@ Custom simulations created in the new simulation framework also appear in this m
 
 ## Couplings
 
-Open Coupling Manager: Open **Coupling Manager**.
+Open Coupling Manager: Open [Coupling Manager](couplings.html).
 
-Open Coupling List: Open **Coupling List**.
+Open Coupling List: Open [Coupling List](couplings.html).
 
 ## Help
 
 Main Help: Open **Main Help** page.
 
-Quick Start: Open **Quick Start** page.
+Quick Start: Open [Quick Start](quickstart.html) page.
 
-Keyboard Shortcuts: Open **Keyboard Shortcuts** page.
+Keyboard Shortcuts: Open [Keyboard Shortcuts](quickstart.html) page.
 
 Credits: Open **Credits** page.

@@ -8,7 +8,7 @@ nav_order: 20
 
 # Couplings
 
-A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain **workspace** (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are **attributes**.
+A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](workspace.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are **attributes**.
 
 The basic scheme is shown in the image below (this kind of depiction is used throughout these documents). The coupling contains a producer and consumer attribute which are of the same type, and it functions to pass information from the producer to the consumer. A producer gathers information from a source object and then passes the result to a target object.
 
@@ -41,7 +41,7 @@ This graphical scheme is used to illustrate the various attributes and the ways 
 
 # Scalar Couplings
 
-An easy way to get a feel for how couplings work is through the example of scalar couplings. An example is shown below that links a **Network** to an **OdorWorld**. In this example one of the couplings in the pursuer simulation is shown (the simulation has 5 couplings total, one for each neuron). The coupling shown takes the current activation of the "turn right" neuron (the producer) and sends it to the turn right action on the mouse (the consumer). Note that in this example, the mouse will turn right when the workspace is updated, because there is more right turning activation than left turning activation.
+An easy way to get a feel for how couplings work is through the example of scalar couplings. An example is shown below that links a [Network](../network/network.html) to an [OdorWorld](../worlds/odorworld.html). In this example one of the couplings in the pursuer simulation is shown (the simulation has 5 couplings total, one for each neuron). The coupling shown takes the current activation of the "turn right" neuron (the producer) and sends it to the turn right action on the mouse (the consumer). Note that in this example, the mouse will turn right when the workspace is updated, because there is more right turning activation than left turning activation.
 
 There are many examples of scalar couplings that can be made. Here are some examples where the producer is a neuron:
 
@@ -99,13 +99,13 @@ Not all attributes are automatically "visible" in the relevant gui components (c
 
 # Coupling Manager
 
-The most comprehensive graphical access to couplings in Simbrain is via the coupling manager. It can be used to view attributes and couplings, and to create couplings. To open the manager, press the coupling manager button coupling icon on the Simbrain **toolbar** or use the menu Couplings > Coupling Manager. The coupling manager allows you to create and delete couplings, set attribute visibility, and view workspace attributes.
+The most comprehensive graphical access to couplings in Simbrain is via the coupling manager. It can be used to view attributes and couplings, and to create couplings. To open the manager, press the coupling manager button coupling icon on the Simbrain [toolbars](toolbars.html) or use the menu Couplings > Coupling Manager. The coupling manager allows you to create and delete couplings, set attribute visibility, and view workspace attributes.
 
 The coupling manager is organized in to three columns. Multiple items in each of these three columns can be selected by holding the shift key while selecting items or ranges of items.
 
 Producer / Consumer lists: these are the columns on the left and right side of the coupling manager: producers on the left; consumers on the right. Intuitively you are connecting a consumer to a producer to produce a coupling, which is displayed in the middle. The drop down box at the top of each column shows all current workspace components. Selecting that component shows what producing or consuming attributes are currently visible in that component.
 
-Coupling list: this is the middle column of the coupling manager and it shows all current couplings in the workspace. The type of the coupling is color coded, as described above. The same view is also available in the coupling tab of the **property tabs**.
+Coupling list: this is the middle column of the coupling manager and it shows all current couplings in the workspace. The type of the coupling is color coded, as described above. The same view is also available in the coupling tab of the [property tabs](propertyTabs.html).
 
 The following commands are possible in the coupling manager:
 
