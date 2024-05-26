@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: What's New in 4.0
 layout: default
 has_children: false
 nav_order: 5
@@ -9,70 +9,58 @@ nav_order: 5
 
 Simbrain 4.0 involved a complete rewrite over the course of nearly 10 years. Most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit tests were added, and many new new features were introduced.
 
-## Main things
+# New or vastly improved components
+
+* Image world. Send filtered images to Simbrain.
+
+* Evolutionary framework.  Evolve networks and virtual robots to do things.
+
+* Full simulation environment. Easy to make custom simulations, far better than bsh.
+
+* Text world rewrite including support for computational linguistics 
+
+
+## Network
+
+Complete rewrite with new types of object. Rules now operate on data, scalar or matrix.
 
 * Matrix backend and a carefully developed GUI for showing matrix operations and having communication between matrix objects.  Simbrain currently is all “scalar” based
     * All neuron and learning rules are now just prototypes which are applied to the data structures
     * A careful separation between free entities and arrays
     * No more neuron group concept. Instead, lightweight collections are used
 
-* Image world. Send filtered images to Simbrain.
 
-* Full simulation environment. Easy to make custom simulations, far better than bsh.
+* Wrapper on an existing machine learning framework, Smile. See [below](#smile_classifiers).
 
-* Evolutionary framework.  Evolve networks and virtual robots to do things.
+* Relu activation function directly available.  The color of the node is set by the upper bound, which is a graphical upper bound. To set it just turn off relu for a moment.
 
-* Text world / comp linguistics stuff
+* Apply Immediate Learning. A nice way to get a feel for how things work, and for tuning a network too. Each time you press “L” (for learn) the network learns by one increment. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop
 
-* Wrapper on an existing deep learning framework
 
-* Wrapper on an existing machine learning framework
+There is a general new way of thinking about networks.
 
-## Relu
+Free neurons and weights are distinguished from matrix based things.
 
-Now directly available.  The color of the node is set by the upper bound, which is a graphical upper bound. To set it just turn off relu for a moment.
+All objects are network models
 
-## Update Rules
+New approach to actions and shortcuts. Some are generic vs. specific. For example, R will randomize any selected objects.   But the randomize action on a neuron array context menu will only randomize that one you are clicked on.
 
-The background idea is that rules now operate on data.  The same rule can be applied to matrix or scalar data.
+* Neuron Collections. This is a new way of organizing neurons, into loose assemblages around free nodes. If you delete, the free nodes are still there.
 
-## Neuron Collections
-
-This is a new way of organizing neurons, into loose assemblages around free nodes. 
 
 <!-- Develop this using javadocs which has good notes. Define free nodes and link. -->
 
-If you delete, the free nodes are still there.
 
-## Neuron Arrays
+* Neuron Arrays. If clamped, they are not updated on update.  Else input arrays will zero out. However, in the API there is no forceset. You can just directly set activations.
 
-If clamped, they are not updated on update.  Else input arrays will zero out. 
+# Plots
 
-However, in the API there is no forceset. You can just directly set activations.
+* Time series updated. Fixed range vs. auto-range. "Auto-range is a feature that automatically adjusts the range of the time series data based on the maximum and minimum values present at a given time. This dynamic adjustment allows for optimized visualization and analysis, as it ensures all relevant data points are included and properly scaled within the chart or graph. It is especially useful for time series data with high variability or unpredictability."
 
-## Time Series
 
-See updated comments in user parameter in TimeSeriesModel
+<!-- See updated comments in user parameter in TimeSeriesModel -->
 
-Fixed range vs. auto-range
-
-"Auto-range is a feature that automatically adjusts the range of the time series data based on the maximum and minimum values present at a given time. This dynamic adjustment allows for optimized visualization and analysis, as it ensures all relevant data points are included and properly scaled within the chart or graph. It is especially useful for time series data with high variability or unpredictability."
-
-## Key Shortcuts
-
-Some are generic vs. specific. For example, R will randomize any selected objects.   But the randomize action on a neuron array context menu will only randomize that one you are clicked on.
-
-## Apply Immediate Learning
-
-A nice way to get a feel for how things work, and for tuning a network too.
-
-Each time you press “L” (for learn) the network learns by one increment. You can watch things happen in real time.
-
-Repeatedly press to implement learning.
-
-Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop
-
-## Smile
+# Smile Classifiers
 
 In the discussion of Smile classifiers, include a discussion of how to choose which one
 
@@ -84,22 +72,23 @@ In the discussion of Smile classifiers, include a discussion of how to choose wh
 
 * But also other tradeoff to consider
 
-## Couplings
+# Workspace
 
 * forceSetActivation is best used with clamped nodes. if used with unclamped then as soon as you iterate the activation will be lost and not visible
 
 * addInput is better. accumulates if there there are multiple inputs         
 
-## Making Simulations
+# Odor World
 
-* Open registered simulations
-    * Make a new sim copying existing stuff
+[Odor World](worlds/odorworld.html) has been significantly rewritten.
 
-* When making a sim, add models before setting locations
+* Sprites are animated
 
-## Tiled
+* More sensor and effector types an improvements to old ones
 
-In [Odor World](worlds/odorworld.html)
+* Zooming is allowed
+
+The big new feature is tile maps
 
 * Tilemap
     * Width and height in number of tiles

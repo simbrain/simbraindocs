@@ -1,79 +1,68 @@
 ---
-title: Quick Start
+title: Quick Start and Shortcuts
 layout: default
 has_children: false
 nav_order: 5
 ---
 
-# Quick Start
+# Quick Start and Shortcuts
 
 ## Some quick things you can do to see things happen...
 
-1: Open different workspaces using File > Open Workspace (open the .zip files) and press play  in the in the workspace toolbar to see what happens.
+Run simulations from the `simulations` menu.
 
-2: Run different scripts using the the Scripts menu and either press the buttons in the button panel that appears, or press play  in the in the workspace toolbar to see what happens.
+Open different workspaces using `File > Open Workspace` (open the .zip files) and press play  in the in the workspace toolbar to see what happens.
 
-To get rid of everything in the workspace, use File > Clear Workspace.
+See youtube videos online.
 
-## Add networks to the workspace
+## Important things to be able to do
 
-Click the network button  in the main toolbar a few times. You should see a few networks show up. You can move them around however you like and resize them.
+* To get rid of everything in the workspace, use `File > Clear Workspace`.
 
-For a guide to what the symbols in a network mean, see the image and description here.
+* To Add networks to the workspace. Click the network button  in the main toolbar a few times. You should see a few networks show up. You can move them around however you like and resize them. 
 
-## Add neurons to a network
+<!-- TODO -->
+* Iterate. Iterate the network once. This can be done by clicking the  button in the desktop toolbar, or pressing the space-bar in the network (these are slightly different operations, but we can ignore the distinction for now). Observe activation pass from the source to the target neuron. Iterate again and the activation clears out.
 
-Click in one of the networks you created (most of the next steps assume you have created a network and it is in focus).  Now create some neurons, by presing the button or using the "p" key. Do this a few times to create a line of neurons. (For all network key commands, the network window must be selected for the command to work)
 
-## Select those neurons
+## Basic things to do in a network
 
-Use the mouse to draw a lasso around the neurons so that they are selected. You can also press the "n" button to select all neurons. Green halos will show up around these neurons signifying that you have selected them.
+* Add neurons to a network. Click in one of the networks you created (most of the next steps assume you have created a network and it is in focus).  Now create some neurons, by presing the button or using the "p" key. Do this a few times to create a line of neurons. (For all network key commands, the network window must be selected for the command to work)
 
-## Randomize the neurons
+* Select neurons and other models. Use the mouse to draw a lasso around the neurons so that they are selected. You can also press the "n" button to select all neurons. Green halos will show up around these neurons signifying that you have selected them.
 
-With the neurons selected, press the randomize button  or pressing "r". Do this a few times to get a sense of what happens when neurons are randomized.
+* Randomize models. With neurons selected, press the randomize button  or pressing "r". Do this a few times to get a sense of what happens when neurons are randomized.
 
-## Copy and paste some neurons
+* Copy and paste. Select some neurons, copy them using Edit > Copy (or command-c), click where you want to put a copy of those neurons, and then paste them there using Edit > Paste (or command-v). Press paste repeatedly to see multiple copies of these neurons appear.
 
-Select some neurons, copy them using Edit > Copy (or command-c), click where you want to put a copy of those neurons, and then paste them there using Edit > Paste (or command-v). Press paste repeatedly to see multiple copies of these neurons appear.
+* Delete. Select all your neurons using "n", and press the delete button  or the "backspace" or "delete" key.
 
-## Delete neurons
+* Add activation or strength. Select the source neuron you just created. Press the "up" arrow button, and observe the value of the neuron change upwards.
 
-Select all your neurons using "n", and press the delete button  or the "backspace" or "delete" key.
+* Clamp things.
 
-## Connect one neuron to another
 
-1) Create two neurons. You will make a connection from a "source" to a "target" neuron.
+* Select and randomize a weight. Select the weight you created by clicking on it (the weight or synapse is the red disk connecting one node to another; see the picture here) . If that is tricky, lasso over the connection line. You can also press "w", which selects all weights. A green halo will show up around the weight. 
 
-2) Designate one neuron as a "source neuron",  by selecting Edit > Connect > Set source neuron(s) or pressing the "1" key, which is a keyboard shortcut for selecting source neurons. Observe the red halo that appears around the neuron.
+* Ranomize weights. As with neurons, randomize by pressing the randomize button  or pressing "r". Do this a few times to get a sense of what happens when synapses are randomized. If they are positive their color is red; if negative blue. The size of the weight is proportional the strength of the synapse.
 
-3) Select the target neuron just by lassong it using your mouse.
-4) Connect the source to the target neuron using Edit > Connect > All to all or by pressing the "2" key.   If a dialog appears just click "OK".  This dialog will not appear if you click "2".
+<!-- Redo with network models  -->
+* Having randomized this weight, again add activation to the source neuron and iterate the network, to see that the activation propagates differently.
+
+* Add other objects. A layered network or "feedforward" network is one in which the nodes are organized in to a sequence layers, where each node in one layer connects to all the nodes in the next layer.  Activation flows from an input layer to an output layer.  There are no loops so these networks tend to "dissipate" activation.)
+
+## Connect one neuron to another using the 1-2 trick.
+
+1. Create two neurons. You will make a connection from a "source" to a "target" neuron.
+1. Designate one neuron as a "source neuron",  by selecting Edit > Connect > Set source neuron(s) or pressing the "1" key, which is a keyboard shortcut for selecting source neurons. Observe the red halo that appears around the neuron.
+1. Select the target neuron just by lassong it using your mouse.
+1. Connect the source to the target neuron using Edit > Connect > All to all or by pressing the "2" key.   If a dialog appears just click "OK".  This dialog will not appear if you click "2".
     After a while you can get quick at selecting, and using this sequence:
     select source neurons > "1" > select target neurons > "2"
-5) If you like, clear the "source neuron" halo by going to Edit  > Clear source neuron(s) or by clicking outside any neurons or weights and pressing "1".
+1. If you like, clear the "source neuron" halo by going to Edit  > Clear source neuron(s) or by clicking outside any neurons or weights and pressing "1".
 
-## Add activation to one neuron
 
-Select the source neuron you just created. Press the "up" arrow button, and observe the value of the neuron change upwards.
-
-## Iterate a network
-
-Iterate the network once. This can be done by clicking the  button in the desktop toolbar, or pressing the space-bar in the network (these are slightly different operations, but we can ignore the distinction for now).
-
-Observe activation pass from the source to the target neuron. Iterate again and the activation clears out.
-
-## Select and randomize the weight
-
-Select the weight you created by clicking on it (the weight or synapse is the red disk connecting one node to another; see the picture here) . If that is tricky, lasso over the connection line. You can also press "w", which selects all weights. A green halo will show up around the weight.
-
-As with neurons, randomize by pressing the randomize button  or pressing "r". Do this a few times to get a sense of what happens when synapses are randomized. If they are positive their color is red; if negative blue. The size of the weight is proportional the strength of the synapse.
-
-Having randomized this weight, again add activation to the source neuron and iterate the network, to see that the activation propagates differently.
-
-## Make a layered network
-
-(A layered network or "feedforward" network is one in which the nodes are organized in to a sequence layers, where each node in one layer connects to all the nodes in the next layer.  Activation flows from an input layer to an output layer.  There are no loops so these networks tend to "dissipate" activation.)
+<!-- 
 Let's make a new network. Delete everything you've done up until now (press "a" to select all and delete to delete).
 1. Make a row of neurons by pressing "P" a few times.
 
@@ -183,7 +172,7 @@ Note that if you plot more than 25 neurons you will have to add more dimensions 
 
 5) Now all that's left to do is to actually train the network.  To do this,  go to the train tab and press the run button.   This runs the algorithm, which adjusts the weights to try to achieve the desired input output mapping.   As the trainer runs, the error should go down.  Once the error gets to an acceptable level (often something below .1), press the stop button.  If you have trouble getting a low value you can press the randomize button and try again. Note: Depending on the associate task you set up in step 4 you may not be able to achieve a sufficiently low error value.
 
-7) Now you can test your network to see how well it did.  To do this go to the test data tab, and click the test row button.  This will send each row of data to the network.   The target data you trained it on should appear with each click of the test row button.
+7) Now you can test your network to see how well it did.  To do this go to the test data tab, and click the test row button.  This will send each row of data to the network.   The target data you trained it on should appear with each click of the test row button. -->
 
 # Keyboard Shortcuts
 
@@ -251,7 +240,7 @@ n > 1 > 2  > r (to create a recurrent network where each node connects to all ot
 `Command-n`: normalize all values relative to columns.
 `Command-z`: zero out all cells
 
-## Notes
+## Notes on shortcuts
 
 * "Command" is a different key on different systems:
     * PC: Control or "CTRL" key

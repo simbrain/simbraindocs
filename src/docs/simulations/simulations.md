@@ -22,6 +22,9 @@ Custom simulations must be coded directly in the source, but extensive tooling a
 
 * There is a java process but it is separate and not yet documented (**todo**)
 
+* Note: When making a sim, add models before setting locations
+
+
 ### Fine-Tuning A Simulation
 
 * Find the name of the simulation using shift-shift or ctrl-shift-F (find all) and look for the sim name.
