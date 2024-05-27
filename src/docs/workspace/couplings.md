@@ -37,7 +37,7 @@ Shown here an example of each type of coupling. To emphasize that attribute type
 
 This graphical scheme is used to illustrate the various attributes and the ways couplings can be attached to types of icon are used throughout the documentation: e.g. in the and in the discussion of **data world couplings**.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Scalar Couplings
 
@@ -51,7 +51,7 @@ There are many examples of scalar couplings that can be made. Here are some exam
 - A coupling from a neuron's activation to a specific column in a **Data World**. If the data world is in iteration mode, then with each iteration of the workspace the current neuron activation is "logged" in a specific column of the dataworld.
 - A coupling from a neuron's activation to text in a **Text World**. For example, when the neuron is active above .5 make the word "hello" appear in the text world
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Couplings Diagram
 Here are some examples where the consumer is a neuron:
@@ -71,7 +71,7 @@ These vectors can get huge! Tens of thousands of neuron activations! As with sca
 - A coupling from a neuron group to a data world. On each iteration of the workspace the current activations of the neuron group are used to set the value of the current row of the data world. In this way activations can be logged and viewed in realtime.
 - A coupling from a neuron group's activation to text in a **Text World**. For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Couplings Diagram
 Here are some examples where the consumer is a neuron group:
@@ -95,7 +95,7 @@ The attributes in a component can be viewed in the coupling manager dialog.
 
 Not all attributes are automatically "visible" in the relevant gui components (coupling manager, menus, etc. described below). The reason is that there are so many things that can be attributes (every numerical property of every neuron and synapse in a neural network, for example), that it would overwhelm the gui. Each component has some attributes visible by default. To modify what the visible attributes are, use the set attribute visibility dialog, accessible from the coupling manager. For example, in this dialog, we see available attributes for the currently selected network component. Only neuron activations are visible in this component. When clicking on the visibility checkboxes notice that attributes appear and disappear in the producer list window.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Coupling Manager
 
@@ -114,7 +114,7 @@ Delete Couplings: This button deletes all selected couplings from the coupling l
 
 Set Attribute Visibilities: This button opens up the **attribute visibility** dialog for the currently selected consumer or producer list.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Coupling Creation
 
@@ -124,6 +124,6 @@ There are at least 3 ways to create couplings:
 2. Via context menus inside specific components, which can be very convenient. Right click on a neuron to create a scalar coupling to or from a neuron, or on a neuron group's interaction box to create a vector coupling to or from a neuron group. When you do so a context menu will point you to all other potential consuming and producing attributes in the whole workspace. An example of creating a scalar coupling between a neuron and one time series in a **time series** plot is shown below. An example is shown in the screenshot below.
 3. Using **scripts** one create couplings programmatically. Several of the scripts in the script menu create couplings, and the user is encouraged to look at this code to see how couplings can be created in this way.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
-## TODO: Add Image 
+<!-- TODO --> Add Image

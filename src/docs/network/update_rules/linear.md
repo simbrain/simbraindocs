@@ -1,7 +1,7 @@
 ---
 title: Linear Rule
 parent: Update Rules
-grand_parent: Network
+grand_parent: Networks
 layout: default
 nav_order: 30
 ---

@@ -17,7 +17,7 @@ The workspace is visible in the GUI as the Simbrain desktop(see below). The desk
 
 Workspaces are stored as .zip files. These files contain .xml representations of all components and couplings in a simulation. They can be unzipped, and individual saved component and couplings can be inspected. (Note that you cannot currently change the files, rezip, and re-open). Workspace files save couplings and components and custom updates, but sometimes a more sophisticated workspace environment must be created. In these cases **scripting** can be used.
 
-## TODO: Add Image 
+<!-- TODO --> Add Image
 
 # Examples
 

@@ -3,7 +3,7 @@ title: Computational Neuroscience
 layout: default
 parent: Networks
 has_children: false
-nav_order: 45
+nav_order: 10
 ---
 
 # Computational Neuroscience

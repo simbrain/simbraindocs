@@ -60,7 +60,7 @@ Note: If buffered update is removed, care must be taken since when new component
 
 Here is a screenshot of the dialog:
 
-## TODO: Add Image
+<!-- TODO --> Add Image
 
 ## Update Types
 

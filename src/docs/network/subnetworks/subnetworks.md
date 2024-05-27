@@ -1,6 +1,6 @@
 ---
 title: Subnetwork
-parent: Network
+parent: Networks
 layout: default
 nav_order: 40
 ---

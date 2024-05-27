@@ -1,6 +1,6 @@
 ---
 title: Connection Methods
-parent: Network
+parent: Networks
 layout: default
 has_children: false
 nav_order: 35
