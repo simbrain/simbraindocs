@@ -3,7 +3,7 @@ title: Terminal
 layout: default
 parent: Utilities
 has_children: false
-nav_order: 110
+nav_order: 10
 ---
 
 # Terminal
