@@ -11,7 +11,7 @@ nav_order: 20
 
 A simple quadratic map that produces chaotic behavior. It based on the well-known [logistic](https://en.wikipedia.org/wiki/Logistic_map) map:
 
-`x~n+1~=rx~n~(1−x~n~)`
+x~n+1~=rx~n~(1−x~n~)
 
 The logistic map takes a number in the interval [0,1] back to itself. Here the quadratic map has been rescaled so that it takes a number in the interval from the **lower bound** to the **upper bound** back into itself. The growth rate determines the exact form of the quadratic function.
 
