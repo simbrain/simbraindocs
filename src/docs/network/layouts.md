@@ -1,5 +1,5 @@
 ---
-title: Neuron Layouts
+title: Layouts
 layout: default
 parent: Networks
 has_children: false

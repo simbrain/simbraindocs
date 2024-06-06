@@ -2,7 +2,7 @@
 title: Logistic Generator
 layout: default
 grand_parent: Networks
-parent: Activity Generators
+parent: Neurons
 has_children: false
 nav_order: 20
 ---

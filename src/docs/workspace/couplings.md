@@ -24,6 +24,10 @@ flowchart LR
 
 In the underlying java code, the producer is generally calling a "getter" function, which retrieves some information from a Simbrain object, and the consumer is generally passing information retrieved from a getter function on to a setter function.
 
+# Standard Coupling Menus
+
+Some menus preset to both create a component and couple to it exist. These include menu commands to create charts and data tables. This is a fast and convenient way to create coupled components.
+
 # Coupling Types
 
 There are different types of couplings, depending on the datatype of the underlying attributes. Currently Simbrain has three types of couplings

@@ -1,10 +1,17 @@
 ---
-title: Activity Generators
+title: Neurons
 layout: default
 parent: Networks
 has_children: true
-nav_order: 10
+nav_order: 20
 ---
+
+# Neurons and Updates rules
+
+Todo
+
+The update rules apply both to free neurons and neuron arrays.
+
 
 # Activity Generators
 

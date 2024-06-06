@@ -63,3 +63,23 @@ We are phasing this out, but it still works fine and can be used if you prefer j
 ## Evolutionary Simulations
 
 * Can start with evolveMouse.kt
+
+# Merge in
+
+Sims can be added using the code in RegisteredSimulatoins.kt, which is mostly self explanatory. A simple DSL for menus etc, easy to see examples and work backwards.
+
+Resources should be placed in src.main.resources.custom_sims and accessed with `getResource`
+
+To add actions, easiest is
+```
+     workspace.addUpdateAction("test"){
+            println("Update action")
+        }
+```
+To lay things out in workspace, get bounds using terminal and `componentBounds();`
+
+To lay things out in network hover over interaction boxes for coordinates
+
+`SimbrainUtils.java` and `SimulationScope` in `Simulation.kt` do similar things.  For now they cannot be accessed and so contain redundant functions. We may create objects to go back and forth between the (e.g. `val su = SimbrainUtil(workspace, desktop) )`, but we have not done so yet.
+
+Sometimes after `addModels` in kotlin `.?join()` is useful to wait to make sure things are done before moving on.

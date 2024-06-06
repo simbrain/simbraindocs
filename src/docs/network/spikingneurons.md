@@ -1,22 +1,18 @@
 ---
-title: Computational Neuroscience
+title: Spiking Neurons
 layout: default
 parent: Networks
 has_children: false
-nav_order: 10
+nav_order: 90
 ---
 
-# Computational Neuroscience
+Also see
 
-## Other sources
+- Scholarpedia pages
+- Javadoc files
+- The Simbrain Book
 
-* Scholarpedia pages
-
-* Javadoc files
-
-* The Simbrain Book
-
-## Historically, there is a progression from 1d to 2d models
+Historically, there is a progression from 1d to 2d models
 
 * Hodhkin Huxley. The OG.  4 or 5d
 
@@ -28,9 +24,9 @@ nav_order: 10
     * Second variable is almost always some kind of adaptation.
 
 
-## Two Kinds of Spiking Model
+Two Kinds of Spiking Model
 
-### Spike Timing Emphasis
+## Spike Timing Emphasis
 
 * Try to get good spike times
 
@@ -58,7 +54,7 @@ nav_order: 10
 
 * Get a good trace without modeling sodium directly
 
-###  Membrane Trace emphasis
+##  Membrane Trace emphasis
 
 * FituzHugh, HH, MorrisLecar
 

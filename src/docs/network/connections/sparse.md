@@ -2,7 +2,7 @@
 title: Sparse Connection
 layout: default
 grand_parent: Networks
-parent: Connecting Neurons
+parent: Connection Methods
 has_children: false
 nav_order: 70
 ---

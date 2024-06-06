@@ -2,7 +2,7 @@
 title: Stochastic Generator
 layout: default
 grand_parent: Networks
-parent: Activity Generators
+parent: Neurons
 has_children: false
 nav_order: 50
 ---
