@@ -81,6 +81,10 @@ Using the smile ML library.
 
 When Simbrain is first opened nothing happens. When the user "runs" the network it comes to life--an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a logic that is described here.  
 
+<!-- update actions here? -->
+
+## Update Logic
+
 For each network model (each type of object), inputs are updated first in one pass, then states in another. In this “buffered” scheme network update is independent of the order in which network models are updated.
 
 1. UpdateInputs: For each network model, update an input data structure corresponding to “inputs” to that component .  E.g. a scalar input value for neurons, an array for layers, or nothing for synapses (which don’t use this). The paradigm case is summing weighted inputs. These computations can refer to other components (e.g. source neurons and intervening weights, or source layers and intervening weight matrices) as long as they don’t update other components.
@@ -90,6 +94,7 @@ In the figure below, the region below the horizontal lines shows the input, and 
 
 ![Update logic](/assets/images/updateLogic.png)
 
+## Inputs
 
 Inputs aggregate from multiple sources, including couplings. They should not be set directly.  
 
@@ -108,7 +113,19 @@ PSR is like output but for neurons.
 
 ![Neuron logic](/assets/images/simbrainNeuron.png)
 
+## Time
 
+The workspace has a time variable that is separate from each network.
+
+Networks can have two time types
+
+Time Type:
+- Discrete: at each iteration time goes up by 1. Time is displayed as “iterations”
+- Continuous: at each iteration time goes up by one time step. The time step can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
+
+Time Type and (for continuous) Time Step can be set manually in network properties.  Any time a single continuous update rule  is used in a network, time is automatically changed to continuous. However it can then be changed back.
+
+Note that the underlying code is always using continuous time, and discrete is just using a different display style.
 
 
 
