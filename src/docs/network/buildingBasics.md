@@ -6,10 +6,6 @@ has_children: false
 nav_order: 10
 ---
 
-# Building basics
-
-## BUILDING AND EDITING BASICS
-
 For an overview of networks and how to build them in Simbrain, see the [building networks](https://www.youtube.com/watch?v=dvJvY1zVQUE) video. Below the video is a set of links to specific clips describing all the main operations reqiured to build a network.
 
 Network editing in Simbrain is modeled on a familiar "draw" interface which involves creating screen elements, copying, and pasting. This page focuses an adding nodes and configuring screen objects. There are special techniques for connecting neurons with synapses described on the **connections page**. Group level operations, for connecting neuron groups to each other are described in the **group pages**.

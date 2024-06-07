@@ -79,11 +79,18 @@ Using the smile ML library.
 
 # Overview of System Logic
 
-When Simbrain is first opened nothing happens. When the user "runs" the network it comes to life--an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a logic that is described here.  
+When Simbrain is first opened nothing happens. When the user "runs" the network it comes to life--an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a logic that is described here. 
 
-<!-- update actions here? -->
+At each iteration a sequence of actions in a list is updated, using the same overall model and GUI as in [workspace update](../workspace/update.html). 
 
-## Update Logic
+Update basically goes through a list of network models and calls an update function on each of them. By default this is buffered so that results don't rely on the executation oder [see below].
+
+Priority based update is also possible. TODO.
+
+Custom update is written in [custom scripts](../simulations/simulations.html). Try running one of the evolutionary sims or opening one's code to see what these are like.
+
+
+## Buffered Update
 
 For each network model (each type of object), inputs are updated first in one pass, then states in another. In this “buffered” scheme network update is independent of the order in which network models are updated.
 
