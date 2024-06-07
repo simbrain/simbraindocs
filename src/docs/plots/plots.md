@@ -21,17 +21,40 @@ The only exception to this method are time series plots in scalar mode. To coupl
 
 There are six plot types available in Simbrain.
 
-Plot Types
+# Plots (Old)
 
-Bar Chart
+One of the main methods for studying the activity of the network component in Simbrain is by using a plot component. However, the plot components are general and can be used to show the values of any attribute in simbrain.
+
+To get a quick sense of what most of the charts do, run the chartExamples.zip simulation.
+
+To add a plot component to the workspace either press on the plot button plot button  in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu Insert > New Plot >...
+
+To use the plot you will have to couple some attributes of the component whose behavior you want to plot (often neural activations in a neural network) with the plot itself.   For information on how to do this see the documentation on couplings.
+
+Most of the charts are based on the JFreeChart library.
+
+# Plot Types
+
+[Bar Chart](barChart.html)
+
 When coupled to a neuron group, a bar chart represents each neural activation as a vertical bar. Each bar displays its coupled neuron’s label on its base (in the x-axis) and the amount of activation as a measure of its length (in the y-axis). By default, the y-axis ranges in value from 0 to 10. 
 
 To manually change the upper and lower bounds, click on “Edit,” then select “Preferences” which will open up an edit menu where the upper and lower bounds can be increased or decreased.
 
 
+[Histogram](histogram.html)
 
-Histogram
-Pie Chart
-Projection Plot
-Raster Plot
-Time Series
+Lorem Ipsum
+
+[Projection Plot](projectionPlot.html)
+
+Lorem Ipsum
+
+[Raster Plot](rasterPlot.html)
+
+Lorem Ipsum
+
+[Time Series](timeSeries.html)
+
+Lorem Ipsum
+
