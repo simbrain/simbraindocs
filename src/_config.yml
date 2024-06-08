@@ -4,6 +4,8 @@ theme: just-the-docs
 
 url: https://www.simbrain.net/
 
+markdown: kramdown
+
 aux_links:
   Simbrain Repository: https://github.com/simbrain/simbrain
 
