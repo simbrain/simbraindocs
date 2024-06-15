@@ -2,7 +2,7 @@
 title: Adaptive Exponential Integrate and Fire
 layout: default
 grand_parent: Networks
-parent: neuron
+parent: Neuron Types
 has_children: false
 nav_order: 20
 ---
@@ -10,28 +10,6 @@ nav_order: 20
 # Adaptive Exponential Integrate and Fire
 
 The Adaptive Exponential Integrate and Fire or AdEx model is a spiking neuron model governed by two coupled differential equations. The first equation defines the behavior of the neuron's membrane potential over time, while the second equation defines the behavior of an adaptation parameter which broadly speaking acts to hyperpolarize the membrane potential in response to successive spikes. The AdEx model is capable of simulating many different kinds of observed spiking behavior including (but not limited to) bursting, fast-spiking, regular spiking, delayed spiking, and chaotic spiking. For more information see the **Scholarpedia article on the AdEx model**.
-
-## Equations
-
-$$ C{{dV} \over {dt}} \; = \; {\overline{g}_L \,\Delta_{T} \, e^{\left({{V - V_T}\over{\Delta_T}}\right)} \, - \, w \, + \, I} $$ \
-
-$$ \tau_w{{dw} \over {dt}} \; = \; {a(V - E_L) \, - \, w} $$ \
-
-Where: \
-
-$$ V \leftarrow V_{Reset} $$ \
-
-$$ w \leftarrow w + b $$ \
-
-when an action potential is fired, which is defined by $V > V_{peak}$. And where: \
-
-$$ I \; = \; {\overline{g}_L(E_L - V) \, + \, g_e\overline{g}_e(E_e - V) \, + \, g_i\overline{g}_i(E_i - V)} + I_{bg}$$ \
-
-and \
-
-$$ {g_x} = {\frac{1}{n} \sum\limits_{i = 1}^n q_{xi}} $$ \
-
-where $x$ is denotes excitatory or inhibitory (which are summed separatedly), $n$ is the number of afferent synapses of type $x$ impinging on the neuron, and $q_{xi}$ is the post synaptic response of synapse $i$ of polarity $x$. 
 
 ## Membrane Voltage
 
