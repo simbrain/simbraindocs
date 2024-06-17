@@ -79,18 +79,34 @@ Using the smile ML library.
 
 # Overview of System Logic
 
+TODO: Promote to top or make a new page
+
 When Simbrain is first opened nothing happens. When the user "runs" the network it comes to life--an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a logic that is described here. 
+
+A complex update logic designed to be flexible. Work with Custom update in gui
+Super custom beyond that, Matrix and free, Spiking and connectionist, All point and click or code,
+
+## Update actions.
 
 At each iteration a sequence of actions in a list is updated, using the same overall model and GUI as in [workspace update](../workspace/update.html). 
 
-Update basically goes through a list of network models and calls an update function on each of them. By default this is buffered so that results don't rely on the executation oder [see below].
+Each iteration execute an update action. The default is buffered update. But custom actions can be used. These are visible in scripts.
 
-Priority based update is also possible. TODO.
+### Buffered Update
 
-Custom update is written in [custom scripts](../simulations/simulations.html). Try running one of the evolutionary sims or opening one's code to see what these are like.
+This is the default. It allows things to happein in any order.Update basically goes through a list of network models and calls an update function on each of them. By default this is buffered so that results don't rely on the executation oder [see below]. Without it, then things might not happen as expected and would depend on where things were in some invisible update order
 
+The algorithm is this:
 
-## Buffered Update
+For all models `m`
+- Update inputs to `m`
+- Update `m` itself
+
+Each network model has `updateInput` and `update` methods which are called.
+
+The models are called in an order. Some of them are async and some not in the underlying code.
+
+Buffered update is convenient but not always desired. For example, it makes update propogate one layer at a time in a layered network, but often what we desire is for one iteration to propogate through a whole layer at once.
 
 For each network model (each type of object), inputs are updated first in one pass, then states in another. In this “buffered” scheme network update is independent of the order in which network models are updated.
 
@@ -108,15 +124,33 @@ Inputs aggregate from multiple sources, including couplings. They should not be 
 Outputs are usually the same as activations, except in some cases, like DLNetwork, where there are many activations.
 So in many neuron and layer computations outputs are set, rather than activations, since in those contexts outputs just are activations
 
+### Priority Based Update
 
-Neuron.updateInputs
-- Add weighted input, which is summed outputs from fan-in synapses
-- Synapse output can be connectionist or spiking
-- If no spike-responder outputs are weights times  source activation
-- If spike responder outputs are output of spike responder
-- Either can be delayed
+In this case network models are associated with a priority which the user can set. Then `updateInput` and `update` are called in order of priority.
 
-PSR is like output but for neurons. 
+## Network Models
+
+Network models can override certain features of update to allow for customization within the default buffered update mode.
+
+Neuron groups and subnets have special update functions. For example, feedforward networks [link] update the input nodes first, then hidden layers in sequence, then the output nodes.
+
+## Update Rules and Data Holders
+
+Neurons, synapses, neuron arrays, weight matrices, and spike responders [links] all use a design that separates update rules from the data they operate on and easily edited and changed in using a property editor [link]. 
+     
+There are two main cases here: free neurons and weights, and neuron arrays and weight matrices. Both are somewhat more complex because of the possibility of spikes and so that adds a layer of logic. There are also synaptic delays to deal with.
+
+The basic thing to remember is this. The neuron has an activation. That is its main quantity.  The synapse has as a psr, a post synaptic response. That is meant to capture two possibilities. One, the connectionist one. PSR is just weight times pre-synaptic activaiton. Two the spiking one, PSR is the output of a spike responder.
+
+Then in the array case, we have a neuronarray, which has a matrix of activations, and a weight matrix hwhich has a matrix of psr's and a weight matrix. [more]
+
+PSR update can also introduce delays.
+
+In both cases a given rule may require additional variables, which are stored in data holders. These data are scalar for neurons and weights, and matrix for neuron arrays and weight matrices.
+
+So then for each neuron or neuron array:
+- For each fan-in synapse or weight matrices, update psr
+- Update the neuron or neuron array 
 
 ![Neuron logic](/assets/images/simbrainNeuron.png)
 
