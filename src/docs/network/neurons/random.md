@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 30
+nav_order: 60
 ---
 
 # Random Generator
