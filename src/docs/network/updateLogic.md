@@ -14,7 +14,7 @@ The complexity of the system stems from Simbrain's effort to support many config
 
 # Update actions
 
-At the top level each network iteration a sequence of actions is executed. Usually the default update action, `Buffered update`, is all that is executed, and all that is needed. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations/simulations.md).
+At the top level each network iteration a sequence of actions is executed. Usually the default update action, `Buffered update`, is all that is executed, and all that is needed. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
 
 Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update.html). 
 
@@ -46,49 +46,63 @@ Buffered update is convenient but not always desired. For example, it makes upda
 
 In this case network models are associated with a priority which the user can set. Then `updateInput` and `update` are called in order of priority.
 
-
 Currently only neurons are updated using priority update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added.
 
 If this is used, `Buffered Update` should be removed, and all other groups, arrays, etc must be manually updated. 
 
 
-# Network Models
+# Neuron Groups and Subnetworks
 
-Network models can override certain features of update to allow for customization within the default buffered update mode.
+TODO: Links once we have them
 
-Neuron groups and subnets have special update functions. For example, feedforward networks [link] update the input nodes first, then hidden layers in sequence, then the output nodes.
+Neuron groups and [subnetworks](subnetworks/subnetworks.html) have their own customized update functions. For example, feedforward networks [link] update the input nodes first, then hidden layers in sequence, then  output nodes. Neuron collections don't have custom update.
 
 # Update Rules and Data Holders
 
-Neurons, synapses, neuron arrays, weight matrices, and spike responders [links] all use a design that separates update rules from the data they operate on and easily edited and changed in using a property editor [link]. 
-     
-There are two main cases here: free neurons and weights, and neuron arrays and weight matrices. Both are somewhat more complex because of the possibility of spikes and so that adds a layer of logic. There are also synaptic delays to deal with.
+TODO: Links
 
-The basic thing to remember is this. The neuron has an activation. That is its main quantity.  The synapse has as a psr, a post synaptic response. That is meant to capture two possibilities. One, the connectionist one. PSR is just weight times pre-synaptic activaiton. Two the spiking one, PSR is the output of a spike responder.
+Neurons, synapses, neuron arrays, weight matrices, and spike responders  all use a design that separates update rules from the data they operate on and easily edited and changed in using a [property editor](../utilities/propertEditor.html). 
 
-Then in the array case, we have a neuronarray, which has a matrix of activations, and a weight matrix hwhich has a matrix of psr's and a weight matrix. [more]
+We can start with the case of Neurons. Activations are the main state variable of neurons. They are updated as follows.
 
-PSR update can also introduce delays.
+First, `updateInputs`, is called:
 
-In both cases a given rule may require additional variables, which are stored in data holders. These data are scalar for neurons and weights, and matrix for neuron arrays and weight matrices.
+```kotlin
+for s in fanIn:
+	s.updatePSR()
+	activation += s.psr
+```
+Then the update rule is applied to the neuron `n`. 
+```kotlin
+updateRule.apply(n)
+```
+The `updateRule` is just logic. It mutates the neuron as needed, changing its activation and other state variables, like biases, as needed.
 
-So then for each neuron or neuron array:
-- For each fan-in synapse or weight matrices, update psr
-- Update the neuron or neuron array 
+The `updatePSR` function covers both the spiking and non-spiking case
+
+```kotlin
+if spikeResponder is NonResponder:
+	psr = source.activation 
+else
+	spikeResonder.update()
+	psr = spikeResonder.value
+```
+Delays are also handled.
+
+All this logic also works for neuron arrays and weight matrices.
 
 ![Neuron logic](/assets/images/simbrainNeuron.png)
 
-# Time
+# Continuous and Discrate Time
 
-The workspace has a time variable that is separate from each network.
+<!-- Todo: Links -->
 
-Networks can have two time types
+The network is updated from the [workspace](../workspace) or separately using its own run menu.
 
-Time Type:
-- Discrete: at each iteration time goes up by 1. Time is displayed as “iterations”
-- Continuous: at each iteration time goes up by one time step. The time step can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
+When the network is updated, a `time` variable is updated by adding a `time-step` to it. This updating time can be displayed in two ways, captured by a `time-type` parameter
 
-Time Type and (for continuous) Time Step can be set manually in network properties.  Any time a single continuous update rule  is used in a network, time is automatically changed to continuous. However it can then be changed back.
+- Continuous: at each iteration time increases by a `time step` that can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
+- Discrete: at each iteration time increases by 1. Time is displayed as “iterations” (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
 
-Note that the underlying code is always using continuous time, and discrete is just using a different display style.
+Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties.
 

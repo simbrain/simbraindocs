@@ -20,7 +20,6 @@ TODO [point Mike to source code for this]:
 - Synapse Rules: Long list.
 - Synapse Groups [one page?]
 - Training
-- Update actions [where? and link to workspace level]
 
 # Main Object Types
 
@@ -77,24 +76,5 @@ These can be used to organized free nodes and weights
 Using the smile ML library.
 
 
-# Visual Conventions
 
-Colored circles represent neurons or "nodes." 
-
-The lines between nodes represent synaptic connections between neurons which direct the flow of activity in the network. The smaller blue and red discs at the ends of these lines represent synaptic connections. Each node and synapse can be individually adjusted by selecting it, pressing the up and down errors, or double clicking to reveal a dialog. 
-
-
-Run / stp / stop: The network can be run by pressing pressing the play button in the tool-bar to repeatedly iterate the network. Note that the image on the button becomes that of a "stop" button . Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch. You can also press the step button (or press "space") to iterate the network a single time. Sometimes repeatedly hitting the space bar is useful way to test a network.
-
-Zooming: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads.
-
-Panning: To pan press the command /ctrl key while left-clicking and dragging. Note that by default **auto-zoom** is turned on; if you plan to zoom in and pan a lot it should be turned off by double-clicking on the auto-zoom icon. To fit all objects on screen hit while panning the "F" key to invoke the **zoom to fit** command.
-
-To begin create a **selection**--usually by left-click dragging a lasso around what you want. Then drag or nudge these items:
-
-Basic moving: Simply left click and drag the selected items.
-
-Nudging: For fine tuning, users can also use the arrow keys (with Shift held down) to "nudge" selected items. The nudge amount in pixels can be set in the **network preferences** dialog.
-
-Placement manager. This controls how objects are placed in the network window.
 

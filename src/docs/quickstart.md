@@ -2,7 +2,7 @@
 title: Quick Start and Shortcuts
 layout: default
 has_children: false
-nav_order: 10
+nav_order: 7
 ---
 
 # Quick Start and Shortcuts

@@ -1,5 +1,5 @@
 ---
-title: Building basics
+title: Building Networks
 layout: default
 parent: Networks
 has_children: false
@@ -11,6 +11,33 @@ For an overview of networks and how to build them in Simbrain, see the [building
 Network editing in Simbrain is modeled on a familiar "draw" interface which involves creating screen elements, copying, and pasting. This page focuses an adding nodes and configuring screen objects. There are special techniques for connecting neurons with synapses described on the **connections page**. Group level operations, for connecting neuron groups to each other are described in the **group pages**.
 
 Be sure to familiarze yourself with Simbrain's **key commands**, which make a lot of things go faster!
+
+# Visual Conventions
+
+Colored circles represent neurons or "nodes." 
+
+The lines between nodes represent synaptic connections between neurons which direct the flow of activity in the network. The smaller blue and red discs at the ends of these lines represent synaptic connections. Each node and synapse can be individually adjusted by selecting it, pressing the up and down errors, or double clicking to reveal a dialog. 
+
+
+
+Zooming: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads.
+
+Panning: To pan press the command /ctrl key while left-clicking and dragging. Note that by default **auto-zoom** is turned on; if you plan to zoom in and pan a lot it should be turned off by double-clicking on the auto-zoom icon. To fit all objects on screen hit while panning the "F" key to invoke the **zoom to fit** command.
+
+To begin create a **selection**--usually by left-click dragging a lasso around what you want. Then drag or nudge these items:
+
+Basic moving: Simply left click and drag the selected items.
+
+Nudging: For fine tuning, users can also use the arrow keys (with Shift held down) to "nudge" selected items. The nudge amount in pixels can be set in the **network preferences** dialog.
+
+Placement manager. This controls how objects are placed in the network window.
+
+# Run Network
+
+Run / stp / stop: The network can be run by pressing pressing the play button in the tool-bar to repeatedly iterate the network. Note that the image on the button becomes that of a "stop" button . Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch. You can also press the step button (or press "space") to iterate the network a single time. Sometimes repeatedly hitting the space bar is useful way to test a network. 
+
+On the logic involved see [update logic](updateLogic.html)
+
 
 ## Creating Objects
 
@@ -50,13 +77,12 @@ Note that most selection operations must be done in selection mode, the default 
 
 ## Setting Properties
 
-Some detailed properties are set using a dialog box. Other properties, e.g. activation values for neurons and strengths for weights, can be set using keyboard and toolbar commands.
+Some detailed properties are set using a [property dialog](../utilities/propertyEditor.html). Other properties, e.g. activation values for neurons and strengths for weights, can be set using keyboard and toolbar commands.
 
-- Calling set properties dialog: Select the neurons or weights you want to change and:
-
-1) Double-click on of the selected items
-2) Right-click and select *set properties* in the popup menu
-3) Clicking command-E or selecting *network > edit > set neurons or network > edit > set weights*
+Calling set properties dialog: Select the neurons or weights you want to change and:
+1. Double-click on of the selected items
+2. Right-click and select `set properties` in the popup menu
+3. Clicking command-E or selecting `network > edit > set neurons or network > edit > set weights`
 
 - Setting properties of multiple objects. Select the objects you want to modify. If you select both weights and neurons, which preference dialog comes up depends on which kind of item you click on.
 
@@ -68,13 +94,13 @@ Some detailed properties are set using a dialog box. Other properties, e.g. acti
 
 Selected items (including neuron groups, but not yet subnetworks) can be copied, cut, and paste similarly to the way they are on most contemporary GUI's. Lasso select groups of items, then fine tune your selection using Shift to add or remove items.
 
-- Copy, cut, and paste in one of the following ways
+Copy, cut, and paste in one of the following ways
 
 1. Use standard keyboard shortcuts: control-C (copy), control-X (cut), control-V (paste).
 2. Use the network menu and select copy, cut, or paste.
 3. Right-click on one of the selected items and select copy or cut
 
-- Smart copy/paste: Copy neurons, paste, move, and re-paste, and the new paste’s follow the rule. In this way you can quickly build big networks.
+Smart copy/paste: Copy neurons, paste, move, and re-paste, and the new paste’s follow the rule. In this way you can quickly build big networks.
 
 
 # Wand Tool
@@ -99,98 +125,17 @@ To use the wand:
 
 To adjust the size of the wand in pixels (and thus how many neurons are affected by the wand) set the wand radius field in the **network preferences dialog**.
 
-# Weight Visualization & Manipulation
+# Placement Manager
 
-Tools for visualizing and adjusting weights can be invoked by selecting an arbitrary set of weights and invoking the **synapse adjustment dialog** (from the edit menu or using command-R), or in the various tabs of the **synapse group** dialog, which is invoked by double clicking on a synapse group's interaction box or right-clicking on it and selecting Adjust Synapses from the menu.
+Manages intelligent placement of new objects in a NetworkPanel
 
-This page describes most of the tabs of the **synapse group** dialog, except for the first properties tab.
+It is based on two concepts. First, an anchor point. Second, a delta between the current anchor point and previous anchor point.  
 
-## Synapse Values Tab
+The anchor point is reset when you click on the screen, to the point you clicked on.
 
-<!-- TODO --> Add Image
+Repeatedly adding an object (using new Neuron, etc.) adds them at a fixed offset from the anchor point using `DefaultOffsets`. With each addition, the current and previous anchor points are updated. See `placeObject`.
 
-### Synapse Statistics
+Adding an object using copy-paste or duplicate adds them using the delta between the current anchor point and the previous anchor point. This allows custom "paste trails" to be created.
 
-The top part of the adjust synapses tab shows basic statistics about a populations of synapses. Basic numerical statistics, as well a **histogram** can be made to display weight statistics and values for synapses of both or only one polarity, and optionally can overlay the two for a direct comparison.Which polarities are viewed is set using the combo box:
+To set the offset use `option-drag`. A red line is shown indicating what the offset will be.
 
-Both: Values are calculated using both polarities, assigning negative values to inhibitory weights.
-
-Overlay: If "Overlay" is selected, it will display these values for all synapses in the group, using the absolute value of all inhibitory weight values.
-
-Excitatory / Inhibitory: If a single polarity is selected it will display those statistics only for the synapses of that polarity, again using absolute values for inhibitory synaptic weights.
-
-### Revalidate
-
-Occasionally outside entities like **scripts** or **trainers** will alter synaptic weights in a way which changes their polarity without alerting the synapse group. This is easy to spot as the histogram will show that some "excitatory" synapses have a negative value and/or some "inhibitory" synapses have a positive value. In order to reconcile this, the user is given access to a "Revalidate" button located in this panel. Revalidating a synapse group will cause it to iterate over all the synapses in the group and assign them to the correct set based on their polarity (the sign of their strength/weight).
-
-### Excitatory / Inhibitory Ratio
-
-It is also possible to change the ratio of excitatory and inhibitory synapses in the group from here. The ratio can be set in three ways. Setting it one way will updated the other displays.
-
-Main slider bar: Slide to determine percentage of excitatory synapses.
-
-Percent Excitatory / Inhibitory: Text field to set the value more precisely.
-
-### Excitatory and Inhibitory Distributions
-
-The probability distributions used to determine the strengths of excitatory and inhibitory synapses can be set at the bottom of the synapse values tab, using **randomizer** panels.
-
-## Excitatory and Inhibitory Synapse Types
-
-In this tab the basic properties of the inhibitory and excitatory synapses can be separately set. The basic dialog is the same as that used for **synapses**.
-
-Note: *Although it is not in the GUI as of 3.0, neurons can also possess a polarity. If that is the case then all efferent synapses from that neuron must be of the same polarity as the neuron. In these cases editing the ratio of excitatory to inhibitory synapses is impossible from this panel.*
-
-<!-- TODO --> Add Image
-
-# WEIGHT MATRIX VIEWER
-
-The weight matrix viewer allows weights connecting two sets of neurons to be viewed in a tabular format. They can be used either for **loose neurons** or within **synapse groups**.
-
-One can manipulate the strength of connections through the weight matrix viewer. Clicking on a cell allows one to manipulate the synaptic strength of the connection represented by the cell. Cells can also be selected (e.g. using command-A) or shift-selected, and then groups of them randomized or otherwise altered. Values can also be loaded from a .csv file. Their values can also be saved to a .csv file (see toolbar below)
-
-### Loose Neuron Weight Matrix Viewer
-
-To view the synapses connecting two sets of loose neurons set **source and target neurons** and then select Show Weight Matrix from the insert menu or by right clicking on any of the relevant neurons. Cells in the table correspond to connections between source (red) neurons as rows and target (green) neurons as columns. Values in these cells represent the strengths of connections. Non-existent connections are represented by gray boxes (see the image below).
-
-### Synapse Group Weight Matrix Viewer
-
-In this context the matrix represents the weights of a **synapse group**, which connects a source and target neuron group. Cells in the table correspond to connections between neurons in the source neuron group (rows) and target neuron group (column). Values in these cells represent the strength of connections.
-
-Note: Currently the weight matrix viewer is disabled for synapse groups with more than 10,000 synapses. This is due to the fact that a table of that size would be unnavigable, and of dubious use. At that size individual synapses are much less important. This is also to prevent users from accidentally attempting to view *extremely* large tables (much greater than 10,000 entries), which can cause the JVM to run out of memory.
-
-<!-- TODO --> Add Image
-
-### Weight Matrix Viewer Toolbar
-
-- Randomize: Pressing the Random button will uniformly randomize the strength of all connections represented in the weight matrix viewer between two numbers (default (1,-1))
-
-- Preferences: Pressing the Preferences button will allow one to set the upper and lower bounds on the viewer's randomize function.
-
-- Open: Pressing the Open button allows one to open a .csv file and set the values of the connections represented by the viewer to the values specified in the file. The .csv being loaded must have the same dimensions as the weight matrix of the synapse group.
-
-- Save: Pressing the Save button allows one to save the weight matrix as a .csv file.
-
-## Synapse Adjustment Dialog
-
-The top part of this dialog shows **synapse statistics** about the selected set of synapses. The bottom part contains tabs that can be used to adjust the synapses, by pressing the Apply button. Changes are immediately shown in the top statistics area.
-
-<!-- TODO --> Add Image
-
-The dialog is invoked in the same way the weight matrix viewer is, by selecting **source and target** neurons and then using a right-click menu.
-
-### Randomizer
-
-Use a **randomizer** to set the weight strengths.
-
-### Perturber
-
-Add random values to weight strengths, using a **randomizer**.
-
-### Pruner
-
-Remove all synapses with a value below the indicated threshold by pressing the button.
-
-### Scaler
-
-Scale all synapse values up or down by changing their strengths as much as the indicated percentage.
