@@ -10,38 +10,63 @@ nav_order: 20
 
 A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](workspace.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are **attributes**.
 
-The basic scheme is shown in the image below (this kind of depiction is used throughout these documents). The coupling contains a producer and consumer attribute which are of the same type, and it functions to pass information from the producer to the consumer. A producer gathers information from a source object and then passes the result to a target object.
+There are a few main ways to create couplings:
+- Use a popup menu to create a component that is already coupled. For example, right click on a neuron group, and select `plot activation > bar chart` to create a coupled bar. 
+- Make two components and use `create coupling menu` context menus to couple one to the other.  TODO: Pic. 
+- Use the coupling manager, a gui interface that allows custom couplings to made and special features like visibility to be set
+- In a simulation use commands to make couplings. That is why some of the simulations already have coupligns in them
+- 
+<!-- 1. Use the coupling manager, as described above.
+2. Via context menus inside specific components, which can be very convenient. Right click on a neuron to create a scalar coupling to or from a neuron, or on a neuron group's interaction box to create a vector coupling to or from a neuron group. When you do so a context menu will point you to all other potential consuming and producing attributes in the whole workspace. An example of creating a scalar coupling between a neuron and one time series in a **time series** plot is shown below. An example is shown in the screenshot below.
+3. Using **scripts** one create couplings programmatically. Several of the scripts in the script menu create couplings, and the user is encouraged to look at this code to see how couplings can be created in this way. -->
+
+
+<!-- Merge up: Some menus preset to both create a component and couple to it exist. These include menu commands to create charts and data tables. This is a fast and convenient way to create coupled components. -->
+
+# How they Work
+
+A coupling contains a producer and consumer attribute which are of the same type, and it functions to pass information from the producer to the consumer. A producer gathers information from a source object and then passes the result to a target object.
 
 ![Basic coupling](/assets/images/Coupling_General.png)
 
-[//]: # (for illustration purposes, should be removed later)
-```mermaid
-flowchart LR
-    A o--o B
-    B <--> C
-    C x--x D
-```
+<!-- In the underlying java code, the producer is generally calling a "getter" function, which retrieves some information from a Simbrain object, and the consumer is generally passing information retrieved from a getter function on to a setter function. -->
 
-In the underlying java code, the producer is generally calling a "getter" function, which retrieves some information from a Simbrain object, and the consumer is generally passing information retrieved from a getter function on to a setter function.
+## Attributes
 
-# Standard Coupling Menus
+An attribute is any part of a component which has a value that may be sent to or recieved from another component, i.e. something that produces values or consumes values. Examples are neuron activations, weight strengths, or bars on a bar chart, or sensor values for an agent in a virtual world. A coupling is a pair that contains one producing attribute and one consuming attribute.
 
-Some menus preset to both create a component and couple to it exist. These include menu commands to create charts and data tables. This is a fast and convenient way to create coupled components.
+Most windows in Simbrain (i.e. workspace **components**) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are **attributes** and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
+
+Each attribute has a data type, as described above: currently scalar (double), vector (array of doubles), and String.
+
+If some property of an object is not available as an attribute, it can be accessed via a script, or you can request that it be added as an explicit dialog by posting an issue at the **developer site**.
+
+The attributes in a component can be viewed in the coupling manager dialog.
+
+## Attribute Visibility
+
+Not all attributes are automatically "visible" in the relevant gui components (coupling manager, menus, etc. described below). The reason is that there are so many things that can be attributes (every numerical property of every neuron and synapse in a neural network, for example), that it would overwhelm the gui. Each component has some attributes visible by default. To modify what the visible attributes are, use the set attribute visibility dialog, accessible from the coupling manager. For example, in this dialog, we see available attributes for the currently selected network component. Only neuron activations are visible in this component. When clicking on the visibility checkboxes notice that attributes appear and disappear in the producer list window.
+
+TODO: Add Image
+
 
 # Coupling Types
 
-There are different types of couplings, depending on the datatype of the underlying attributes. Currently Simbrain has three types of couplings
+Currently Simbrain has three types of couplings
 
 - Scalar couplings (doubles in the underlying code).
 - Vector couplings (double-arrays). These are shown as green in the coupling manager.
 - Text couplings (Strings). These are shown as blue in the coupling manager.
-There could be other coupling types as well. The underlying code only requires that the producer and consumer in a coupling have the same data type.
 
+Couplings must be between producers and consumers of the same type.
+
+Coupling can be any datatype in scripts and in the code, but these are the ones currently supported in the GUI.
+
+<!-- 
 Shown here an example of each type of coupling. To emphasize that attribute types must match, they are shown as "puzzle-pieces" which must be fit to each others: scalar attributes as interlocking triangular shapes, vector attributes as interlocking zig-zags , and text attributes as interlocking curves.
 
-This graphical scheme is used to illustrate the various attributes and the ways couplings can be attached to types of icon are used throughout the documentation: e.g. in the and in the discussion of **data world couplings**.
+This graphical scheme is used to illustrate the various attributes and the ways couplings can be attached to types of icon are used throughout the documentation: e.g. in the and in the discussion of **data world couplings**. -->
 
-<!-- TODO --> Add Image
 
 # Scalar Couplings
 
@@ -55,14 +80,14 @@ There are many examples of scalar couplings that can be made. Here are some exam
 - A coupling from a neuron's activation to a specific column in a **Data World**. If the data world is in iteration mode, then with each iteration of the workspace the current neuron activation is "logged" in a specific column of the dataworld.
 - A coupling from a neuron's activation to text in a **Text World**. For example, when the neuron is active above .5 make the word "hello" appear in the text world
 
-<!-- TODO --> Add Image
+TODO: Image
 
-# Couplings Diagram
+<!-- # Couplings Diagram
 Here are some examples where the consumer is a neuron:
 
 - A coupling from an agent's sensor level to a neuron.
 - A coupling from a column in a dataworld to a neuron's activation. With each iteration of the workspace the neuron's activation is set based on the data in a specific column of the table.
-- A coupling from a Text World letter detector (that is activated when a specific letter is parsed) to a neuron.
+- A coupling from a Text World letter detector (that is activated when a specific letter is parsed) to a neuron. -->
 
 # Vector Couplings
 
@@ -77,29 +102,7 @@ These vectors can get huge! Tens of thousands of neuron activations! As with sca
 
 <!-- TODO --> Add Image
 
-# Couplings Diagram
-Here are some examples where the consumer is a neuron group:
 
-- A coupling from an agent's sensor vector to a neuron group.
-- A coupling from a DataWorld to a neuron group. On each iteration of the workspace the current row of the data world is used to set the values of the neuron group's neurons.
-- A coupling from a Display World dictionary (which associates words with vectors) to a neuron group.
-Attributes
-
-An attribute is any part of a component which has a value that may be sent to or recieved from another component, i.e. something that produces values or consumes values. Examples are neuron activations, weight strengths, or bars on a bar chart, or sensor values for an agent in a virtual world. A coupling is a pair that contains one producing attribute and one consuming attribute.
-
-Most windows in Simbrain (i.e. workspace **components**) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are **attributes** and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
-
-Each attribute has a data type, as described above: currently scalar (double), vector (array of doubles), and String.
-
-If some property of an object is not available as an attribute, it can be accessed via a script, or you can request that it be added as an explicit dialog by posting an issue at the **developer site**.
-
-The attributes in a component can be viewed in the coupling manager dialog.
-
-# Attribute Visibility
-
-Not all attributes are automatically "visible" in the relevant gui components (coupling manager, menus, etc. described below). The reason is that there are so many things that can be attributes (every numerical property of every neuron and synapse in a neural network, for example), that it would overwhelm the gui. Each component has some attributes visible by default. To modify what the visible attributes are, use the set attribute visibility dialog, accessible from the coupling manager. For example, in this dialog, we see available attributes for the currently selected network component. Only neuron activations are visible in this component. When clicking on the visibility checkboxes notice that attributes appear and disappear in the producer list window.
-
-<!-- TODO --> Add Image
 
 # Coupling Manager
 
@@ -120,14 +123,3 @@ Set Attribute Visibilities: This button opens up the **attribute visibility** di
 
 <!-- TODO --> Add Image
 
-# Coupling Creation
-
-There are at least 3 ways to create couplings:
-
-1. Use the coupling manager, as described above.
-2. Via context menus inside specific components, which can be very convenient. Right click on a neuron to create a scalar coupling to or from a neuron, or on a neuron group's interaction box to create a vector coupling to or from a neuron group. When you do so a context menu will point you to all other potential consuming and producing attributes in the whole workspace. An example of creating a scalar coupling between a neuron and one time series in a **time series** plot is shown below. An example is shown in the screenshot below.
-3. Using **scripts** one create couplings programmatically. Several of the scripts in the script menu create couplings, and the user is encouraged to look at this code to see how couplings can be created in this way.
-
-<!-- TODO --> Add Image
-
-<!-- TODO --> Add Image

@@ -93,7 +93,7 @@ All this logic also works for neuron arrays and weight matrices.
 
 ![Neuron logic](/assets/images/simbrainNeuron.png)
 
-# Continuous and Discrate Time
+# Continuous and Discrete Time
 
 <!-- Todo: Links -->
 
