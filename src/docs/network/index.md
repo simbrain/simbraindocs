@@ -18,8 +18,7 @@ Networks contain a variety of objects (we call them ``network models''), includi
 TODO [point Mike to source code for this]:
 - Neuron Groups: SOM, Competitive, WTA, etc.
 - Synapse Rules: Long list.
-- Synapse Groups [one page?]
-- Training
+
 
 # Main Object Types
 
