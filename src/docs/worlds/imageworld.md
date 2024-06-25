@@ -8,70 +8,120 @@ nav_order: 60
 
 # Image World
 
-## General Information
+ImageWorld is a tool designed for managing sets of images and using them
+as inputs to other components, primarily neural networks. The interface
+can be used to create and edit sets of images.
 
-ImageWorld is a tool that allows for neural network representations of visual images. ImageWorld has two main components: a window for displaying an image and applying filters and a network coupled to said image. Each coupling is specific to the network-image pair, so changing the image, applying subsequent filters, or creating a new network will require creating a new coupling.
+This can be used to model visual processing, for example retinal
+processing, or machine learning vision applications.
 
-Filters are sensor matrices with each pixel corresponding to a sensor which activates its neuron counterpart when coupled to a network. The number of pixels are determined by the width and height values of the filter in the Edit Sensor Matrix tab. The higher the WidthxHeight value, the more pixels are represented and the clearer the image. Conversely, the lower the WidthxHeight value, the more blocky the image.
+It has two main components: a window for displaying an image and
+applying filters, and a network linked to that image. Each link is
+specific to a particular network-image pair, so changing the image,
+applying new filters, or creating a new network will necessitate
+establishing a new link.
 
-## Image Album
+# Image Album
 
-The Image Album window is where images are loaded and processed (filters are applied). A default image of a bobcat is loaded upon opening, but any image of PNG format can be loaded. The default image is unfiltered, but filters, or sensor matrices, can be added by selecting one of the several built-in filters or by customizing one manually.
+The Image Album window is where images are loaded and processed with
+filters. Any PNG format image can be used and the default image is
+unfiltered, but filters, or sensor matrices, can be applied by selecting
+from several built-in options or customizing one manually.
 
-* To load an Image
+To load an Image, click on the 'file' button on top of the toolbar and
+click 'Load Images.." Then select an image of the PNG format.
 
-Click on the ‘Load Images’ icon next to the green arrows on the upper left of the Image Album toolbar. Select an image of the PNG format. 
+# Filters
 
-Alternatively, click on the ‘file’ button on top of the green arrows on the toolbar and click on ‘Load Images…’ Then select an image of the PNG format.
+To apply filters, select a built-in filter by clicking on the 'Filter'
+dropdown on top of the toolbar and select one of the pre-made sensor
+matrices: Gray `150 x 150`, Color `100 x 100`, Threshold `10x10` and threshold
+`250 x 250`.
 
-* To apply filters
+A filter can be customized by clicking on the 'Add Filter' button
+(represented by a '+' sign) by the 'Filter' dropdown on the toolbar. A
+dialogue will appear allowing for edits to be made to the following
+parameters:
 
-Select a built-in filter by clicking on the Filter dropdown on top of the Image Album toolbar and selecting one of the pre-made sensor matrices: Gray150x150, Color100x100, Threshold10x10, and threshold250x250.
+Parameters:
 
-Alternatively, a filter can be customized by clicking on the ‘Add Sensor Matrix’ button (represented by a ‘+’ sign) by the Filter dropdown on the toolbar. A window will appear allowing for edits to be made to the following parameters:
+-   **Name:** A string label associated with the filter
 
-* Name: A string descriptor/label associated with the filter
+-   **Width:** Determines the width of the image filter in pixels
 
-* Width: Determines the width of the image filter in pixels
+-   **Height:** Determines the height of the image filter in pixels
 
-* Height: Determines the height of the image filter in pixels
+-   **Filter:** Determines the type of image filter, there are three
+    options: Identity, Grey Scale, and Threshold
 
-* Filter: Determines the type of image filter, there are three options: Color, Gray Scale, and Threshold
-        Color: Applies a filter with color
-        Gray Scale: Applies a filter in monochromatic shades from black to white
+    -   Identity:
 
-* Threshold: Applies a filter in black-and-white without shading. The threshold minimum of 0.0 applies an all-white filter, and the maximum of 1.0 applies an all-black filter, therefore, a value of 0.5 is recommended for threshold.
+    -   Gray Scale: Applies a filter in monochromatic shades from black
+        to white
 
-Once a filter is applied, further edits can be made by clicking the ‘Edit Sensor Matrix’ button by the ‘Add Sensor Matrix’ button. 
+    -   Threshold: Applies a filter in black and white without shading.
+        The threshold minimum of 0.0 applies an all-white filter, and
+        the maximum of 1.0 applies an all-black filter, therefore, a
+        value of 0.5 is recommended.
 
-//will fix/incorporate to above
+Once a filter is applied, further edits can be made by clicking the
+'Edit Filter' button by the 'Add Filter' button. You can refer back to
+previous filters by searching for their name in the 'Filters' drop down
+menu in the toolbar.
 
-* To couple images:
+# Creating and Saving an Image
 
-    * Generally an image that has been loaded in can be coupled with a neuron group
+Instead of importing an image, you have the option to craft your own by
+clicking and dragging your cursor to sketch out a desired image.
 
-    * After creating a blank canvas, the dimensions can be used for the size of the neuron group to be coupled with.
+Once you are satisfied with your first image, click the camera icon
+adjacent to the arrows to store the image.
 
-    * Then, using the coupling manager, the neuron values are force set to the values of the pixels of the image
+You can either extend the existing image or start afresh by selecting
+the 'clear canvas' option with the eraser tool. Remember to save each
+image by clicking the camera icon after completion.
 
-    * This will change in live time while the network is run in accordance with the image
+When prepared for the neural network to replicate your artwork, initiate
+the process by pressing the 'play' button atop the SimBrain interface.
+Navigate through your saved images using the left and right green arrows
+located at the bottom of the canvas window.
 
-* To create or add filters:
+# Image Processing
 
-* A pre-built filter can be overlaid on the image by using the filter dropdown (Gray150x150, Color100x100, Threshold10x10, and threshold250x250)
+The neural network analyzes the shape within the image, identifying
+features such as edges, contours and contrast.
 
-* A filter can also be created by the user by clicking “Add Sensor Matrix” with the following parameters
+Depending on its training, the neural network classifies the shape or
+detects specific objects within the image.
 
-    * Name: a string representing the filter
+As the neural network processes the image, the results are immediately
+reflected in the interface of the 'inputs' and the process allowing
+observation of the network\'s behavior dynamically.
 
-    * Width: width of image filter in pixels
+# Menu Commands
 
-    * Height: height of image filter in pixels
-    
-    * Types: Can be set to Color, GrayScale, or Threshold
+File:
 
+Load Images
 
+Save Current Image
 
+Save All Images
 
+Copy
 
+Paste
 
+Import from xml
+
+Export to xml
+
+Rename
+
+Close
+
+Edit:
+
+Reset Canvas
+
+Create Filter Coupling
