@@ -2,7 +2,7 @@
 title: Subnetworks
 parent: Networks
 layout: default
-nav_order: 50
+nav_order: 60
 ---
 
 # Subnetworks

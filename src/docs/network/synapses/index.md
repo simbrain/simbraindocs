@@ -2,7 +2,7 @@
 title: Synapses
 parent: Networks
 layout: default
-nav_order: 50
+nav_order: 40
 ---
 
 # Synapses

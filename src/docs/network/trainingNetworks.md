@@ -6,15 +6,17 @@ has_children: false
 nav_order: 150
 ---
 
-# Simbrain Documentation
+# Training Networks in Simbrain
 
-TODO: Check new Simbrain and distinguish main types of training.
+Supervised learning cannot be handled the same way as unsupervised local learning rules can. An interface is required to specify training data and to apply it. This is handled in different ways
 
-[Simbrain](../../../SimbrainDocs.html)  [Network](../../Network.html)  [Training](../training.html)  Backprop
+- In subnetworks like backprop it's built in
+- Immediate learning (below) can be used for a quick sense of something
+- Simulations allow more custom setups
 
 ## Framework for Immediate Learning
 
-Todo
+ A nice way to get a feel for how things work, and for tuning a network too. Each time you select a source and target neuron or neuron array, and press `L` (for learn) the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop.
 
 ## Training Dialog
 

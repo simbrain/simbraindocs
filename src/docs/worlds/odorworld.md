@@ -21,6 +21,7 @@ entity around the map.
 
 # Tile Map
 
+
 A tile map provides a way to structure a 2d video game. See
 [[https://en.wikipedia.org/wiki/Tile-based_video_game]{.underline}](https://en.wikipedia.org/wiki/Tile-based_video_game)
 
@@ -31,15 +32,16 @@ double click to set that tile.
 
 ![Tile Set](/assets/images/tileSelector.png)
 
-
 The tile map is also organized into layers. To edit the layers use the
-Edit \> Edit Layers dialog. This allows you to specify some layers as
+`Edit > Edit Layers` dialog. This allows you to specify some layers as
 blocking, which means agents won't be able to pass through nonempty
 tiles in that layer. This is the Yulin's World tile map. If you open
 Yulin's work and open this dialog and click on the visible checkboxes
 the way it works should be intuitive,
 
 ![Tile Layer Editor](/assets/images/tileLayerEditor.png)
+
+Tilemaps are based on [Tiled](https://www.mapeditor.org/) and in maps made in Tiled can be exported.
 
 # Sensors and Effectors
 

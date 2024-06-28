@@ -18,7 +18,7 @@ Colored circles represent neurons or "nodes."
 
 The lines between nodes represent synaptic connections between neurons which direct the flow of activity in the network. The smaller blue and red discs at the ends of these lines represent synaptic connections. Each node and synapse can be individually adjusted by selecting it, pressing the up and down errors, or double clicking to reveal a dialog. 
 
-
+Clamping bold faces items. Then  hey are not updated on update. However even if clamped, manualy adjustment and adjustvement via input tables (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
 
 Zooming: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads.
 
