@@ -20,7 +20,7 @@ For information on connecting neuron groups with synapse groups, see [the synaps
 
 ## Summary
 
-![Summary Panel](../../../Images/NeuronGroupSummary.png)
+<!-- TODO --> Add image
 
 **Group ID:** Labeling that identifies the group.
 

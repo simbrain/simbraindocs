@@ -4,12 +4,12 @@ layout: default
 grand_parent: Networks
 parent: Neuron Groups
 has_children: false
-nav_order: 60
+nav_order: 50
 ---
 
 # Winner-Take-All Network
 
-The neuron with the highest [weighted input](../neuron.html#wtdinput) in a winner-take-all network takes on an upper value, while all other neurons take on the lower value. In case of a tie, the node that wins is chosen randomly.
+The neuron with the highest **weighted input** in a winner-take-all network takes on an upper value, while all other neurons take on the lower value. In case of a tie, the node that wins is chosen randomly.
 
 ## Initialization
 
@@ -29,8 +29,8 @@ When creating a WTA network, you can specify how many neurons are in the network
 
 ## Creation/Edit Dialog
 
-Click [here](../groups/NeuronGroup.html#EditDialog) for listing.
+Click **here** for listing.
 
 ## Right Click Menu
 
-Click [here](../groups/NeuronGroup.html#RightClick) for listing.
+Click **here** for listing.

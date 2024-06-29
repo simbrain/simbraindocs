@@ -8,8 +8,6 @@ nav_order: 40
 
 # Synapses
 
-# Synapses
-
 In Simbrain, synapses, also known as weights, exist either as **loose synapses** or within **synapse groups**. This page describes general synapse properties, the synapse dialog, and how to edit loose synapses.
 
 Loose synapses are represented by a colored semicircle. The size of the semicircle is proportional to how far the synaptic strength is between 0 and its upper or lower bound. The exact strength can be determined by lingering over a synapse or double-clicking on it. The color of a synapse represents whether the strength is: greater than 0 (red), less than 0 (blue), or equal to 0 (white). The last case represents, as it were, the absence of a weight. These conventions can be adjusted in the **preference dialog**.
