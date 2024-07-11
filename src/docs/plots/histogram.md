@@ -16,24 +16,16 @@ For example, in a set of 20 synapses, if 10 synapses have a strength between 0 a
 
 As with other plots, several simultaneous datasets (histograms) can be displayed. Unlike other plots, the number of datasets that can be displayed can be dynamically changed. All histogram plot components are restricted to representing 4 histograms. To represented more data open another histogram plot.
 
-<!-- TODO --> Add image
-
-## Component Panel
-
-- Clear: Clear the current data. Note that empty data appears as a thin vertical line at 0.
-
-- Set Bins: Sets the number of bins used to represent the data. Try modifying the number and pressing the button to get a feel for this.
-
 ## File Menu
 
-- Open: Opens a histogram from a stored .xml file.
+Import from xml: Imports a bar chart from a stored .xml file.
 
-- Save: Saves the current histogram.
+Export to xml : Exports the current bar char to a .xml file.
 
-- Save As: Saves the current histogram and allows you to specify a name for the file.
+Rename: Renames current bar chart window.
 
-- Close: Closes the current histogram.
+Close: Closes the current bar chart.
 
-## Right-Click Menu
+## Help
 
-The context menu is a **JFreeChart menu**.
+Opens the main help page of bar chart.

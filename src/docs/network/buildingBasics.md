@@ -74,6 +74,7 @@ Note that most selection operations must be done in selection mode, the default 
 - Shift key : Once some items are selected, you can hold down the shift key to add more items to your selection. Hold down Shift while lassoing to add or remove groups items; hold down Shift while single-clicking to add or remove single items.
 
 - Key Shortcuts : "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
+- 
 
 ## Setting Properties
 
@@ -85,10 +86,11 @@ Calling set properties dialog: Select the neurons or weights you want to change 
 3. Clicking command-E or selecting `network > edit > set neurons or network > edit > set weights`
 
 - Setting properties of multiple objects. Select the objects you want to modify. If you select both weights and neurons, which preference dialog comes up depends on which kind of item you click on.
-
 - Set activation values: The activation value (and hence color) of neurons and the excitatory or inhibitory strength (and hence color and size) of weights can be manually adjusted. To do so, select one or more neurons and weights (both can be adjusted at the same time), and press the up and down arrow keys to increase or decrease these values. The amount increased or decreased is set by the "increment" field. Right and left arrow keys can also be used to increase or decrease these value.
-
 - Clearing and randomizing values: Note that while screen items are selected, neuron values can also be set to zero by pressing "C" on the keyboard (weight values are not then set to zero, because this is equivalent to deleting them, which can be done with the delete key). Pressing "R" will randomize all selected screen items, neurons and weights.
+- To clear nodes you select them and press `C`
+- To clear weights you select them and press `Shift-C` (this prevents accidentally clearing them)
+- To clamp or freeze nodes or weights use `Shift-F`
 
 ## Copy and Paste
 

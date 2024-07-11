@@ -32,6 +32,9 @@ To lay things out in network hover over interaction boxes for coordinates
 
 Sometimes after `addModels` in kotlin `.?join()` is useful to wait to make sure things are done before moving on.
 
+## Adding docs
+
+[Document viewers](../utilities/docviewer) can be added using [multiline string literals](https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html#use-multiline-strings). The document can be fine tuned directly in the doc viewer in the gui, and then the markdown text can be copy-pasted into the simulation using `docViewer = addDocViewer(name, text)`,  An example is in `projectionSim.k`
 
 ## Custom update Actions
 
