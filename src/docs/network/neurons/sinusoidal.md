@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 70
+nav_order: 190
 ---
 
 # Sinusoidal Generator

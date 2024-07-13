@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 110
+nav_order: 160
 ---
 
 # Product Neuron

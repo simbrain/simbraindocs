@@ -1,10 +1,10 @@
 ---
-title: S Normalization
+title: Subtractive Normalization
 layout: default
 grand_parent: Networks
 parent: Synapses
 has_children: false
-nav_order: 70
+nav_order: 100
 ---
 
 # Subtractive Normalization
