@@ -16,5 +16,20 @@ Use the plot by [coupling](../workspace/couplings.html) to `setBrightness`, `set
 
 # Preferences
 
-- Invert brightness. By default, (0,0,0) in RGB space maps to black and (1,1,1) t white. But when representing neural activations it is more natural to map zeros to white and one's to white.  Only applies to brightness.
+## File
+
+Import from xml: Imports a pixel chart from a stored .xml file.
+
+Export to xml: Exports the current pixel chart to a .xml file.
+
+Rename: Renames current pixel chart window.
+
+Close: Closes the current pixel chart window
+
+## Edit
+
+Preferences: Invert brightness. By default, (0,0,0) in RGB space maps to black and (1,1,1) white. But when representing neural activations it is more natural to map zeros to white and one's to white.  Only applies to brightness.
+
+## Help
+Opens main help page of pixel chart
 
