@@ -1,16 +1,26 @@
 ---
-title: Building Networks
+title: Building Networks and Visual Conventions
 layout: default
 parent: Networks
 has_children: false
 nav_order: 10
 ---
 
+This page gives intuitions about the Simbrain interface. More details on the underlying logic are in [updateLogic](updateLogic.html)
+
 For an overview of networks and how to build them in Simbrain, see the [building networks](https://www.youtube.com/watch?v=dvJvY1zVQUE) video. Below the video is a set of links to specific clips describing all the main operations reqiured to build a network.
 
-Network editing in Simbrain is modeled on a familiar "draw" interface which involves creating screen elements, copying, and pasting. This page focuses an adding nodes and configuring screen objects. There are special techniques for connecting neurons with synapses described on the **connections page**. Group level operations, for connecting neuron groups to each other are described in the **group pages**.
+Network editing in Simbrain is modeled on a familiar "draw" interface which involves creating screen elements, copying, and pasting. This page focuses an adding nodes and configuring screen objects. Be sure to familiarize yourself with Simbrain's [key commands](../quickstart.html), which were carefully designed to allow for fast editing.
 
-Be sure to familiarze yourself with Simbrain's **key commands**, which make a lot of things go faster!
+# Terminology
+
+We refer to neurons and synapses even though in many cases these are not modelnig neurons and synapses and are what would often be called nodes or weights.
+
+In a situation like this, the neuron on the left is a source neuron and the neuron on the right is a target neuron reative to the synapse.
+
+
+<img src="/assets/images/sourceTarget.png" alt="basic terminology" style="width:300px;"/>
+
 
 # Visual Conventions
 

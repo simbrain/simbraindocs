@@ -32,55 +32,76 @@ The default action, and usually all that is needed, is buffered update. The valu
 Here is the basic algorithm in pseudo code:
 ```kotlin
 for model in networkModels:
-	m.updateInputs()
-	m.update()
+	model.updateInputs()
+for model in networkModels:
+	model.update()
 ```
 
-That is, for each network model in the network, first call `updateInput`, and then `update`.
+That is, first accumulate all the inputs to every network model. Then, in a separate step, update all the network models. This ensures deterministic updating regardless of the order in which the list of network models is traversed.
 
-TODO: Add picture and example that shows how update order matters.
+To see this, consider the network below. Without buffering, we would get different results depending on update order. If update order is $$n_1 \rightarrow n_2 \rightarrow n_3$$ then in one iteration, $$n_2$$ and $$n_3$$ will be activated. However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_3$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). However, if buffered update is used, first $$n_2$$ will be updated on the first time step, and then $$n_3$$, so that (somewhat realistically) we can observe activation propagate.
+
+<img src="/assets/images/updateOrder.png" alt="Edit update sequence" style="width:300px;"/>
+
 
 ## Priority Based Update of Free Neurons
 
-Buffered update is convenient but not always desired. For example, it makes update propogate one layer at a time in a layered network, but often what we desire is for one iteration to propogate through a whole layer at once.
+Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. For example, buffered update makes activation propogate one layer at a time in a layered network, but often what we desire is for one iteration to propogate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward.html) work under the hood).
 
-In this case network models are associated with a priority which the user can set. Then `updateInput` and `update` are called in order of priority.
+Here is the basic algorithm in pseudo code:
+```kotlin
+for model in prioritySortedNetworkModels:
+	model.updateInputs()
+	model.update()
+```
 
-Currently only neurons are updated using priority update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added.
+In this case network models are associated with a priority which the user can set. Then we basically update network models in that order.
 
-If this is used, `Buffered Update` should be removed, and all other groups, arrays, etc must be manually updated. 
+However, in practice, it's often not needed, because relevant subnetworks already update in this way.
+
+Currently only neurons are updated using priority update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added. When priority-based update is used, `Buffered Update` should be removed fro the update list, and all other groups, arrays, etc must be manually updated. 
 
 
 # Neuron Groups and Subnetworks
 
 Neuron groups and [subnetworks](subnetworks/subnetworks.html) have their own customized update functions. For example, feedforward networks [link] update the input nodes first, then hidden layers in sequence, then  output nodes. Neuron collections don't have custom update.
 
-# Update Rules operate on Data
+# Update Rules Operate on Scalar Data
 
-[Neurons](neurons/), [synapses](synapses), neuron arrays, weight matrices, and spike responders all use a design that separates update rules from the data they operate on and easily edited and changed in using a [property editor](../utilities/propertyEditor.html). These can be called **rule objects**. 
+[Neurons](neurons/), [synapses](synapses), neuron arrays, weight matrices, and spike responders all use a design that separates update rules from the data they operate on. These can be called **rule objects**.  We will describe how this all works for neurons first; the same basic structure applies to other objects as well.
 
-The picture below shows how this works for neurons. The update rule is a separate object that _operates_ on the state variables of a neuron . All neurons have an activation value that is generally what is used to represent their color. However, depending on the rule, they will have other state variables. As you change the update rule, a data holder object that encapasulates this other data is changed. In this case a [linear rule](neurons/linear.html) is shown operating on a neuron. The main editable parameters of the rule are associated with the rule. The activation and bias are values that can change over time when the update rule (or other rules, like [training rules](trainingNetworks.html)) are applied.
+The picture below shows how this works for neurons. The update rule is a separate object that _operates_ on the state variables of a neuron, in the sense of reading in the neuron's state, and then writing back to the neuron's state. The rule itself is associated with parameters that can be edited using the Simbrain [property editor](../utilities/propertyEditor.html). When the neuron is updated, the update rule can read all the state variables of a neuron. (This includes both the neuron's state, but also anything the neuron is connected to, it's all available to the rule). It's similar for neuron arrays, weights, etc. The rules can read from and write to any data associated with these network models.
 
-<img src="/assets/images/updateScheme.png" alt="Update Scheme" style="width:600px;"/>
+The state variables of a neuron can be divided into two classes: intrinsic and rule-dependent.  The _intrinsic state variables_ of a neuron are primarily its activation, visible as its color, but other variables include whether it spiked (for spiking neurons) and an auxiliary variable that can be used in simulations. The _rule-dependent state variables_ change as the update rule changes. In the code these are held in a `data holder` object. As you change the update rule, these variables change. 
 
-The same update rule also operates on neuron arrays, but in that case the data are an activtion array and bias array.
+In the case shown below a [linear rule](neurons/linear.html) is shown operating on a neuron.  
 
-In the code we have something like this, where `n` can either be a neuron or a neuron array.
-```kotlin
-updateRule.apply(n)
-```
+<img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:600px;"/>
 
-# Post synaptic response (scalar case)
+In that case the only rule-dependent variable is a bias, but in other cases, like the [Izhikevich neuron](neurons/izhikevich.html), there is, in addition to activation (interpreted as membrane potential), a recovery variable that the rule needs in order to keep track of the neuron's state.
 
-Let's start with a picture:
+# Update Rules Operate on Array Data
 
-<img src="/assets/images/neuronSchematic.png" alt="Neuron schematic" style="width:600px;"/>
+The same rules that operate on scalar data can operate on array data. All the parameters are the same, and the editor dialog is the same, but in the code, array data is operated on.  In Simbrain this is general represented using [Smile matrix](https://haifengl.github.io/linear-algebra.html) objects.
 
-Note that the learning rule and spike responder rules are optional, in the sense that there is a `no rule` learnign rule and a `non responder' spike responder. When they are absent, spike responders are not used and the weights simply stay the same on each update. This is the default.
+<img src="/assets/images/ruleAndDataHolderArray.png" alt="neuron rule and data holder" style="width:600px;"/>
 
-This scheme can handle both spiking and "connectionist" neurons. The basic way it does this by defining a post-synaptic response or `psr` variable for each [synapse](synapses) and using `psr` as the way to encode the "output" of the synapse.  If there is no spike responder `psr` is set to the source activation times weight strength, as in standard connecitonism. If there is a [spike responder](spikeresponders/), it is applied to the synapse, and directly updates the `psr`, using the `weightStrength`, `source.activation` as needed, and any other state variables associated with the spike responder itself.
 
-In pseudocode:
+# Synapses, Learning Rules, and Spike Responders
+
+The same basic structure is used for synapses, but there is a bit more going on. This is based on the fact that synapse learn with learning rules, but also sometimes must react in a dynamical way to spiking events. However, in the default case all they are is weights that are multipled by pre-synaptic neuron activations.
+
+To accomodate all this, the following structure is used:
+<img src="/assets/images/synapseRules.png" alt="synapse spike responder and learning rule" style="width:600px;"/>
+
+The synapse has two main intrinsic state variables: `psr` or post-synaptic-response, and `strength`. The strength is the classic weight value of a synapse. The `psr` is a variable that corresponds to the "output" of the synapse. In the basic case, the `psr` is just the source neuron activation for the synapse times the weight strength. In the case shown, if the weight strength is .5, then the psr is .2 * .5, and so on update the target synapse is set to .1. Often in a neural network this is all we have.
+
+But two things can be added to the synapse, two rules: (1) a leaning rule, to model how weights change (in unsuperised learning; supervised learning happens via an external [trainer](trainingNetworks.html)), and (2) a spike response rule or spike responder, which models what happens when the pre-synaptic source neuron is a spiking neuron. Both of these are rule objects that operate on the synapse. That is, they read and write to it. Both are associated with rule-dependent data. So if a learning rule is used which needs to track additional data, a learning rule data holder is added to the synapse. If a spike responder needs to track additional data, a spike response data holder is added. Both rule objects have access to all data in the synapse, including the source neuron (e.g. whether it spiked) and the target neuron.
+
+However, in the default case, there is no learning rule, and so the weight just stays the same unless it is manually updated or updated by a training algorithm. And in the default case neurons are not spiking and so no spike responder is needed.
+
+Here is how synapses `psr` is updated, in pseudocode:
+
 ```kotlin
 fun Synapse.updatePSR():
 	if spikeResponder:
@@ -91,30 +112,29 @@ fun Synapse.updatePSR():
 		psr = source.activation * weightStrength
 ```
 
-Thus, for a given neuron,  `update()` just works by iterating through fan-in synapses and calling `updatePSR()`, and then aggregating these to update activation. This allows connectionist and spiking neurons to connect to the same neuron.
+
+
+For a given neuron,  `update()` just works by iterating through fan-in synapses and calling `updatePSR()`, and then aggregating these to update activation. This allows connectionist and spiking neurons to connect to the same neuron
 
 ```kotlin
 fun Neuron.update()
-	for s in fanIn:
-		s.updatePSR()
-		activation += s.psr
+	for synapse in fanIn:
+		synapse.updatePSR()
+		activation += synapse.psr
 ```
 
-# Post synaptic response (array case)
+# Synapses, Learning Rules, and Spike Responders (array case)
 
 The  same structure applies to [neuron arrays and weight matrices](arraysMatrices.html). In fact in the code the rule objects are shared. This shows the structure:
 
-<img src="/assets/images/neuronArraySchematic.png" alt="Neuron schematic" style="width:500px;"/>
+<img src="/assets/images/weightMatrixRules.png" alt="Weight matrix rule objects" style="width:500px;"/>
 
 Here again `psr` is the "output", but this time of a whole weight matrix. This it is a `psrmatrix`. If there is no spike responder set, the `psrmatix` is the matrix product the source activaiton vector and the actual weight matrix. If there is a [spike responder](spikeresponders/), it is applied to the weight matrix object, and directly updates the `psrmatrix`, using the `weightMatrix`, `source.activationArray` as needed, and anything other matrix-shaped state variables (like a matrix of recovery variables) associated the spike responder itself.
 
 Thus, for a neuron array,  `update()` iterates through a fan-in of weight matrices, calling `updatePSR()` on each one, and then adding the resulting `psrMatrices` using vector addition to update the neuron's activations. This allows connectionist and spiking input arrays to feed to the same neuron array.
 
 
-
-# Continuous and Discrete Time
-
-<!-- Todo: Links -->
+# Continuous and Discrete Time Update
 
 The network is updated from the [workspace](../workspace) or separately using its own run menu.
 
