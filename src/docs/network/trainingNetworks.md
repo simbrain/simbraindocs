@@ -18,9 +18,9 @@ Supervised learning cannot be handled the same way as unsupervised local learnin
 
  A nice way to get a feel for how things work, and for tuning a network too. Each time you select a source and target neuron or neuron array, and press `L` (for learn) the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop.
 
-## Training Dialog
+## Supervised Training Dialog
 
-Some version of a training dialog is used in many places in Simbrain, including: [backprop](../network/backpropnetwork.html), [least mean square nets](../network/lmsnetwork.html), [simple recurrent nets](../network/srn.html), [echo state nets](../network/echostatenetwork.html), [hopfield nets](../network/hopfieldnetwork.html), [competitive nets](../network/competitivenetwork.html), and [self-organizing maps](../network/som.html). For items specific to a particular network type see those pages.
+Some version of a training dialog is used in many places in Simbrain, including: [backprop](../network/backpropnetwork.html), [least mean square nets](../network/lmsnetwork.html), [simple recurrent nets](../network/srn.html), [echo state nets](../network/echostatenetwork.html), [hopfield nets](../network/hopfieldnetwork.html), [competitive nets](../network/competitivenetwork.html), and [self-organizing maps](../network/som.html). For items specific to a particular network type see those pages. If you open one of these and double click on the interaction box, you'll get the main training dialog.
 
 ![Training Dialog](../../../Images/TrainingDialog.png)
 
@@ -75,3 +75,5 @@ To do this, we need to set the input and training tables as follows:
 | 1,0        | 1            |
 | 0,1        | 1            |
 | 1,1        | 0            |
+
+
