@@ -42,6 +42,26 @@ Nudging: For fine tuning, users can also use the arrow keys (with Shift held dow
 
 Placement manager. This controls how objects are placed in the network window.
 
+## More conventions (to integrate)
+
+**Zero neuron**: a neuron with a value of 0 represents a non-active neuron, which is either not firing or is firing at a very low rate. In terms of voltages, this can be thought of as a neuron which is at its resting potential, that is, which has its baseline electrical charge, which is actually typically around -70mV (millivolts). In Simbrain this corresponds to the color 0.
+
+**Positive activation**: a neuron with positive activation can be thought of as firing at above its normal rate. In terms of voltages, this can be thought of as a neuron which is above its resting potential, e.g. -50mV. Such a neuron is sometimes said to be "excited" or "depolarized." In Simbrain this corresponds to a shade of red by default.
+
+**Negative activation**: it is hard to say what a neuron with negative activation corresponds to in terms of firing rates. In terms of voltages, this can be thought of as a neuron which is below its resting potential, e.g. -50mV. Such a neuron is sometimes said to be "inhibited" or "hyperpolarized." In Simbrain this corresponds to a shade of blue by default.
+
+**Excitatory synapse**: a weight with a positive value corresponds to an excitatory synapse. When these synapses are activated the post-synaptic neuron is more likely to fire, they "heat things up," as it were. An excitatory synapse is one which releases excitatory neurotransmitters, which bind to channels post-synaptically which cause currents that lead to an increase in the post-synaptic voltage potential. AMPA synapses are a common type of excitatory synapse. Excitatory synapses are shown as red discs in Simbrain.
+
+**Inhibitory synapse**: a weight with a negative value corresponds to an inhibitory synapse. When these synapses are activated the post-synaptic neuron is less likely to fire, they "cool things down," as it were. An inhibitory synapse is one which releases inhibitory neurotransmitters, which bind to channels post-synaptically which cause currents that lead to a decrease in the post-synaptic voltage potential. GABA synapses are a common type of inhibitory synapse. Inhibitory synapses are shown as blue discs in Simbrain.
+
+**Zero synapse**: a weight with a value of 0 is a way of mathematically representing the absence of a connection. In Simbrain this is currently represented as blue, inhibitory.
+
+**Net input**: the net input to a neuron represents, roughly, the summation of excitatory and inhibitory signals, from excitatory and inhibitory synapses, at the cell body.
+
+**Bias**: the bias of a neuron can be thought as its base-line firing rate or its resting potential.
+
+**Clipping / Upper and Lower Bounds**: There are upper and lower limits on the firing rate (in hertz) or voltage potential (in mV) of a neuron.
+
 # Run Network
 
 Run / stp / stop: The network can be run by pressing pressing the play button in the tool-bar to repeatedly iterate the network. Note that the image on the button becomes that of a "stop" button . Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch. You can also press the step button (or press "space") to iterate the network a single time. Sometimes repeatedly hitting the space bar is useful way to test a network. 
