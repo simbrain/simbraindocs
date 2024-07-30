@@ -3,7 +3,7 @@ title: Update Logic
 layout: default
 parent: Networks
 has_children: false
-nav_order: 15
+nav_order: 1
 ---
 
 # Network Update Logic
@@ -32,17 +32,37 @@ The default action, and usually all that is needed, is buffered update. The valu
 Here is the basic algorithm in pseudo code:
 ```kotlin
 for model in networkModels:
-	model.updateInputs()
+	model.accumulateInputs()
 for model in networkModels:
 	model.update()
 ```
 
 That is, first accumulate all the inputs to every network model. Then, in a separate step, update all the network models. This ensures deterministic updating regardless of the order in which the list of network models is traversed.
 
-To see this, consider the network below. Without buffering, we would get different results depending on update order. If update order is $$n_1 \rightarrow n_2 \rightarrow n_3$$ then in one iteration, $$n_2$$ and $$n_3$$ will be activated. However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_3$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). However, if buffered update is used, first $$n_2$$ will be updated on the first time step, and then $$n_3$$, so that (somewhat realistically) we can observe activation propagate.
+### Network Model Update Order
+
+Even with buffering it does matter what order network models are updated in (for example, a [Hebbian](synapses/hebbian.html) synapse updated before or after neuron update will often produce different results. Network models are updated in the following order:
+
+- Neuron
+- NeuronGroup
+- NeuronCollection
+- NeuronArray
+- Connector
+- SynapseGroup
+- Subnetwork
+- Synapse
+- All Others 
+
+To customize this [custom simulations](simulations) are the easiest way.
+
+### Why Buffering Matters
+
+To see why buffering matters, consider the network below. Without buffering, we would get different results depending on update order. 
+
+- If update order is $$n_1 \rightarrow n_2 \rightarrow n_3$$ then in one iteration, $$n_2$$ and $$n_3$$ will be activated. 
+- However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_3$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). However, if buffered update is used, first $$n_2$$ will be updated on the first time step, and then $$n_3$$, so that (somewhat realistically) we can observe activation propagate.
 
 <img src="/assets/images/updateOrder.png" alt="Edit update sequence" style="width:300px;"/>
-
 
 ## Priority Based Update of Free Neurons
 
@@ -51,7 +71,7 @@ Buffered update is convenient but not always desired. Sometimes we __want__ a ne
 Here is the basic algorithm in pseudo code:
 ```kotlin
 for model in prioritySortedNetworkModels:
-	model.updateInputs()
+	model.accumulateInputs()
 	model.update()
 ```
 
@@ -59,12 +79,11 @@ In this case network models are associated with a priority which the user can se
 
 However, in practice, it's often not needed, because relevant subnetworks already update in this way.
 
-Currently only neurons are updated using priority update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added. When priority-based update is used, `Buffered Update` should be removed fro the update list, and all other groups, arrays, etc must be manually updated. 
-
+Currently priority is only used for neuron update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added. When priority-based update is used, `Buffered Update` should be removed fro the update list, and all other groups, arrays, etc must be manually updated. 
 
 # Neuron Groups and Subnetworks
 
-Neuron groups and [subnetworks](subnetworks/subnetworks.html) have their own customized update functions. For example, feedforward networks [link] update the input nodes first, then hidden layers in sequence, then  output nodes. Neuron collections don't have custom update.
+Neuron groups and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration.
 
 # Update Rules Operate on Scalar Data
 
@@ -84,15 +103,22 @@ In that case the only rule-dependent variable is a bias, but in other cases, lik
 
 The same rules that operate on scalar data can operate on array data. All the parameters are the same, and the editor dialog is the same, but in the code, array data is operated on.  In Simbrain this is general represented using [Smile matrix](https://haifengl.github.io/linear-algebra.html) objects.
 
-<img src="/assets/images/ruleAndDataHolderArray.png" alt="neuron rule and data holder" style="width:600px;"/>
+<img src="/assets/images/ruleAndDataHolderArray.png" alt="neuron rule and data holder" style="width:8	00px;"/>
 
 
 # Synapses, Learning Rules, and Spike Responders
 
-The same basic structure is used for synapses, but there is a bit more going on. This is based on the fact that synapse learn with learning rules, but also sometimes must react in a dynamical way to spiking events. However, in the default case all they are is weights that are multipled by pre-synaptic neuron activations.
+Each synapse has a PSR. The PSR can just be source activation times weight (simple case) or a more complex spiking case.  Weight may be updated. But regardless. Summed psr is accumulated. Then the neuron update rule (“activation function”) is applied Activation is the result. (See book activatoin function chapter)
+
+Here is the basic case for how synapses work
 
 To accomodate all this, the following structure is used:
-<img src="/assets/images/synapseRules.png" alt="synapse spike responder and learning rule" style="width:600px;"/>
+<img src="/assets/images/synapseRulesBasic.png" alt="synapse basics" style="width:600px;"/>
+
+But it gets more complex. The same basic structure from aboe is used for synapses, but there is a bit more going on. This is based on the fact that synapse learn with learning rules, but also sometimes must react in a dynamical way to spiking events. However, in the default case all they are is weights that are multipled by pre-synaptic neuron activations.
+
+To accomodate all this, the following structure is used:
+<img src="/assets/images/synapseRulesFull.png" alt="synapse spike responder and learning rule" style="width:600px;"/>
 
 The synapse has two main intrinsic state variables: `psr` or post-synaptic-response, and `strength`. The strength is the classic weight value of a synapse. The `psr` is a variable that corresponds to the "output" of the synapse. In the basic case, the `psr` is just the source neuron activation for the synapse times the weight strength. In the case shown, if the weight strength is .5, then the psr is .2 * .5, and so on update the target synapse is set to .1. Often in a neural network this is all we have.
 
@@ -112,8 +138,6 @@ fun Synapse.updatePSR():
 		psr = source.activation * weightStrength
 ```
 
-
-
 For a given neuron,  `update()` just works by iterating through fan-in synapses and calling `updatePSR()`, and then aggregating these to update activation. This allows connectionist and spiking neurons to connect to the same neuron
 
 ```kotlin
@@ -123,15 +147,19 @@ fun Neuron.update()
 		activation += synapse.psr
 ```
 
+Again PSR is our generic construct. The node’s net input is just the accumulated psr. That is then modified by act function. TODO: Show activation function working.
+
+<img src="/assets/images/multipleSynapses.png" alt="summation" style="width:300px;"/>
+
 # Synapses, Learning Rules, and Spike Responders (array case)
 
-The  same structure applies to [neuron arrays and weight matrices](arraysMatrices.html). In fact in the code the rule objects are shared. This shows the structure:
+The  same structure applies to [neuron arrays and weight matrices](arraysMatrices.html). In fact in the code the rule objects are shared. Here again `psr` is the "output", but this time of a whole weight matrix. This it is a `psrmatrix`. If there is no spike responder set, the `psrmatix` is the matrix product the source activaiton vector and the actual weight matrix. If there is a [spike responder](spikeresponders/), it is applied to the weight matrix object, and directly updates the `psrmatrix`, using the `weightMatrix`, `source.activationArray` as needed, and anything other matrix-shaped state variables (like a matrix of recovery variables) associated the spike responder itself.
 
-<img src="/assets/images/weightMatrixRules.png" alt="Weight matrix rule objects" style="width:500px;"/>
-
-Here again `psr` is the "output", but this time of a whole weight matrix. This it is a `psrmatrix`. If there is no spike responder set, the `psrmatix` is the matrix product the source activaiton vector and the actual weight matrix. If there is a [spike responder](spikeresponders/), it is applied to the weight matrix object, and directly updates the `psrmatrix`, using the `weightMatrix`, `source.activationArray` as needed, and anything other matrix-shaped state variables (like a matrix of recovery variables) associated the spike responder itself.
+<img src="/assets/images/synapseRulesMatrix.png" alt="Weight matrix rule objects" style="width:500px;"/>
 
 Thus, for a neuron array,  `update()` iterates through a fan-in of weight matrices, calling `updatePSR()` on each one, and then adding the resulting `psrMatrices` using vector addition to update the neuron's activations. This allows connectionist and spiking input arrays to feed to the same neuron array.
+
+Again we sum PSR's but now we are “summing PSR matrices” and then mutating them.
 
 
 # Continuous and Discrete Time Update

@@ -16,7 +16,12 @@ Simbrain originated as a way to focus intuition on loose or "free"-standing neur
  
 These are represenations of arrays of neurons. They are column vectors in the underlying code. They can be represented as a line or grid by using a toggle button. They are updated using the same [update logic](updateLogic.html) as with free neurons. In fact the rule objects are shared.
 
-
 ## Weight matrices
  
 These are represenations of weights. They can be updated using shared local learning rules. They are shadowed by a matrix of post synaptic responses to allow for for spiking rules in a matrix setting. Right click context menu allows common operations.
+
+The PSR matrix is the fundamental "output" of a weight matrix. The logic is parallel to that of a synapse.
+
+## Differences with synapse group
+
+Synapse groups are collections of synapses and thus have a few extra features, including delays and polarity and more learning rules.

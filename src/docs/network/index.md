@@ -15,10 +15,6 @@ Networks are built by creating neurons and connecting them with synapses. They a
 
 Networks contain a variety of objects (we call them ``network models''), including free-floating neurons and synapses, but also neuron arrays and weight matrices for array-based network, and a wide array of other more complex structures. Most objects can be linked to one another with different types of adapters. By combining these together you can create indefinitely many different kinds of networks. Many tools exist for organizing, arranging, training, and linking these objets together. Some of these objects have many subtypes, such as neurons (many kinds of neuron update rule). On this page we give general information about networks in Simbrain, and the sub-menus give more specific information for objects with subtypes.
 
-TODO [point Mike to source code for this]:
-- Neuron Groups: SOM, Competitive, WTA, etc.
-- Synapse Rules: Long list.
-
 
 # Main Object Types
 
@@ -29,7 +25,6 @@ TODO [point Mike to source code for this]:
 Free neurons and synapses are part of ``classic'' Simbrain, allowing networks of arbitrary topology to be organized together. Both Neurons or nodes and synpases or weights are associated with update rules.
 
 Simbrain has two kinds of rules: activation-based neurons, and **spiking neurons**, and also allows the two to co-exist. Activation-based neurons are used in more traditional, connectionst types of application, which abstract from biological details, while spiking neurons are used in more biologically realistic simulations. Since spikes are discrete events without a numerical value, some way of converting them into numbers is required (e.g. when a spike arrives at a synapse). This is handled using **spike responders**. See [computational neuroscience].
-
 
 [Add image] For details on what they represent see [visual conventions](#visual-conventions). 
 

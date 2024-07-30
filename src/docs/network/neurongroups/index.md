@@ -1,12 +1,12 @@
 ---
-title: Neuron Groups
+title: Neuron Groups and Collections
 layout: default
 parent: Networks
 has_children: true
 nav_order: 50
 ---
 
-# Neuron Group
+# Neuron Groups
 
 A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetwork.html). This page covers properties common to all neuron group types. Details of each type can be found on their respective page.
 
@@ -79,3 +79,10 @@ See the [test inputs](../training/testInputs.html) page.
 ## Subsampling
 
 When a large neuron group is [coupled](../../Workspace/Couplings.html) to an external component (e.g. a [Projection Plot](../../../Pages/Plot/projection.html)), the relevant computations can become quite expensive and slow the simulation down. In these situations, [statistical sampling](https://en.wikipedia.org/wiki/Sampling_(statistics)) is used. For example, when activations are sent from a neuron group with 1000 neurons to a plot, only 100 of the neuron activations will be sent (assuming subsampling is turned on and `numSubsamples` is 100). Some subset of the neurons in a neuron group are sampled. The parameters for subsampling are set in the [Network Preferences](../network_prefs.html) dialog.
+
+
+# Neuron Collections
+
+Neuron Groups are closely related to neuron collections but are not the same. 
+
+TODO
