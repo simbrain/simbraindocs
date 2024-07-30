@@ -10,14 +10,14 @@ This is where documentation for Simbrain 4.0 will be developed. Changes can be m
 
 # Run Locally
 - Manually start Docker Desktop
-- Run the container using `docker-compose up -d --build` from this directory
+- Run the container using `docker compose up -d --build` from this directory
 - View page specified in docs > docker-compose.yml. 
   - It should be: `127.0.0.1:4000`
 - Now you can make changes to markdown as you like in `src/docs`
-- To stop use `docker-compose down`
+- To stop use `docker compose down`
 
 # Force Restart
-- Run `docker-compose down` followed by `docker-compose up -d --build`
+- Run `docker compose down` followed by `docker compose up -d --build`
 
 # Deployment
 
