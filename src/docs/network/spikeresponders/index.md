@@ -12,6 +12,8 @@ In Simbrain all action potentials are modelled as Dirac delta functions, the Dir
 
 The top right neuron in the image here shows a spike responder in action. When the neuron that connects to it spikes, the spike responder produces a 1 which then decays to zero (see Jump and Decay).
 
+All spike responders use the incoming weight as a "jump height".
+
 <!-- TODO --> Add GIF
 
 In biological settings, when a spike arrives at a post-synaptic cell (the target neuron of the spiking neuron), a "wave" of activation is created. This is modeled using a "response function" which characterizes a synaptic current, the influx of chemicals into a target cell which occurs when vesicles are released from a source neuron. In more formal terms (most) spike responders perform a convolution of some function and the Dirac delta function representing spikes.

@@ -10,10 +10,19 @@ nav_order: 155
 
 Simbrain tables are tables used throughout Simbrain to display data and allow for some numerical operations (e.g. an ability to randomize or normalize data).
 
-<!-- TODO --> Add image
+
+<img src="/assets/images/table.png" alt="Table" style="width:500px;"/>
+
 
 Examples of Simbrain components that use tables include **Data World** and the **Test Inputs** component.
 
-Table data can be imported from and exported to **comma separated values** or *.csv files (which can be read by most spreadsheet programs, e.g. Excel).
+Table data can be imported from and exported to **comma separated values** or .csv files (which can be read by most spreadsheet programs, e.g. Excel).
 
 Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. Note: In some cases the hotkey and context menu give inconisistent results. In those cases try using toolbars or regular menus.
+
+## Co-occurence Matrix
+
+This is a matrix plot, a bit like an R corrplot, where you can choose a comparison function and make a matrix of comparisons.
+
+<img src="/assets/images/tableWithComparisons.png" alt="Matrix Plot"/>
+
