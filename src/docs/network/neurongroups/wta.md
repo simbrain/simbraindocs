@@ -2,7 +2,7 @@
 title: Winner Take All
 layout: default
 grand_parent: Networks
-parent: Neuron Groups
+parent: Neuron Groups and Collections
 has_children: false
 nav_order: 50
 ---
