@@ -8,6 +8,8 @@ nav_order: 30
 
 # Dataworld
 
+Data world are closely based on [tables](../utilities/tables) so please also refer to that documentation.
+
 Data Worlds are essentially spreadsheets or tables that can be used to send data to and receive data from (primarily) neural networks. They are wrappers around Simbrain Tables. The main feature of data worlds is that they are set up to always have a current row. That row is what is used to send and receive data. If `edit > iteration mode` is set, then at each workspace update the current row is advanced. This can be useful for sending data to a network or recording data from a network. The STDP Workspace simulation provides a useful example of a dataworld in action.
 
 A standard use of data worlds is to provide inputs to a neural network. In that case, each row in a Data World corresponds to an input or output vector, and each column corresponds to an input node in a neural network.
