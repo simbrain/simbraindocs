@@ -8,21 +8,19 @@ nav_order: 150
 
 # Training Networks in Simbrain
 
-Supervised learning cannot be handled the same way as unsupervised local learning rules can. An interface is required to specify training data and to apply it. This is handled in different ways
+Training networks in Simbrain is handled in several ways. Local learning rules can be set up in synapses. That is discussed in [synapses](synapses/). Other forms of training are handled using special dialogs and commands described here.
 
-- In subnetworks like backprop it's built in
-- Immediate learning (below) can be used for a quick sense of something
-- Simulations allow more custom setups
+# Supervised Learning
 
-## Framework for Immediate Learning
+Includes backprop and SRN.
 
- A nice way to get a feel for how things work, and for tuning a network too. Each time you select a source and target neuron or neuron array, and press `L` (for learn) the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop.
+These networks have a training set and controls to manage trainig them. The main point of entry is the training dialog.
 
 ## Supervised Training Dialog
 
 Some version of a training dialog is used in many places in Simbrain, including: [backprop](../network/backpropnetwork.html), [least mean square nets](../network/lmsnetwork.html), [simple recurrent nets](../network/srn.html), [echo state nets](../network/echostatenetwork.html), [hopfield nets](../network/hopfieldnetwork.html), [competitive nets](../network/competitivenetwork.html), and [self-organizing maps](../network/som.html). For items specific to a particular network type see those pages. If you open one of these and double click on the interaction box, you'll get the main training dialog.
 
-![Training Dialog](../../../Images/TrainingDialog.png)
+TODO: Put in a new screenshot and add buttons /  menu items missing below
 
 Generally, there is a main training tab, either one or two input data tabs, and a [validation tab](testInputs.html).
 
@@ -52,7 +50,25 @@ Some buttons that occur in training tabs include:
 
  **Preferences button (time series):** Preferences for the error time series.
 
-### Input Data / Target Data
+# Unsupervised Learning
+
+Includes competitive network, Hopfield, Resricted Boltzmann Machine, and SOM Network.
+
+These networks are similar to supervised but only have input data. There is no target data.  The dialog is different
+
+TODO: Put in a new screenshot and add menu items / buttons missing below
+
+Menu commands
+
+ **Train on Curent Pattern:** Apply the training algorithm to the pattern currently in the network.
+
+# Immediate Learning
+
+ A nice way to get a feel for how things work, and for tuning a network too. Each time you select a source and target neuron or neuron array, and press `L` (for learn) the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop.
+
+
+
+# Training Data
 
 These tabs allow a user to edit the [training set](https://en.wikipedia.org/wiki/Test_set) for a learning algorithm. Training a network generally involves specifying one or more tables of data. These tables can be quickly edited (e.g. column data can be normalized and all data randomized). Cf. the [table documentation](../../Utils/Tables/Tables.html).
 
@@ -75,5 +91,4 @@ To do this, we need to set the input and training tables as follows:
 | 1,0        | 1            |
 | 0,1        | 1            |
 | 1,1        | 0            |
-
 

@@ -6,7 +6,7 @@ has_children: false
 nav_order: 50
 ---
 
-# PROPERTY TABS
+# Property Tabs
 
 At the bottom of the simbrain desktop is a set of tabs (invisible by default; to view them go to View > Property Tabs) that can be used to monitor the state of the workspace and set certain properties.
 

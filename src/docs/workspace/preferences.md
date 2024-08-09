@@ -6,7 +6,7 @@ has_children: false
 nav_order: 40
 ---
 
-# SIMBRAIN PREFERENCES
+# Simbrain Preferences
 
 There are several ways to set overall Simbrain preferences. A few things can be set in the GUI, and others can be set in a configuration file.
 

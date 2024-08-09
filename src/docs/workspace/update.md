@@ -6,7 +6,7 @@ has_children: false
 nav_order: 70
 ---
 
-# WORKSPACE UPDATING
+# Workspace Updating
 
 When a simulation is run, a sequence of "update actions" occurs at each iteration. These actions can be re-ordered and customized in various ways. To run a simulation use the iterate and play buttons in the main desktop toolbar. The time will begin advancing. On each iteration an update occurs, which by default means all the components and couplings in a **workspace** are updated. Individual components within a workspace can be run separately from the network. The workspace can also be run in other ways, e.g. from **scripts** or from the **terminal**, using the command workspace.iterate(*n*), which iterates the workspace *n* times.
 

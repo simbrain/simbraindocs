@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Spike Responders
 has_children: false
-nav_order: 50
+nav_order: 10
 ---
 
 # Step

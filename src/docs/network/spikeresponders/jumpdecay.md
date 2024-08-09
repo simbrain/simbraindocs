@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Spike Responders
 has_children: false
-nav_order: 40
+nav_order: 20
 ---
 
 This response function produces an instantaneous jump in the post-synaptic response equal to the *jump height*, followed by an exponential decay back to a *base-line* response at a rate which is proportional to the decay constant, *decay rate*.

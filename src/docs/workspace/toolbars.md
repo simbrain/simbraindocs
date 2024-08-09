@@ -6,7 +6,7 @@ has_children: false
 nav_order: 60
 ---
 
-# TOOLBARS
+# Toolbars
 
 ## Data Toolbar
 
@@ -32,7 +32,7 @@ The global iteration toolbar holds options allowing the user to update all the n
 
 <!-- TODO --> Add Image
 
-## Network, Statistic, and Training Toolbar 
+## Network, Statistic, and Training Toolbar
 
 - The **Network** creator: clicking this button will open a network window in the workspace. From the network window the user can construct any number of networks available within Simbrain.
 - The **World** button, when clicked displays a menu of the different kinds of worlds available in Simbrain. Worlds exist as a sort of virtual place where neural networks in Simbrain can both acquire input and in some cases effect their environment with their output.

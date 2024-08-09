@@ -10,17 +10,17 @@ nav_order: 155
 
 Simbrain tables are tables used throughout Simbrain to display data and allow for some numerical operations (e.g. an ability to randomize or normalize data).
 
-
 <img src="/assets/images/table.png" alt="Table" style="width:500px;"/>
 
 
-Examples of Simbrain components that use tables include **Data World** and the **Test Inputs** component.
+[Data world](../worlds/dataworld) is a simbrain component based on tables. 
 
 Table data can be imported from and exported to **comma separated values** or .csv files (which can be read by most spreadsheet programs, e.g. Excel).
 
 Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. Note: In some cases the hotkey and context menu give inconisistent results. In those cases try using toolbars or regular menus.
 
-## Co-occurence Matrix
+
+# Co-occurence Matrix
 
 This is a matrix plot, a bit like an R corrplot, where you can choose a comparison function and make a matrix of comparisons.
 
@@ -83,7 +83,7 @@ This toolbar allows you to open and save data.
 
 This toolbar allows you to add and remove rows and columns.
 
-- Add a row to the table.
+- Add a row to the table. Inserts a row above the curently selected row, or as the bottom row if none is selected
 
 - Add a column to the table.
 
@@ -99,12 +99,23 @@ For randomizing values in table cells.
 
 - Adjust upper and lower bounds of the randomization.
 
-## Iteration Toolbar
+# Input Tables
 
-This toolbar allows you to iterate the data when it is in iteration mode.
+One use of tables is as a way of producing inputs to a neural network. We call
+This panel uses a Simbrain table to enter numeric data to a set of neurons. These can be invoked in [neuron arrays](../network/arraysMatrices), neuron collections, and in [supervised learning](../network/trainingNetworks). 
 
-- Test row.
+These tables have all the functions of Simbrain tables, with additional features for iterating through the rows of a table and sending the current row's data to the a network model.
 
-- Advance row.
 
-- Test table.
+## Menu and Toolbar Items for Input Tables
+
+Basicall these tables can be used in two modes. The first mode just iterates through the rows and applies the current row:
+
+- Apply and increment row.  Send current row of data to the model in question, e.g. the input row of a feed-forward network, and move to next row
+
+Or separately increment row and then apply. In this mode we choose a row then apploy it, and increment when we want, using these commands:
+
+- Apply row. Apply curren row but don't advance. This one can be used in conjunction with advance row.
+
+- Advance row. Move to the next row.
+
