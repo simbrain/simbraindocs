@@ -3,114 +3,59 @@ title: Spiking Neurons
 layout: default
 parent: Networks
 has_children: false
-nav_order: 90
+nav_order: 59
 ---
 
-Also see
+# Spiking Neurons
 
-- Scholarpedia pages
-- Javadoc files
-- The Simbrain Book
+Some types of neuron [update rule](neurons)s  produce discrete "spikes," that is, instantaneous firing events. When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation--the number in the neuron--is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
 
-Historically, there is a progression from 1d to 2d models
+Since spikes are discrete events without a numerical value, some way of converting them into numbers is required (e.g. when a spike arrives at a synapse). This is handled using [spike responders](spikeresponders).
 
-* Hodhkin Huxley. The OG.  4 or 5d
+<img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
 
-* Integrate and Fire is 1d. Some versions are 2d
+# History and General Comments
 
-* Fitzhugh Nagumo. Fit things well. Meant as simplification of HH. Showed you could capture a bunch of variance and behavior of the HH model in this simple 2d dynamical system.
-    * Then other attempts to model not just voltage traces but also spikes and spike times, using these 2d simplifications.
-    * Can get bursting behavior
-    * Second variable is almost always some kind of adaptation.
+Historically, there has been a progression from one-dimensional (1D) to two-dimensional (2D) neuron models.
 
+**Hodgkin-Huxley:** This is the original model, which is quite complex, involving four or five state variables.
 
-Two Kinds of Spiking Model
+**Integrate-and-Fire:** A simpler model, often 1D, though some versions extend to 2D.
+
+**FitzHugh-Nagumo:** Designed as a simplification of the Hodgkin-Huxley model, this 2D dynamical system captures much of the variability and behavior seen in Hodgkin-Huxley. It effectively models voltage traces and spike timings, demonstrating that simpler models can approximate the more complex original.
+
+Following these models, there were attempts to not only model voltage traces but also capture spike dynamics and timings using 2D simplifications. These models can reproduce bursting behavior. The second variable in these models usually represents some form of adaptation.
 
 ## Spike Timing Emphasis
 
-* Try to get good spike times
+Models with a spike timing emphasis aim to reproduce accurate spike timings and realistic voltage traces. They are designed to diverge to infinity, a feature of their construction. Examples include **Izhikevich**, **Integrate-and-Fire (IntFire)**, **Adaptive Exponential Integrate-and-Fire (AdEx)**, and **Morris-Lecar**.
 
-* Realistic voltage traces
+**AdEx** is considered a gold standard for spike timing. It excels at predicting when spikes will occur in response to input and can produce realistic voltage traces. However, these are unstable dynamical systems, often requiring "reset" mechanisms to handle divergence. Among these models, AdEx is the best at predicting the exact timing of spikes after an input, whereas Izhikevich and quadratic Integrate-and-Fire models may not diverge to infinity quickly enough, resulting in delayed spikes. IntFire models, on the other hand, may produce spikes too soon.
 
-* Diverge to infinity, by design
+## Membrane Trace Emphasis
 
-* Izhikevich, IntFire, Adex
+Models focusing on membrane potential traces include **FitzHugh-Nagumo**, **Hodgkin-Huxley**, and **Morris-Lecar**. These models are good at producing accurate voltage traces and do not diverge to infinity. Instead, they treat spikes as certain values and reset afterward.
 
-* Adex is kind of gold standard  (Zoe is convinced)
+These models include recovery variables that simulate the depletion and replenishment of certain chemicals in the neuron. After reaching a threshold, sodium ions rush into the cell, and the gradient diffusion follows an exponential curve—initially rapid but then saturating as equilibrium is approached. This process is not limited by the depletion of ions but by the rate at which they can be replenished. The response to this saturation often involves the opening of calcium channels, allowing calcium ions to exit the cell. The energy expended is primarily in resetting the neuron rather than firing the spike itself, often involving active pumps.
 
-* Good for getting time to happen when expected
-
-* Can be good for voltage traces
-
-* But they unstable dynamical systems
-
-* These have the reset hacks to deal with divergence
-
-* Adex is best in terms of realistically gettting us when spikes happen after an input- Izhik and quadratic intfire tend to not diverge to infinity quickly enough (spikes take too long to happen). IntFire spikes happen too soon.
-
-* Morris lecar
-
-* This is more back in the FN vein, and specifically trying to model calcium dynamics. Gives us a voltage trace dependent on calcium. 
-
-* Get a good trace without modeling sodium directly
-
-##  Membrane Trace emphasis
-
-* FituzHugh, HH, MorrisLecar
-
-* Good at voltage potential, accurate voltage trace
-
-* Don't diverge to infinity
-
-* Just treat spike as a certain value
-
-* No resets
-
-* Recovery variables
-    * We run out of some chemical replenish
-
-    * W. Should go down at a spike and go up
-
-    * After the threshold, sodium rushes into the cell.  Gradient diffusion is always exponential. Derivative related to relative to concentration.
-
-    * Because it saturates, it starts out exponential then saturates. Eventually reaches equilibrium.
-
-    * Limited is not running out, but only intaking so much.
-
-    * Response to that is to open calcium which rushes out 
-
-    * All the metabolism is on not firing the gun but cocking it. Energy in the form of active pumps.
-
-    * Fitzhugh emulates saturation of ions
-
-    * Closest to sodium
-
-    * Roughly speaking, as it goes up, influx 
-
-    * Then it gets pumped out
+**Morris-Lecar** is closely related to FitzHugh-Nagumo and focuses on modeling calcium dynamics. It can generate accurate voltage traces without directly modeling sodium dynamics. FitzHugh-Nagumo models ion saturation effects, particularly sodium, and captures the general behavior of ion influx and efflux.
 
 ## Background Currents
 
-* If you don't have some background current, it takes a LOT of input to make a spike happen. unrealistic. You end up creating so much gain that you put the neuron in an unstable state where there is seizure activity. 
+Without some background current, a neuron requires a significant amount of input to reach the threshold needed to fire a spike, which is unrealistic. Excessive input can push the neuron into an unstable state, leading to seizure-like activity.
 
-* The natural state of neurons is a bit of averaged activity from other places. Not sitting at their normal potential. Always receiving some inputs from somewhere. All of the neurons are in a sub-threshold excited state to start with. And aids in synaptic transmission.
-    * If 0 input, must be blasted with a lot of current to get it above its threshold
+Neurons naturally maintain a sub-threshold excited state due to the averaged activity from other neurons. This background activity keeps them close to the boundary between quiescence and excitability, facilitating synaptic transmission.
 
-    * If you blast it with that much, easy to overboard.  Seizure
+- Without any input, a neuron must be blasted with a significant current to reach its threshold.
+- Excessive current can easily push the neuron into an overexcited state, leading to seizures.
+- The range of input that produces brain-like activity is small.
+- Background currents keep neurons near the threshold where interesting activity occurs, preventing them from being too far from this boundary.
 
-    * The region where you get brain like activity is small
+## Avoiding Instability
 
-    * Background current is roughly like setting it up so that it's much closer initially to the boundary between quiescence and interesting. Otherwise far away from where interesting stuff is happening
+Some tips to avoid instability in neuron models:
 
-## Avoiding blow up
-
-* Time step should be low, but .1 usually ok
-
-* Careful with time constants.
-
-* Time constant must be positive and non-zero
-
-* Should always be sig greater than the time step. Lower time-constants push it towards instability. Less than 1 makes more unstable.  Should not generally set it below 1.   Ideally at least 10. 
-
-* 3 is ok for spike responders. Gets cleared from synaptic cleft very quickly. Otherwise no transmission. Rise and decay requires a bit more care. 
-
+- The time step should be small, but 0.1 is usually sufficient.
+- Be careful with time constants—they must be positive and non-zero.
+- The time constant should be significantly larger than the time step. Lower time constants increase instability; values below 1 can be particularly problematic. Ideally, the time constant should be at least 10.
+- A time constant of around 3 is acceptable for spike responders, as neurotransmitters are quickly cleared from the synaptic cleft, ensuring transmission. The rise and decay of these signals require careful consideration.

@@ -10,11 +10,31 @@ nav_order: 20
 
 Neurons or "nodes" are represented by circles. The numbers inside the neurons corresponds to their "activation level." (What this level represents varies with neuron type: in many cases it can be thought of as representing the rate of a firing of a neuron.) Visibly, these numbers are rounded; functionally, however, double precision floating point values are used. This double-precision value can be seen by lingering over a neuron or double clicking on it.
 
+**Clamping**. Clamped items are not updated on update. However even if clamped, manualy adjustment and adjustvement via input tables (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
+
+
 ## Neuron Colors
 
 The color of a neuron represents the overall state of the neuron depending upon its update rule. Loosely-speaking neuron models can be broken up into two classes: **spiking** and non-spiking, and this distinction accounts for many of the differences between the meanings of different colors. In general, blue corresponds to a quiescent or inhibitory state, white corresponds to a 0 or neutral state, and red corresponds to an active or excitatory state. For neuron models which have explicit action potentials (spiking neurons), red indicates the neuron is near its threshold, a yellow flash indicates an action potential. A comparison of the two can be seen in the image to the left.
 
 These color conventions can be customized, as described in the **preference dialog**. The closeness of the neuron's activation level to the neuron's upper or lower bound is visualized by the intensity of the color.
+
+**Nodes**. Colored circles represent neurons or "nodes." 
+
+**Synapse**. The lines between nodes represent synaptic connections between neurons which direct the flow of activity in the network. The smaller blue and red discs at the ends of these lines represent synaptic connections. Each node and synapse can be individually adjusted by selecting it, pressing the up and down errors, or double clicking to reveal a dialog. 
+
+**Zero neuron**: a neuron with a value of 0 represents a non-active neuron, which is either not firing or is firing at a very low rate. In terms of voltages, this can be thought of as a neuron which is at its resting potential, that is, which has its baseline electrical charge, which is actually typically around -70mV (millivolts). In Simbrain this corresponds to the color 0.
+
+**Positive activation**: a neuron with positive activation can be thought of as firing at above its normal rate. In terms of voltages, this can be thought of as a neuron which is above its resting potential, e.g. -50mV. Such a neuron is sometimes said to be "excited" or "depolarized." In Simbrain this corresponds to a shade of red by default.
+
+**Negative activation**: it is hard to say what a neuron with negative activation corresponds to in terms of firing rates. In terms of voltages, this can be thought of as a neuron which is below its resting potential, e.g. -50mV. Such a neuron is sometimes said to be "inhibited" or "hyperpolarized." In Simbrain this corresponds to a shade of blue by default.
+
+**Net input**: the net input to a neuron represents, roughly, the summation of excitatory and inhibitory signals, from excitatory and inhibitory synapses, at the cell body.
+
+**Bias**: the bias of a neuron can be thought as its base-line firing rate or its resting potential.
+
+**Clipping / Upper and Lower Bounds**: There are upper and lower limits on the firing rate (in hertz) or voltage potential (in mV) of a neuron.
+
 
 <!-- TODO: Add GIF -->
 

@@ -6,19 +6,36 @@ has_children: true
 nav_order: 50
 ---
 
-# Neuron Groups
+# Neuron Groups and Collections
 
 A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetwork.html). This page covers properties common to all neuron group types. Details of each type can be found on their respective page.
 
-To create a neuron group, either use the `insert menu` and select `bare neuron group` or use the `Insert > Add neurons...` command and select the checkbox to create a group.
+To create a neuron group, either use the `insert menu` and select `bare neuron group` or use the `Insert > Add neurons...` command and select the checkbox to create a group. For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
 
-Neuron groups can also be [copied and pasted](../buildingnets.html#copyPaste).
 
-For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
+Neuron collections are a lightweight alternative to neuron groups. They can overlap. They have a green rather than a yellow interaction box. They are create by selecting nodes and pressing `shift-G`.
+
+Here are the main differences.
+
+Neuron Groups:
+- Contain neurons as children
+- Have their own layout object
+- When deleting, all nodes are deleted
+- Have subclasses (like SOM, Competitive) with custom updating
+
+Neuron Collections:
+- Loose associations mainly for labeling
+- Do not have custom update
+- Deleting does not delete neurons
+- Can overlap each other and neuron groups, even when in subnetworks
+
+
+
+<img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
+
+<img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
 
 ## Creation/Edit Dialog
-
-## Summary
 
 <!-- TODO --> Add image
 
@@ -76,13 +93,5 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Start/Stop Recording:** Starts recording the activation values from the neuron group to a .csv file or stops if it is already recording. When starting recording, a dialog shows up asking you to specify a name for the spike recording file. If the network is a spiking network, then each line of the file begins with a time and is followed by neuron IDs (in this case, the ".csv" file is not really CSV).
 
-## Subsampling
-
-When a large neuron group is [coupled](../../Workspace/Couplings.html) to an external component (e.g. a [Projection Plot](../../../Pages/Plot/projection.html)), the relevant computations can become quite expensive and slow the simulation down. In these situations, [statistical sampling](https://en.wikipedia.org/wiki/Sampling_(statistics)) is used. For example, when activations are sent from a neuron group with 1000 neurons to a plot, only 100 of the neuron activations will be sent (assuming subsampling is turned on and `numSubsamples` is 100). Some subset of the neurons in a neuron group are sampled. The parameters for subsampling are set in the [Network Preferences](../network_prefs.html) dialog.
 
 
-# Neuron Collections
-
-Neuron Groups are closely related to neuron collections but are not the same. 
-
-TODO

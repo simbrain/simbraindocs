@@ -12,6 +12,14 @@ In Simbrain, synapses, also known as weights, exist either as **loose synapses**
 
 Loose synapses are represented by a colored semicircle. The size of the semicircle is proportional to how far the synaptic strength is between 0 and its upper or lower bound. The exact strength can be determined by lingering over a synapse or double-clicking on it. The color of a synapse represents whether the strength is: greater than 0 (red), less than 0 (blue), or equal to 0 (white). The last case represents, as it were, the absence of a weight. These conventions can be adjusted in the **preference dialog**.
 
+
+**Excitatory synapse**: a weight with a positive value corresponds to an excitatory synapse. When these synapses are activated the post-synaptic neuron is more likely to fire, they "heat things up," as it were. An excitatory synapse is one which releases excitatory neurotransmitters, which bind to channels post-synaptically which cause currents that lead to an increase in the post-synaptic voltage potential. AMPA synapses are a common type of excitatory synapse. Excitatory synapses are shown as red discs in Simbrain.
+
+**Inhibitory synapse**: a weight with a negative value corresponds to an inhibitory synapse. When these synapses are activated the post-synaptic neuron is less likely to fire, they "cool things down," as it were. An inhibitory synapse is one which releases inhibitory neurotransmitters, which bind to channels post-synaptically which cause currents that lead to a decrease in the post-synaptic voltage potential. GABA synapses are a common type of inhibitory synapse. Inhibitory synapses are shown as blue discs in Simbrain.
+
+**Zero synapse**: a weight with a value of 0 is a way of mathematically representing the absence of a connection. In Simbrain this is currently represented as blue, inhibitory.
+
+
 <!-- TODO --> Add Image
 
 ## Common Synapse Properties

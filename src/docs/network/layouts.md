@@ -3,7 +3,7 @@ title: Layouts
 layout: default
 parent: Networks
 has_children: false
-nav_order: 60
+nav_order: 65
 ---
 
 # Neuron Layouts

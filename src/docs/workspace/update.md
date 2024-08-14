@@ -16,7 +16,7 @@ Some forms of workspace and component update occur using **parallelization**, in
 
 ## Update Controls and Indicators
 
-Play / Stop: playContinuously run the simulation until the user presses the same button.
+Play / Stop: play continuously run the simulation until the user presses the same button.
 
 Step: step iteration the simulation one time.
 
@@ -24,7 +24,7 @@ Time: When a simulation is run iterations or "simulation time" are tracked. This
 
 Run indicator: While a simulation is running a small animated icon is displayed to draw attention to the fact that the simulation is running.
 
-Simulation delay: Can be used to slow the simulation down from its max speed for easier observation of some processes. See **preferences dialog**.
+Simulation delay: Can be used to slow the simulation down from its max speed for easier observation of some processes. See preferences dialog
 
 ## Update Sequence Dialog
 
