@@ -173,12 +173,3 @@ When the network is updated, a `time` variable is updated by adding a `time-step
 
 Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties.
 
-
-<!-- 
-# Terminology
-
-We refer to neurons and synapses even though in many cases these are not modeling neurons and synapses and are what would often be called nodes or weights.
-
-In a situation like this, the neuron on the left is a source neuron and the neuron on the right is a target neuron reative to the synapse.
-
-<img src="/assets/images/sourceTarget.png" alt="basic terminology" style="width:300px;"/> -->

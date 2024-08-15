@@ -54,6 +54,18 @@ Note that most selection operations must be done in selection mode, the default 
 
 - Key Shortcuts : "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
 
+# Source-Target
+
+One common motif that we use for several operation is a source-target operation, where one set of models is designated as source (red), and the other as target (green). 
+
+The easiest way to do this is to select using the operations above, and then to press the `1` key to make those objects source objects. At that time they will be surrounded by a red border. (To get rid of this click in a neutral area and press `1` again).   Followup actions also use number keys like `2` and `3` to connet thigns.
+
+Here are some source and target neurons which are about to connected in a feed-forward way.
+
+<img src="/assets/images/sourceTarget.png" alt="source-target format" style="width:400px;"/>
+
+This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
+
 # Setting Properties
 
 Many properties are set using a [property dialog](../utilities/propertyEditor.html). For most items you can select in one of these ways:
@@ -110,9 +122,11 @@ Manages intelligent placement of network models in the GUI. Often we want to cre
 
 The system works via two modes:
 
-1. Click mode. Base case is last clicked location. When clicking on the screen there is a click the next object is placed there. 
+1. Click mode: Objects are placed wherever you last clicked on screen.
 
-2. Offset mode. Any additional objects added without clicking on the screen (paste, duplicate, add object) is offset from the last placed object by a default amount, depending on what type of object it is. This allows "paste trails" to be created.
+2. Offset mode. Additional objects are at an offset from the last placed object. This allows "paste trails" to be created.
+
+Offsets differ sepending on what type of object it is, so that objects are placed at a nice offset from one another.
 
 ## Custom offsets for paste trails
 
