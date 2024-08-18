@@ -15,7 +15,7 @@ Simbrain tables are tables used throughout Simbrain to display data and allow fo
 
 [Data world](../worlds/dataworld) is a simbrain component based on tables. 
 
-Table data can be imported from and exported to **comma separated values** or .csv files (which can be read by most spreadsheet programs, e.g. Excel).
+Table data can be imported from and exported to [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values) or .csv files (which can be read by most spreadsheet programs, e.g. Excel).
 
 Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. Note: In some cases the hotkey and context menu give inconisistent results. In those cases try using toolbars or regular menus.
 
@@ -45,7 +45,7 @@ This is a matrix plot, a bit like an R corrplot, where you can choose a comparis
 
 - Randomization Bounds: Adjusts the upper and lower limit for randomization of the data in the table.
 
-- Normalize Column(s): **Rescales** the values in a column using maximum and minimum values so that they all lie in the range [0,1].
+- Normalize Column(s): [Rescales](https://en.wikipedia.org/wiki/Feature_scaling) the values in a column using maximum and minimum values so that they all lie in the range [0,1].
 
 - Shuffle Rows: Randomly permute the rows of the table.
 
@@ -61,11 +61,11 @@ This is a matrix plot, a bit like an R corrplot, where you can choose a comparis
 
 - Delete Column: Delete the highlighted column.
 
-- Edit > Set Rows / Columns: See **above**.
+- Edit > Set Rows / Columns: See [above](tables.html#edit).
 
-- Randomize: See **above**.
+- Randomize: See [above](tables.html#randomize).
 
-- Fill Values: See **above**.
+- Fill Values: See [above](tables.html#fill-values).
 
 # Toolbars
 

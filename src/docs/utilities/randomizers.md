@@ -22,11 +22,11 @@ Random numbers are needed in many cases in Simbrain. The Simbrain object that ge
 
 ## Uniform
 
-- A **uniform** distribution is behind what most people intuitively think of as a random number generator. It choose numbers between floor and ceiling with equal probability.
+- A [uniform](https://en.wikipedia.org/wiki/Continuous_uniform_distribution) distribution is behind what most people intuitively think of as a random number generator. It choose numbers between floor and ceiling with equal probability.
 
 ## Normal
 
-- A **normal** distribution is a standard Gaussian "bell-curve".
+- A [normal](https://en.wikipedia.org/wiki/Normal_distribution) distribution is a standard Gaussian "bell-curve".
 
 - Mean: The expected value of the distribution.
 
@@ -34,7 +34,7 @@ Random numbers are needed in many cases in Simbrain. The Simbrain object that ge
 
 ## Log-Normal
 
-A **log-normal** distribution produces values such that, if you took their log, you would get a normal distribution. This distribution produces values from zero to infinity rather than -infinity to infinity. Firing distributions and synaptic efficacies (for example) are often modeled as log-normal distributions.
+A [log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution) distribution produces values such that, if you took their log, you would get a normal distribution. This distribution produces values from zero to infinity rather than -infinity to infinity. Firing distributions and synaptic efficacies (for example) are often modeled as log-normal distributions.
 
 Location: the mean of the logarithm of this distribution. Very roughly, higher values make the peak of the distribution higher, while lower values (including negative values) make the peak of the distribution closer to 0.
 
@@ -42,21 +42,21 @@ Scale: the standard deviation of the logarithm of this distribution. Roughly con
 
 ## Exponential
 
-An **exponential** distribution that is useful when modeling times between events. Like log-normal it defined on the positive real numbers. It is a special case of a gamma distribution
+An [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distribution that is useful when modeling times between events. Like log-normal it defined on the positive real numbers. It is a special case of a gamma distribution
 
 Rate: the rate of exponential decay; higher rate parameters will produce more small values.
 
 ## Gamma
 
-A **gamma** distribution is the more general family that exponential families come from. Sometimes used to model synaptic strengths and firing rates. For more on the parameters (shape and scale) the reader is referred wikipedia page.
+A [gamma](https://en.wikipedia.org/wiki/Gamma_distribution) distribution is the more general family that exponential families come from. Sometimes used to model synaptic strengths and firing rates. For more on the parameters (shape and scale) the reader is referred wikipedia page.
 
-Shape: See **here**.
+Shape: See [here](https://en.wikipedia.org/wiki/Gamma_distribution#Characterization_using_shape_k_and_scale_.CE.B8).
 
-Scale: See **here**.
+Scale: See [here](https://en.wikipedia.org/wiki/Gamma_distribution#Characterization_using_shape_k_and_scale_.CE.B8).
 
 ## Pareto
 
-A **Pareto** distribution is a power-law distribution with a minimum value and a power.
+A [Pareto](https://en.wikipedia.org/wiki/Pareto_distribution) distribution is a power-law distribution with a minimum value and a power.
 
 Slope: the power of the distribution.
 
