@@ -21,6 +21,7 @@ $$
 \dot{u} &= a(bv - u) \\
 \end{align*}
 $$
+
 Where $$n$$ is the net input from other neurons. The other parameters are described below. Whenever $$v \geq v_{peak}$$ a spike occurs and the voltage and recovery variable are reset:
 
 $$
