@@ -9,34 +9,35 @@ nav_order: 100
 
 # Izhikevich Neuron
 
-The Izhikevich model neuron was developed as an efficient, powerful alternative to the [integrate and fire](integrateAndFire.html) model. The model uses two variables, a variable representing voltage potential and another representing membrane recovery (activation of potassium currents and inactivation of sodium currents).
+The Izhikevich model neuron was developed as an efficient, powerful alternative to the [integrate and fire](integrateAndFire.html) model. This is a spiking neuron, so when the voltage passes a threshold value a spiking event occurs, and the neuron and outgoing connection turns yellow.
 
-To explore this neuron, you can use the script *spikingNeuronDemo.bsh*, from the workspace script menu.
+The model uses two variables, a variable representing voltage potential $$v$$ and another variable $$u$$ representing membrane recovery (activation of potassium currents and inactivation of sodium currents). The voltage potential $$v$$ corresponds to the "activation" of the neuron that determines what color it is represented as. 
 
-This is a spiking neuron, so when the voltage passes a threshold value a spiking event occurs, the GUI neuron turns yellow, and the voltage and recovery variable are reset.
+The variables $$u$$ and $$v$$ are governed by these differential equations:
 
-Since *a* is a parameter of the model, we use *v* to represent activation (voltage potential). *u* represents the recovery variable. Voltage is computed by integrating the following two differential equations using Euler's method:
+$$
+\begin{align*}
+\dot{v} &= .004 v^2 + 5v + 140 - u + I + n) \\[2mm]
+\dot{u} &= a(bv - u) \\
+\end{align*}
+$$
+Where $$n$$ is the net input from other neurons. The other parameters are described below. Whenever $$v \geq v_{peak}$$ a spike occurs and the voltage and recovery variable are reset:
 
-<!-- TODO --> Add equation
+$$
+\begin{align*}
+v &\leftarrow c \\[2mm]
+u &\leftarrow u + d \\
+\end{align*}
+$$
 
-*W* is weighted inputs; *a* and *b* are abstract parameters of the model.
+To explore this model, you can use the script *spikingNeuronDemo.bsh*, from the workspace script menu.
 
-When the voltage exceeds a threshold value, which is preset at 30, both *v* and *u* are reset, as follows:
-
-<!-- TODO --> Add equation
-
-Thus there are four parameters for this system. According to Izhikivech, "The model can exhibit firing patterns of all known types of cortical neurons with [a suitable] choice of parameters"
-
-## Links / References
-
-- [Izhikevich's page](http://www.izhikevich.org/publications/whichmod.htm) discussing this model.
-- Eugene Izhikevich (2004), "Which Model to Use For Cortical Spiking Neurons," *IEEE Transactions on Neural Networks.*
+This version of them model is from Eugene Izhikevich (2004), "Which Model to Use For Cortical Spiking Neurons," *IEEE Transactions on Neural Networks.* He updates the model slightly in his book. [Dynamical Systems in Neuroscience](https://www.izhikevich.org/publications/dsn.pdf). Also see [his webpage about the model](http://www.izhikevich.org/publications/whichmod.htm).
 
 ## Parameters
 
-### Time step
+There are four main parameters for this system. $$a, b, c, d$$. It can be hard to interpret them directly, but see the table below which shows how they can be set to achieve common forms of neural behavior. According to Izhikivech, "The model can exhibit firing patterns of all known types of cortical neurons with [a suitable] choice of parameters."
 
-See **time-step** (Izhikevich uses .2 in his paper.)
 
 ### A
 

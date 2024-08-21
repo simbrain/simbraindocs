@@ -14,6 +14,8 @@ Since spikes are discrete events without a numerical value, some way of converti
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
 
+When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a PSR.
+
 # History and General Comments
 
 Historically, there has been a progression from one-dimensional (1D) to two-dimensional (2D) neuron models.

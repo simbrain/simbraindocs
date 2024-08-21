@@ -10,6 +10,9 @@ nav_order: 70
 
 There are three main ways to connect neurons to other neurons (or to themselves) with synapses.
 
+<!-- TODO: Link to polarity discussion -->
+Note that these methods are designed to respect neuron polarity, if it is used. 
+
 ## Quick-Connect (1-2 keyboard method)
 
 To perform the 1-2 method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then designate them as target by pressing `2`. 
