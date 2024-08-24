@@ -6,6 +6,17 @@ has_children: false
 nav_order: 59
 ---
 
+# List of Spiking Neurons
+- [Adaptive Integrate and Fire](/docs/network/neurons/adaptiveExIntegAndFire.html)
+- [FitzHugh-Nagumo Neuron](/docs/network/neurons/fitzhughNagumo.html)
+- [Integrate-and-Fire](/docs/network/neurons/integrateAndFire.html)
+- [Izhikevich Neuron](/docs/network/neurons/izhikevich.html)
+- [Morris-Lecar Neuron](/docs/network/neurons/morrisLecar.html)
+- [Spiking Threshold](/docs/network/neurons/spikingThreshold.html)
+- [Stochastic Generator](/docs/network/neurons/stochastic.html)
+
+<!-- NOTE: Allostatic and Timed Accumulator empty pages -->
+
 # Spiking Neurons
 
 Some types of neuron [update rule](neurons)s  produce discrete "spikes," that is, instantaneous firing events. When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation--the number in the neuron--is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
