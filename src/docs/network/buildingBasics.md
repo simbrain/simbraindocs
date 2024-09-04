@@ -54,11 +54,9 @@ Note that most selection operations must be done in selection mode, the default 
 
 - Key Shortcuts : "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
 
-# Source-Target
+# Source and Target Objects
 
-One common motif that we use for several operation is a source-target operation, where one set of models is designated as source (red), and the other as target (green). 
-
-The easiest way to do this is to select using the operations above, and then to press the `1` key to make those objects source objects. At that time they will be surrounded by a red border. (To get rid of this click in a neutral area and press `1` again).   Followup actions also use number keys like `2` and `3` to connect thigns.
+One common motif used for several operation in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green). 
 
 Here are some source and target neurons which are about to connected in a feed-forward way.
 
@@ -66,23 +64,35 @@ Here are some source and target neurons which are about to connected in a feed-f
 
 This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
 
+Generally there are three things to do, which we call the "1-2 trick"
 
-Summary: 
-- After pressing `1`, A red square should appear around every source neuron. 
-- After making a connection with `2`, a line connecting each source neuron to their target neuron.
-- Source neurons will remain selected unless cleared or until a new source neuron is designated. To deselect a source neuron without having to create another, click on an empty space in the network and press `esc` or `1` 
+1. To designate objects as source select them and press the `1` key. They will be surrounded by a red border. You can also use menu command like right click select `Set Source(s)`.
+
+2. To designate objects as target select them as usual.
+
+3. Followup actions also use number keys like `2` and `3` to connect thigns.
+
+4. To deselect source objects click on an empty space in the network and press `esc` or `1` . You can also use menu command like right click select `Clear Source(s)`.
+
 
 
 # Connection Methods
 
+
 There are three main ways to connect neurons to other neurons (or to themselves) with synapses.
 
-<!-- TODO: Link to polarity discussion -->
+Video instruction on connecting neurons is [here](https://www.youtube.com/watch?v=dvJvY1zVQUE) (6:36 in the building networks video).
+
 Note that these methods are designed to respect neuron polarity, if it is used. 
 
-## Quick-Connect (1-2 keyboard method)
+## Quick-Connect (1-2 trick)
 
-To perform the 1-2 method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then designate them as target by pressing `2`. 
+The quick and easy way to connect neurons is with the "1-2 trick"
+
+To use this method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then designate them as target by pressing `2`. 
+
+Note that when creating recurrent connections the same neurons will be both sources and targets.  A quick way to make a recurrent network is to make a bunch of nodes and use keyboard commands: `N > 1 > 2 > A > R`
+
 
 ## Menu Commands
 
@@ -95,52 +105,13 @@ To use menu commands: Select your desired source neuron(s), designate them as so
 
 1-3 can be used to make a synapse group rather than a weight matrix.
 
-# Repeat??
+## Connection Strategies and Custom Scripts
 
-# Connecting Neurons
-Video instruction on connecting neurons is [here](https://www.youtube.com/watch?v=dvJvY1zVQUE) (6:36 in the building networks video).
+More customized methods include application of our highly developed set of [connection strategies](connections) and even more custom approaches using [simulations](../simulations).
 
-Perhaps one of the most essential parts of building a network aside from creating the neurons is connecting those neurons to other neurons (and sometimes the same neurons). Connections embody the GUI component of **synapses** in Simbrain, and therefore graphically allow the one to manipulate the parameters of the synapses connecting one set of neurons to another. In addition to granting access to underlying synapses, connections and their related GUI components allow one to determine the topology of how (out of a multitude of ways) one set of neurons can connect to another. In the side menu are pages dedicated to each of the standard ways neurons can be connected in Simbrain.
+## Editing weights
 
-The quick and easy way to connect loose neurons is with the **quick 1 2** method!
-
-## Source and Target Items
-
-Various commands in Simbrain (e.g: connecting nodes, training weights, viewing weight matrices) require you to specify a set of source and target neurons (or neuron groups). Source neurons are surrounded by red squares and target neurons are surrounded by the standard green selection squares. Here is an example.
-
-<!-- TODO --> Add Image
-
-The same ideas and visual conventions apply to neuron groups, which can be selected via their **interaction boxes** and connected with **synapse groups**.
-
-The main actions required to set up source and target neurons are as follows:
-
-- To set source neurons: select a group of neurons and either (1) press the "1" key, (2) right click and select Connect > Set Source Neuron(s), or (3) use the Edit menu and *select Connect > Set Source Neuron(s)*.
-
-- To set target neurons: simply select neurons as usual.
-
-- To clear all source neurons: unselect all neurons (by clicking outside of any neuron), and (1) press the "1" key or (2) right click and select Connect > Set Source Neuron(s), or (3) use the Edit menu and select *Connect > Set Source Neuron(s)*.
-
-- To clear specific source neurons: select the neurons of interest and (1) right click and select *Connect > Clear Source Neuron(s)*, or (2) use the Edit menu and select *Connect > Clear Source Neuron(s)*.
-
-Note that when creating recurrent connections the same neurons will be both sources and targets.
-
-## Main Connection Methods
-
-Neurons can be connected by synapses in several different ways:
-
-- The Quick Keyboard 1-2: Select source neurons, designate them as source by pressing "1", select target neurons, and connect (all to all) by pressing "2". Repeat as needed to connect series of neurons. This tends to be easy to get the hang of, and once the commands are familiar, many neurons can be quickly connected in this way.
-
-- Menu Commands: Sam as the keyboard 1-2 but using the relevant menu commands to set as source and make the connections.
-
-- Connection Objects: At the point that a connection is made using the "2" button, one can opt to create a special type of set of connections (not just all to all), and can also customize what the synapse strengths will be, using one of the built-in connection objects. See the pages in the sub-menu above.
-
-- Scripts: Highly customized connections (e.g. those used in the cortical branching script) can be created using **scripts**.
-
-## Editing Connections
-
-Synapses are usually created as simple excitatory synapses with no special properties. Once created, synapses can be edited by double-clicking or using the synapse adjustment panel. Synapses in **synapse groups** have a complex suite of tools for viewing and customizing.
-
-# End repeat??
+Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](otherDialogs#Synapse_Adjustment_Dialog).
 
 
 # Setting Properties
