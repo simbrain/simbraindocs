@@ -74,11 +74,11 @@ Note: *Although it is not in the GUI as of 3.0, neurons can also possess a polar
 
 # Weight Matrix Viewer
 
-The weight matrix viewer allows weights connecting two sets of neurons to be viewed in a tabular format. They can be used either for **loose neurons** or within **synapse groups**.
+The weight matrix viewer allows weights connecting two sets of neurons to be viewed in a tabular format. They can be used either for **free neurons** or within **synapse groups**.
 
 One can manipulate the strength of connections through the weight matrix viewer. Clicking on a cell allows one to manipulate the synaptic strength of the connection represented by the cell. Cells can also be selected (e.g. using command-A) or shift-selected, and then groups of them randomized or otherwise altered. Values can also be loaded from a .csv file. Their values can also be saved to a .csv file (see toolbar below)
 
-### Loose Neuron Weight Matrix Viewer
+### Weight Matrix Viewer for Free Neurons
 
 To view the synapses connecting two sets of loose neurons set **source and target neurons** and then select Show Weight Matrix from the insert menu or by right clicking on any of the relevant neurons. Cells in the table correspond to connections between source (red) neurons as rows and target (green) neurons as columns. Values in these cells represent the strengths of connections. Non-existent connections are represented by gray boxes (see the image below).
 

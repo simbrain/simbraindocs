@@ -29,9 +29,9 @@ This page contains actions that are available from the network menu. Many of the
 - **Connect Neurons**: Link neurons together as a connection.
 - **Connect Neurons Group with Synapse Group**: Connect source and target neurons with a synapse group.
 - **Randomize Selection**: Assign random values to neurons.
-- **Show Synapse Adjustment Dialog**: Show the **synapse adjustment dialog** for loose neurons.
+- **Show Synapse Adjustment Dialog**: Show the **synapse adjustment dialog** for free neurons.
 - **Layout**: Align neurons to a specific layout. See **Neuron Layouts** for list of layout options.
-- **Convert neurons to Neuron Group**: Convert selected **loose neurons** to a **neuron group**.
+- **Convert neurons to Neuron Group**: Convert selected **free neurons** to a **neuron group**.
 - **Align**: Aligns neurons horizontally or vertically.
 - **Space**: The distance between two neurons.
 - **Edit Selected Neuron(s)**: Configure neuron(s) properties.
@@ -58,7 +58,7 @@ User can set whether or not to show network toolbars.
 - **Toolbars**: User can set which toolbars to show in network interface. See **toolbars**.
 - **Autozoom**: Checking the "autozoom" box causes the network display to automatically resize the current neural network so it fits within the screen. Un-checking autozoom thus allows users to zoom in on data and pan it arbitrarily.
 - **Show Neuron Priorities**: Toggles whether neuron priorities (for use in priority **update**) are visible.
-- **Loose Weights Visible**: Toggle whether loose weights are visible in the GUI.
+- **Free Weights Visible**: Toggle whether free weights are visible in the GUI.
 
 ## Scripts
 

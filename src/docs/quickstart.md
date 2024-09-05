@@ -203,7 +203,7 @@ Alt-d: print debug info to the console (only visible if Simbrain is run from a -
 - f: Fit camera to screen
 - F: Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
 - g: Create a new neuron group
-- Command-G: Add selected loose neurons to a neuron group
+- Command-G: Add selected free neurons to a neuron group
 - i: Wand mode
 k: Clear all node activations. Leaves nodes selected so that, for example, this - can be followed by a randomization (r).
 - n: Select all neurons

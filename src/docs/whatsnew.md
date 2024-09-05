@@ -23,7 +23,7 @@ Simbrain 4.0 involved a complete rewrite over the course of nearly 10 years. Mos
 * Matrix backend and a carefully developed GUI for showing matrix operations and having communication between matrix objects.
 * A wrapper on an existing machine learning framework, [Smile](https://haifengl.github.io/). 
 * Immediate Learning. A nice way to get a feel for how things work, and for tuning a network too. Each time you press “L” (for learn) the network learns by one increment. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop
-* Neuron Collections. A new way of organizing neurons, into loose assemblages around free nodes. If you delete, the free nodes are still there.
+* Neuron Collections. A new way of organizing free neurons. If you delete the collection, the neurons are still there.
 * Relu activation function directly available.  The color of the node is set by the upper bound, which is a graphical upper bound. 
 
 # Plots

@@ -73,9 +73,9 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Select Neurons:** Select all neurons in the group.
 
-**Select Incoming Synapses:** Select all incoming synapse groups and/or loose synapses.
+**Select Incoming Synapses:** Select all incoming synapse groups and/or free synapses.
 
-**Select Outgoing Synapses:** Select all outgoing synapse groups and/or loose synapses.
+**Select Outgoing Synapses:** Select all outgoing synapse groups and/or free synapses.
 
 **Clamp Neurons:** Clamp all neurons in the group. See [Clamping](../neuron.html#clamping).
 

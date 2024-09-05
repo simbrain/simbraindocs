@@ -16,7 +16,7 @@ Pictured here is an example of all the different visualizations of synapse group
 
 By right clicking any synapse group interaction box, the user has the ability to "toggle synapse visibility". Toggling synapse visibility either reveals each of the individual synapses constituting the group.
 
-**Visible synapses:** In this mode (first of the four images here) all synapses can be seen, and can be directly edited like synapses generally are. However, these are not [loose synapses](../../Network.html#looseSynapse). They are still members of a group and so it is suggested that they be interacted with primarily at the group level, via the [interaction box](../groups.html#interactionBox).
+**Visible synapses:** In this mode (first of the four images here) all synapses can be seen, and can be directly edited like synapses generally are. However, these are not [free synapses](../../Network.html#freeSynapse). They are still members of a group and so it is suggested that they be interacted with primarily at the group level, via the [interaction box](../groups.html#interactionBox).
 
 **Momentum:** Here the group of synapses is replaced by a green arrow with an [interaction box](../groups.html#interactionBox) in the center. This is the preferred mode of dealing with large groups of synapses.
 

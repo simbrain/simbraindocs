@@ -10,7 +10,7 @@ nav_order: 65
 
 Layouts are used to organize group of neurons in a Simbrain network window. They can be used in several ways
 
-1. To arrange a group of **loose neurons**, by selecting them, and right clicking or using the edit menu to select a layout from the layout menu.
+1. To arrange a group of **free neurons**, by selecting them, and right clicking or using the edit menu to select a layout from the layout menu.
 2. To specify the layout for a **neuron group** being created
 3. To arrange existing neurons in a **neuron group**.
 

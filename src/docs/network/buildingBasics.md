@@ -34,7 +34,7 @@ Primarily nodes are discussed here, but similar ideas apply for text objects, ne
  
 - Copy / Paste / Duplicate: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
  
-- Creating subnetworks or groups of nodes: Subnets are created using *Insert > Add Network*. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing loose nodes can be added to a network with Shift-G.
+- Creating subnetworks or groups of nodes: Subnets are created using *Insert > Add Network*. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing free neurons can be added to a network with Shift-G.
  
 - Creating synapses or synapse groups: See the connections documentation.
 

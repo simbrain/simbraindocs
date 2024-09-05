@@ -9,7 +9,7 @@ nav_order: 200
 
 # Spiking Threshold
 
-A simple **spiking neuron** that spikes when input to the neuron is above the specified threshold. When using a loose spiking threshold neuron, it helps to have an external clamped linear neuron to feed activation into the neuron.
+A simple **spiking neuron** that spikes when input to the neuron is above the specified threshold. When using a spiking threshold neuron, it helps to have an external clamped linear neuron to feed activation into the neuron.
 
 ### Threshold
 
