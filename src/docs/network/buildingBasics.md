@@ -75,7 +75,7 @@ Generally there are three things to do, which we call the "1-2 trick"
 4. To deselect source objects click on an empty space in the network and press `esc` or `1` . You can also use menu command like right click select `Clear Source(s)`.
 
 
-# Connection Methods
+# Ways to Connect Neurons Together
 
 
 There are three main ways to connect neurons to other neurons (or to themselves) with synapses.

@@ -1,5 +1,5 @@
 ---
-title: Connection Methods
+title: Connection Strategies
 layout: default
 parent: Networks
 has_children: true

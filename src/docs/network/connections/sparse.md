@@ -2,7 +2,7 @@
 title: Sparse Connection
 layout: default
 grand_parent: Networks
-parent: Connection Methods
+parent: Connection Strategies
 has_children: false
 nav_order: 70
 ---
