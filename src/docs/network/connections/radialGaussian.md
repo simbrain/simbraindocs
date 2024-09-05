@@ -11,14 +11,7 @@ nav_order: 70
 
 This connection strategy is like [distance-based](distanceBased), but is more complex, and is especially well-suited to making connections in a way that respects neuron polarity. 
 
-Constants describing links such as
-
-1. **Excitatory to Excitatory (C_{ee})**
-2. **Excitatory to Inhibitory (C_{ei})**
-3. **Inhibitory to Inhibitory (C_{ii})**
-4. **Inhibitory to Excitatory ((C_{ie})**
-
-are used to determine how many connetions are made between neurons of a given type (a non-polar constant is also used.). These constants range between 0 (no connections of that type will be made between those types of neurons) and 1 (the maximum number of connections possible will be made between those neurons).
+Constants such as Excitatory to Excitatory ($$C_{ee}$$) and Excitatory to Inhibitory ($$C_{ei}$$) are used to determine how many connetions are made between neurons of a given type (a non-polar constant is also used.). These constants range between 0 (no connections of that type will be made between those types of neurons) and 1 (the maximum number of connections possible will be made between those neurons).
 
 The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, which is scaled differently according to the polarity of the source and target neurons. Specifically, the probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
 
@@ -41,4 +34,4 @@ The larger any of the constants is relative to the others, the more likely a con
 
 **No Polarity Constant**: Governs the probability of forming connections for neurons without explicit polarity.
 
-**Distance Drop-off (lambda)**: Represents the average distance in pixels for connections, affecting overall connection density.
+**Distance Drop-off ($$\lambda$$)**: Represents the average distance in pixels for connections, affecting overall connection density.
