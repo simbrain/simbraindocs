@@ -14,11 +14,13 @@ Some of these dialogs also exist as panels in other dialogs.
 
 <!-- TODO: Picture of dialog and link to poloarity -->
 
-This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage but the two text fields can also be used to set more precise ratios.
+This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.
 
 This can be thought of as a way of **polarizing** a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the polarity of the neurons.  
 
 # Synapse Adjustment Dialog
+
+This dialog is used to specify a set of weight strengths in a way that repsects their existing polarity. That is, distributions over excitatory and inhibitory weights can be set. Alternatively distributions over all weights can be set in which case this dialog will also set polarity.
 
 The top part of this dialog shows **synapse statistics** about the selected set of synapses. The bottom part contains tabs that can be used to adjust the synapses, by pressing the Apply button. Changes are immediately shown in the top statistics area.
 

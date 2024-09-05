@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Connection Strategies
 has_children: false
-nav_order: 60
+nav_order: 10
 ---
 
 # All to All connection
