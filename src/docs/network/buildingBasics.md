@@ -75,7 +75,6 @@ Generally there are three things to do, which we call the "1-2 trick"
 4. To deselect source objects click on an empty space in the network and press `esc` or `1` . You can also use menu command like right click select `Clear Source(s)`.
 
 
-
 # Connection Methods
 
 
@@ -111,7 +110,7 @@ More customized methods include application of our highly developed set of [conn
 
 ## Editing weights
 
-Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](otherDialogs#Synapse_Adjustment_Dialog).
+Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](otherDialogs#Synapse-Adjustment-Dialog).
 
 
 # Setting Properties

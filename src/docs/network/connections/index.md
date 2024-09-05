@@ -8,7 +8,7 @@ nav_order: 70
 
 # Connection Strategies
 
-Connection strategies are one way of [connecting neurons](../buildBasics#Connection_Methods) They rules used to create rule-based patterns of connections between source and target groups of neurons. The connection strategies generally also set an [excitatory / inhibitory ratio](../otherDialogs#Excitatory-Inhibitory-Ratio). All weights strenghts are simply 1 or -1 by default. To set a distribution on weights strengths the [synapse adjustment panel](../otherDialogs#Synapse-Adjustment-Panel) should be used.
+Connection strategies are one way of [connecting neurons](../buildBasics#Connection_Methods) They rules used to create rule-based patterns of connections between source and target groups of neurons. The connection strategies generally also set an [excitatory / inhibitory ratio](../otherDialogs#Excitatory-Inhibitory-Ratio). All weights strenghts are simply 1 or -1 by default. To set a distribution on weights strengths the [synapse adjustment panel](../otherDialogs#Synapse-Adjustment-Dialog) should be used.
 
 Connection strategies can be invoked in these ways:
 
@@ -63,18 +63,16 @@ This connection type makes four types of distance-based connections probabilisti
 
 The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, which is scaled differently according to the polarity of the source and target neurons. Specifically, the probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
 
-$$\[
-P(a, b) = \min\left(C_{xy} \cdot \exp\left(-\left(\frac{D(a, b)}{\lambda}\right)^2\right), 1\right)
-\]$$
+$$P(a, b) = \min\left(C_{xy} \cdot \exp\left(-\left(\frac{D(a, b)}{\lambda}\right)^2\right), 1\right)$$
 
 where:
-- $$\(D(a, b)\)$$ gives the Euclidean distance in pixels,
-- $$\(C_{xy}\)$$ is a scalar constant unique to the polarity of $$\(x\)$$ and $$\(y\)$$ (e.g., excitatory to excitatory may have a $$\(C_{ee}\)$$ of 0.2, while inhibitory to inhibitory may have a $$\(C_{ii}\)$$ of 0.1, meaning as a baseline, excitatory-to-excitatory synapses are twice as likely as inhibitory-to-inhibitory synapses),
-- $$\(\lambda\)$$ represents the standard deviation with respect to distance for the Gaussian drop-off.
+- $$(D(a, b))$$ gives the Euclidean distance in pixels,
+- $$(C_{xy})$$ is a scalar constant unique to the polarity of $$x$$ and $$y$$ (e.g., excitatory to excitatory may have a $$C_{ee}$$ of 0.2, while inhibitory to inhibitory may have a $$C_{ii}$$ of 0.1, meaning as a baseline, excitatory-to-excitatory synapses are twice as likely as inhibitory-to-inhibitory synapses),
+- $$\lambda$$ represents the standard deviation with respect to distance for the Gaussian drop-off.
 
 Any of the four constants for the four cases can be set to a value between 0 and 1. 
-- **Set to 0**: No connections of that type will be made.
-- **Set to 1**: The maximum number of connections possible will be made given the exponential distribution.
+- **0**: No connections of that type will be made.
+- **1**: The maximum number of connections possible will be made given the exponential distribution.
 
 The larger any of the constants is relative to the others, the more likely a connection of that type will occur.
 
@@ -96,13 +94,13 @@ The larger any of the constants is relative to the others, the more likely a con
 
 For each source neuron consider every target neuron in a radius and make excitatory and inhibitory synapses with them according to specified probabilities.
 
-**Exc. Probability**. Probability of making excitatory connections to neighboring neurons with the excitatory radius.
+**Excitatory Probability**. Probability of making excitatory connections to neighboring neurons with the excitatory radius.
 
-**Inh. Probability**.Probability of making inhibitory connections to neighboring neurons within the inhibitory radius.
+**Inhibitory Probability**.Probability of making inhibitory connections to neighboring neurons within the inhibitory radius.
 
-**Exc. Radius**. Radius within which to make excitatory connections.
+**Excitatory Radius**. Radius within which to make excitatory connections.
 
-**Inh. Radius**. Radius within which to make inhibitory connections.
+**Inhibitory Radius**. Radius within which to make inhibitory connections.
 
 **Allow self connections**. Allow synapses from neurons to themselves.
 

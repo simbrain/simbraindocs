@@ -6,7 +6,7 @@ has_children: false
 nav_order: 3
 ---
 
-# ToolbarS
+# Toolbars
 
 Toolbars can be turned off using the **network view** menu.
 
