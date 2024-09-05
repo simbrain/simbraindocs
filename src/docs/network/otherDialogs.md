@@ -6,6 +6,18 @@ has_children: false
 nav_order: 100
 ---
 
+# Other Dialogs
+
+Some of these dialogs also exist as panels in other dialogs.
+
+# Excitatory / Inhibitory Ratio
+
+<!-- TODO: Picture of dialog and link to poloarity -->
+
+This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage but the two text fields can also be used to set more precise ratios.
+
+This can be thought of as a way of **polarizing** a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the polarity of the neurons.  
+
 # Synapse Adjustment Dialog
 
 The top part of this dialog shows **synapse statistics** about the selected set of synapses. The bottom part contains tabs that can be used to adjust the synapses, by pressing the Apply button. Changes are immediately shown in the top statistics area.
@@ -47,14 +59,6 @@ Excitatory / Inhibitory: If a single polarity is selected it will display those 
 ### Revalidate
 
 Occasionally outside entities like **scripts** or **trainers** will alter synaptic weights in a way which changes their polarity without alerting the synapse group. This is easy to spot as the histogram will show that some "excitatory" synapses have a negative value and/or some "inhibitory" synapses have a positive value. In order to reconcile this, the user is given access to a "Revalidate" button located in this panel. Revalidating a synapse group will cause it to iterate over all the synapses in the group and assign them to the correct set based on their polarity (the sign of their strength/weight).
-
-### Excitatory / Inhibitory Ratio
-
-It is also possible to change the ratio of excitatory and inhibitory synapses in the group from here. The ratio can be set in three ways. Setting it one way will updated the other displays.
-
-Main slider bar: Slide to determine percentage of excitatory synapses.
-
-Percent Excitatory / Inhibitory: Text field to set the value more precisely.
 
 ### Excitatory and Inhibitory Distributions
 
