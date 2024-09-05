@@ -1,5 +1,5 @@
 ---
-title: All To All Connection
+title: All To All
 layout: default
 grand_parent: Networks
 parent: Connection Strategies

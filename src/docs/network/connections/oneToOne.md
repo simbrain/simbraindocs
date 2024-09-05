@@ -1,5 +1,5 @@
 ---
-title: One To One Connection
+title: One To One
 layout: default
 grand_parent: Networks
 parent: Connecting Neurons

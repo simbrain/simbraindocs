@@ -1,5 +1,5 @@
 ---
-title: Radial Gaussian
+title: Fixed Degree
 layout: default
 grand_parent: Networks
 parent: Connection Strategies
