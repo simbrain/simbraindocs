@@ -19,7 +19,8 @@ The density of a set of connections can be changed "on top of" existing connecti
 
 **Density**. What percentage of the total possible connections should be created (0 = no connections; 1 = all possible connections). 
 
-**Equalize Efferents.**  If true, each source neuron will have exactly the same number of outgoing "efferent" synapses. That is, each source will connect to the same number of targets. If you have 10 source neurons and 10 target neurons, and 50% sparsity, then each source neuron will connect to exactly 5 targets.
-- True (Fixed case): Each neuron has the same, predetermined number of outgoing connections (efferents), ensuring uniformity.
+**Equalize Efferents.**  If true, each source neuron will have exactly the same number of outgoing "efferent" synapses. That is, each source will connect to the same number of targets, which is density times number of target neurons.
+- Example 1: If you have 10 source neurons and 10 target neurons, and 50% sparsity, then each source neuron should connect to exactly 5 targets. 
+- Example 2. Due to rounding, if you have 10 source neurons and 11 target neurons, and 50% density, then each source neuron should still connect to exactly 5 targets. 
 
 **Self Connection**. If checked, self connections are allowed.

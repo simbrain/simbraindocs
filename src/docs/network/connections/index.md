@@ -12,6 +12,6 @@ Connection strategies are one way of [connecting neurons](../buildBasics#Connect
 
 Connection strategies can be invoked in these ways:
 
-- There is a default strategy that is set in network preferences when using the 1-2 trick. 
-- You can also right click and select one from the `connect neurons` submenu.
-- Synapse groups are also associated with connection strategies that can be applied
+- Use the default strategy that is set in network preferences when using the 1-2 trick. Then when pressing 1 then 2 this strategy will be invoked.
+- Right click and select a strategy from the `connect neurons` submenu.
+- Synapse groups are associated with connection strategies that can be applied
