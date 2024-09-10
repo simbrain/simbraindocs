@@ -31,35 +31,45 @@ Gather Windows: Places all desktop windows in the upper left corner of the deskt
 
 ## Insert
 
-New Network: Insert a new **Network** component in to the workspace.
+New Network: Insert a new [Network](../network/index.html) component in to the workspace.
 
-New Plot > Bar Chart:  Insert a new **Bar Chart**.
+New Plot > Bar Chart:  Insert a new [Bar Chart](../plots/barChart.html).
 
-New Plot > Histogram:  Insert a new **Histogram**.
+New Plot > Histogram:  Insert a new [Histogram](../plots/histogram.html).
 
-New Plot > Pie Chart:  Insert a new **Pie Chart** .
+New Plot > Pie Chart:  Insert a new [Pie Chart](../plots/pieChart.html).
 
-New Plot > Projection Plot:  Insert a new **Projection Plot**.
+New Plot > Projection Plot:  Insert a new [Projection Plot](../plots/projectionPlot.html).
 
-New Plot > Scatter plot:  Insert a new **Scatter Plot**.
+<!-- Scatter plot not in Plots section -->
 
-New Plot > Time Series:  Insert a new **Time Series**.
+New Plot > Scatter plot:  Insert a new **Scatter Plot**. 
 
-New World > Data World:  Insert a new **Data World**.
+New Plot > Time Series:  Insert a new [Time Series](../plots/timeSeries.html.html).
 
-New World > Odor World:  Insert a new **Odor World**.
+New World > Data World:  Insert a new [Data World](../worlds/dataworld.html).
+
+New World > Odor World:  Insert a new [OdorWorld](../worlds/odorworld.html).
+
+<!-- "Display world" and "Reader world" not in Worlds section  https://simbrain.net/Documentation/v3/Pages/Worlds/TextWorld/DisplayWorld.html and https://simbrain.net/Documentation/v3/Pages/Worlds/TextWorld/ReaderWorld.html-->
 
 New World > Text World - Display:  Insert a new **Display World**.
 
 New World > Text World - Reader:  Insert a new **Reader World**.
 
+<!-- Is "vision world" the "image world"? -->
+
 New World > Vision World:  Inserts a new vision world (but these are in beta now).
 
-New Doc Viewer:  Insert a new **Document Viewer**.
+New Doc Viewer:  Insert a new [Document Viewer](../utilities/docviewer.html).
 
-New Console: Insert a new Simbrain **Console**.
+<!-- Missing "Console" page https://simbrain.net/Documentation/v3/Pages/Console.html -->
+
+New Console: Insert a new Simbrain [Console](../utilities/terminal.html).
 
 ## Simulations
+
+<!-- Missing "workspace level script" and "scripting" page?  https://simbrain.net/Documentation/v3/Pages/Scripting.html -->
 
 Edit/Run Script: Edit and run a **workspace level script**.
 
@@ -75,10 +85,12 @@ Open Coupling List: Open [Coupling List](couplings.html).
 
 ## Help
 
-Main Help: Open **Main Help** page.
+Main Help: Open [Main Help](../../index.html) page.
 
 Quick Start: Open [Quick Start](quickstart.html) page.
 
 Keyboard Shortcuts: Open [Keyboard Shortcuts](quickstart.html) page.
+
+<!-- 404 error for "Credits" page -->
 
 Credits: Open **Credits** page.

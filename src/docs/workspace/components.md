@@ -14,8 +14,11 @@ When default [update](update.html) is used, at every iteration of the workspace 
 
 There are some generic properties that are common to most component types:
 
+<!-- Missing "scripts" page?  https://simbrain.net/Documentation/v3/Pages/Scripting.html -->
+
 - Adding components: To add components press the relevant button on the toolbar, or use the Insert menu. Components can also be added from **scripts**.
-Saving / Opening: Use the save, open buttons and the File menu.  Most components are saved using human-readable xml (using a library called XStream).
+
+- Saving / Opening: Use the save, open buttons and the File menu.  Most components are saved using human-readable xml (using a library called XStream).
 
 - GUI Visibility (settable in the component [Property Tabs](propertyTabs.html)): Whether the component is visible in the desktop.  Making a component invisible can be useful when trying to speed up a simulation.
 

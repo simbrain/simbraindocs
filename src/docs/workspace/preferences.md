@@ -20,4 +20,4 @@ The text file {SimbrainHome}/etc/config.properties contains a variety of propert
 
 ## Local Preferences
 
-Other properties are automatically set in local **preferences** files. For example, the various graphical preferences for networks (background color, "hot" node color, etc.). Most of these preferences can be reverted using "revert to defaults" in relevant dialogs.
+Other properties are automatically set in local [preferences](https://docs.oracle.com/javase/8/docs/technotes/guides/preferences/index.html) files. For example, the various graphical preferences for networks (background color, "hot" node color, etc.). Most of these preferences can be reverted using "revert to defaults" in relevant dialogs.

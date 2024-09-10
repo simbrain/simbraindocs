@@ -28,14 +28,14 @@ The global iteration toolbar holds options allowing the user to update all the n
 
 ## Coupling Toolbar
 
-- Coupling manager: clicking this icon will bring up the coupling manager, allowing the user to send information between different objects in Simbrain. For more information see: **Couplings**.
+- Coupling manager: clicking this icon will bring up the coupling manager, allowing the user to send information between different objects in Simbrain. For more information see: [Couplings](couplings.html).
 
 <!-- TODO --> Add Image
 
 ## Network, Statistic, and Training Toolbar
 
-- The **Network** creator: clicking this button will open a network window in the workspace. From the network window the user can construct any number of networks available within Simbrain.
-- The **World** button, when clicked displays a menu of the different kinds of worlds available in Simbrain. Worlds exist as a sort of virtual place where neural networks in Simbrain can both acquire input and in some cases effect their environment with their output.
+- The [Network](../network/index.html) creator: clicking this button will open a network window in the workspace. From the network window the user can construct any number of networks available within Simbrain.
+- The [World](../worlds/index.html) button, when clicked displays a menu of the different kinds of worlds available in Simbrain. Worlds exist as a sort of virtual place where neural networks in Simbrain can both acquire input and in some cases effect their environment with their output.
 - The statistics button brings up a list of statistical visuals, which can be coupled to various aspects of Simbrain's neural networks.
 - The console button allows the user command line level access to Simbrain's features.
 

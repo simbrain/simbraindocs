@@ -25,8 +25,8 @@ Run / stp / stop: The workspace and its components can be run by pressing pressi
 
 # Examples
 
-To see some different workspaces try opening a workspace file by pressing the open button in the **toolbar** . It defaults to a workspace directory with various examples in it.
+To see some different workspaces try opening a workspace file by pressing the open button in the [toolbar](toolbars.html). It defaults to a workspace directory with various examples in it.
 
-You can also try invoking scripts from the **Script menu**. These create workspaces using scripts.
+You can also try invoking scripts from the [Script menu](menus.html). These create workspaces using scripts.
 
 

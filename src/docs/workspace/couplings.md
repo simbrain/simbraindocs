@@ -8,7 +8,7 @@ nav_order: 20
 
 # Couplings
 
-A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](index.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are **attributes**.
+A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](index.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are [attributes](couplings.html#attributes).
 
 There are a few main ways to create couplings:
 - Use a popup menu to create a coupledcomponent. This is the easiest way to go. For example, right click on a neuron group, and select `plot activation > bar chart` to couple a neuron group to a bar chart. 
@@ -30,7 +30,7 @@ A coupling contains a *producer* and *consumer* attribute. These two attributes 
 
 An attribute is any part of a component which has a value that may be sent to or recieved from another component, i.e. something that produces values or consumes values. Examples are neuron activations, weight strengths, or bars on a bar chart, or sensor values for an agent in a virtual world. A coupling is a pair that contains one producing attribute and one consuming attribute.
 
-Most windows in Simbrain (i.e. workspace **components**) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are **attributes** and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
+Most windows in Simbrain (i.e. workspace [components](components.html)) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are [attributes](couplings.html#attributes) and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
 
 Each attribute has a data type, as described above: currently scalar (double), vector (array of doubles), and String.
 
@@ -65,8 +65,8 @@ There are many examples of scalar couplings that can be made. Here are some exam
 - A coupling from a single neuron to a single neuron in another network.
 - A coupling from a neuron's activation to a bar in a bar chart.
 - A coupling from a neuron's activation to an agent's "motor" (turn left, turn right, go straight)
-- A coupling from a neuron's activation to a specific column in a **Data World**. If the data world is in iteration mode, then with each iteration of the workspace the current neuron activation is "logged" in a specific column of the dataworld.
-- A coupling from a neuron's activation to text in a **Text World**. For example, when the neuron is active above .5 make the word "hello" appear in the text world
+- A coupling from a neuron's activation to a specific column in a [Data World](../worlds/dataworld.html). If the data world is in iteration mode, then with each iteration of the workspace the current neuron activation is "logged" in a specific column of the dataworld.
+- A coupling from a neuron's activation to text in a [Text World](../worlds/textworld.html). For example, when the neuron is active above .5 make the word "hello" appear in the text world
 
 # Vector Couplings
 
@@ -77,7 +77,7 @@ These vectors can get huge! Tens of thousands of neuron activations! As with sca
 - A coupling from one neuron group to another.
 - A coupling from a neuron groups' activations to most types of chart.
 - A coupling from a neuron group to a data world. On each iteration of the workspace the current activations of the neuron group are used to set the value of the current row of the data world. In this way activations can be logged and viewed in realtime.
-- A coupling from a neuron group's activation to text in a **Text World**. For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
+- A coupling from a neuron group's activation to text in a [Text World](../worlds/textworld.html). For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
 
 
 # Coupling Manager
@@ -95,6 +95,8 @@ The following commands are possible in the coupling manager:
 **Add coupling(s)**: This button creates new couplings, as follows. It begins with the first selected attribute in the producer list and the first selected attribute in the producer list, and then creates a coupling between those attributes. If multiple consumers and producers are selected it creates as many couplings as it can in this way. The default is to link each selected producer with one selected consumer, but if many-one is selected in the drop-down box next to the add coupling(s) button, then multiple couplings are created, one for each combination of selected producers and consumers.
 
 **Delete Couplings**: This button deletes all selected couplings from the coupling list.
+
+<!-- "Attribute visibility" section is not present in this page -->
 
 **Set Attribute Visibilities**: This button opens up the **attribute visibility** dialog for the currently selected consumer or producer list.
 
