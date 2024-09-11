@@ -10,75 +10,50 @@ nav_order: 100
 
 Some of these dialogs also exist as panels in other dialogs.
 
-# Excitatory / Inhibitory Ratio
-
-<!-- TODO: Picture of dialog and link to poloarity -->
-
-This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.
-
-This can be thought of as a way of **polarizing** a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the polarity of the neurons.  
-
 # Synapse Adjustment Dialog
 
-This dialog is used to specify a set of weight strengths in a way that repsects their existing polarity. That is, distributions over excitatory and inhibitory weights can be set. Alternatively distributions over all weights can be set in which case this dialog will also set polarity.
+This is the main dialog for adjusting collections of weights. The dialog is invoked by selecting a group of weights and clicking `ctrl/cmd-R` or in association with a [synapse group](synapsegroups).
 
-The top part of this dialog shows **synapse statistics** about the selected set of synapses. The bottom part contains tabs that can be used to adjust the synapses, by pressing the Apply button. Changes are immediately shown in the top statistics area.
+The top part of this dialog shows a [statistics panel](#statistics-panel) for the selected set of synapses. The tabbed panels can be used to adjust the synapses in various ways, in each case by pressing an `Apply` button. Changes are shown immediately in the statistics panel.
 
-<!-- TODO --> Add Image
+Note: If applied to weights whose source neuron is excitatory or inhibitory and thus shows up with a red or blue border (see [polarity](neurons/#polarity)), changes made in the panel can be be "flipped" to respect that neuron's polarity. Thus, for example, if you set the weights on a fully connected set of inhibitory neurons to a distribution with mean 1, the result will be a distriution of weights with mean -1. 
 
-The dialog is invoked in the same way the weight matrix viewer is, by selecting **source and target** neurons and then using a right-click menu.
+<img src="/assets/images/synapseAdjustmentPanel.png" alt="Synapse Adjustment Panel" style="width:400px;"/>
 
-### Randomizer
+## Statistics Panel
 
-Use a **randomizer** to set the weight strengths.
+The top part of the adjust synapses tab shows basic statistics about a populations of synapses, including a [histogram](../plots/histogram). The histogram and stats can be configured to focus on excitatory, inhibitory, or both kinds of synapse:
 
-### Perturber
+- **Both**: Show all synapses, regardless of whether they are excitatory or inhibitory, and modify all at once.
+- **Overlay**: If "Overlay" is selected, it will display these values for all synapses in the group, using the absolute value of all inhibitory weight values.
+- **Excitatory**: Show only weights with strength above 0.
+- **Inhibitory**: Show only weights with strenth below 0.
 
-Add random values to weight strengths, using a **randomizer**.
+## Randomizer
 
-### Pruner
+Use a [randomizer](../utilities/randomizers) to select a probability distribution and use it to set weight strengths.
 
-Remove all synapses with a value below the indicated threshold by pressing the button.
+## Perturber
 
-### Scaler
+Use a [randomizer](../utilities/randomizers) to select a probability distribution and use it to add values to weight strengths.
+
+## Pruner
+
+Remove all synapses whose absolute value is below the provided threshold by pressing the `prune` button. For example, if the threshold is $$.25$$ and a weight is $$.1$$ or $$-.1$$, it will be removed.
+
+## Scaler
 
 Scale all synapse values up or down by changing their strengths as much as the indicated percentage.
 
-## Synapse Values Tab
+## Polarizer
 
-<!-- TODO --> Add Image
-
-### Synapse Statistics
-
-The top part of the adjust synapses tab shows basic statistics about a populations of synapses. Basic numerical statistics, as well a **histogram** can be made to display weight statistics and values for synapses of both or only one polarity, and optionally can overlay the two for a direct comparison.Which polarities are viewed is set using the combo box:
-
-Both: Values are calculated using both polarities, assigning negative values to inhibitory weights.
-
-Overlay: If "Overlay" is selected, it will display these values for all synapses in the group, using the absolute value of all inhibitory weight values.
-
-Excitatory / Inhibitory: If a single polarity is selected it will display those statistics only for the synapses of that polarity, again using absolute values for inhibitory synaptic weights.
-
-### Revalidate
-
-Occasionally outside entities like **scripts** or **trainers** will alter synaptic weights in a way which changes their polarity without alerting the synapse group. This is easy to spot as the histogram will show that some "excitatory" synapses have a negative value and/or some "inhibitory" synapses have a positive value. In order to reconcile this, the user is given access to a "Revalidate" button located in this panel. Revalidating a synapse group will cause it to iterate over all the synapses in the group and assign them to the correct set based on their polarity (the sign of their strength/weight).
-
-### Excitatory and Inhibitory Distributions
-
-The probability distributions used to determine the strengths of excitatory and inhibitory synapses can be set at the bottom of the synapse values tab, using **randomizer** panels.
-
-## Excitatory and Inhibitory Synapse Types
-
-In this tab the basic properties of the inhibitory and excitatory synapses can be separately set. The basic dialog is the same as that used for **synapses**.
-
-Note: *Although it is not in the GUI as of 3.0, neurons can also possess a polarity. If that is the case then all efferent synapses from that neuron must be of the same polarity as the neuron. In these cases editing the ratio of excitatory to inhibitory synapses is impossible from this panel.*
-
-<!-- TODO --> Add Image
+Change the set of weights to have the indicated ratio of excitatory to inhibitory. The polarizer attempts to produce a ratio that is consistent with the polarity of source neurons, if polarized soure neurons are used. See [Excitatory / Inhibitory Ratio](#excitatory--inhibitory-ratio).
 
 # Weight Matrix Viewer
 
 The weight matrix viewer allows weights connecting two sets of neurons to be viewed in a tabular format. They can be used either for **free neurons** or within **synapse groups**.
 
-One can manipulate the strength of connections through the weight matrix viewer. Clicking on a cell allows one to manipulate the synaptic strength of the connection represented by the cell. Cells can also be selected (e.g. using command-A) or shift-selected, and then groups of them randomized or otherwise altered. Values can also be loaded from a .csv file. Their values can also be saved to a .csv file (see toolbar below)
+One can manipulate the strength of connections through the weight matrix viewer. Clicking on a cell allows one to manipulate the synaptic strength of the connection represented by the cell. Cells can also be selected (e.g. using `ctrl/command-A`) or shift-selected, and then groups of them randomized or otherwise altered. Values can also be loaded from a .csv file. Their values can also be saved to a .csv file (see toolbar below)
 
 ### Weight Matrix Viewer for Free Neurons
 
@@ -88,18 +63,23 @@ To view the synapses connecting two sets of loose neurons set **source and targe
 
 In this context the matrix represents the weights of a **synapse group**, which connects a source and target neuron group. Cells in the table correspond to connections between neurons in the source neuron group (rows) and target neuron group (column). Values in these cells represent the strength of connections.
 
-Note: Currently the weight matrix viewer is disabled for synapse groups with more than 10,000 synapses. This is due to the fact that a table of that size would be unnavigable, and of dubious use. At that size individual synapses are much less important. This is also to prevent users from accidentally attempting to view *extremely* large tables (much greater than 10,000 entries), which can cause the JVM to run out of memory.
+Note: Currently the weight matrix viewer is disabled for synapse groups with more than 10,000 synapses. This is due to the fact that a table of that size would be unnavigable, and of dubious use. At that size individual synapses are much less important. This is also to prevent users from accidentally attempting to view _extremely_ large tables (much greater than 10,000 entries), which can cause the JVM to run out of memory.
 
-<!-- TODO --> Add Image
 
 ### Weight Matrix Viewer Toolbar
 
-- Randomize: Pressing the Random button will uniformly randomize the strength of all connections represented in the weight matrix viewer between two numbers (default (1,-1))
+- **Randomize**: Pressing the Random button will uniformly randomize the strength of all connections represented in the weight matrix viewer between two numbers (default (1,-1))
 
-- Preferences: Pressing the Preferences button will allow one to set the upper and lower bounds on the viewer's randomize function.
+- **Preferences**: Pressing the Preferences button will allow one to set the upper and lower bounds on the viewer's randomize function.
 
-- Open: Pressing the Open button allows one to open a .csv file and set the values of the connections represented by the viewer to the values specified in the file. The .csv being loaded must have the same dimensions as the weight matrix of the synapse group.
+- **Open**: Pressing the Open button allows one to open a .csv file and set the values of the connections represented by the viewer to the values specified in the file. The .csv being loaded must have the same dimensions as the weight matrix of the synapse group.
 
-- Save: Pressing the Save button allows one to save the weight matrix as a .csv file.
+- **Save**: Pressing the Save button allows one to save the weight matrix as a .csv file.
 
 
+
+# Excitatory / Inhibitory Ratio
+
+This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.
+
+This can be thought of as a way of **polarizing** a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the polarity of the neurons.  

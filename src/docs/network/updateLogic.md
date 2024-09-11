@@ -106,6 +106,24 @@ The same rules that operate on scalar data can operate on array data. All the pa
 <img src="/assets/images/ruleAndDataHolderArray.png" alt="neuron rule and data holder" style="width:8	00px;"/>
 
 
+<!-- TODO: Merge in -->
+<!-- A major component of a neuron's behavior is how it goes about interpreting its inputs. In Simbrain there are two different ways a neuron can sum up its inputs: a *Weighted Sum* or a *Synaptic Sum*. Loosely these correspond to non-spiking and spiking neurons respectively, but there are some cases where it is useful for a non-spiking neuron to interpret its inputs as synaptic input and vice versa with spiking neurons.
+
+Weighted inputs: This is the simplest and most common way of determining input for most ANNs. As its name suggests it is a weighted sum over the neuron's incoming synapses. The influence of a pre-synaptic neuron on a post synaptic neuron is then dependent on two values: 1) the activation value of the pre-synaptic neuron and 2) the weight or "strength" of the synapse connecting the pre-synaptic neuron to the post-synaptic neuron. The total influence of a given pre-synaptic neuron is represented by the product of its activation and the strength of the connecting synapse.
+
+We represent the weight of the jth input where j ∈ {1, 2, ... , N} for N inputs to neuron i by wij and the steady activation level from the jth node by aj. The weighted input is then:
+
+$$ net_{i} \;=\; \sum\limits_{j = 1}^N w_{ij}a_j$$ $$ a_i \;=\; f(net_{i})$$
+
+Where `f` represents the function neuron i's update rule applies to its inputs, and neti is the weighted or "net" input to neuron i. Often times the confectionist literature refers to the weighted input to a neuron as its net input.
+
+Note that a sensory input term I is also added to the weighted input if the node has a **sensory coupling** attached to it.
+
+Tip: *To make a neuron whose activation value equals its weighted input, use a **linear neuron** with slope = 1 and bias = 0. Linear neurons are great for quickly displaying unfiltered values.*
+
+Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above).
+ -->
+
 # Synapses, Learning Rules, and Spike Responders
 
 Each synapse has a PSR. The PSR can just be source activation times weight (simple case) or a more complex spiking case.  Weight may be updated. But regardless. Summed psr is accumulated. Then the neuron update rule (“activation function”) is applied Activation is the result. (See book activatoin function chapter)
@@ -169,7 +187,19 @@ The network is updated from the [workspace](../workspace) or separately using it
 When the network is updated, a `time` variable is updated by adding a `time-step` to it. This updating time can be displayed in two ways, captured by a `time-type` parameter
 
 - Continuous: at each iteration time increases by a `time step` that can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
+
 - Discrete: at each iteration time increases by 1. Time is displayed as “iterations” (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
 
 Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties.
+
+<!-- TODO: Merge below in -->
+<!-- - Basic Iterative (unmarked in the menu above): standard discrete time update, based on iteration of an algorithm.
+
+- Continuous time (marked with a "δt" in the menu above): update is based on numerical integration of a differential equation. Such neurons (or synapses) do not just respond to external inputs but have internal dynamics and an internal state variable that is updated at each time step. Neurons that are continuous have a **time-step** field, described below.
+
+Consider two neuron models: The first performs a weighted sum on the incoming synaptic connections, puts that value through some function which takes in only that net input as an argument, and produces an output. The second performs a weighted sum as well, but this time, the function takes in not only this net input value, but also the "state" (be it the previous net input, activation, or some other value) of the neuron as well. Thus its activation is based not only on its input but its own previous history. In this way we can say that the 2nd neuron has its own internal dynamics. In the first case, the unit of time in the simulation has little or no importance. The activation does not unfold through time and is only dependent on external input to the neuron, thus the question of granularity is irrelevant. This neuron takes in an input and produces an output in a step by step manner. These two cases can be referred to as temporally "discrete" or "continuous" respectively.
+
+Practically speaking even the continuous case is technically discrete as we chose some level of temporal granularity. This is a necessity of simulating temporally continuous situations on a computer which can only consider discrete states. The practice of simulating continuous time on a discrete machine is a major topic in numerical analysis and far beyond the scope of this documentation. The important point is that in complex neuron models with internal states the notion of when things happen and how long they take to happen becomes important, and we simulate that fundamental temporal continuity by choosing typically very small (but meaningful and quantified) discretized time-steps.
+
+- Time Step: The time step is a global variable that is used whenever differential equations are numerically integrated. When a continuous neuron is used, an iteration of the network represents an interval of time whose length equals the time-step. Generally speaking, the smaller the time-step, the more accurate the numerical integration. If there is a single continuous neuron or synapse in a simulation, the network panel will display time in "seconds." Otherwise time is displayed in "iterations." -->
 
