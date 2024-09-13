@@ -9,6 +9,15 @@ nav_order: 200
 
 Custom simulations allow for custom updates, plots, logging, and pretty much anything. Extensive tooling and support is available, especially in Kotlin. 
 
+The best way to get a feel for what is possible is to have a look at a few simulations. First try running some to see what is possible: 
+
+- custom logging
+- custom update (e.g. updating components and couplings in a specific order)
+- custom rules not built in to Simbrain
+- creating sets of neurons and laying them out using a mathematical rule.
+
+To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
+
 ## Setting up a Simulation (Kotlin)
 
 Here is the basic way to get started. Set up a simulation environment as described [here](https://github.com/simbrain/simbrain/wiki/Getting-From-Source), with IntelliJ reccomended as your IDE
