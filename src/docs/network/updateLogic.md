@@ -105,28 +105,12 @@ The same rules that operate on scalar data can operate on array data. All the pa
 
 <img src="/assets/images/ruleAndDataHolderArray.png" alt="neuron rule and data holder" style="width:8	00px;"/>
 
-
-<!-- TODO: Merge in -->
-<!-- A major component of a neuron's behavior is how it goes about interpreting its inputs. In Simbrain there are two different ways a neuron can sum up its inputs: a *Weighted Sum* or a *Synaptic Sum*. Loosely these correspond to non-spiking and spiking neurons respectively, but there are some cases where it is useful for a non-spiking neuron to interpret its inputs as synaptic input and vice versa with spiking neurons.
-
-Weighted inputs: This is the simplest and most common way of determining input for most ANNs. As its name suggests it is a weighted sum over the neuron's incoming synapses. The influence of a pre-synaptic neuron on a post synaptic neuron is then dependent on two values: 1) the activation value of the pre-synaptic neuron and 2) the weight or "strength" of the synapse connecting the pre-synaptic neuron to the post-synaptic neuron. The total influence of a given pre-synaptic neuron is represented by the product of its activation and the strength of the connecting synapse.
-
-We represent the weight of the jth input where j ∈ {1, 2, ... , N} for N inputs to neuron i by wij and the steady activation level from the jth node by aj. The weighted input is then:
-
-$$ net_{i} \;=\; \sum\limits_{j = 1}^N w_{ij}a_j$$ $$ a_i \;=\; f(net_{i})$$
-
-Where `f` represents the function neuron i's update rule applies to its inputs, and neti is the weighted or "net" input to neuron i. Often times the confectionist literature refers to the weighted input to a neuron as its net input.
-
-Note that a sensory input term I is also added to the weighted input if the node has a **sensory coupling** attached to it.
-
-Tip: *To make a neuron whose activation value equals its weighted input, use a **linear neuron** with slope = 1 and bias = 0. Linear neurons are great for quickly displaying unfiltered values.*
-
-Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above).
- -->
-
 # Synapses, Learning Rules, and Spike Responders
 
 Each synapse has a PSR. The PSR can just be source activation times weight (simple case) or a more complex spiking case.  Weight may be updated. But regardless. Summed psr is accumulated. Then the neuron update rule (“activation function”) is applied Activation is the result. (See book activatoin function chapter)
+
+<!-- Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above). -->
+
 
 Here is the basic case for how synapses work
 

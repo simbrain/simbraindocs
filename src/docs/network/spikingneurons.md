@@ -6,17 +6,6 @@ has_children: false
 nav_order: 59
 ---
 
-# List of Spiking Neurons
-- [Adaptive Integrate and Fire](/docs/network/neurons/adaptiveExIntegAndFire.html)
-- [FitzHugh-Nagumo Neuron](/docs/network/neurons/fitzhughNagumo.html)
-- [Integrate-and-Fire](/docs/network/neurons/integrateAndFire.html)
-- [Izhikevich Neuron](/docs/network/neurons/izhikevich.html)
-- [Morris-Lecar Neuron](/docs/network/neurons/morrisLecar.html)
-- [Spiking Threshold](/docs/network/neurons/spikingThreshold.html)
-- [Stochastic Generator](/docs/network/neurons/stochastic.html)
-
-<!-- NOTE: Allostatic and Timed Accumulator empty pages -->
-
 # Spiking Neurons
 
 Some types of neuron [update rule](neurons)s  produce discrete "spikes," that is, instantaneous firing events. When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation--the number in the neuron--is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
@@ -72,3 +61,15 @@ Some tips to avoid instability in neuron models:
 - Be careful with time constants—they must be positive and non-zero.
 - The time constant should be significantly larger than the time step. Lower time constants increase instability; values below 1 can be particularly problematic. Ideally, the time constant should be at least 10.
 - A time constant of around 3 is acceptable for spike responders, as neurotransmitters are quickly cleared from the synaptic cleft, ensuring transmission. The rise and decay of these signals require careful consideration.
+
+# List of Spiking Neurons
+- [Adaptive Integrate and Fire](/docs/network/neurons/adaptiveExIntegAndFire.html)
+- [FitzHugh-Nagumo Neuron](/docs/network/neurons/fitzhughNagumo.html)
+- [Integrate-and-Fire](/docs/network/neurons/integrateAndFire.html)
+- [Izhikevich Neuron](/docs/network/neurons/izhikevich.html)
+- [Morris-Lecar Neuron](/docs/network/neurons/morrisLecar.html)
+- [Spiking Threshold](/docs/network/neurons/spikingThreshold.html)
+- [Stochastic Generator](/docs/network/neurons/stochastic.html)
+
+<!-- NOTE: Allostatic and Timed Accumulator empty pages -->
+

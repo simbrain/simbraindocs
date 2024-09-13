@@ -20,6 +20,11 @@ Basic editing is straightforward, and most actions are meant to be intuitive rel
 
 - Panning: To pan press the command /ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot it should be turned off by dclicking on the auto-zoom icon. 
 
+# Graphical and Color Conventions
+
+Most graphical and color conventions can be customized using the [preference dialog](preferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
+
+
 # Creating Objects
 
 Primarily nodes are discussed here, but similar ideas apply for text objects, neuron groups, and other Simbrain objects. 
@@ -121,7 +126,9 @@ Many properties are set using a [property dialog](../utilities/propertyEditor.ht
 2. Right-click and select `set properties` in the popup menu
 3. Clicking command-E or selecting `network > edit > set neurons or network > edit > set weights`
 
-This works for single or in some cases multile objects of the same type. For multiple nodes
+This works for single or in some cases multiple objects of the same type. 
+
+When multiple objects are edited and have inconsistent properties, this is marked by a null string: `...`. If the string is left as is nothing changes. If it is edited all selected objects take that property.
 
 Examples:
 
