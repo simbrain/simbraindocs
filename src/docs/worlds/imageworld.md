@@ -12,14 +12,10 @@ ImageWorld is a tool designed for managing sets of images and using them
 as inputs to other components, primarily neural networks. The interface
 can be used to create and edit sets of images.
 
-This can be used to model visual processing, for example retinal
+The component can be used to model visual processing, for example retinal
 processing, or machine learning vision applications.
 
-It has two main components: a window for displaying an image and
-applying filters, and a network linked to that image. Each link is
-specific to a particular network-image pair, so changing the image,
-applying new filters, or creating a new network will necessitate
-establishing a new link.
+To get a quick sense of how image world works, try running the [simulations](../simulations) in `simulations > Image World`
 
 # Image Album
 
@@ -28,12 +24,14 @@ filters. Any PNG format image can be used and the default image is
 unfiltered, but filters, or sensor matrices, can be applied by selecting
 from several built-in options or customizing one manually.
 
-To load an Image, click on the 'file' button on top of the toolbar and
-click 'Load Images.." Then select an image of the PNG format.
+To load an Image, click on the `file` button on top of the toolbar and
+click `Load Images..` Then select an image of the PNG format.
 
 # Filters
 
-To apply filters, select a built-in filter by clicking on the 'Filter'
+Each image in an image album has a raw form that can be used by selecting `unfiltered`. However one or more filters can be added on "top" of the raw image and used to send data via couplings to networks.
+
+To apply filters, select a built-in filter by clicking on the `Filter`
 dropdown on top of the toolbar and select one of the pre-made sensor
 matrices: Gray `150 x 150`, Color `100 x 100`, Threshold `10x10` and threshold
 `250 x 250`.
@@ -45,21 +43,18 @@ parameters:
 
 Parameters:
 
--   **Name:** A string label associated with the filter
+- **Name**: A string label associated with the filter
 
--   **Width:** Determines the width of the image filter in pixels
+- **Width**: Determines the width of the image filter in pixels
 
--   **Height:** Determines the height of the image filter in pixels
+- **Height**: Determines the height of the image filter in pixels
 
--   **Filter:** Determines the type of image filter, there are three
+- **Filter**: Determines the type of image filter, there are three
     options: Identity, Grey Scale, and Threshold
-
-    -   Identity:
-
-    -   Gray Scale: Applies a filter in monochromatic shades from black
+    - Identity: Does not change the image. Used when the image should be up or downsampled but not otherwise changed.
+    - Gray Scale: Applies a filter in monochromatic shades from black
         to white
-
-    -   Threshold: Applies a filter in black and white without shading.
+    - Threshold: Applies a filter in black and white without shading.
         The threshold minimum of 0.0 applies an all-white filter, and
         the maximum of 1.0 applies an all-black filter, therefore, a
         value of 0.5 is recommended.
@@ -100,28 +95,16 @@ observation of the network\'s behavior dynamically.
 
 # Menu Commands
 
-File:
-
-Load Images
-
-Save Current Image
-
-Save All Images
-
-Copy
-
-Paste
-
-Import from xml
-
-Export to xml
-
-Rename
-
-Close
-
-Edit:
-
-Reset Canvas
-
-Create Filter Coupling
+- **File**: todo
+- **Load Images**: todo
+- **Save Current Image**: todo
+- **Save All Images**: todo
+- **Copy**: todo
+- **Paste**: todo
+- **Import from xml**: todo
+- **Export to xml**: todo
+- **Rename**: todo
+- **Close**: todo
+- **Edit**: todo
+- **Reset Canvas**: todo
+- **Create Filter Coupling**: todo
