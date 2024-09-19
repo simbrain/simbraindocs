@@ -12,10 +12,10 @@ Text worlds transform text into numbers and numbers in to text. They are primari
 
 This image shows a text world linked to a [projection plot](../plots/projectionPlot) to study word meanings.
 
+To get an intuitive feel for how text world works, see the simulations in `simulations > NLP`
+
 <img src="/assets/images/textWorld.png" alt="Table" style="width:500px;"/>
 
-
-For a feel for how text world works see the simulations in `simulations > NLP`
 
 # Dictionary
 
