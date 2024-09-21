@@ -47,8 +47,6 @@ Parameters:
         value of 0.5 is recommended.
 
 
-
-
 # Image Album and Image Editing
 
 Instead of importing an image, you have the option to craft your own by clicking and dragging your cursor to sketch out a desired image. Once you are satisfied with your first image, click the camera icon adjacent to the arrows to store the image.
@@ -63,7 +61,8 @@ Images can be loaded or also edited directly, using the simple draw interface. T
 
 # Menu Commands
 
-- **File**: todo
+## File Menu
+
 - **Load Images**: todo
 - **Save Current Image**: todo
 - **Save All Images**: todo
@@ -73,6 +72,8 @@ Images can be loaded or also edited directly, using the simple draw interface. T
 - **Export to xml**: todo
 - **Rename**: todo
 - **Close**: todo
-- **Edit**: todo
+
+## Edit Menu
+
 - **Reset Canvas**: todo
 - **Create Filter Coupling**: todo
