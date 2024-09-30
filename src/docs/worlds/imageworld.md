@@ -24,6 +24,14 @@ The purpose of these filters is to allow the image to [coupled](../workspace/cou
 
 The filter drop down box can be used to view one of the filters and see its impact on the raw image, or to view the unfiltered image. Regardless of which filter you view, all remain in place, and thus one image can be coupled to a network in multiple ways.
 
+Here are a few different filters applied to an unfiltered example image:
+
+<img src="/assets/images/imageworldunfiltered.png" alt="Unfiltered RGB Image" style="width:300px;"/>
+<img src="/assets/images/imageworldcolor100.png" alt="Color 100x100 Filter" style="width:300px;"/>
+<img src="/assets/images/imageworldgray150.png" alt="Gray 150x150 Filter" style="width:300px;"/>
+<img src="/assets/images/imageworldthreshold10.png" alt="Threshold 10x10 Filter" style="width:300px;"/>
+
+
 ## Editing and adding filters
 
 To edit an existing filter (several are provided by default), select a built-in filter by clicking on the `Filter` dropdown on top of the toolbar and select one. To add one click on the `Add Filter` button, represented by a `+`` sign.
@@ -63,17 +71,17 @@ Images can be loaded or also edited directly, using the simple draw interface. T
 
 ## File Menu
 
-- **Load Images**: todo
-- **Save Current Image**: todo
-- **Save All Images**: todo
-- **Copy**: todo
-- **Paste**: todo
-- **Import from xml**: todo
-- **Export to xml**: todo
-- **Rename**: todo
-- **Close**: todo
+- **Load Images**: Load an Image from file (`.png`)
+- **Save Current Image**: Saves Image to a `.png` file
+- **Save All Images**: Saves all images as `.png` in the Image World to a folder
+- **Copy**: Copies the current displayed image
+- **Paste**: Pastes an image into a new page in the ImageWorld
+- **Import from xml**: Import data from a `.xml` file.
+- **Export to xml**: Export data to a `.xml` file.
+- **Rename**: Renames the current Image World window
+- **Close**: Closes the current Image World
 
 ## Edit Menu
 
-- **Reset Canvas**: todo
-- **Create Filter Coupling**: todo
+- **Reset Canvas**: Resets all pixels in the current image to black
+- **Create Filter Coupling**: Creates a coupling between the current image and a neuron array
