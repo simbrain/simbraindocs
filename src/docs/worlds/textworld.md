@@ -16,6 +16,13 @@ To get an intuitive feel for how text world works, see the simulations in `simul
 
 <img src="/assets/images/textWorld.png" alt="Table" style="width:500px;"/>
 
+# Creating a Text World
+
+To create a new Text World component you can use
+
+- `Insert > New World > Text World` from the menu
+- Right click on the deskopt and `Insert > New World > Text World`
+- Click on the world icon and select `Text World`
 
 # Dictionary
 
