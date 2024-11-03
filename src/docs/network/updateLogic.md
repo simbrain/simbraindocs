@@ -41,7 +41,7 @@ That is, first accumulate all the inputs to every network model. Then, in a sepa
 
 ### Network Model Update Order
 
-Even with buffering it does matter what order network models are updated in (for example, a [Hebbian](synapses/hebbian.html) synapse updated before or after neuron update will often produce different results. Network models are updated in the following order:
+Even with buffering there are cases where it matters what order network models are updated in. For example, it makes a difference whether a [Hebbian](synapses/hebbian.html) is updated before or after neuron update. Network models are updated in the following order:
 
 - Neuron
 - NeuronGroup
@@ -60,7 +60,9 @@ To customize this [custom simulations](simulations) are the easiest way.
 To see why buffering matters, consider the network below. Without buffering, we would get different results depending on update order. 
 
 - If update order is $$n_1 \rightarrow n_2 \rightarrow n_3$$ then in one iteration, $$n_2$$ and $$n_3$$ will be activated. 
-- However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_3$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). However, if buffered update is used, first $$n_2$$ will be updated on the first time step, and then $$n_3$$, so that (somewhat realistically) we can observe activation propagate.
+- However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_1$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). 
+
+If buffered update is used, $$n_2$$ will be activated on the first time step, and then $$n_3$$, so that we can observe activation propagate.
 
 <img src="/assets/images/updateOrder.png" alt="Edit update sequence" style="width:300px;"/>
 
@@ -107,7 +109,7 @@ The same rules that operate on scalar data can operate on array data. All the pa
 
 # Synapses, Learning Rules, and Spike Responders
 
-Each synapse has a PSR. The PSR can just be source activation times weight (simple case) or a more complex spiking case.  Weight may be updated. But regardless. Summed psr is accumulated. Then the neuron update rule (“activation function”) is applied Activation is the result. (See book activatoin function chapter)
+Each synapse has a post synaptic response or PSR. The PSR is typically just source activation times weight. However, when spike responders are used, the PSR can be more complicated. The PSRs to an output node are summed and that is the "input" to update rule or "activation function" for a node (See book activation function chapter)
 
 <!-- Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above). -->
 
