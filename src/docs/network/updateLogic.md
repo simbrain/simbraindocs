@@ -41,7 +41,7 @@ That is, first accumulate all the inputs to every network model. Then, in a sepa
 
 ### Network Model Update Order
 
-Even with buffering there are cases where it matters what order network models are updated in. For example, it makes a difference whether a [Hebbian](synapses/hebbian.html) is updated before or after neuron update. Network models are updated in the following order:
+Buffering solves some but not all problems with update order. For example, it makes a difference whether a [Hebbian](synapses/hebbian.html) synapse is updated before or after neuron update. Thus, by default, network models are updated in the following determinate order:
 
 - Neuron
 - NeuronGroup
@@ -53,7 +53,7 @@ Even with buffering there are cases where it matters what order network models a
 - Synapse
 - All Others 
 
-To customize this [custom simulations](simulations) are the easiest way.
+Note that items _within_ [Neuron groups](../neurongroups) and [subnetworks](subnetworks/feedForward.html) are updated in a custom manner specific to the group or network. To customize even further [custom simulations](simulations) can be used.
 
 ### Why Buffering Matters
 
@@ -85,7 +85,7 @@ Currently priority is only used for neuron update. If there is a demand for othe
 
 # Neuron Groups and Subnetworks
 
-Neuron groups and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration.
+ [Neuron groups](../neurongroups) and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration.
 
 # Update Rules Operate on Scalar Data
 
