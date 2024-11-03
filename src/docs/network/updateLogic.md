@@ -53,7 +53,7 @@ Buffering solves some but not all problems with update order. For example, it ma
 - Synapse
 - All Others 
 
-Note that items _within_ [Neuron groups](../neurongroups) and [subnetworks](subnetworks/feedForward.html) are updated in a custom manner specific to the group or network. To customize even further [custom simulations](simulations) can be used.
+Note that items _within_ [Neuron groups](neurongroups/) and [subnetworks](subnetworks/) are updated in a custom manner specific to the group or network. To customize even further [custom simulations](simulations) can be used.
 
 ### Why Buffering Matters
 
