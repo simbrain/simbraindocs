@@ -38,20 +38,31 @@ To create a new Text World component you can use
 
 ## File
 
-- **Import from xml**: 
-- **Export to xml**: 
-- **Load text**: 
-- **Rename**: 
-- **Close**: 
+- **Import from xml**: Import data from a .xml file
+- **Export to xml**: Export data to a .xml file
+- **Load text**: Load text from file (.txt)
+- **Rename**: Rename the current Text World window
+- **Close**: Close the current Text World Window
 
 ## Edit
 
-- **Find/Replace**: 
-- **Record Word Embeddings**: 
-- **Couple Plots**: 
-- **Create TextWorld Coupling**: 
-- **Show Preferences**: 
+- **Find/Replace**: Find words in text and replace them with word of choice
+- **Record Word Embeddings**: Assign new vector values to words in chosen text
+- **Couple Plots**: Create a visual representation linked to word embeddings
+- **Create TextWorld Coupling**: Send data from Text World to another window
+- **Show Preferences**: Change how Text World behaves
 
 ## View
 
-**View / edit token embedding**:
+- **View / edit token embedding**: View or edit current token:vector value pairs
+
+## Help
+
+- **Help**: Link to Simbrain Docs
+
+## Icon Bar
+
+- **View Token Embedding**: Open Token Embedding Viewer/Editor Window
+- **Extract Embedding from text file**: Choose a text file to extract embeddings from
+- **Text World Preferences**: Change how Text World behaves
+
