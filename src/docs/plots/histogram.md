@@ -16,16 +16,18 @@ For example, in a set of 20 synapses, if 10 synapses have a strength between 0 a
 
 As with other plots, several simultaneous datasets (histograms) can be displayed. Unlike other plots, the number of datasets that can be displayed can be dynamically changed. All histogram plot components are restricted to representing 4 histograms. To represented more data open another histogram plot.
 
+<img src="/assets/images/histogramBlank.png" style="width:300px;"/>
+
 ## File Menu
 
-Import from xml: Imports a bar chart from a stored .xml file.
+- **Import from xml**: Imports a bar chart from a stored .xml file.
 
-Export to xml : Exports the current bar char to a .xml file.
+- **Export to xml**: Exports the current bar char to a .xml file.
 
-Rename: Renames current bar chart window.
+- **Rename**: Renames current bar chart window.
 
-Close: Closes the current bar chart.
+- **Close**: Closes the current bar chart.
 
 ## Help
 
-Opens the main help page of bar chart.
+- **Help**: Link to Simbrain Documentation
