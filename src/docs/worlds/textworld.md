@@ -58,11 +58,14 @@ To create a new Text World component you can use
 
 ## Help
 
-- **Help**: Link to Simbrain Docs
+- **Help**: Link to Simbrain Documentation
 
-## Icon Bar
+## Toolbar
+<a href="/simbraindocs/src/docs/workspace/toolbars.md">Learn more about the Toolbars</a>
 
 - **View Token Embedding**: Open Token Embedding Viewer/Editor Window
 - **Extract Embedding from text file**: Choose a text file to extract embeddings from
 - **Text World Preferences**: Change how Text World behaves
+
+
 
