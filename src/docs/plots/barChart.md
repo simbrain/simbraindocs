@@ -14,15 +14,7 @@ Bar chart is a standard bar chart that can be used to represent changing set of 
 
 ## Menus
 
-## File
-
-- **Import from xml**: Imports a bar chart from a stored .xml file.
-
-- **Export to xml** : Exports the current bar char to a .xml file.
-
-- **Rename**: Renames current bar chart window.
-
-- **Close**: Closes the current bar chart.
+See [Plot file menu](index.html#file)
 
 ## Edit
 
@@ -38,7 +30,7 @@ Bar chart is a standard bar chart that can be used to represent changing set of 
 
 ## Help
 
-- **Help**: Link to Simbrain Documentation
+See [Plot help menu](index.html#help)
 
 ## Couplings
 <a href="/simbraindocs/src/docs/workspace/couplings.md">Learn more about couplings</a>
