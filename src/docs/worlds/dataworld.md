@@ -31,41 +31,41 @@ Most table operations (e.g. randomization) are applied by selecting cells and ei
 
 #### Edit
 - **Couple Plots**: Allows you to couple data to plots. Plots available are bar and pie charts; pixel, projection, histogram, raster, and time series plots.
-- **Create DataWorld Coupling**.
-- **Preferences**.
+- **Create DataWorld Coupling**:
+- **Preferences**:
 
 #### Data Tools
 - **Import csv files**: Import comma separated files. Allows you to choose whether or not to include column and row names.
 - **Export csv file**: Export as a comma separated file. Allows you to choose whether or not to include column and row names.
 - **Fill selected cells**: Allows you to fill in selected cells with an input value.
 - **Randomize**: Randomizes selected cell(s) in the table by sampling from a uniform distribution.
-- **Bar Plot**.
-- **Histogram**.
-- **Show Plot**.
+- **Bar Plot**:
+- **Histogram**:
+- **Show Plot**:
 
 ### Comparison Functions
-- **Correlation**.
-- **Covariance**.
-- **Cosine similarity**.
-- **Euclidean Distance**.
-- **Dot Product**.
+- **Correlation**:
+- **Covariance**:
+- **Cosine similarity**:
+- **Euclidean Distance**:
+- **Dot Product**:
 
 ### Row Operations
-- **Add Row**.
-- **Delete Row**.
+- **Add Row**:
+- **Delete Row**:
 
 ### Column Operations
-- **Add Column**.
-- **Delete Column**.
+- **Add Column**:
+- **Delete Column**:
 
 ### Bar Functions
-- **Print**.
-- **Zoom In and Out**.
-- **Enlarge and Shrink**.
-- **Increase Height**.
-- **Decrease Height**.
-- **Increase Width**.
-- **Decrease Width**.
+- **Print**:
+- **Zoom In and Out**:
+- **Enlarge and Shrink**:
+- **Increase Height**:
+- **Decrease Height**:
+- **Increase Width**:
+- **Decrease Width**:
 
 ## Properties
 

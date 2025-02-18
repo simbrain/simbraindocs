@@ -39,11 +39,8 @@ To edit an existing filter (several are provided by default), select a built-in 
 Parameters:
 
 - **Name**: A string label associated with the filter
-
 - **Width**: Determines the width of the image filter in pixels
-
 - **Height**: Determines the height of the image filter in pixels
-
 - **Filter**: Determines the type of image filter, there are three
     options: Identity, Grey Scale, and Threshold
     - Identity: Does not change the image. Used when the image should be up or downsampled but not otherwise changed.
