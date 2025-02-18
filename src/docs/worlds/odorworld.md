@@ -354,38 +354,27 @@ Parameters:
 
 ## File Menu
 
-Import from xml : Import data from a .csv file (comma separated values).
-
-Export from xml : Export (.csv) : Export data to a .csv file (comma
+- **Import from xml**: Import data from a .csv file (comma separated values).
+- **Export from xml**: Export (.csv) : Export data to a .csv file (comma
 separated values).
-
-Load Tile Map : Load premade tile maps
-
-Preferences : Set preferences for whether you want map boundaries to
+- **Load Tile Map**: Load premade tile maps
+- **Preferences**: Set preferences for whether you want map boundaries to
 wrap around, objects to block movement, camera centering through 'yes'
 or 'no' options.
-
-Rename : rename world
-
-Close : Close the current Odor World
+- **Rename**: rename world
+- **Close**: Close the current Odor World
 
 ## Edit Menu
 
-Add Entity : Add cheese entity
-
-Add Object : Add mouse agent
-
-Delete selected entities Backspace : deletes whatever entity/object is
+- **Add Entity**: Add cheese entity
+- **Add Object**: Add mouse agent
+- **Delete selected entities Backspace**: deletes whatever entity/object is
 currently selected
-
-Edit Layers : allows you to edit tile layers to be visible and
+- **Edit Layers**: allows you to edit tile layers to be visible and
 enable/disable blocking for each layer
-
-Turn on all trails :
-
-Turn off all trails
-
-Clear all trails
+- **Turn on all trails**:
+- **Turn off all trails**
+- **Clear all trails**
 
 # Todos
 

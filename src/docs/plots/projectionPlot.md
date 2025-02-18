@@ -84,13 +84,10 @@ To get a feel for how projection components work, invoke the script `Simbrain Me
 
 ## Component Panel
 
-- Add: Add a time series to the plot.
-
-- Remove: Remove a time series from the plot.
-
-- Clear Graph Data: Clears all data from the plot.
-
-- Show Graph Properties: Opens up properties menu for the plot.
+- **Add**: Add a time series to the plot.
+- **Remove**: Remove a time series from the plot.
+- **Clear Graph Data**: Clears all data from the plot.
+- **Show Graph Properties**: Opens up properties menu for the plot.
 
 ## Example
 
@@ -178,46 +175,33 @@ The Triangulate method takes each new point and determines which two points in t
 
 ## File
 
-- Open: Opens plot component files as .xml not only with underlying data, but all associated preferences and information.
-
-- Save/Save As: Saves projection components using the xml style encoding. The xml files stores plot data as well as related preferences and information.
-
-- Export / Import:Exports or imports the data as human-readable .csv (comma separated values) files. High dimensional data can be imported, which is the main way of using the projection component as a free-standing tool to analyze existing data. The high or low dimensional data can also be exported to .csv for viewing or analysis in other programs, like R or Matlab.
+- **Open**: Opens plot component files as .xml not only with underlying data, but all associated preferences and information.
+- **Save/Save As**: Saves projection components using the xml style encoding. The xml files stores plot data as well as related preferences and information.
+- **Export / Import**:Exports or imports the data as human-readable .csv (comma separated values) files. High dimensional data can be imported, which is the main way of using the projection component as a free-standing tool to analyze existing data. The high or low dimensional data can also be exported to .csv for viewing or analysis in other programs, like R or Matlab.
 
 ## Edit
 
-- Preferences: Opens the **preferences** dialog.
-
-- Set dimensions: Set the dimensions of the underlying data. Note that dimension are automatically reset when a vector coupling is connected to the component.
-
-- Datapoint Coloring: Adjusts the colors for the data points. See **datapoint coloring** for more information.
+- **Preferences**: Opens the **preferences** dialog.
+- **Set dimensions**: Set the dimensions of the underlying data. Note that dimension are automatically reset when a vector coupling is connected to the component.
+- **Datapoint Coloring**: Adjusts the colors for the data points. See **datapoint coloring** for more information.
 
 # Toolbar and Dialog Elements
 
-- Status Bar    The status bar shows the current dimensionality of the high dimensional data, the current number of data points, and for the **Sammon** method, the current error.
-
-- Projection Selector   This drop down box allows you to select which **projection method** to use on the data.
-
-- Iterate Indefinitely  Pressing this button will cause the program to iterate the algorithm an indefinite number of steps until the Stop button, , is pressed. Only **Sammon maps** uses this and related buttons.
-
-- Stop Iteration    Pressing this button will cause the program to stop iterating the algorithm.
-
-- Iterate One Step  Pressing this button will cause the projection algorithm to iterate once.
-
-- Erase data    This button clears both the high dimensional data set and low dimensional data set from the program.
-
-- Randomize data    This button randomizes the points in the low dimensional set. Useful for bumping the Sammon map out of local minima, and for exploring different possible projections of a given dataset under the Sammon map.
-
-- Warning Label This symbol warns the user that the current method works best when more datapoints are already added.
-
-- Step Size This field scales the amount points are moved on each iteration. Note this item is only displayed if the **Sammon map** is selected.
-
-- First and Second Dimension    This field controls which dimensions of the high-dimensional data are projected to the horizontal and vertical axes of the display. Note this item is only displayed if Coordinate Projection is selected. For more info see the discussion at **coordinate preferences**.
+- **Status Bar**:    The status bar shows the current dimensionality of the high dimensional data, the current number of data points, and for the **Sammon** method, the current error.
+- **Projection Selector**:   This drop down box allows you to select which **projection method** to use on the data.
+- **Iterate Indefinitely**:  Pressing this button will cause the program to iterate the algorithm an indefinite number of steps until the Stop button, , is pressed. Only **Sammon maps** uses this and related buttons.
+- **Stop Iteration**:    Pressing this button will cause the program to stop iterating the algorithm.
+- **Iterate One Step**:  Pressing this button will cause the projection algorithm to iterate once.
+- **Erase data**:    This button clears both the high dimensional data set and low dimensional data set from the program.
+- **Randomize data**:    This button randomizes the points in the low dimensional set. Useful for bumping the Sammon map out of local minima, and for exploring different possible projections of a given dataset under the Sammon map.
+- **Warning Label**: This symbol warns the user that the current method works best when more datapoints are already added.
+- **Step Size**: This field scales the amount points are moved on each iteration. Note this item is only displayed if the **Sammon map** is selected.
+- **First and Second Dimension**:    This field controls which dimensions of the high-dimensional data are projected to the horizontal and vertical axes of the display. Note this item is only displayed if Coordinate Projection is selected. For more info see the discussion at **coordinate preferences**.
 
 
 ## Right-Click Menu
 
-- The context menu is a **JFreeChart menu**.
+- The context menu is a **[JFreeChart menu](./#jfreechart-right-click-menu)**.
 
 # Preferences
 
