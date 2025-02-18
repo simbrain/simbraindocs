@@ -11,25 +11,17 @@ nav_order: 65
 
 In Simbrain, dynamic neural activity can be visualized and recorded using plots. Plots are composed of one or more visual representations (such as bars, dots, and lines) of sets of values taken directly from coupled neurons. These visual representations can be valuable in statistical analyses and for viewing dynamic patterns in neural activations over time. 
 
-## Coupling Neurons to Plots
+## Adding Plots
 
-To couple a neuron group to a plot, click on “Couplings,” open “Coupling Manager” and set the network as Producers and the plot as Consumers. In the Producers window, select Group_n:getActivations (where n is any given number) and select setBarValues for the plot in the Consumers window. 
+To add a plot component to the workspace either press on the plot button plot button  in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu `Insert > New Plot >...``
 
-Once coupled, any activations in the group should be seen in the plot.
+## Coupling to Plots
 
-The only exception to this method are time series plots in scalar mode. To couple a scalar time series plot, each neuron should be coupled to each series. This is because whole groups cannot be coupled as a scalar quantity, when coupling a group in a time series plot, use array mode instead.
+Plots must be [coupled](../workspace/couplings.html) to other workspace components to do anything interesting. They receive data primarily from neural networks and display updated data at each workspace update.
 
-There are six plot types available in Simbrain.
+This can be done the standard ways described in the [couplings](../workspace/couplings.html) doc, but for pltos there are also custom actions on many network components to instantly created a coupled plot. This is by far the easiest and most convenient way to do it.
 
-# Plots (Old)
-
-One of the main methods for studying the activity of the network component in Simbrain is by using a plot component. However, the plot components are general and can be used to show the values of any attribute in simbrain.
-
-To get a quick sense of what most of the charts do, run the chartExamples.zip simulation.
-
-To add a plot component to the workspace either press on the plot button plot button  in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu Insert > New Plot >...
-
-To use the plot you will have to couple some attributes of the component whose behavior you want to plot (often neural activations in a neural network) with the plot itself.   For information on how to do this see the documentation on couplings.
+Some plots take vector couplings, some scalar, some both.
 
 Most of the charts are based on the JFreeChart library.
 
@@ -61,25 +53,26 @@ Lorem Ipsum
 
 # Plot Couplings
 
-Plots must be **coupled** to other workspace components to do anything interesting. They receive data primarily from neural networks and display updated data at each workspace update.
-
 Since they receive data, charts contain consumer attributes. Typically there are scalar consumers which receive data for one bar, "slice" of pie, dimension of an input vector a projection pot, etc. at a time, and vector consumers which receive a complete vector data at each time step.
 
 <!-- TODO --> Add image
 
-The basic ways to couple to plots is similar across cases. Documentation with images has been provided (so far) in two cases, to give a sense of how this works.
+The basic ways to couple to plots is similar across cases. 
 
-- **Bar charts**
-- **Projections**
+# Common Menus
 
-Generally you must first set up the chart to accept a certain number of "inputs" from scalar consumers, or to accept vectors of a certain size (number of components) from vector consumers.
+## File
 
-<!-- TODO --> Add image
+- **Import from xml**: Imports a bar chart from a stored `.xml` file.
+
+- **Export to xml** : Exports the current bar char to a `.xml` file.
+
+- **Rename**: Renames current bar chart window.
+
+- **Close**: Closes the current bar chart.
 
 
-
-
-# JFreeChart Right Click Menu
+## JFreeChart Right Click Menu
 
 These are commands that are available by right clicking in all Simbrain charts; they are based on built in functions associated with **JFreeChart**
 
@@ -90,14 +83,12 @@ These are commands that are available by right clicking in all Simbrain charts; 
 - **Auto Range**: Automatically re-adjusts the range of domain or range axis, or both axes.
 - **Properties**: Opens the JFreeChart properties dialog.
 
-## Title Tab
+### Title Tab
 
 - **Show** Title: Sets the title visibility.
 - **Text**: Insert the title of chart here.
 - **Font**: Configures font style, size and attributes (bold, italic) of the title.
 - **Color**: Sets color of the title.
-
-## Plot Tab
 
 ### Domain and Range Axis
 
