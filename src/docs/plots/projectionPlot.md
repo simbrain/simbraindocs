@@ -16,6 +16,8 @@ The process of adding a new point without having to re-run the entire dimensiona
 This approach is often used when dealing with large datasets that are constantly growing, where re-running the entire dimensionality reduction algorithm each time a new point is added would be computationally expensive and time-consuming. Instead, incremental dimensionality reduction algorithms update the projection of the existing points based on the new point, and can be more efficient than re-running the entire algorithm.
 Some popular incremental dimensionality reduction techniques include incremental PCA (Principal Component Analysis) and online t-SNE (t-Distributed Stochastic Neighbor Embedding).
 
+<img src="../../assets/images/projectionPlotRandom.png" style="width:300px;"/>
+
 ## Getting started
 
 To get a feel for how projection components work, invoke the script `Simbrain Menu > Scripts > highDimensionalProjection.bsh`. Run the network, and periodically randomize network activations by clicking in the network window, and pressing "N" and "R". This will give you a sense of how the projection component works. Each new state of the network is a separate dot in the component, and the red dot is the current state.
