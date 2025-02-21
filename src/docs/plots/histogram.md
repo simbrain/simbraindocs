@@ -16,7 +16,7 @@ For example, in a set of 20 synapses, if 10 synapses have a strength between 0 a
 
 As with other plots, several simultaneous datasets (histograms) can be displayed. Unlike other plots, the number of datasets that can be displayed can be dynamically changed. All histogram plot components are restricted to representing 4 histograms. To represented more data open another histogram plot.
 
-<img src="../../../src/assets/images/histogramRandom.png" style="width:300px;"/>
+<img src="../../assets/images/histogramRandom.png" style="width:300px;"/>
 
 ## File Menu
 

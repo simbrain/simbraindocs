@@ -10,7 +10,7 @@ nav_order: 115
 
 Time series plot allows you to track changes in a set of variables over time (time corresponds to **simulation time**, and is represented on the x-axis of the plot). For example, the spike pattern of a [spiking neuron](../network/spikingneurons.md) can be viewed by attaching the spiking neuron to a time series plot.
 
-<img src="../../../src/assets/images/timeSeriesRandom.png" style="width:300px;"/>
+<img src="../../assets/images/timeSeriesRandom.png" style="width:300px;"/>
 
 ## Component Panel
 

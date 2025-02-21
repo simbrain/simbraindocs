@@ -16,7 +16,7 @@ The process of adding a new point without having to re-run the entire dimensiona
 This approach is often used when dealing with large datasets that are constantly growing, where re-running the entire dimensionality reduction algorithm each time a new point is added would be computationally expensive and time-consuming. Instead, incremental dimensionality reduction algorithms update the projection of the existing points based on the new point, and can be more efficient than re-running the entire algorithm.
 Some popular incremental dimensionality reduction techniques include incremental PCA (Principal Component Analysis) and online t-SNE (t-Distributed Stochastic Neighbor Embedding).
 
-<img src="../../../src/assets/images/projectionPlotRandom.png" style="width:300px;"/>
+<img src="../../assets/images/projectionPlotRandom.png" style="width:300px;"/>
 
 ## Getting started
 
