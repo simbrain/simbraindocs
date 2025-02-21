@@ -10,7 +10,7 @@ nav_order: 95
 
 Pie chart is a standard pie chart that can be used to represent the relative sizes of a set of quantities in a Simbrain simulation. For example this can be useful for representing how evenly distributed a set of neural activations is. When one neuron dominates, it will take up a larger slice. When all neurons are equally active, all slices will be of equal size.
 
-<img src="../pieChartBlank.png" style="width:300px;"/>
+<img src="../../../src/assets/images/pieChartRandom.png" style="width:300px;"/>
 
 ## Menus
 

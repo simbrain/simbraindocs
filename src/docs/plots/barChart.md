@@ -10,7 +10,7 @@ nav_order: 75
 
 Bar chart is a standard bar chart that can be used to represent changing set of quantities in a Simbrain simulation. For example, it is often useful to represent the activations of a group of neurons using bar chart and to watch how they change in time as the simulation runs.
 
-<img src="/assets/images/barChartBlank.png" style="width:300px;"/>
+<img src="../../../src/assets/images/barChartRandom.png" style="width:300px;"/>
 
 ## Menus
 
