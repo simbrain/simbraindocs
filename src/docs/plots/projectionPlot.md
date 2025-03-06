@@ -3,7 +3,7 @@ title: Projection Plot
 layout: default
 parent: Plots
 has_children: false
-nav_order: 10
+nav_order: 105
 ---
 
 # Projection Plots
@@ -115,7 +115,7 @@ When Simbrain is running users can add one or more projection component windows,
 
 Data is fed to a projection component using **couplings**. The image here uses the graphical notation set up on the couplings page.
 
-Vector couplings attach to a "set point" consumer that sets all 6 values of the projection consumer. This is the most natural way to set up a projection component. Typically this is done by coupling from a neuron group (see **this page**). When a vector coupling to a projection is created, the dimensionality of the projection component is reset automatically (though this is currently not reflected in the GUI until after the next workspace update)
+Vector couplings attach to a "set point" consumer that sets all 6 values of the projection consumer. This is the most natural way to set up a projection component. Typically this is done by coupling from a neuron group (see **[this page](../network/neurongroups)**). When a vector coupling to a projection is created, the dimensionality of the projection component is reset automatically (though this is currently not reflected in the GUI until after the next workspace update)
 
 Scalar couplings attach to a single "dimension" consumer. In this mode, the number of dimensions the projection accepts must be manually set using the `set dimensions` menu item. At each update, the "input vector" begins as a zero-vector and then the vector is filled with values from any dimension consumers that receive data
 
