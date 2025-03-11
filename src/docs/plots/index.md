@@ -25,32 +25,6 @@ Some plots take vector couplings, some scalar, some both.
 
 Most of the charts are based on the JFreeChart library.
 
-# Plot Types
-
-[Bar Chart](./barChart.md)
-
-When coupled to a neuron group, a bar chart represents each neural activation as a vertical bar. Each bar displays its coupled neuron’s label on its base (in the x-axis) and the amount of activation as a measure of its length (in the y-axis). By default, the y-axis ranges in value from 0 to 10. 
-
-To manually change the upper and lower bounds, click on “Edit,” then select “Preferences” which will open up an edit menu where the upper and lower bounds can be increased or decreased.
-
-
-[Histogram](./histogram.md)
-
-Lorem Ipsum
-
-[Projection Plot](./projectionPlot.md)
-
-Lorem Ipsum
-
-[Raster Plot](./rasterPlot.md)
-
-Lorem Ipsum
-
-[Time Series](./timeSeries.md)
-
-Lorem Ipsum
-
-
 # Plot Couplings
 
 Since they receive data, charts contain consumer attributes. Typically there are scalar consumers which receive data for one bar, "slice" of pie, dimension of an input vector a projection pot, etc. at a time, and vector consumers which receive a complete vector data at each time step.

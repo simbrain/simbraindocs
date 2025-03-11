@@ -3,7 +3,7 @@ title: Pixel Plot
 layout: default
 parent: Plots
 has_children: false
-nav_order: 99
+nav_order: 100
 ---
 
 # Pixel plot
