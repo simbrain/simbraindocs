@@ -8,7 +8,7 @@ nav_order: 105
 
 # Projection Plots
 
-The projection component is derived from a program called [HiSee](https://hisee.sourceforge.net/). HiSee is a high dimensional visualizer, it let's you "see" "hi"-dimensional data. It is basically a visual way of performing **dimensionality reduction** using a few techniques, primarily **pca** and **Sammon Maps**. It can be used to represent any high dimensional data, but in Simbrain it is primarily used to study the dynamics of a neural network.
+The projection component is derived from a program called [HiSee](https://hisee.sourceforge.net/). HiSee is a high dimensional visualizer, it let's you "see" "hi"-dimensional data. It is basically a visual way of performing [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) using a few techniques, primarily [pca](https://en.wikipedia.org/wiki/Principal_component_analysis) and [multidimensional scaling](https://en.wikipedia.org/wiki/Multidimensional_scaling). It can be used to represent any high dimensional data, but in Simbrain it is primarily used to study the dynamics of a neural network.
 
 The projection component can take all the states (patterns of activation) that occur for the network, which exist in a high dimensional space, and project them down into two dimensions so that many of their geometric and topological properties are preserved. This gives users of Simbrain a way to visualize the dynamics of the network.
 The process of adding a new point without having to re-run the entire dimensionality reduction algorithm is called incremental dimensionality reduction or online dimensionality reduction.
@@ -21,50 +21,6 @@ Some popular incremental dimensionality reduction techniques include incremental
 ## Getting started
 
 To get a feel for how projection components work, invoke the script `Simbrain Menu > Scripts > highDimensionalProjection.bsh`. Run the network, and periodically randomize network activations by clicking in the network window, and pressing "N" and "R". This will give you a sense of how the projection component works. Each new state of the network is a separate dot in the component, and the red dot is the current state.
-
-## Background
-
-* Dimensionalty reduction,
-
-* See hisee and grab a bunch of stuff from there
-
-## General properties
-
-* Tolerance
-
-## General graphical properties
-
-* Connect points
-
-* Hot color: color for current color
-
-* Base colors
-
-* Show labels. But this is only if they are defined somewhere. Usually there aren’t any
-
-* Use Hotpoint
-
-## Projection Methods
-
-* Coordinate
-    * Just ignore everything and focus on a few dimension
-
-* PCA
-    * First three points are coordinate
-    * You can “freeze” the current projection and keep reusing it
-
-* Sammon  (Iterable)
-    * A form of MDS
-
-## Iterable Projection Methods
-
-* Have a play button
-
-* Require an initialization method to use before play button is pressed
-
-## Coloring Manager
-
-* Methods used to determine coloring of points
 
 ## Conceptual Issues
 
@@ -80,10 +36,6 @@ To get a feel for how projection components work, invoke the script `Simbrain Me
 * Iterable Projection Methods. Methods where it makes sense to have a “play” button.
     * Problem: how to initialize nethem. Different methods are provided
 
-
-## GPT
-
-
 ## Component Panel
 
 - **Add**: Add a time series to the plot.
@@ -95,7 +47,7 @@ To get a feel for how projection components work, invoke the script `Simbrain Me
 
 The projection component shown here begins with no datapoints, and then plots 54 points in a **limit cycle**, that occur in a network with 5 neurons. The network is in a kind of oscillatory state where it repeatedly visits the same 54 states in sequence. This dynamical pattern is directly visible in the projection, which shows a 2-dimensional projection of the 5 dimensional space. The example shows a case where the data have been removed (with the "eraser" button) and the simulation re-run, so that we can watch the limit cycle initially take form, and then watch the system cycle through that structure once. Each dot corresponds to one state of that network, where the red dot is current state, and the green dots are previous states (colors can be changed in the **datapoint coloring** dialog). Points that are close to each other in the projection component correspond to patterns of activity that are similar.
 
-<!-- TODO --> Add GIF
+<img src="../../assets/images/projection.gif" style="width:900px;"/>
 
 ## Choosing a projection method
 
@@ -119,7 +71,7 @@ Vector couplings attach to a "set point" consumer that sets all 6 values of the 
 
 Scalar couplings attach to a single "dimension" consumer. In this mode, the number of dimensions the projection accepts must be manually set using the `set dimensions` menu item. At each update, the "input vector" begins as a zero-vector and then the vector is filled with values from any dimension consumers that receive data
 
-<!-- TODO --> Add image
+<img src="../../assets/images/projectionExample2.png" style="width:900px;"/>
 
 ---
 title: Projection Method
@@ -173,7 +125,7 @@ The **Sammon map** is an iterative technique for making interpoint distances in 
 The Triangulate method takes each new point and determines which two points in the current data set are closest to it. Then, if possible, it will place the projected image of the new point so that its distance from the projected image of its two nearest neighbors is the same as it was in the high dimensional space. When it is not possible to project the point such that its distance to its two nearest neighbors is preserved, then the projected image of the new point will be placed on a line connecting the projected image of its two nearest neighbors. In this case the position of the projected image of the new point on this line is determined by the relative sizes of the distances between the new point and its two nearest neighbors in the current data set.
 
 
-# MENUS
+# Menu
 
 ## File
 
@@ -200,6 +152,72 @@ The Triangulate method takes each new point and determines which two points in t
 - **Step Size**: This field scales the amount points are moved on each iteration. Note this item is only displayed if the **Sammon map** is selected.
 - **First and Second Dimension**:    This field controls which dimensions of the high-dimensional data are projected to the horizontal and vertical axes of the display. Note this item is only displayed if Coordinate Projection is selected. For more info see the discussion at **coordinate preferences**.
 
+# Preferences
+
+## General properties
+
+- **Tolerance**: Only add new points if they are more this distance from any existing point
+
+## General graphical properties
+
+- **Connect points**: Draw lines between points in plot
+
+- **Hot color**: color for current color
+
+- **Base colors**:
+
+- **Show labels**: Show text labes sometimes associated with points
+
+- **Use Hotpoint**: If true, current point is rendered using the hotpoint color
+
+## Projection Methods
+
+- **Coordinate**
+    - Just ignore everything and focus on a few dimension
+    - **Settings**
+        - dim1:
+        - dim2:
+
+- **PCA**
+    - First three points are coordinate
+    - You can “freeze” the current projection and keep reusing it
+    - **Settings**
+        - Freeze space: If true, project to existing components each update. If false, refit PCA components each update.
+
+- **Sammon  (Iterable)**
+    - A form of MDS
+    - **Settings**
+        - Epsilon:
+
+- **Triangulate Projection**
+
+- **TNSE Projection**
+    - A form of MDS
+    - **Settings**
+        - Learning Rate:
+        - Perplexity:
+
+
+## Iterable Projection Methods
+
+- Have a play button
+
+- Require an initialization method to use before play button is pressed
+
+## Coloring Manager
+
+- Methods used to determine coloring of points
+
+- **Options**:
+    - None
+    - Decay
+        - Steps: Steps to base color
+    - Frequency
+        - High Frequency Color: 
+    - Markov
+        - High Frequency Color:
+    - Halo
+        - Radius: Radius of the halo 
 
 ## Right-Click Menu
 
