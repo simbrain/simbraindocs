@@ -12,7 +12,7 @@ Bar chart is a standard bar chart that can be used to represent changing set of 
 
 <img src="../../assets/images/barChartRandom.png" style="width:300px;"/>
 
-## Menus
+# Menus
 
 See [Plot file menu](index.html#file)
 
@@ -28,7 +28,8 @@ See [Plot file menu](index.html#file)
 
 See [Plot help menu](index.html#help)
 
-## Couplings
+# Couplings
+
 <a href="../workspace/couplings.md">Learn more about couplings</a>
 
 Bars in a barchart can be set using **couplings**. There are two ways to couple to barchart. Scalar couplings attach to scalar consumers that set a specific bar (if it is out of range the chart itself must be set). Vector couplings attach to a "set bar chart" attribute to set the values of the whole bar chart.

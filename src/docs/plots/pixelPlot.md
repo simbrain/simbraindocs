@@ -16,7 +16,7 @@ Use the plot by [coupling](../workspace/couplings.html) to `setBrightness`, `set
 
 <img src="../../assets/images/pixelPlotRandom.png" style="width:300px;"/>
 
-# Preferences
+# Menus
 
 ## File
 
