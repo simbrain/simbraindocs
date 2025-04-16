@@ -9,13 +9,13 @@ nav_order: 110
 # Raster
 
 A raster plot is a graphical representation of spiking activity across a group of neurons over time. Each dot in the plot represents a spike by a neuron at a specific moment.
-- The **x-axis** shows time steps.
-- The **y-axis** shows neuron indices (often interpreted as "neuron number").
-- A **dot at position (t, i)** means neuron *i* fired (spiked) at time *t*, or (for non-spiking neurons) the that neuron was active above a threshold.
+- The x-axis shows time steps.
+- The y-axis shows neuron indices (often interpreted as "neuron number").
+- A dot at position $$(t, i)$$ means neuron $$i$$ fired (spiked) at time $$t$$, or (for non-spiking neurons) the that neuron was active above a threshold.
 
-Note: The vertical axis might feel counterintuitive, since it's not a continuous variable—just a list of neuron indices. Think of each row as representing a single neuron.
+Basically each row represents a single neuron's spiking activity over time.
 
-When you see vertical alignments of dots, it means multiple neurons spiked at the same time: often a sign of synchrony or oscillations. Horizontal bands or rhythmic patterns may indicate periodic activity.
+When you see vertical alignments of dots, it means multiple neurons spiked at the same time: often a sign of synchrony or oscillations. The case shown below does not show much spiking synchrony.
 
 <!-- TODO: An example that makes these vertical clusters -->
 
@@ -27,23 +27,29 @@ Although raster plots are typically used with spiking neurons, Simbrain allows y
 
 When there is a vertical cluster that means many neurons spiked at the same time, suggesting oscillations. Bands give a sense of frequency of oscillation
 
+# Preferences
+- **Dot size**: How big the dots are.
+- **Window size**: How many time points can be contained in the window .
+- **Fixed width**: If true, the raster window never extends beyond the window size. If false, all data to date are plotted (which can start to consume quite a bit of memory).
+- **Spike threshold**: threshold used to determine spiking with non-spiking neurons.
 
-## Menus
 
-### File Menu
+# Panel Buttons
+- **Add**: Add a raster plot series to the plot (multiple raster plots, shown in different colors, can be superimposed)
+- **Remove**: Removes a raster plot series from the plot.
+- **Clear Graph Data**: Clears all data.
+- **Show Graph Properties** (gear icon): See preferences.
+
+# Menus
+
+## File 
 - **Import from XML**: Load a previously saved raster plot.
 - **Export to XML**: Save the current raster plot.
 - **Rename**: Rename the raster plot window.
 - **Close**: Close the plot window.
 
-### Component Panel
-- **Add**: Add a raster plot series to the plot (multiple raster plots, shown in different colors, can be superimposed)
-- **Remove**: Removes a raster plot series from the plot.
-- **Clear Graph Data**: Clears all data.
-- **Show Graph Properties** (gear icon): Customize:
-  - Dot Size: how big the dots are
-  - Window Size: todo
-  - Spike Threshold: threshold to use with non-spiking neurons
+## Edit
+- **Properties**: See preferences
 
-### Right-Click Menu
+## Right-Click Menu
 - Context menu from **JFreeChart** to interact with the chart view.
