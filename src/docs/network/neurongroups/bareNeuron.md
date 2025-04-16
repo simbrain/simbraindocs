@@ -1,5 +1,5 @@
 ---
-title: Bare Neuron
+title: Bare Neuron Group
 layout: default
 grand_parent: Networks
 parent: Neuron Groups and Collections

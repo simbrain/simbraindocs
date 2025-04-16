@@ -10,11 +10,17 @@ nav_order: 150
 
 Training networks in Simbrain is handled in several ways. Local learning rules can be set up in synapses. That is discussed in [synapses](synapses/). Other forms of training are handled using special dialogs and commands described here.
 
+All forms of learning have a common type of dialog that shows one more datasets.
+
+
 # Supervised Learning
 
-Includes backprop and SRN.
+Supervised learning occurs in a several ways in Simbrain
 
-These networks have a training set and controls to manage trainig them. The main point of entry is the training dialog.
+- Supervised model, which transiently wrap around a set of objects using a source and target neuron array, collection, or group (which  must be conneted by intervening weight matrices or synapse groups), and can be used to train them.  Finds the shortest path between source (Red selection) and target (green selection) and sets up backprop between them.  Supervised models support **immediate learning**, where you simply make the model, press "L", and the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning.
+- Subnetworks like backprop and SRN's which have the supervised model built in
+
+The common structure to both cases is a standardly formatted dialog.
 
 ## Supervised Training Dialog
 
@@ -58,13 +64,10 @@ These networks are similar to supervised but only have input data. There is no t
 
 TODO: Put in a new screenshot and add menu items / buttons missing below
 
-Menu commands
+## Menu commands
 
- **Train on Curent Pattern:** Apply the training algorithm to the pattern currently in the network.
+**Train on Curent Pattern:** Apply the training algorithm to the pattern currently in the network.
 
-# Immediate Learning
-
- A nice way to get a feel for how things work, and for tuning a network too. Each time you select a source and target neuron or neuron array, and press `L` (for learn) the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop.
 
 
 

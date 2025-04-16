@@ -61,7 +61,7 @@ Note that most selection operations must be done in selection mode, the default 
 
 # Source and Target Objects
 
-One common motif used for several operation in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green). 
+One common motif used for several operation in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green).  This is used to connect neurons, neuron groups, and neuron arrays together, and also to to visualize weights being obejcts, and finally to create supervised models.
 
 Here are some source and target neurons which are about to connected in a feed-forward way.
 
@@ -78,6 +78,18 @@ Generally there are three things to do, which we call the "1-2 trick"
 3. Followup actions also use number keys like `2` and `3` to connect thigns.
 
 4. To deselect source objects click on an empty space in the network and press `esc` or `1` . You can also use menu command like right click select `Clear Source(s)`.
+
+# Transient Wrappers vs. Permanent Objects
+
+Some objects like neuron collections and supervised models are transient wrappers around other objects. When they are deleted by their interactoin boxes, the objects they wrap are not deleted.  They are designated by green interaction boxes.
+
+Other objects like neuron groups and subnetworks are essentially linked to the objects they wrap around. If you select their interaction boxes and delete them, all the objects they contain are also deleted. They are designated by yellow interaction boxes.
+
+Tldr: if the interaction box is green, it's "temporary". If it's yellow it's more permanent.
+
+As a result of this neuron collections and supervised models can overlap one another. Shown here is an example
+
+TODO: Show a few overlapping neuron collections and superivsed models.
 
 
 # Ways to Connect Neurons Together
