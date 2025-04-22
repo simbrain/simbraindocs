@@ -11,7 +11,7 @@ nav_order: 40
 
 This is a common type of activation function in neural networks. The activation level *a* of a binary node is set to an upper value *u* (set in the **upper bound field**) if the **weighted input** *W* plus a bias term *b* is greater than the threshold θ, and a lower value *l* (set in the **lower bound field**) otherwise:
 
-<!-- TODO --> Add equation
+<img src="../../assets/images/binaryNeuronEquation.png" style="width:500px;"/>
 
 This type of activation function is also referred to as a threshold function, and these units are sometimes called "linear threshold units."
 

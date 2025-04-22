@@ -13,7 +13,7 @@ These nodes get their name from the IAC or ["Inter-Active Competition"](https://
 
 The basic dynamics of an IAC neuron are similar to the [decay neurons](decay.html). The user sets a resting value and a decay rate, and the neuron will decay towards that resting value proportionally to the decay rate. IAC neurons change activation as follows:
 
-<!-- TODO --> Add equation
+<img src="../../assets/images/IACNeuronEquation.png" style="width:500px;"/>
 
 where activation level is *a*, *W* is **weighted inputs**, *u* is upper bound, *l* is lower bound, *r* is the resting value, and λ is the decay rate.
 
@@ -27,6 +27,6 @@ The resting value *r* which the activation decays to.
 
 ## Add Noise
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click **here**.
+If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click **[here](../../utilities/randomizers.md)**.
 
 
