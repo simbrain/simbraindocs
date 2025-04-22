@@ -32,6 +32,8 @@ An attribute is any part of a component which has a value that may be sent to or
 
 Most windows in Simbrain (i.e. workspace [components](components.html)) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are [attributes](couplings.html#attributes) and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
 
+When coupling to neurons it is often suggested to use **add inputs**, because each node accumulates input values (see [network update](/docs/network/updateLogic)). Coupling into an activation overwrites the activation, and is not additive, so it is not reccomended. However coupling _from_ an activation (for example when using plots) is fine.
+
 Each attribute has a data type, as described above: currently scalar (double), vector (array of doubles), and String.
 
 The attributes in a component can be viewed in the coupling manager dialog.
@@ -78,7 +80,6 @@ These vectors can get huge! Tens of thousands of neuron activations! As with sca
 - A coupling from a neuron groups' activations to most types of chart.
 - A coupling from a neuron group to a data world. On each iteration of the workspace the current activations of the neuron group are used to set the value of the current row of the data world. In this way activations can be logged and viewed in realtime.
 - A coupling from a neuron group's activation to text in a [Text World](../worlds/textworld.html). For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
-
 
 # Coupling Manager
 

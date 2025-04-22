@@ -14,34 +14,33 @@ This page gives intuitions about the Simbrain interface. More details on the und
 
 Basic editing is straightforward, and most actions are meant to be intuitive relative to any standard draw program which involves selecting, copying, and editing with double clicks etc. For the most part you simply left click and drag the selected items (more on selection below). Network models can be lasso selected and the selection edited using the shift key to toggle selection.
 
-- Nudging: For fine tuning a selection, users can also use the arrow keys (with Shift held down) to "nudge" selected items. The nudge amount in pixels can be set in the network preferences dialog.
+- **Nudging**: For fine tuning a selection, users can also use the arrow keys (with Shift held down) to "nudge" selected items. The nudge amount in pixels can be set in the network preferences dialog.
 
-- Zooming: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, or the toolbar buttons, which include zoom to fit (fit everything on the page automatically) or reset, which places the zoom level at 1:1. Auto-zoom mode makes things always zoom to fit.
+- **Zooming**: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, or the toolbar buttons, which include zoom to fit (fit everything on the page automatically) or reset, which places the zoom level at 1:1. Auto-zoom mode makes things always zoom to fit.
 
-- Panning: To pan press the command /ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot it should be turned off by dclicking on the auto-zoom icon. 
+- **Panning**: To pan press the command /ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot it should be turned off by dclicking on the auto-zoom icon. 
 
 # Graphical and Color Conventions
 
 Most graphical and color conventions can be customized using the [preference dialog](preferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
 
-
 # Creating Objects
 
 Primarily nodes are discussed here, but similar ideas apply for text objects, neuron groups, and other Simbrain objects. 
 
-- Creating a node: Nodes are created by pressing "P" or by pressing the new node button  in the toolbar. Any new nodes will be created at the last position clicked on-screen.
+- **Creating a node**: Nodes are created by pressing "P" or by pressing the new node button  in the toolbar. Any new nodes will be created at the last position clicked on-screen.
 
-- Creating a line of nodes: Repeatedly pressing "P" or the new node button results in a line of nodes being created beginning at the last clicked position.
+- **Creating a line of nodes**: Repeatedly pressing "P" or the new node button results in a line of nodes being created beginning at the last clicked position.
  
-- Creating specific types of neurons: By default, new nodes are linear. The default node type cannot currently be changed, though this is planned. To create a node of a specific type, simply create a new node, double click or right click the node and edit (or click command-E). From there one can select any neuron type in Simbrain from a dropdown menu. The same thing can be done for groups of nodes: select them all and double clcik on one
+- **Creating specific types of neurons**: By default, new nodes are linear. The default node type cannot currently be changed, though this is planned. To create a node of a specific type, simply create a new node, double click or right click the node and edit (or click command-E). From there one can select any neuron type in Simbrain from a dropdown menu. The same thing can be done for groups of nodes**: select them all and double clcik on one
  
-- Add neurons dialog: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see layouts). There is also a checkbox which will make these neurons be created as a group.
+- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see layouts). There is also a checkbox which will make these neurons be created as a group.
  
-- Copy / Paste / Duplicate: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
+- **Copy / Paste / Duplicate**: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
  
-- Creating subnetworks or groups of nodes: Subnets are created using *Insert > Add Network*. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing free neurons can be added to a network with Shift-G.
+- **Creating subnetworks or groups of nodes**: Subnets are created using *Insert > Add Network*. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing free neurons can be added to a network with Shift-G.
  
-- Creating synapses or synapse groups: See the connections documentation.
+- **Creating synapses or synapse groups**: See the connections documentation.
 
 # Selecting Objects
 
@@ -49,15 +48,15 @@ Neurons, weights, groups, and textboxes can be selected so that operations can b
 
 Note that most selection operations must be done in selection mode, the default mode, which is entered by pressing "S" or the selection button.
 
-- Lasso: Left-click and drag the lasso around screen items you want to select. As items are selected a box appears around them.
+- **Lasso**: Left-click and drag the lasso around screen items you want to select. As items are selected a box appears around them.
 
-- Lassoing weights: It can be hard to click on individual weights directly, so they can also be selected by dragging the lasso across the line associated with a weight, which is much easier.
+- **Lassoing weights**: It can be hard to click on individual weights directly, so they can also be selected by dragging the lasso across the line associated with a weight, which is much easier.
 
-- Single click: Single left-click on nodes and weights to select individual screen items. Zooming in on items can facilitate this.
+- **Single click**: Single left-click on nodes and weights to select individual screen items. Zooming in on items can facilitate this.
 
-- Shift key : Once some items are selected, you can hold down the shift key to add more items to your selection. Hold down Shift while lassoing to add or remove groups items; hold down Shift while single-clicking to add or remove single items.
+- **Shift key**: Once some items are selected, you can hold down the shift key to add more items to your selection. Hold down Shift while lassoing to add or remove groups items; hold down Shift while single-clicking to add or remove single items.
 
-- Key Shortcuts : "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
+- **Key Shortcuts**: "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
 
 # Source and Target Objects
 

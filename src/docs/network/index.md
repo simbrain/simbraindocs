@@ -9,7 +9,7 @@ nav_order: 15
 
 The network component of Simbrain represents a simulated neural circuit. For a quick dive in see the [quick start](../quickstart.html) or [this video](https://www.youtube.com/watch?v=dvJvY1zVQUE), which contains a series of links to short clips describing common network operations (adding neurons, connecting neurons, editing neuron groups, etc.). 
 
-Networks contain a variety of objects (we call them "network models"), including free-floating neurons and synapses, but also neuron arrays and weight matrices for array-based network, and a wide array of other more complex structures. This page contains a brief overview of the main object types. The Simbrain philosophy is to allow for arbitrary combinations of models. Most objects can be linked to one another with different types of adapters. By combining these together you can create indefinitely many different kinds of networks. Many tools exist for organizing, arranging, training, and linking these objects together.
+Networks contain a variety of objects ("network models"), including free-floating neurons and synapses, but also neuron arrays and weight matrices for array-based networks, and other more complex structures. This page contains a brief overview of the main object types.  Most objects can be linked to one another with synapses, synapse groups, or weight matrices. The Simbrain philosophy is to allow for arbitrary combinations of network models. Many tools and utilities exist for organizing, arranging, and training these linked network models.
 
 # Main Object Types
 
@@ -27,6 +27,8 @@ Free neurons and weights can be aggregated in various ways but are moved and adj
 <img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
 
 <img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
+
+Note that neuron collections (like supervised models) are "transient wrappers". If you delete them the underlying objects remain in place. They have green interaction boxes. In cases where the surrounded objects are dependent on the group they are part of a yellow interactio box is used.
 
 ## Neuron Arrays and Weight matrices
 

@@ -1,20 +1,39 @@
 ---
-title: Update Logic
+title: Network Update
 layout: default
 parent: Networks
 has_children: false
-nav_order: 15
+nav_order: 2
 ---
 
-# Network Update Logic
+# How Network Updates Work
 
-When a network is open and the workspace is iterated, an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a complex logic that is described here. 
+When a network is open and the workspace is iterated, an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a complex logic that is described here.  This complexity stems from Simbrain's effort to support many configurations. This includes networks which mix free neurons and synapses, local learning rules, array-based computations, spiking networks, and more custom forms of update. 
 
-The complexity of the system stems from Simbrain's effort to support many configurations. This includes free neurons and synapses, local learning rules, array based computations, spiking networks, and even more custom forms of update. Most of this is supported in the GUI using a point and click interface.
+The next section gives a broad overview of update focusing on the case of free neurons and synapses. The rest of this document covers more specific topics and forms of update.
 
+# The Basic Idea
+
+The way information flows from one node to another via a weight provides a useful starting point for understanding how network updates work in Simbrain. In the simplest and easiest-to-understand case, activation in one node is multiplied by a weight strength, and the result is sent to the next node where it becomes the new activation. In the example below assume the weight strength is .5, so that the output is half the input.
+
+<img src="/assets/images/synapseRulesBasic.png" alt="synapse basics" style="width:600px;"/>
+
+There are several variables that play an important role in this process (especially when we consider more complicated cases), but that are not directly visible in Simbrain
+
+- **PSR**: (shown as a diamond above). This is the "output" of a synapse. Usually it is just source activation times weight. In the example above it is $$.1$$. However, sometimes the PSR varies over time in response to spikes.
+
+- **Input** (shown as open rectangles above). This is a kind of input buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](/docs/workspace/Couplings.html). This supports asynchronous or [buffered update](#buffered-update).
+
+<img src="/assets/images/multipleSynapses.png" alt="summation" style="width:600px;"/>
+
+When multiple source nodes connect to a target node, the input to the target node is a summation of PSRs across the source nodes. In the example above, the target node accumulates PSRs from three other nodes. Since in this case there are no spike responders, the target input is a simple weighted sum. In this image we have also shown dotted lines feeding into each input, which emphasizes that information from external couplings can be part of the input to any neuron.
+
+All of these values can exist as arrays: activations, inputs, weight strengths, PSRs, etc. Generally speaking these are forms of **data**. In general we try to separate data structures from **rules** that act on these data structures, like update rules, learning rules, and spike responders.
+
+For the rest of these docs we move systematically through how network updates work, starting with the high-level structure of how "actions" are executed and then considering all the types of action and all the types of model that can be updated. 
 # Update actions
 
-At the top level each network iteration a sequence of actions is executed. Usually the default update action, `Buffered update`, is all that is executed, and all that is needed. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
+At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, `Buffered update`. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
 
 Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update.html). 
 
@@ -109,19 +128,8 @@ The same rules that operate on scalar data can operate on array data. All the pa
 
 # Synapses, Learning Rules, and Spike Responders
 
-Each synapse has a post synaptic response or PSR. The PSR is typically just source activation times weight. However, when spike responders are used, the PSR can be more complicated. The PSRs to an output node are summed and that is the "input" to update rule or "activation function" for a node (See book activation function chapter)
+Each synapse outputs a a post synaptic response or PSR. This is typically just source activation times weight. However, when spike responders are used, the PSR must react in a dynamical way to spiking events. Also, the synaptic strength can be updated via learning. To accomodate all this, the following structures are used:
 
-<!-- Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above). -->
-
-
-Here is the basic case for how synapses work
-
-To accomodate all this, the following structure is used:
-<img src="/assets/images/synapseRulesBasic.png" alt="synapse basics" style="width:600px;"/>
-
-But it gets more complex. The same basic structure from aboe is used for synapses, but there is a bit more going on. This is based on the fact that synapse learn with learning rules, but also sometimes must react in a dynamical way to spiking events. However, in the default case all they are is weights that are multipled by pre-synaptic neuron activations.
-
-To accomodate all this, the following structure is used:
 <img src="/assets/images/synapseRulesFull.png" alt="synapse spike responder and learning rule" style="width:600px;"/>
 
 The synapse has two main intrinsic state variables: `psr` or post-synaptic-response, and `strength`. The strength is the classic weight value of a synapse. The `psr` is a variable that corresponds to the "output" of the synapse. In the basic case, the `psr` is just the source neuron activation for the synapse times the weight strength. In the case shown, if the weight strength is .5, then the psr is .2 * .5, and so on update the target synapse is set to .1. Often in a neural network this is all we have.
@@ -151,9 +159,7 @@ fun Neuron.update()
 		activation += synapse.psr
 ```
 
-Again PSR is our generic construct. The node’s net input is just the accumulated psr. That is then modified by act function. TODO: Show activation function working.
-
-<img src="/assets/images/multipleSynapses.png" alt="summation" style="width:300px;"/>
+<!-- Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above). -->
 
 # Synapses, Learning Rules, and Spike Responders (array case)
 
@@ -163,7 +169,7 @@ The  same structure applies to [neuron arrays and weight matrices](arraysMatrice
 
 Thus, for a neuron array,  `update()` iterates through a fan-in of weight matrices, calling `updatePSR()` on each one, and then adding the resulting `psrMatrices` using vector addition to update the neuron's activations. This allows connectionist and spiking input arrays to feed to the same neuron array.
 
-Again we sum PSR's but now we are “summing PSR matrices” and then mutating them.
+Before we summed PSRs but now we are “summing PSR matrices” and then mutating them.
 
 
 # Continuous and Discrete Time Update
@@ -172,9 +178,9 @@ The network is updated from the [workspace](../workspace) or separately using it
 
 When the network is updated, a `time` variable is updated by adding a `time-step` to it. This updating time can be displayed in two ways, captured by a `time-type` parameter
 
-- Continuous: at each iteration time increases by a `time step` that can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
+- **Continuous**: at each iteration time increases by a `time step` that can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
 
-- Discrete: at each iteration time increases by 1. Time is displayed as “iterations” (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
+- **Discrete**: at each iteration time increases by 1. Time is displayed as “iterations” (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
 
 Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties.
 
