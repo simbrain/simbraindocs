@@ -5,7 +5,7 @@ has_children: false
 nav_order: 5
 ---
 
-# What's new in 4.0
+# What's new in 4
 
 Simbrain 4.0 involved a complete rewrite over the course of nearly 10 years. Most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit tests were added, and many new new features were introduced.
 
