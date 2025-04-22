@@ -12,7 +12,7 @@ Neurons or "nodes" are represented by circles. The numbers inside the neurons co
 
 ## Neuron Update Rules 
 
-There are a variety of different neuron types in Simbrain. The update rule of a neuron corresponds to what kind of neuron it is: linear, sigmoidal, etc. This page addresses properties common to all of the different neuron types. Details on particular neuron types can be found on their respective pages. Even more custom behaviors can be defined using [simulations](../../simulations)).
+There are a variety of different neuron types in Simbrain. The update rule of a neuron corresponds to what kind of neuron it is: linear, sigmoidal, etc. This page addresses properties common to all of the different neuron types. Details on particular neuron types can be found on their respective pages. Even more custom behaviors can be defined using [simulations](../../simulations).
 
 Some rules produce **activity generators**, which don't respond to inputs, but only produce outputs. They are represented by squares rather than circles in the GUI.
 

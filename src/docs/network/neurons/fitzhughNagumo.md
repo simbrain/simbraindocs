@@ -15,6 +15,8 @@ As a family tree, Hodkin-Huxley came first, then FitzHugh-Nagumo, then Moris-Lec
 
 Parameter descriptions are given here though it may help to simply think of these as abstract parameters of a complex dynamical system. More detailed description of similar parameters are in the **AdEx** docs.
 
+<!-- link for ADEX docs from simbrain3 docs does not work -->
+
 ## A (Recovery Rate)
 
 Abstract measure of how much "resource" a cell is depleting in response to large changes in voltage. A time constant for V and the recovery variable w.
@@ -33,4 +35,4 @@ Background current to the cell.
 
 ## Add noise
 
-Click **here** for noise properties.
+Click **[here](../../utilities/randomizers.md)** for noise properties.
