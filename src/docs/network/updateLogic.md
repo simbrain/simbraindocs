@@ -28,9 +28,28 @@ There are several variables that play an important role in this process (especia
 
 When multiple source nodes connect to a target node, the input to the target node is a summation of PSRs across the source nodes. In the example above, the target node accumulates PSRs from three other nodes. Since in this case there are no spike responders, the target input is a simple weighted sum. In this image we have also shown dotted lines feeding into each input, which emphasizes that information from external couplings can be part of the input to any neuron.
 
-All of these values can exist as arrays: activations, inputs, weight strengths, PSRs, etc. Generally speaking these are forms of **data**. In general we try to separate data structures from **rules** that act on these data structures, like update rules, learning rules, and spike responders.
+All of these values can exist as arrays: activations, inputs, weight strengths, PSRs, etc. 
+
+The input to a neuron is transformed into an activation using an [update rule](#update-rules). In general we try to separate data from **rules** that act on these data structures, like update rules, learning rules, and spike responders.
 
 For the rest of these docs we move systematically through how network updates work, starting with the high-level structure of how "actions" are executed and then considering all the types of action and all the types of model that can be updated. 
+
+# Update Rules
+
+[Neurons](neurons/), [synapses](synapses), [neuron arrays and weight matrices](arraysMatrices), and [spike responders](spikingneurons) all use a design that separates update rules from the data they operate on. These can be called **rule objects**.  We will start with the case of neurons; the same basic structure applies to other objects as well.
+
+This schematic shows three main types of objects associated with a neuron, all of which can be edited using a Simbrain [property editor](../utilities/propertyEditor.html).
+
+<img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:400px;"/>
+
+1. **Neuron-level state variables** like activation and bias. Only activation is shown in the image above.
+2. **Update rule state variables**: which store special state variables associated to the the update rule. In the case shown above, an [Izhikevich neuron](neurons/izhikevich.html) is associated with a recovery variable. These state variables change as the update rule is changed.
+3. **Update rules** that _operate_ on all state variables. Update rules are associated with parameters that determine how they operate.
+
+The dialog for the Izhikevich neuron shows how these can be edited and where each category is in the dialog. 
+
+<img src="/assets/images/izhikDialog.png" alt="neuron rule and data holder" style="width:400px;"/>
+
 # Update actions
 
 At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, `Buffered update`. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
@@ -76,18 +95,25 @@ Note that items _within_ [Neuron groups](neurongroups/) and [subnetworks](subnet
 
 ### Why Buffering Matters
 
-To see why buffering matters, consider the network below. Without buffering, we would get different results depending on update order. 
+To see why buffering matters, consider the network below. Neuron $$n_1$$ is clamped and weight strengths are $$1$$. Assume buffering is turned off (in Simbrain this means using priority-based updating, where we specify which nodes are updated in which order)
 
-- If update order is $$n_1 \rightarrow n_2 \rightarrow n_3$$ then in one iteration, $$n_2$$ and $$n_3$$ will be activated. 
-- However, if update order is $$n_2 \rightarrow n_3 \rightarrow n_1$$ then in one iteration only $$n_2$$ will be activated. (This can actually be tested using priority update, discussed next). 
+<img src="/assets/images/updateOrderBase.png" alt="Update order base case" style="width:250px;"/>
 
-If buffered update is used, $$n_2$$ will be activated on the first time step, and then $$n_3$$, so that we can observe activation propagate.
+Without buffering, we would get different results depending on update order. If $$n_2$$ is updated before $$n_3$$ then in the next iteration all nodes will be active
 
-<img src="/assets/images/updateOrder.png" alt="Edit update sequence" style="width:300px;"/>
+<img src="/assets/images/updateOrderN2N3.png" alt="Update n2 before n3" style="width:250px;"/>
+
+
+However, if $$n_3$$ is updated before $$n_2$$ then in the next iteration only $$n_2$$ will be active, because when $$n_3$$ was updated it's input was 0.
+
+
+<img src="/assets/images/updateOrderN3N2.png" alt="Update n3 becore n2" style="width:250px;"/>
+
+Since buffered update accumulates the inputs to every node first, and then updates, it does not matter in which order update occur. 
 
 ## Priority Based Update of Free Neurons
 
-Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. For example, buffered update makes activation propogate one layer at a time in a layered network, but often what we desire is for one iteration to propogate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward.html) work under the hood).
+Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward.html) works under the hood).
 
 Here is the basic algorithm in pseudo code:
 ```kotlin
@@ -95,6 +121,7 @@ for model in prioritySortedNetworkModels:
 	model.accumulateInputs()
 	model.update()
 ```
+Notice that, unlike with buffered update, we have one single loop rather than two loops.
 
 In this case network models are associated with a priority which the user can set. Then we basically update network models in that order.
 
@@ -104,21 +131,7 @@ Currently priority is only used for neuron update. If there is a demand for othe
 
 # Neuron Groups and Subnetworks
 
- [Neuron groups](../neurongroups) and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration.
-
-# Update Rules Operate on Scalar Data
-
-[Neurons](neurons/), [synapses](synapses), neuron arrays, weight matrices, and spike responders all use a design that separates update rules from the data they operate on. These can be called **rule objects**.  We will describe how this all works for neurons first; the same basic structure applies to other objects as well.
-
-The picture below shows how this works for neurons. The update rule is a separate object that _operates_ on the state variables of a neuron, in the sense of reading in the neuron's state, and then writing back to the neuron's state. The rule itself is associated with parameters that can be edited using the Simbrain [property editor](../utilities/propertyEditor.html). When the neuron is updated, the update rule can read all the state variables of a neuron. (This includes both the neuron's state, but also anything the neuron is connected to, it's all available to the rule). It's similar for neuron arrays, weights, etc. The rules can read from and write to any data associated with these network models.
-
-The state variables of a neuron can be divided into two classes: intrinsic and rule-dependent.  The _intrinsic state variables_ of a neuron are primarily its activation, visible as its color, but other variables include whether it spiked (for spiking neurons) and an auxiliary variable that can be used in simulations. The _rule-dependent state variables_ change as the update rule changes. In the code these are held in a `data holder` object. As you change the update rule, these variables change. 
-
-In the case shown below a [linear rule](neurons/linear.html) is shown operating on a neuron.  
-
-<img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:600px;"/>
-
-In that case the only rule-dependent variable is a bias, but in other cases, like the [Izhikevich neuron](neurons/izhikevich.html), there is, in addition to activation (interpreted as membrane potential), a recovery variable that the rule needs in order to keep track of the neuron's state.
+[Neuron groups](../neurongroups) and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration.
 
 # Update Rules Operate on Array Data
 
