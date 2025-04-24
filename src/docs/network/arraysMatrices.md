@@ -8,9 +8,11 @@ nav_order: 30
 
 # Neuron Arrays and Weight Matrices
 
-Simbrain originated as a way to focus intuition on loose or "free"-standing neurons and their connections, which model neuroscience or else show how the connection to neuroscence works in an intuitive way. However most neural networks software use vectors and matrices to represent neural networks, for the obvious reason that it is vastly more efficient. In Simbrain 4 these broadly array-based approaches have been incorproated, and integrated to work alongside all the existing machinery and to carry over as much of the emphasis on intuitive GUI visualization as possible
+Simbrain originated as a way to focus intuition on loose or "free"-standing neurons and their connections, which model neuroscience or else show how the connection to neuroscence works in an intuitive way.  However most neural networks software use vectors and matrices to represent neural networks, which make computations far more efficient. 
 
- <img src="/assets/images/neuronArrayWeightMatrix.png" alt="Neuron array and weight matrix" style="width:400px;"/>
+In Simbrain 4 array-based approaches have been incorporated (using [Smile matrix](https://haifengl.github.io/linear-algebra.html) objects), and are integrated in such a way that they can be used alongside all the existing machinery, using similar GUI visualizations.
+
+<img src="/assets/images/neuronArrayWeightMatrix.png" alt="Neuron array and weight matrix" style="width:400px;"/>
 
 ## Neuron Arrays
  
