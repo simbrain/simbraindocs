@@ -8,11 +8,32 @@ nav_order: 1
 
 # Building Networks
 
-This page gives intuitions about the Simbrain interface. More details on the underlying logic are in [updateLogic](updateLogic.html) For an overview of networks and how to build them in Simbrain, see the [building networks](https://www.youtube.com/watch?v=dvJvY1zVQUE) video. This page focuses an adding nodes and configuring screen objects. Be sure to familiarize yourself with Simbrain's [key commands](../quickstart.html), which were carefully designed to allow for fast editing.
-
-# Basics
+For an overview of networks and how to build them in Simbrain, see the [building networks](https://www.youtube.com/watch?v=dvJvY1zVQUE) video. This page focuses an adding nodes and configuring screen objects. Be sure to familiarize yourself with Simbrain's [key commands](../quickstart.html), which were carefully designed to allow for fast editing.
 
 Basic editing is straightforward, and most actions are meant to be intuitive relative to any standard draw program which involves selecting, copying, and editing with double clicks etc. For the most part you simply left click and drag the selected items (more on selection below). Network models can be lasso selected and the selection edited using the shift key to toggle selection.
+
+One of the advantage of Simbrain is that almost any object can talk to any other object. Neurons can be connected to neurons in neuron groups, or can even communicate with synapses via [couplings](/docs/workspace/couplings.html) or [custom simulations](/docs/simulations/).  Neuron groups, neuron arrays, and neuron collections and most subnetworks can all be linked by either weight matrices or synapse groups.
+
+# Creating and Deleting Objects
+
+Most items are created using the `Insert`  menu in the menu bar or in the right-click context menu. The `add` button in the toolbar adds nodes. The `delete` button deletes any selected objects
+
+- **Creating a node**: Nodes are created by pressing "P" or by pressing the new node button  in the toolbar. Any new nodes will be created at the last position clicked on-screen.
+
+- **Creating a line of nodes**: Repeatedly pressing "P" or the new node button results in a line of nodes being created beginning at the last clicked position.
+ 
+- **Creating specific types of neurons**: By default, new nodes are linear. To to change one or a group just double click on them to edit them. 
+ 
+- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see layouts). There is also a checkbox which will make these neurons be created as a group.
+ 
+- **Copy / Paste / Duplicate**: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
+ 
+- **Creating subnetworks or groups of nodes**: Subnets are created using `Insert > Add Network`. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing free neurons can be added to a network with Shift-G.
+ 
+- **Creating synapses or synapse groups**: See [connecting items together](#connect-items).
+
+
+# Nudge, Zoom, Pan
 
 - **Nudging**: For fine tuning a selection, users can also use the arrow keys (with Shift held down) to "nudge" selected items. The nudge amount in pixels can be set in the network preferences dialog.
 
@@ -23,24 +44,6 @@ Basic editing is straightforward, and most actions are meant to be intuitive rel
 # Graphical and Color Conventions
 
 Most graphical and color conventions can be customized using the [preference dialog](preferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
-
-# Creating Objects
-
-Primarily nodes are discussed here, but similar ideas apply for text objects, neuron groups, and other Simbrain objects. 
-
-- **Creating a node**: Nodes are created by pressing "P" or by pressing the new node button  in the toolbar. Any new nodes will be created at the last position clicked on-screen.
-
-- **Creating a line of nodes**: Repeatedly pressing "P" or the new node button results in a line of nodes being created beginning at the last clicked position.
- 
-- **Creating specific types of neurons**: By default, new nodes are linear. The default node type cannot currently be changed, though this is planned. To create a node of a specific type, simply create a new node, double click or right click the node and edit (or click command-E). From there one can select any neuron type in Simbrain from a dropdown menu. The same thing can be done for groups of nodes**: select them all and double clcik on one
- 
-- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see layouts). There is also a checkbox which will make these neurons be created as a group.
- 
-- **Copy / Paste / Duplicate**: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
- 
-- **Creating subnetworks or groups of nodes**: Subnets are created using *Insert > Add Network*. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the G command; existing free neurons can be added to a network with Shift-G.
- 
-- **Creating synapses or synapse groups**: See the connections documentation.
 
 # Selecting Objects
 
@@ -58,7 +61,8 @@ Note that most selection operations must be done in selection mode, the default 
 
 - **Key Shortcuts**: "n" to select all nodes; "w" to select all weights; "a" to select nodes and weights. These are super useful! (Also, once selected: "r" to randomize, "c" to clear, and arrows to increment activation.)
 
-# Source and Target Objects
+<a name="source-target"></a>
+# Source and Target Objects 
 
 One common motif used for several operation in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green).  This is used to connect neurons, neuron groups, and neuron arrays together, and also to to visualize weights being obejcts, and finally to create supervised models.
 
@@ -90,11 +94,10 @@ As a result of this neuron collections and supervised models can overlap one ano
 
 TODO: Show a few overlapping neuron collections and superivsed models.
 
+<a id="connect-items"></a>
+# Connecting Items Together 
 
-# Ways to Connect Neurons Together
-
-
-There are three main ways to connect neurons to other neurons (or to themselves) with synapses.
+There are three main ways to connect neurons to other neurons (or to themselves) with synapses. This relies on the concept of [souce and target](#source-target) nodes. The same ideas can be used to connect neuron arrays and neuron groups and other structures together.
 
 Video instruction on connecting neurons is [here](https://www.youtube.com/watch?v=dvJvY1zVQUE) (6:36 in the building networks video).
 
@@ -107,7 +110,6 @@ The quick and easy way to connect neurons is with the "1-2 trick"
 To use this method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then designate them as target by pressing `2`. 
 
 Note that when creating recurrent connections the same neurons will be both sources and targets.  A quick way to make a recurrent network is to make a bunch of nodes and use keyboard commands: `N > 1 > 2 > A > R`
-
 
 ## Menu Commands
 
