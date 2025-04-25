@@ -8,10 +8,23 @@ nav_order: 95
 
 # Pie Chart
 
-Pie chart is a standard pie chart that can be used to represent the relative sizes of a set of quantities in a Simbrain simulation. For example this can be useful for representing how evenly distributed a set of neural activations is. When one neuron dominates, it will take up a larger slice. When all neurons are equally active, all slices will be of equal size.
+A standard [pie chart](https://en.wikipedia.org/wiki/Pie_chart) for representing the relative sizes of a set of quantities.
+
+In Simbrain, slice sizes are determined by the absolute values of the input vector. This means a large negative activation will be treated the same as a large positive activation, and both will take up a proportionally larger "slice of the pie".
 
 <img src="../../assets/images/pieChart.png" style="width:500px;"/> <br />
-`Pie Chart takes the absolute value of any negative activation and gives it a slice of the pie.` 
+
+
+This can useful for visualizing how activations are distributed across a set of neurons. For example:
+- If one neuron dominates, its slice will be large.
+- If all neurons are equally active, slices will be equal.
+
+Similarly for weight strengths, etc. 
+
+
+# Preferences
+
+- **Empty Pie Threshold**: If the *total* activation (sum of absolute values) falls below this threshold, the chart displays a single "Empty pie" slice. This prevents the appearance of misleading visuals when all values are near zero. To always show the relative proportions of even small values, set this threshold to 0. This can be useful to prevent cases where (for example) all of a neuron's activations die down to nearly 0 but the relative small values are still shown. If interested in showing these relationships simply set this threshold to 0.
 
 # Menus
 
@@ -24,8 +37,8 @@ Pie chart is a standard pie chart that can be used to represent the relative siz
 
 ## Edit
 
-- **Preferences**: Allows you to set the pie charts appearance.
-- **Empty Pie Threshold**: Sets pie charts threshold.
+- **Preferences**: See [preferences](#preferences)
+
 
 ## Help
 

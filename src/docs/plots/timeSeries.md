@@ -8,10 +8,9 @@ nav_order: 115
 
 # Time Series
 
-Time series plot allows you to track changes in a set of variables over time (time corresponds to **simulation time**, and is represented on the x-axis of the plot). For example, the spike pattern of a [spiking neuron](../network/spikingneurons.md) can be viewed by attaching the spiking neuron to a time series plot.
+A [time series plot](https://en.wikipedia.org/wiki/Time_series) allows you to track changes in a set of variables over time. Time is represented on the x-axis. Here time corresponds to simulation time in Simbrain. For example, the spike pattern of a [spiking neuron](../network/spikingneurons.md) can be viewed by attaching the spiking neuron to a time series plot, as in this example. 
 
 <img src="../../assets/images/timeSeries.png" style="width:500px;"/> <br />
-`Every line is associated with a making a change. Ex: Izhikevich neuron has visible spikes during changing membrane potentials`
 
 # Panel Buttons
 
@@ -19,6 +18,13 @@ Time series plot allows you to track changes in a set of variables over time (ti
 - **Remove**: Remove a time series from the plot.
 - **Clear Graph Data**: Clears all data from the plot.
 - **Show Graph Properties**: Opens up properties menu for the plot.
+
+# Preferences
+- **Auto Range**: When selected, the y-axis is automatically scaled so that the series with the greatest magnitude fits inside the window. It can be useful to turn this off to get a better sense overall changes in magnitude since while it is on they will fill up the window.
+- **Range Lower Bound**: Sets the minimum value of the y-axis.
+- **Range Upper Bound**: Sets the maximum value of the y-axis.
+- **Fixed Width**: When selected, maintains a fixed amount of time points displayed in the plot.
+- **Window Size**: Sets the width of the x-axis.
 
 # Menus
 
@@ -31,12 +37,7 @@ Time series plot allows you to track changes in a set of variables over time (ti
 
 ## Edit
 
-- **Preferences**: Allows you to set the pie chart's appearance.
-- **Auto Range**: When selected, the y-axis is automatically scaled so that the series with the greatest magnitude fits inside the window. It can be useful to turn this off to get a better sense overall changes in magnitude since while it is on they will fill up the window.
-- **Range Lower Bound**: Sets the minimum value of the y-axis.
-- **Range Upper Bound**: Sets the maximum value of the y-axis.
-- **Fixed Width**: When selected, maintains a fixed amount of time points displayed in the plot.
-- **Window Size**: Sets the width of the x-axis.
+- **Preferences**: See [preferences](#preferences)
 
 ## Help
 

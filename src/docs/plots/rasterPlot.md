@@ -18,8 +18,11 @@ Basically each row represents a single neuron's spiking activity over time.
 When you see vertical alignments of dots, it means multiple neurons spiked at the same time: often a sign of synchrony or oscillations. The case shown below does not show much spiking synchrony.
 
 <!-- TODO: An example that makes these vertical clusters -->
+<!--  Idea: consider a network with a group of spiking int fire driven by a common oscillatory input. You should observe bursts of synchronized firing. Also try izhik
+ -->
 
 <img src="../../assets/images/rasterPlot.png" style="width:500px;"/>
+
 
 ## Continuous vs. Spiking Neurons
 
@@ -32,7 +35,6 @@ When there is a vertical cluster that means many neurons spiked at the same time
 - **Window size**: How many time points can be contained in the window .
 - **Fixed width**: If true, the raster window never extends beyond the window size. If false, all data to date are plotted (which can start to consume quite a bit of memory).
 - **Spike threshold**: threshold used to determine spiking with non-spiking neurons.
-
 
 # Panel Buttons
 - **Add**: Add a raster plot series to the plot (multiple raster plots, shown in different colors, can be superimposed)
@@ -49,7 +51,7 @@ When there is a vertical cluster that means many neurons spiked at the same time
 - **Close**: Close the plot window.
 
 ## Edit
-- **Properties**: See preferences
+- **Preferences**: See [preferences](#preferences)
 
 ## Right-Click Menu
 - Context menu from **JFreeChart** to interact with the chart view.

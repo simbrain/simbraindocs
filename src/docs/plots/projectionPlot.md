@@ -10,13 +10,13 @@ nav_order: 105
 
 The projection component is derived from a program called [HiSee](https://hisee.sourceforge.net/). HiSee is a high dimensional visualizer, it let's you "see" "hi"-dimensional data. It is basically a visual way of performing [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) using a few techniques, primarily [pca](https://en.wikipedia.org/wiki/Principal_component_analysis) and [multidimensional scaling](https://en.wikipedia.org/wiki/Multidimensional_scaling). It can be used to represent any high dimensional data, but in Simbrain it is primarily used to study the dynamics of a neural network.
 
+<img src="../../assets/images/projectionPlotRandom.png" style="width:300px;"/>
+
 The projection component can take all the states (patterns of activation) that occur for the network, which exist in a high dimensional space, and project them down into two dimensions so that many of their geometric and topological properties are preserved. This gives users of Simbrain a way to visualize the dynamics of the network.
 The process of adding a new point without having to re-run the entire dimensionality reduction algorithm is called incremental dimensionality reduction or online dimensionality reduction.
 
 This approach is often used when dealing with large datasets that are constantly growing, where re-running the entire dimensionality reduction algorithm each time a new point is added would be computationally expensive and time-consuming. Instead, incremental dimensionality reduction algorithms update the projection of the existing points based on the new point, and can be more efficient than re-running the entire algorithm.
 Some popular incremental dimensionality reduction techniques include incremental PCA (Principal Component Analysis) and online t-SNE (t-Distributed Stochastic Neighbor Embedding).
-
-<img src="../../assets/images/projectionPlotRandom.png" style="width:300px;"/>
 
 ## Getting started
 
