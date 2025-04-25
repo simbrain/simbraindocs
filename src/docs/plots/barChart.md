@@ -30,7 +30,7 @@ In this example, notice the first two nodes are negative and last three are posi
 - **Close**: Close the plot window.
 
 ## Edit
-- **Properties**: See [preferences](#preferences)
+- **Preferences**: See [preferences](#preferences)
 
 ## Right-Click Menu
 
