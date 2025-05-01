@@ -3,7 +3,7 @@ title: Building Networks
 layout: default
 parent: Networks
 has_children: false
-nav_order: 1
+nav_order: 10
 ---
 
 # Building Networks
@@ -128,7 +128,7 @@ More customized methods include application of our highly developed set of [conn
 
 ## Editing weights
 
-Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](otherDialogs#Synapse-Adjustment-Dialog).
+Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](networkDialogs#Synapse-Adjustment-Dialog).
 
 
 # Setting Properties

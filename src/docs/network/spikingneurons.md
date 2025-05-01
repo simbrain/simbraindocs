@@ -3,7 +3,7 @@ title: Spiking Neurons
 layout: default
 parent: Networks
 has_children: false
-nav_order: 59
+nav_order: 150
 ---
 
 # Spiking Neurons

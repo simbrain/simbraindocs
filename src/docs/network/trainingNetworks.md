@@ -3,7 +3,7 @@ title: Training Networks
 layout: default
 parent: Networks
 has_children: false
-nav_order: 150
+nav_order: 15
 ---
 
 # Training Networks in Simbrain

@@ -17,7 +17,7 @@ In the example below, notice that 36 neurons are at their minimum value while 27
 <img src="../../assets/images/histogram.png" style="width:500px;"/> <br />
 
 
-As with other plots, several simultaneous datasets (histograms) can be displayed. Each will be displayed in a different color. For an example along these lines see the [synapse adjustment dialog](/docs/network/otherDialogs.html#synapse-adjustment-dialog).
+As with other plots, several simultaneous datasets (histograms) can be displayed. Each will be displayed in a different color. For an example along these lines see the [synapse adjustment dialog](/docs/network/networkDialogs.html#synapse-adjustment-dialog).
 
 # Menus
 

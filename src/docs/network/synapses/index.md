@@ -3,7 +3,7 @@ title: Synapses
 parent: Networks
 layout: default
 has_children: true
-nav_order: 40
+nav_order: 60
 ---
 
 # Synapses

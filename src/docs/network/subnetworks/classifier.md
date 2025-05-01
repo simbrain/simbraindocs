@@ -11,9 +11,9 @@ nav_order: 35
 
 The classifier object is a Simbrain front end to a machine learning library, [Smile](https://haifengl.github.io/classification.html) that allows standard [machine learning](https://en.wikipedia.org/wiki/Machine_learning) tools to be interfaced with other Simbrain components. It uses ideas and concepts from the Simbrain GUI to make it easy to use these components. However, these are not neural network implementations.
 
-To get a feel for classifer see the simulations in `simulations > machine learning`
+To get a feel for classifers see the simulations in `simulations > machine learning`
 
-Three types of classifier are support: Support Vector Machines, Logistic Regression, and KMeans.
+Three types of classifier are supported: Support Vector Machines, Logistic Regression, and KMeans.
 
 Each classifier is trained on a set of input–output examples and can then be used to assign class labels to new input patterns. Internally, a classifier returns a single class label, which is then converted into a one-hot output across a fixed number of output neurons.
 
@@ -23,7 +23,7 @@ The classifier is implemented as a [subnetwork](index.html), with:
 - An **output layer**, which shows the predicted class
 - An optional display of **class probabilities** (for Logistic Regression)
 
-In this way a classifier can be connected to other Simbrain components. However you can also treat it as a self-standing component by double clicking on the interaction box in the upper-right of a classifier component, and trainig and testing it.
+In this way a classifier can be connected to other Simbrain components. However you can also treat a classifier object as a self-standing component by double clicking on the interaction box in the upper-right of a classifier component, and training and testing it.
 
 # Training and Testing
 

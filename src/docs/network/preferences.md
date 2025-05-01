@@ -3,7 +3,7 @@ title: Preferences
 layout: default
 parent: Networks
 has_children: false
-nav_order: 100
+nav_order: 500
 ---
 
 # Network Preferences

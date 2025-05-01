@@ -1,12 +1,12 @@
 ---
-title: Other dialogs
+title: Network dialogs
 layout: default
 parent: Networks
 has_children: false
-nav_order: 100
+nav_order: 200
 ---
 
-# Other Dialogs
+# Network Dialogs
 
 Some of these dialogs also exist as panels in other dialogs.
 

@@ -3,7 +3,7 @@ title: Neurons
 layout: default
 parent: Networks
 has_children: true
-nav_order: 20
+nav_order: 50
 ---
 
 # Neurons
