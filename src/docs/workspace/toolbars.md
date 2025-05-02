@@ -15,8 +15,6 @@ The data toolbar allows the user to save or load the state of the workspace.
 - **Open**: when clicked on will bring up a file chooser, allowing the user to load a saved workspace.
 - **Save**: when clicked will bring up a file chooser allowing the user to save the current workspace.
 
-<img src="../../assets/images/dataToolbar.png"/>
-
 ## Global Network Update Toolbar
 
 The global iteration toolbar holds options allowing the user to update all the networks in the workspace simultaneously.
@@ -24,13 +22,9 @@ The global iteration toolbar holds options allowing the user to update all the n
 - **Global step update algorithm**: One click will update every network in the workspace by one timestep.
 - **Global iteration update algorithm**: One click will continue to updating every network in the workspace iteratively until clicked again. Note that the image on the button becomes that of a "stop" button Stop. Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch.
 
-<img src="../../assets/images/globalNetworkUpdateToolbar.png"/>
-
 ## Coupling Toolbar
 
 - **Coupling manager**: clicking this icon will bring up the coupling manager, allowing the user to send information between different objects in Simbrain. For more information see: [Couplings](couplings.html).
-
-<img src="../../assets/images/couplingToolbar.png"/>
 
 ## Network, Statistic, and Training Toolbar
 
@@ -39,10 +33,6 @@ The global iteration toolbar holds options allowing the user to update all the n
 - The statistics button brings up a list of statistical visuals, which can be coupled to various aspects of Simbrain's neural networks.
 - The console button allows the user command line level access to Simbrain's features.
 
-<img src="../../assets/images/networkStatisticTrainingToolbar.png"/>
-
 ## Iteration Display
 
 To the right of all toolbars is a display of the current iteration number.  It can be reset to zero by double clicking on it.
-
-<img src="../../assets/images/iterationDisplay.png"/>
