@@ -71,6 +71,8 @@ More detailed adjustments parameters can be adjusted using the neuron properties
 
 ## Common Neuron Properties
 
+These fields are common to many different neuron update rules.
+
 - **Activation**: The current level of activity of this neuron. How this should be interpreted is dependent on the neuron type and application (e.g. firing rate, voltage potential, etc.). This is represented by the neuron's color, and can be seen exactly by lingering over the neuron or observing the value in the neuron's properties.
 - **Label**: Label neuron with a name.
 - **Clamped**: See [Clamping](#clamping)
@@ -80,7 +82,7 @@ More detailed adjustments parameters can be adjusted using the neuron properties
 - **Priority**: The priority of a given neuron, used in **priority based update**. Lower numbers correspond to higher priority (think of first priority, second priority, etc.), and will be updated first when the network's update method is set to priority based update. Priorities can be viewed in the GUI using the **view** menu.
 - **Increment**: This sets the amount that a neuron is incremented when it is manually adjusted. For example, if increment is set to .1, then each time the up arrow is pressed the neuron will increase its activation by .1. This feature does not affect the neuron while the network is being iterated.
 - **Polarity**: See [Polarity](#polarity).
-
+- **Add Noise**: If set to true, random noise is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.
 
 ## Clamping
 
