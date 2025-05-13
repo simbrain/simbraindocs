@@ -80,8 +80,3 @@ When coding [odor worlds](/docs/worlds/odorworld), note:
 - The zoom uses a scaling factor which can be thought of on analogy with a text document. .5 or 50% is zoomed out and 2.0 is 200% and zoomed way in. It is the ratio of the world size (the tilemap size) to visible window size.
 
 
-## Resources
-
-Resources should be placed in src.main.resources.custom_sims and accessed with `getResource`
-
-
