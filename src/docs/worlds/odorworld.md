@@ -10,7 +10,7 @@ nav_order: 55
 
 The Odor World component is used to simulate a creature in a two-dimensional world. It provides a way to study the embodiment of a neural network in a physical environment, a kind of platform or test-bed for modeling embodied agents controlled by neural networks.
 
-The Simbrain odor world consists of a tilemap, and one or more entities. The entities can be equipped with sensors and effectors and thus coupled to neural networks and other workspace components. To move an entity select and use the arrow keys or `WASD` on your keyboard to move the entity around the map.
+The Simbrain odor world consists of a [tilemap](#tile-map), and one or more entities (agents and objects). The entities can be equipped with sensors and effectors and thus coupled to neural networks and other workspace components. To move an entity select and use the arrow keys or `WASD` on your keyboard to move the selected entity around the map.
 
 <img src="/assets/images/odorWorld.gif" style="width:200px;"/>
 
@@ -129,20 +129,20 @@ A Hearing sensor is associated with a specific utterance. When a hearing sensor 
 
 ## Grid Sensor
 
-Agents in Simbrain are able to detect their spatial location in the OdorWorld map via grid sensors. Grid sensors can be coupled to neural networks to visualize location through neural activation. Each grid sensor is graphically represented by a black cross.
+Agents in Simbrain are able to detect their spatial location in the OdorWorld map via grid sensors. These sensors fire  an agent senses that it is inside a location associated with that particular cell. An input neuron coupled with a grid sensor acts a bit like a [place cell](https://en.wikipedia.org/wiki/Place_cell). 
 
 Note that it is up to the user to make a neuron group with a shape that matches the grid sensor to get expected results
 
 ### Parameters
 
 - **Activation Amount:** Determines the amount of activation for a
-    neuron coupled to a tile sensor when the tile sensor is activated.
+    neuron coupled to a grid sensor when the grid sensor is activated.
 
 - **Start X:** Defines the x-coordinates for the location of the
-    top-left corner of the tile sensor.
+    top-left corner of the grid sensor.
 
 - **Start Y:** Defines the y-coordinates for the location of the
-    top-left corner of the tile sensor.
+    top-left corner of the grid sensor.
 
 - **Num Columns:** Determines the number of columns in the sensor
     grid.
@@ -191,13 +191,7 @@ represented by a white dot and are characterized by the following parameters:
 
 ## Tile Sensor
 
-<!-- Reference to tile map section -->
-Agents are able to sense their location in the OdorWorld map via tile
-sensors. An input neuron coupled with a tile sensor mimics the behavior
-of a place cell, which is a cell that fires when an agent senses that it
-is inside a location associated with that particular cell. Therefore, a
-tile sensor gets activated when an agent is situated inside its
-corresponding tile.
+Agents are able to sense specific tile sensors in a [tile map](#tile-map).  The specified sensor must be associated with a tile `type` that that tile is also associated with.
 
 ### Parameters
 
@@ -242,12 +236,19 @@ Agents in Simbrain can be prompted to shift its direction to the left or right v
 
 # Tile Map
 
-Odor world has some functions associated with a [tile-based video game](https://en.wikipedia.org/wiki/Tile-based_video_game). A tile map is a grid of tiles. To see the available tiles you can
-double click anywhere in the world, and you will see the tile set
+Each world is associated with a tilemap, a grid of tiles created using the [Tiled](https://www.mapeditor.org/) map editor. Often this map is simply empty and so nothing is visible. To see a map use `File > Load Tile Map...` and choose one. This will give you a sense of how maps work. 
+
+The concept of a tile map comes from [tile-based video games](https://en.wikipedia.org/wiki/Tile-based_video_game). Tiles are arranged into layers and can be associated with properties like blocking agents or not. Tiles can also be associated with tile sensors, e.g. water tiles can be sensed by a tile sensor. Each tile is associated with one member of a "tile set" (Simbrain currently just has one that it uses from a dungeon game), and the tiles can also be associated with types like `water` so that tile sensors can sense them.
+
+## Editing Tiles
+
+To set the tile anywhere in the world just double click. This shows the tile set
 available. The one that is surrounded has black around it. You can
-double click to set that tile.
+double click again to set that tile.
 
 ![Tile Set](/assets/images/tileSelector.png)
+
+## Editing Layers
 
 The tile map is also organized into layers. To edit the layers use the
 `Edit > Edit Layers` dialog. This allows you to specify some layers as
@@ -258,8 +259,11 @@ the way it works should be intuitive,
 
 ![Tile Layer Editor](/assets/images/tileLayerEditor.png)
 
-Tilemaps are based on [Tiled](https://www.mapeditor.org/) and in maps made in Tiled can be exported.
+## Building custom tilemaps and tilesets
 
+This can be done using [Tiled](https://www.mapeditor.org/). To start you can open one of the `.tmx` files included with simbrain and use it as a base. Then you can import that.
+
+Note: when you edit the tilemap in Simbrain these updates can be saved. However you cannot export these changes and then edit in Tiled. That is, workflows from Tiled to Simbrain are possible (keep editing in Tiled and importing to Simbrain), but once you start editing in Simbrain it has to stay in Simbrain.
 
 # Menu Commands
 
