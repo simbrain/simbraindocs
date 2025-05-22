@@ -18,6 +18,25 @@ The best way to get a feel for what is possible is to have a look at a few simul
 
 To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
 
+## Using AI to make a Simulation
+
+Note that it's not so hard to make a simulation using AI.For example using a ChatGPT project, and adding the following source files to it
+
+- `RegisteredSimulations.kt`
+- `integrateAndFireSimulation.kt`
+- `SpikingNeuronSim.kt`
+- `Braitenberg.kt`
+
+And using this prompt
+
+> Please make a kotlinsimulation file withtwo input neurons both clamped, labeled "Excitatory input" and "Inhibitory Input" and a third Integrate and Fire neuron labeled "Spiking neuron" coupled to a time series plot showing activation over time.  
+
+A viable simulation file was create which was then edited. A further prompt
+
+> please provide code for an infodoc
+
+Produced a first draft of docs for the sim
+
 ## Setting up a Simulation (Kotlin)
 
 Here is the basic way to get started. Set up a simulation environment as described [here](https://github.com/simbrain/simbrain/wiki/Getting-From-Source), with IntelliJ reccomended as your IDE
