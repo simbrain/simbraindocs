@@ -9,45 +9,32 @@ nav_order: 110
 
 # Kuramoto Neuron
 
-The **Kuramoto** neuron implements dynamics inspired by the [Kuramoto model](https://en.wikipedia.org/wiki/Kuramoto_model), a mathematical framework for studying synchronization in systems of coupled oscillators. This model is often used to simulate how populations of neurons (or oscillators) can spontaneously synchronize their activity over time.
+The Kuramoto neuron is based on the [Kuramoto model](https://en.wikipedia.org/wiki/Kuramoto_model), which describes a system of coupled oscillators with varying natural frequencies. In the neural context, it models each neuron's phase as a point on a circle (from 0 to $$2\pi$$) and updates that phase based on the difference between its current phase and the phases of its input neurons.
 
-Each neuron is treated as an oscillator with its own **phase**, and its update is based on the phase differences between itself and its input (fan-in) neurons. The rate of change in the neuron's phase (its "angular velocity") is determined by its natural frequency and the sum of sinusoidal coupling terms from other neurons.
+Each neuron's phase $$\theta$$ evolves over time as a function of its intrinsic frequency and the sine of phase differences with its neighbors. This creates synchronized behavior under certain coupling conditions and is useful in modeling biological oscillations, such as those seen in central pattern generators or circadian rhythms.
 
-The update equation is:
+The update rule is governed by:
 
 $$
-\theta_i(t + \Delta t) = \theta_i(t) + \Delta t \left[ \omega_i + \frac{K}{N} \sum_j \sin(\theta_j - \theta_i) \right]
+\frac{d\theta_i}{dt} = \omega_i + \frac{1}{N} \sum_{j} K_{ij} \sin(\theta_j - \theta_i)
 $$
 
 where:
-- $$\theta_i$$ is the current **phase** (activation) of neuron *i*,
-- $$\omega_i$$ is the **natural frequency** of neuron *i* (the slope parameter),
-- $$K$$ is the **connection strength** from each input neuron,
-- $$N$$ is the number of inputs (fan-in size),
-- $$\Delta t$$ is the simulation time step (internally managed).
+- $$\theta_i$$ is the current phase of neuron $$i$$,
+- $$\omega_i$$ is its natural frequency,
+- $$K_{ij}$$ is the synaptic strength from neuron $$j$$ to $$i$$,
+- $$N$$ is the number of input neurons.
 
-The result is a neuron whose activation continuously evolves as a circular phase variable in the range $$[0, 2\pi]$$. The neuron wraps around when it reaches $$2\pi$$, simulating a full cycle of oscillation.
+At each update, the neuron's phase is incremented by the computed derivative and wrapped back to the $$[0, 2\pi)$$ range.
 
 This neuron is ideal for:
-- Modeling **coupled oscillator networks**
-- Exploring **neural synchronization**
-- Simulations involving **phase-coded information**
+- Modeling synchronization phenomena
+- Exploring phase-coupled oscillations
+- Simulating networks with periodic behavior
 
+# Parameters
 
-## Parameters
+- **Natural Frequency**: TODO
 
-### Natural Frequency
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
-Controls the neuron's **intrinsic rate of oscillation**. A higher value causes the phase to advance more quickly in the absence of input. This parameter corresponds to $$\omega_i$$ in the Kuramoto equation.
-
-### Add Noise
-
-If enabled, **random noise** is added to the neuron's activity (currently commented out in the implementation). This can be used to simulate stochasticity in phase dynamics, although it may need to be manually enabled in the code. The noise source is configurable through a [Probability Distribution](/docs/utilities/randomizers).
-
-### Clipping
-
-If enabled, ensures that the neuron's activation stays within the range defined by **upper** and **lower bounds**. Though the phase normally wraps around $$2\pi$$, clipping may be used for debugging or alternative behaviors.
-
-### Upper and Lower Bound
-
-Specifies the **activation range** if clipping is enabled. These are not typically used in circular phase models but are available for flexibility.

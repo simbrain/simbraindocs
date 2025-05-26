@@ -9,6 +9,10 @@ nav_order: 35
 
 # Classifier
 
+<!-- We can take pure machine learning stuff and put it into Simbrain where we don’t see weights, we don't see this neural analog. We just see it in machine learning terms, and we see kind of how they’re similar input output structures, but it’s just kind of framed differently. 
+
+Of course it could also be used just to study the machine learning stuff on its own using Simbrain's visualization -->
+
 The classifier object is a Simbrain front end to a machine learning library, [Smile](https://haifengl.github.io/classification.html) that allows standard [machine learning](https://en.wikipedia.org/wiki/Machine_learning) tools to be interfaced with other Simbrain components. It uses ideas and concepts from the Simbrain GUI to make it easy to use these components. However, these are not neural network implementations.
 
 To get a feel for classifers see the simulations in `simulations > machine learning`

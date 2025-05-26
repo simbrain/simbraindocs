@@ -1,11 +1,11 @@
 ---
-title: Simulations
+title: Simulations and Scripting
 layout: default
 has_children: false
 nav_order: 200
 ---
 
-# Simulations
+# Simulations and Scripting
 
 Custom simulations allow for custom updates, plots, logging, and pretty much anything. Extensive tooling and support is available, especially in Kotlin. 
 
@@ -17,6 +17,25 @@ The best way to get a feel for what is possible is to have a look at a few simul
 - creating sets of neurons and laying them out using a mathematical rule.
 
 To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
+
+## Using AI to make a Simulation
+
+Note that it's not so hard to make a simulation using AI.For example using a ChatGPT project, and adding the following source files to it
+
+- `RegisteredSimulations.kt`
+- `integrateAndFireSimulation.kt`
+- `SpikingNeuronSim.kt`
+- `Braitenberg.kt`
+
+And using this prompt
+
+> Please make a kotlinsimulation file withtwo input neurons both clamped, labeled "Excitatory input" and "Inhibitory Input" and a third Integrate and Fire neuron labeled "Spiking neuron" coupled to a time series plot showing activation over time.  
+
+A viable simulation file was create which was then edited. A further prompt
+
+> please provide code for an infodoc
+
+Produced a first draft of docs for the sim
 
 ## Setting up a Simulation (Kotlin)
 
@@ -65,10 +84,18 @@ We are phasing this out, but it still works fine and can be used if you prefer j
     
 ## Evolutionary Simulations
 
-* Can start with `evolveMouse.kt`
+Start with checking the code for `evolveMouse.kt` to get a sense forhow these work.
 
-## Resources
+## Odor World
 
-Resources should be placed in src.main.resources.custom_sims and accessed with `getResource`
+When coding [odor worlds](/docs/worlds/odorworld), note:
+
+- A good example to start with is `pursuer.kt`
+- The `place` command determines the window size, not the world size. The world can extend far beyond the window.
+- The world size is determined by the underlying tilemap. 
+  - Tip: you can set the world size by setting window size with `place` and then calling `fitWorldToFrameSize()` 
+  - You can also call `updateMapSize` to set size directly, e.g. `world.tileMap.updateMapSize(20, 18)` 
+- Calling `fitFrameToWorld` zooms out so that the whole world (the whole tilemap) is visible.
+- The zoom uses a scaling factor which can be thought of on analogy with a text document. .5 or 50% is zoomed out and 2.0 is 200% and zoomed way in. It is the ratio of the world size (the tilemap size) to visible window size.
 
 

@@ -8,27 +8,26 @@ nav_order: 15
 
 # Training Networks in Simbrain
 
-Training networks in Simbrain is handled in several ways. Local learning rules can be set up in synapses. That is discussed in [synapses](synapses/). Other forms of training are handled using special dialogs and commands described here.
+The most common way to train neural networks is using algorithms like [backprop](https://en.wikipedia.org/wiki/Backpropagation) to update weights and biasses. This functionality is handled via a special interface and set of dialogs. Most of these dialogs have a common structure, similar to this one
 
-All forms of learning have a common type of dialog that shows one more datasets.
+<img src="/assets/images/trainingDialog.png" style="width:500px;"/>
 
+The data used to train the network is shown at the bottom here, which can be edited and analyzed using Simbrain [data tables](/docs/utilities/tables). A play button usually initiates training. Parameters guiding the training are set using the other fields. Supervised learning involves two main tables, while unsupervised learning involves just one. 
+
+This dialog appears when training various types of [subnetwork](/docs/network/subnetwork), or when using [supervised models](/docs/network/supervisedModels) created on the fly. 
+
+Networks can learn in other ways, in particular via local learning rules like the [Hebb rule](https://en.wikipedia.org/wiki/Hebbian_theory) can be set up in synapses. That is discussed in [synapses](synapses/). 
+
+
+## Data
+
+The bottom part of these dialogs allows a [training set](https://en.wikipedia.org/wiki/Test_set) for a learning algorithm to be specified Columns correspond to neurons: input neurons for input data, output neurons for target data. 
+
+In a supervised learning example, if a network has 3 inputs nodes and 2 output nodes, then the input table will have three columns, and the target table will have 2 columns. The input and target tables should have the same number of rows, and each input / target row pair is a single "training example" from the overall training set. Each row of the input data table is an input vector, and the corresponding row of the target data table is the desired vector that should be produced for that input, if training is successful.
 
 # Supervised Learning
 
-Supervised learning occurs in a several ways in Simbrain
-
-- Supervised model, which transiently wrap around a set of objects using a source and target neuron array, collection, or group (which  must be conneted by intervening weight matrices or synapse groups), and can be used to train them.  Finds the shortest path between source (Red selection) and target (green selection) and sets up backprop between them.  Supervised models support **immediate learning**, where you simply make the model, press "L", and the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning.
-- Subnetworks like backprop and SRN's which have the supervised model built in
-
-The common structure to both cases is a standardly formatted dialog.
-
-## Supervised Training Dialog
-
-Some version of a training dialog is used in many places in Simbrain, including: [backprop](../network/backpropnetwork.html), [least mean square nets](../network/lmsnetwork.html), [simple recurrent nets](../network/srn.html), [echo state nets](../network/echostatenetwork.html), [hopfield nets](../network/hopfieldnetwork.html), [competitive nets](../network/competitivenetwork.html), and [self-organizing maps](../network/som.html). For items specific to a particular network type see those pages. If you open one of these and double click on the interaction box, you'll get the main training dialog.
-
-TODO: Put in a new screenshot and add buttons /  menu items missing below
-
-Generally, there is a main training tab, either one or two input data tabs, and a [validation tab](testInputs.html).
+[Classifiers](docs/network/subnetworks/classifier) also belong here, but they are trained in one go, not iteratively.
 
 ### Training Tab
 
@@ -58,28 +57,20 @@ Some buttons that occur in training tabs include:
 
 # Unsupervised Learning
 
-Includes competitive network, Hopfield, Resricted Boltzmann Machine, and SOM Network.
+[Unsupervised learning](https://en.wikipedia.org/wiki/Unsupervised_learning) uses one input table (som, competitive, hopfield), while [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) (backprop, lms, simple recurrent, echo state) uses input and target tables.
 
-These networks are similar to supervised but only have input data. There is no target data.  The dialog is different
+There is no target data in the dialog.
 
-TODO: Put in a new screenshot and add menu items / buttons missing below
+Examples include Resricted Boltzmann Machines and SOM Networks.
 
-## Menu commands
+<img src="/assets/images/unsupervisedTrainingDialog.png" style="width:300px;"/>
+
+Only one button is needed
 
 **Train on Curent Pattern:** Apply the training algorithm to the pattern currently in the network.
 
 
-
-
-# Training Data
-
-These tabs allow a user to edit the [training set](https://en.wikipedia.org/wiki/Test_set) for a learning algorithm. Training a network generally involves specifying one or more tables of data. These tables can be quickly edited (e.g. column data can be normalized and all data randomized). Cf. the [table documentation](../../Utils/Tables/Tables.html).
-
-[Unsupervised learning](https://en.wikipedia.org/wiki/Unsupervised_learning) uses one input table (som, competitive, hopfield), while [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) (backprop, lms, simple recurrent, echo state) uses input and target tables. Each row of these tables corresponds to one input or target vector.
-
-Columns correspond to neurons: input neurons for input data, output neurons for target data. In a supervised learning example, if a network has 3 inputs nodes and 2 output nodes, then the input table will have three columns, and the target table will have 2 columns. The input and target tables should have the same number of rows, and each input / target row pair is a single "training example" from the overall training set. Each row of the input data table is an input vector, and the corresponding row of the target data table is the desired vector that should be produced for that input, if training is successful.
-
-For example, suppose we want to train a network to compute the classic exclusive-or or XOR function, via these associations:
+<!-- For example, suppose we want to train a network to compute the classic exclusive-or or XOR function, via these associations:
 
  0,0 → 0  
  1,0 → 1  
@@ -95,3 +86,4 @@ To do this, we need to set the input and training tables as follows:
 | 0,1        | 1            |
 | 1,1        | 0            |
 
+ -->
