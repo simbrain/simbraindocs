@@ -13,13 +13,21 @@ With this activation function, **weighted inputs** to a neuron are interpreted a
 
 The activation of this type of neuron will tend to follow a value *S*(*W*) which is defined as:
 
-<!-- TODO --> Add equation
+$$
+S(W) = 
+\begin{cases} 
+\frac{u W^N}{\sigma N + W^N} & \text{for } W \geq 0 \\
+0 & \text{for } W < 0
+\end{cases}
+$$
 
 In this equation *W* is weighted inputs, *u* is upper bound (which here represents maximum spike rate), *N* is steepness, and sigma is the semi-saturation constant. This is roughly a sigmoidal function with a lower asymptote of 0 and an upper asymptote of *u*. This is realistic because the number of times a neuron fires in an interval of time is always non-negative.
 
 The way in which the activation value *a* is made to follow *S*(*W*) is by making *S*(*W*) the fixed point of the simple differential equation:
 
-<!-- TODO --> Add equation
+$$
+\frac{da}{dt} = \frac{-a + S(W)}{\tau}
+$$
 
 The time constant &#964; controls the rate at which activation tends toward the fixed point.
 
@@ -29,11 +37,19 @@ If useAdaptation is set to true, then the activation (spike rate) will tend towa
 
 Adaptation is modeled by adding an adaptation variable *A*, which increases the steepness of the sigmoidal-like function *S* by increasing the semi-saturation constant, and thereby moving the fixed point of the activation function towards its minimum value.
 
-<!-- TODO --> Add equation
+$$
+S(W) = 
+\begin{cases} 
+\frac{u W^N}{(\sigma + A)^N + W^N} & \text{for } W \geq 0 \\
+0 & \text{for } W < 0
+\end{cases}
+$$
 
 *A* is a function of the activation of the neuron:
 
-<!-- TODO --> Add equation
+
+$$ \frac{dA}{dt} = \frac{-A + 0.7a}{\tau_A} $$
+
 
 So the neuron will "adapt" more rapidly when it is firing more. Adaptation is controlled by its own time constant, Ta, which should be much larger than Ti, so that the adaptation will occur more slowly than the overall evolution of the firing rate.
 

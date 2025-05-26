@@ -33,6 +33,6 @@ How quickly the recovery variable recovers to its baseline value.
 
 Background current to the cell.
 
-## Add noise
+## Add Noise
 
-Click **[here](../../utilities/randomizers.md)** for noise properties.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

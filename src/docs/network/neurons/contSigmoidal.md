@@ -62,9 +62,7 @@ The **leak constant** defines how strongly the neuron will be attracted to its b
 - **Use Case**: A higher leak constant leads to a more pronounced return to the baseline, while a lower value allows the neuron to retain its activation for longer periods without external input.
 
 ### Add Noise
-The **Add Noise** option introduces a stochastic element into the neuron's updates by adding random noise to the inputs during the update process. This can be useful for modeling more dynamic, unpredictable behaviors in the network.
-
-- **Use Case**: Setting this to `true` adds randomness, which can simulate noisy or fluctuating neural activity, useful for certain types of simulations or when modeling biological neural networks.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.
 
 ## Applications
 

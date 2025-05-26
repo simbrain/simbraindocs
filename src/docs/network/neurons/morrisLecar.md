@@ -43,6 +43,6 @@ Parameter descriptions are given here though it may help to simply think of thes
 - K⁺ Const. 2: V4 on the Scholarpedia page.
 - K⁺ ϕ: Potassium channel time constant/decay rate. If higher, potassium changes more slowly.
 
-## Noise
+## Add Noise
 
-See **here**.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

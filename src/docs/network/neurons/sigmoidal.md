@@ -73,4 +73,4 @@ The slope at the inflection point is denoted by *m* above. This represents how s
 
 ## Add Noise (\( \zeta \))
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click **here**.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

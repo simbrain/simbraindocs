@@ -23,7 +23,6 @@ The frequency tells us how frequently the activation oscillates. For example, a 
 
 ## Add Noise
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sinusoidal function is applied. For details how the noise generator works, click here.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail
 
 <!-- TODO --> Duplicate?
-Add Noise
