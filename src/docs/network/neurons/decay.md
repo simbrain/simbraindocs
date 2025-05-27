@@ -30,4 +30,4 @@ The proportion of the distance between the current value and the base-line value
 
 ## Add Noise
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the activation is decayed. For details on how the noise generator works, click **here**.
+If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

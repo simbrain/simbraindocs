@@ -11,7 +11,7 @@ nav_order: 120
 
 This is a common type of activation function in neural networks. The activation level *a* of this type of node is a linear function of **weighted inputs** *W* plus a bias term *b*, with *m* representing the slope:
 
-<!-- TODO --> Add equation
+$$ a = m(W + b) $$
 
 A piecewise linear function resembling a sigmoidal function can be created by making use of clipping (see below).
 

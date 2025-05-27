@@ -6,3 +6,85 @@ parent: Neurons
 has_children: false
 nav_order: 230
 ---
+
+# Timed Accumulator Neuron Model
+
+The **Timed Accumulator Neuron** is a stochastic spiking neuron model commonly used in cortical branching simulations. The model employs a **timed accumulator** that normalizes its inputs using the **softmax function**. This function assigns each synaptic weight a probability value, and the neuron spikes with a probability proportional to the softmax'd value of that weight. 
+
+The neuron can also spike spontaneously with a certain probability and has a refractory period where it cannot spike again for a set amount of time.
+
+## Summary
+
+The **Timed Accumulator Neuron** offers a powerful tool for simulating realistic spiking behavior in networks. Its softmax-based input normalization, spontaneous firing capability, and refractory period make it suitable for use in more complex, probabilistic models of neural activity.
+
+
+## Softmax Function
+
+The softmax function used to normalize inputs is defined as:
+
+$$
+\text{softmax}(x_i) = \kappa \cdot \frac{\exp(x_i)}{\sum \exp(X \cdot b)}
+$$
+
+Where:
+- $$ x_i $$ are the synaptic weights,
+- $$ b $$ controls the steepness of the softmax function,
+- $$ \kappa $$ acts as a global gain parameter.
+
+## Key Features
+
+- **Ref. Period**: Defines the refractory period, the amount of time the neuron cannot spike after a spike occurs.
+  
+- **Spike Prob.**: The probability that the neuron will spike spontaneously, regardless of the input or state.
+  
+- **Shape Parameter**: The parameter $$ b $$ that controls the nonlinearity of the softmax function. Large positive values increase disparity between weights, while negative values reverse the probabilities for larger weights.
+  
+- **Gain**: The **gain** parameter $$ \kappa $$ scales the probability of spiking based on the synaptic weights.
+
+## How It Works
+
+The neuron updates its state in discrete time steps. During each time step, the model first checks if the neuron is in the refractory period. If not, it calculates the softmax probabilities for each incoming synapse and decides whether to spike based on these probabilities and a random draw. If the neuron spikes, it enters the refractory period for a predefined time. If no spike occurs, the neuron remains inactive.
+
+The update rule for the neuron is as follows:
+
+1. If the neuron is in the refractory period, it cannot spike and will return without any change.
+2. If the neuron spikes spontaneously (with probability `baseProb`), the activation is set to 1, and it spikes.
+3. If the neuron does not spike spontaneously, it checks each synapse's softmax probability to determine if it should spike based on the incoming synapse strength and the softmax probability.
+4. The spike probability for each synapse is given by:
+
+$$
+P(\text{spike}) = \frac{\kappa \cdot \text{PSR}}{\text{expSum}}
+$$
+
+Where:
+- **PSR** is the **Post-Synaptic Response** for the synapse,
+- **expSum** is the sum of the exponentiated synaptic weights.
+
+## Parameters
+
+### Ref. Period
+
+- **Description**: The refractory period defines how long it takes before the neuron can spike again after a spike.
+- **Default Value**: `10`
+- **Use Case**: Controls the duration of inactivity after each spike.
+
+### Spike Prob.
+
+- **Description**: The probability that the neuron will spike spontaneously regardless of input.
+- **Default Value**: `1E-5`
+- **Range**: [0, 1]
+- **Use Case**: Allows for spontaneous firing in the absence of significant inputs.
+
+### Shape Parameter (b)
+
+- **Description**: The parameter that controls the steepness of the softmax function.
+- **Default Value**: `1.6`
+- **Use Case**: Affects how dramatically the neuron responds to varying synaptic weights.
+
+### Gain ($$ \kappa $$)
+
+- **Description**: Scales the probability of spikes based on the synaptic weights.
+- **Default Value**: `0.9`
+- **Use Case**: Allows for adjustment of overall spiking probability, influencing the strength of the neuron’s response.
+
+
