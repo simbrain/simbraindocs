@@ -54,12 +54,12 @@ This equation explains how the neuron's activation evolves over time based on it
 ### Time Constant
 The **time constant** controls how quickly the neuron’s activation integrates over time. A higher time constant results in slower integration, meaning the neuron is less sensitive to rapid changes in input. Conversely, a smaller time constant means the neuron reacts more quickly to changes in input.
 
-- **Use Case**: Adjusting the time constant allows you to control the responsiveness of the neuron, with higher values making the neuron more stable and slower to respond to changes in input.
+- Adjusting the time constant allows you to control the responsiveness of the neuron, with higher values making the neuron more stable and slower to respond to changes in input.
 
 ### Leak Constant
 The **leak constant** defines how strongly the neuron will be attracted to its baseline activation when no significant input is present. It determines the rate at which the neuron "decays" or moves back to its resting state.
 
-- **Use Case**: A higher leak constant leads to a more pronounced return to the baseline, while a lower value allows the neuron to retain its activation for longer periods without external input.
+- A higher leak constant leads to a more pronounced return to the baseline, while a lower value allows the neuron to retain its activation for longer periods without external input.
 
 ### Add Noise
 If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

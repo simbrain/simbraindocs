@@ -73,18 +73,21 @@ Where:
 - **Description**: The probability that the neuron will spike spontaneously regardless of input.
 - **Default Value**: `1E-5`
 - **Range**: [0, 1]
-- **Use Case**: Allows for spontaneous firing in the absence of significant inputs.
+
+Raising this allows for spontaneous firing in the absence of significant inputs.
 
 ### Shape Parameter (b)
 
 - **Description**: The parameter that controls the steepness of the softmax function.
 - **Default Value**: `1.6`
-- **Use Case**: Affects how dramatically the neuron responds to varying synaptic weights.
+
+Affects how dramatically the neuron responds to varying synaptic weights.
 
 ### Gain ($$ \kappa $$)
 
 - **Description**: Scales the probability of spikes based on the synaptic weights.
 - **Default Value**: `0.9`
-- **Use Case**: Allows for adjustment of overall spiking probability, influencing the strength of the neuron’s response.
+
+Allows for adjustment of overall spiking probability, influencing the strength of the neuron’s response.
 
 
