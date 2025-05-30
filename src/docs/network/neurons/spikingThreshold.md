@@ -26,15 +26,9 @@ $$
 where:
 - $$x$$ is the neuron's weighted input,
 - $$\eta$$ is random noise (if enabled),
-- $$\theta$$ is the **threshold** parameter.
+- $$\theta$$ is the threshold parameter.
 
 A spike is emitted (and stored in the neuron's spike flag) whenever this rule returns 1. This model does **not** include a refractory period or spike timing dynamics—each step is evaluated independently.
-
-This neuron is ideal for:
-- Building simple spiking networks with threshold-based behavior
-- Modeling neurons that exhibit **all-or-none** responses
-- Simulations where **binary spike events** are sufficient
-
 
 ## Parameters
 
@@ -45,3 +39,5 @@ Specifies the **minimum input value** required for the neuron to spike. If the w
 ### Add Noise
 
 If enabled, **random noise** is added to the input before comparison with the threshold. This noise is sampled from a [Probability Distribution](/docs/utilities/randomizers), allowing for exploration of stochastic spiking behavior.
+
+For other adjustable properties like noise and sigmoid function type, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

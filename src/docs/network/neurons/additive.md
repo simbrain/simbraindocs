@@ -38,6 +38,7 @@ This neuron is ideal for:
 # Parameters
 
 - **Lambda**: controls the steepness of the sigmoid function used to transform input. A larger value makes the function more like a step function, while a smaller value smooths it out.
+
 - **Resistance**: Determines the rate of decay of the neuron's activation. A higher resistance value leads to slower decay; a lower value causes the neuron to change more quickly.
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
