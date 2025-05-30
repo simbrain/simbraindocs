@@ -18,24 +18,6 @@ The best way to get a feel for what is possible is to have a look at a few simul
 
 To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
 
-## Using AI to make a Simulation
-
-Note that it's not so hard to make a simulation using AI.For example using a ChatGPT project, and adding the following source files to it
-
-- `RegisteredSimulations.kt`
-- `integrateAndFireSimulation.kt`
-- `SpikingNeuronSim.kt`
-- `Braitenberg.kt`
-
-And using this prompt
-
-> Please make a kotlinsimulation file withtwo input neurons both clamped, labeled "Excitatory input" and "Inhibitory Input" and a third Integrate and Fire neuron labeled "Spiking neuron" coupled to a time series plot showing activation over time.  
-
-A viable simulation file was create which was then edited. A further prompt
-
-> please provide code for an infodoc
-
-Produced a first draft of docs for the sim
 
 ## Setting up a Simulation (Kotlin)
 
@@ -59,6 +41,28 @@ To lay things out in network hover over interaction boxes for coordinates
 `SimbrainUtils.java` and `SimulationScope` in `Simulation.kt` do similar things.  For now they cannot be accessed and so contain redundant functions. We may create objects to go back and forth between the (e.g. `val su = SimbrainUtil(workspace, desktop) )`, but we have not done so yet.
 
 Sometimes after `addModels` in kotlin `.?join()` is useful to wait to make sure things are done before moving on.
+
+# Using AI to make a Simulation
+
+Note that it's not so hard to make a simulation using AI.For example using a ChatGPT project, and adding the following source files to it
+
+- `RegisteredSimulations.kt`
+- `integrateAndFireSimulation.kt`
+- `SpikingNeuronSim.kt`
+- `Braitenberg.kt`
+
+And using this prompt
+
+> Please make a simulation file with two input neurons both clamped, labeled "Excitatory input" and "Inhibitory Input" and a third Integrate and Fire neuron labeled "Spiking neuron" coupled to a time series plot showing activation over time.  
+
+A viable simulation file was create which was then edited. A further prompt
+
+> please provide code for an infodoc
+
+Produced a first draft of docs for the sim
+
+
+# Other Topics
 
 ## Adding docs
 

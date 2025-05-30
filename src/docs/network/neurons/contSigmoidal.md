@@ -39,6 +39,7 @@ This equation explains how the neuron's activation evolves over time based on it
 
 ## Parameters
 
+
 - **Time Constant**: controls how quickly the neuron’s activation integrates over time. A higher time constant results in slower integration, meaning the neuron is less sensitive to rapid changes in input. Conversely, a smaller time constant means the neuron reacts more quickly to changes in input.
 
 - **Leak Constant** defines how strongly the neuron will be attracted to its baseline activation when no significant input is present. It determines the rate at which the neuron "decays" or moves back to its resting state.
