@@ -17,7 +17,7 @@ The classifier object is a Simbrain front end to a machine learning library, [Sm
 
 To get a feel for classifers see the simulations in `simulations > machine learning`
 
-Three types of classifier are supported: Support Vector Machines, Logistic Regression, and KMeans.
+Three types of classifier are supported: Support Vector Machines, Logistic Regression, and K Nearest Neighbors.
 
 Each classifier is trained on a set of input-target pairs, where the inputs are features vectors and targets are sets of class labels. The classifier can then be used to assign class labels to new input patterns. Each class label is associated with one of the output neurons. Usually only one output is active for any input (one-hot, winner-take all)
 
@@ -26,9 +26,12 @@ The classifier is implemented as a [subnetwork](index.html), with:
 - An **input layer**, consisting of a set neurons. Input vectors are sometimes called "feature vectors" in machine learning.
 - An **output layer**, with one neuron for each possible class. 
 
-Note that the arrow between the input and output layer cannot be clicked on, which is different from [weight matrices](../arraysMatrices) and [synapse groups](../synapsegroups). In most of Simbrain we think about connections between layers in terms of groups of weights. In these machine learning contexts other kinds of algorithms are applied--some inspired by neural networks or sharing structural similarities—-but ultimately based on distinct mathematical and statistical techniques. So that part is black-boxed here.
 
-Still, classifers are first-class components of Simbrain that can interact with other Simbrain components.  Because inputs and outputs are just [neuron groups](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
+<img src="/assets/images/SVMClassifer.png" alt="SVM Classifier in Simbrain" style="width:300px;"/>
+
+Note that the arrow between the input and output layer _cannot_ be clicked on, which is different from [weight matrices](../arraysMatrices) and [synapse groups](../synapsegroups), which allow weights to be edited. In the image above note that there is no interaction box on the arrow from the input to the output layer. Machine learning algorithms like these don't use weights directly, but apply mathematical and statistical techniques directly.
+
+Classifers are first-class components of Simbrain that can interact with other Simbrain components. Because inputs and outputs are just [neuron groups](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
 
 # Training and Testing
 
