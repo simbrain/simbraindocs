@@ -9,14 +9,9 @@ nav_order: 230
 
 # Timed Accumulator Neuron Model
 
-The **Timed Accumulator Neuron** is a stochastic spiking neuron model commonly used in cortical branching simulations. The model employs a **timed accumulator** that normalizes its inputs using the **softmax function**. This function assigns each synaptic weight a probability value, and the neuron spikes with a probability proportional to the softmax'd value of that weight. 
+The Timed Accumulator Neuron is a stochastic spiking neuron model commonly used in cortical branching simulations. The model employs a timed accumulator that normalizes its inputs using the softmax function. This function assigns each synaptic weight a probability value, and the neuron spikes with a probability proportional to the softmax'd value of that weight. 
 
 The neuron can also spike spontaneously with a certain probability and has a refractory period where it cannot spike again for a set amount of time.
-
-## Summary
-
-The **Timed Accumulator Neuron** offers a powerful tool for simulating realistic spiking behavior in networks. Its softmax-based input normalization, spontaneous firing capability, and refractory period make it suitable for use in more complex, probabilistic models of neural activity.
-
 
 ## Softmax Function
 
@@ -30,16 +25,6 @@ Where:
 - $$ x_i $$ are the synaptic weights,
 - $$ b $$ controls the steepness of the softmax function,
 - $$ \kappa $$ acts as a global gain parameter.
-
-## Key Features
-
-- **Ref. Period**: Defines the refractory period, the amount of time the neuron cannot spike after a spike occurs.
-  
-- **Spike Prob.**: The probability that the neuron will spike spontaneously, regardless of the input or state.
-  
-- **Shape Parameter**: The parameter $$ b $$ that controls the nonlinearity of the softmax function. Large positive values increase disparity between weights, while negative values reverse the probabilities for larger weights.
-  
-- **Gain**: The **gain** parameter $$ \kappa $$ scales the probability of spiking based on the synaptic weights.
 
 ## How It Works
 
@@ -66,7 +51,8 @@ Where:
 
 - **Description**: The refractory period defines how long it takes before the neuron can spike again after a spike.
 - **Default Value**: `10`
-- **Use Case**: Controls the duration of inactivity after each spike.
+
+Controls the duration of inactivity after each spike.
 
 ### Spike Prob.
 
@@ -89,5 +75,9 @@ Affects how dramatically the neuron responds to varying synaptic weights.
 - **Default Value**: `0.9`
 
 Allows for adjustment of overall spiking probability, influencing the strength of the neuron’s response.
+
+
+For other adjustable properties like noise and sigmoid function type, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
+
 
 
