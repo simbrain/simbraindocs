@@ -9,7 +9,7 @@ nav_order: 20
 
 # Adaptive Exponential Integrate and Fire
 
-The Adaptive Exponential Integrate and Fire or AdEx model is a spiking neuron model governed by two coupled differential equations. The first equation defines the behavior of the neuron's membrane potential over time, while the second equation defines the behavior of an adaptation parameter which broadly speaking acts to hyperpolarize the membrane potential in response to successive spikes. The AdEx model is capable of simulating many different kinds of observed spiking behavior including (but not limited to) bursting, fast-spiking, regular spiking, delayed spiking, and chaotic spiking. For more information see the **Scholarpedia article on the AdEx model**.
+The Adaptive Exponential Integrate and Fire or AdEx model is a spiking neuron model governed by two coupled differential equations. The first equation defines the behavior of the neuron's membrane potential over time, while the second equation defines the behavior of an adaptation parameter which broadly speaking acts to hyperpolarize the membrane potential in response to successive spikes. The AdEx model is capable of simulating many different kinds of observed spiking behavior including (but not limited to) bursting, fast-spiking, regular spiking, delayed spiking, and chaotic spiking. For more information see the [Scholarpedia article on the AdEx model](http://www.scholarpedia.org/article/Adaptive_exponential_integrate-and-fire_model).
 
 ## Membrane Voltage
 
