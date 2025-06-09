@@ -9,27 +9,49 @@ nav_order: 120
 
 # Linear Neuron
 
-This is a common type of activation function in neural networks. The activation level *a* of this type of node is a linear function of **weighted inputs** *W* plus a bias term *b*, with *m* representing the slope:
+This is a standard type of neuron where the activation *a* is a linear function of the weighted inputs $$w$$ plus a bias term *b*, with *m* representing the slope:
 
 $$ a = m(W + b) $$
 
-A piecewise linear function resembling a sigmoidal function can be created by making use of clipping (see below).
+This rule is flexible, and different activation behaviors can be achieved using the clipping type described below.
 
-If slope is set to 1 and bias to 0, linear neurons simply pass on their weighted inputs. This is especially useful for [input and output nodes](../../workspace/couplings.html).
+## Clipping Type
 
-To set the horizontal or vertical intercept to some specific value see the bias term below.
+There are three clipping types that determine how the activation function behaves:
+
+- **No Clipping**: A pure linear function. No limits are placed on the output.
+- **Relu**: The Rectified Linear Unit, clips values below 0 to 0. 
+
+$$
+  a = \max(0, m(W + b))
+$$
+
+- **Piecewise Linear**: Clips the output between a lower and upper bound. To approximate sigmoid-like behavior, choose `Piecewise Linear` and set appropriate bounds.
 
 ## Slope
 
-The slope of the linear activation function, denoted *m* above. The slope scales the value of the **weighted inputs** plus the bias *b*.
+The slope *m* scales the weighted inputs plus the bias *b*. Setting slope to 1.0 and bias to 0 results in the node passing on its input unchanged.
+
+This is commonly used in [input and output nodes](../../workspace/couplings.html).
 
 ## Bias
 
-A fixed amount of input to this node, denoted by *b* above.
+A fixed amount of input to this node, denoted by *b* in the activation equation.
 
-- To set the horizontal intercept to a value *h* set *b* = -*h*.
-- To set the vertical intercept to a value *v* set *b* = *v/m*.
+- To set a horizontal intercept of *h*, set *b = -h*.
+- To set a vertical intercept of *v*, set *b = v/m*.
+
+## Bounds
+
+Only used if the clipping type is set to *Piecewise Linear*.
+
+- Upper Bound: Maximum allowed value of activation.
+- Lower Bound: Minimum allowed value of activation.
+
+These values are ignored in Relu and No Clipping modes (except in UI controls like increment/decrement).
 
 ## Add Noise
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the linear activation function is applied. For details of how the noise generator works, click [**here**](../../utilities/randomizers.html).
+When this is enabled, random noise (from a specified distribution) is added to the output *after* applying the linear transformation and clipping. This is useful for adding variability to the neuron's response.
+
+For more information on the noise generator, click [here](../../utilities/randomizers.html).

@@ -13,20 +13,27 @@ These nodes get their name from the IAC or ["Inter-Active Competition"](https://
 
 The basic dynamics of an IAC neuron are similar to the [decay neurons](decay.html). The user sets a resting value and a decay rate, and the neuron will decay towards that resting value proportionally to the decay rate. IAC neurons change activation as follows:
 
-<img src="../../assets/images/IACNeuronEquation.png" style="width:500px;"/>
+$$
+a = a + \left\{
+\begin{array}{ll}
+(u - a)w - \lambda(a - r) & \text{if } w > 0 \\
+(a - l)w - \lambda(a - r) & \text{otherwise}
+\end{array}
+\right.
+$$
 
-where activation level is *a*, *W* is **weighted inputs**, *u* is upper bound, *l* is lower bound, *r* is the resting value, and λ is the decay rate.
+where activation level is $$a$$, $$w$$ is weighted inputs, $$u$$ is upper bound, $$l$$ is lower bound, $$r$$ is the resting value, and $$\lambda$$ is the decay rate.
 
 ## Decay Rate
 
-The rate at which activation decays to its resting value, denoted by λ.
+The rate at which activation decays to its resting value, denoted by $$\lambda$$.
 
 ## Rest
 
-The resting value *r* which the activation decays to.
+The resting value $$r$$ which the activation decays to.
 
 ## Add Noise
 
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click **[here](../../utilities/randomizers.md)**.
+If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click [here](../../utilities/randomizers.md).
 
 
