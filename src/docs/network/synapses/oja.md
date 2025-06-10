@@ -9,22 +9,32 @@ nav_order: 60
 
 # Oja
 
-**Hebbian learning** rules suffer from the fact that weights tend to achieve maximum or minimum values. Several variants of Hebbian learning have been introduced to address this issue; **Oja's rule** is one of them.
+**[Hebbian learning](https://en.wikipedia.org/wiki/Hebbian_theory)** rules suffer from the tendency for weights to grow without bound. Several modifications have been introduced to address this, with **[Oja's rule](https://en.wikipedia.org/wiki/Oja%27s_rule)** being one of the most prominent.  
+Oja's rule stabilizes synaptic growth by slowing learning as the sum of squared incoming weights approaches a target normalization factor. This is described by the update rule:  
 
-Oja's rule is a modified Hebbian learning where learning slows as the synapse strength approaches some value *η*. This is achieved by the following formula, in which *ε* is a learning rate, *a<sub>t</sub>* is the post-synaptic activation, *a<sub>s</sub>* is the pre-synaptic activation, *w* is the weight strength, and *η* is the value the sum of squared incoming weights is tending towards:
+$$
+\Delta w = \text{learningRate} \cdot \bigl( \text{input} \cdot \text{output} - \frac{\text{output}^2 \cdot w}{\text{normalizationFactor}} \bigr)
+$$  
 
-<!-- TODO --> Add image of equation or latex for equation  
+For weight matrices, the update is:  
 
-In order for the effect of keeping the sum of squares of weights attaching to a neuron equal to *η*, those weights must all use this rule and have the same value for *η*.
+$$
+\Delta W = \text{learningRate} \cdot \bigl( \text{output} \cdot \text{input}^T - W \cdot \text{input} \bigr)
+$$  
 
-The strength of this synapse is **clipped** so as to remain between the lower and upper bounds specified for this synapse. Note that clipping the values of this type of synapse could interfere with its intended effect. Clipping of the target neuron's activation value could also interfere.
+In this rule:  
+- *ε* is the learning rate  
+- *a<sub>t</sub>* is the post-synaptic activation  
+- *a<sub>s</sub>* is the pre-synaptic activation  
+- *w* is the weight strength  
+- *η* is the normalization factor towards which the sum of squared weights tends  
 
-See Peter Dayan and Larry Abbott, *Theoretical Neuroscience,* Cambridge, MA: MIT Press, pp. 290-291.
+To maintain this normalization effect, all weights attached to a neuron should use this rule with the same *η* value.
 
-## Learning Rate
+Note that the strength of this synapse is **clipped** within its specified lower and upper bounds. Clipping may interfere with the intended normalization effect. Similarly, clipping the target neuron’s activation value could also interfere.
 
-The learning rate *ε*.
+See Peter Dayan and Larry Abbott, *Theoretical Neuroscience,* Cambridge, MA: MIT Press, pp. 290–291.
 
-## Normalize to
-
-The value the sum of squared incoming weights will tend towards, denoted by *η* above.
+# Preferences
+- **Learning rate**: The learning rate *ε*.
+- **Normalize to**: The target normalization factor *η* for the sum of squared incoming weights.

@@ -7,37 +7,36 @@ has_children: false
 nav_order: 90
 ---
 
-# Spike Timing Dependent Plasticity (STDP)
+# STDP Rule
 
-**Spike Timing Dependent Plasticity** is a variant on the **Hebb rule** for synapses between spiking neurons, where the relative timing of pre and post-synaptic spikes determines whether the synapse is strengthened or weakened. When a pre-synaptic neuron spikes before the post-synaptic neuron, the weight is strengthened (this is **long term potentiation** or "LTP"). When the pre-synaptic spike occurs after the post-synaptic spike, the weight is weakened (this is **long term depression** or "LTD").
+**[Spike Timing Dependent Plasticity (STDP)](https://en.wikipedia.org/wiki/Spike-timing-dependent_plasticity)** is a variant of the **[Hebbian rule](hebbian.md)** specifically for synapses between spiking neurons. In STDP, the relative timing of pre- and post-synaptic spikes determines whether the synapse is strengthened ([long-term potentiation](https://en.wikipedia.org/wiki/Synaptic_plasticity#Long-term_potentiation), LTP) or weakened ([long-term depression](https://en.wikipedia.org/wiki/Synaptic_plasticity#Long-term_depression), LTD).  
 
-$$
-\Delta w_{ij} = \eta W_{+/-} \exp \left( -\frac{|u|}{\tau_{+/-}} \right)
-$$
-
-where:
+When the pre-synaptic neuron spikes before the post-synaptic neuron, the synapse is strengthened (LTP). When the pre-synaptic neuron spikes after the post-synaptic neuron, the synapse is weakened (LTD).  
+The update depends on the spike timing difference $$ u = t_{post} - t_{pre} $$:  
 
 $$
-u = t_{post} - t_{pre}
-$$
+\Delta w = \eta W_{+/-} \exp \left( -\frac{|u|}{\tau_{+/-}} \right)
+$$  
 
-Such that LTP occurs when the post-synaptic cell fires after the pre-synaptic cell and vice versa for LTD. The sign of $\Delta w_{ij}$ in this case depends on the sign of $w_{ij}$ such that inhibitory synapses also increase in absolute value under the same conditions as excitatory synapses. This window can be reversed if the anti-Hebbian flag is set to true, i.e., anti-causal relationships will produce LTP and causal relationships will produce LTD.
+where:  
+- *η* is the learning rate  
+- *W<sub>+/−</sub>* are the learning rates for LTP and LTD  
+- *τ<sub>+/−</sub>* are the time constants for LTP and LTD  
+- The sign of $$ \Delta w $$ depends on the sign of the weight, so inhibitory synapses also increase in absolute value under the same conditions as excitatory ones.
 
-Note that if the post and/or pre-synaptic neuron is not spiking, then this behaves like a clamped synapse. However, this is not recommended and can harm performance. STDP assumes that both the source and target neurons are spiking neurons.
+This window can be reversed (anti-Hebbian behavior) if the anti-Hebbian flag is set to true, meaning anti-causal relationships produce LTP and causal ones produce LTD.
 
-## Time constant ($$\tau_{+/-}$$)
+Note:  
+- STDP only applies to spiking neurons. Using non-spiking neurons with this rule is not recommended and can harm performance.  
+- When smooth STDP is enabled, updates apply continuously to the derivative of the weight rather than directly to the weight itself.  
+- If either the pre- or post-synaptic neuron is not spiking, the synapse behaves like a clamped synapse.
 
-Time course of plasticity for LTP and LTDP, determines how quickly LTP/LTD decays relative to the temporal distance between the pre and post-synaptic spikes.
+Source: Jean-Philippe Thivierge and Paul Cisek (2008), *Nonperiodic Synchronization in Heterogeneous Networks of Spiking Neurons*, Journal of Neuroscience; and the **[Scholarpedia article on STDP](http://www.scholarpedia.org/article/Spike-timing_dependent_plasticity)**.
 
-## W +/-
-
-Magnitude of change in synaptic efficacy for LTP and LTD. Also called A+/A-.
-
-## Learning rate ($$\eta$$)
-
-Multiplied by delta-w in every time step to control how quickly the synapse changes.
-
-## Sources
-
-Source: Jean-Philippe Thivierge and Paul Cisek (2008), **Nonperiodic Synchronization in Heterogeneous Networks of Spiking Neurons**. *Journal of Neuroscience.*  
-Also drew on this **Scholarpedia article on STDP**.
+# Preferences
+- **Tau minus**: Time constant $$ \tau_{-} $$ for LTD.
+- **Tau plus**: Time constant $$ \tau_{+} $$ for LTP.
+- **W+**: Magnitude of change $$ W_{+} $$ for LTP.
+- **W-**: Magnitude of change $$ W_{-} $$ for LTD.
+- **Learning rate**: The general learning rate $$ \eta $$.
+- **Smooth STDP**: If enabled, updates act on the derivative of the weight (continuous updates).
