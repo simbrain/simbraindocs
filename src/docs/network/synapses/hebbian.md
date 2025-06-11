@@ -7,18 +7,24 @@ has_children: false
 nav_order: 30
 ---
 
-# Hebbian
+# Hebbian Rule
 
-This type of synapse implements **Hebbian learning**, where the change of the synapse is proportional to the product of the activation of the source neuron *a<sub>s</sub>* and target neuron *a<sub>t</sub>*:
+A standard [Hebbian learning rule](https://en.wikipedia.org/wiki/Hebbian_theory) that updates synaptic strengths based on the correlation between pre- and post-synaptic activities.  
+  
+- When the forgetting rate is zero, the update is:  
 
-<!-- TODO --> Add image of equation or latex for equation  
+$$
+\Delta w = \text{learningRate} \cdot (\text{input} \cdot \text{output})
+$$  
 
-The strength of this synapse is **clipped** so as to remain between the lower and upper bounds specified for this synapse.
+- When the forgetting rate is positive, weights decay before the update:  
 
-In effect, neurons that "fire together, wire together."
+$$
+w = (1 - \text{forgettingRate}) \cdot w + \text{learningRate} \cdot (\text{input} \cdot \text{output})
+$$  
 
-Note that in most cases synapses of this type will rapidly achieve their maximum or minimum value. To prevent this, a very small learning rate can be used, or after sufficient training the weights can be **clamped**. Other learning rules and networks attempt to overcome this limitation of Hebbian learning.
+- Can be applied to both individual synapses and weight matrices.
 
-## Learning Rate
-
-This value changes the rate of the change of the synapse, denoted by epsilon in the equation above.
+# Preferences
+- **Learning rate**: Learning rate for Hebb rule.
+- **Forgetting rate**: The percent of strength to remove at each time step.

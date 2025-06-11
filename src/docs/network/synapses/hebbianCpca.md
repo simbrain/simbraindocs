@@ -9,7 +9,7 @@ nav_order: 40
 
 # Hebbian CPCA
 
-The Hebbian CPCA rule is a Hebbian learning variant that updates the strength of a synapse using a modified weight update rule. The change in weight, $$\Delta w$$, is determined by the learning rate, the activations of the source and target neurons, and the current synapse strength:
+The Hebbian CPCA rule is a [Hebbian learning](https://en.wikipedia.org/wiki/Hebbian_theory) variant that updates the strength of a synapse using a modified weight update rule. The change in weight, $$\Delta w$$, is determined by the learning rate, the activations of the source and target neurons, and the current synapse strength:
 
 $$
 \Delta w = \text{learningRate} \cdot (a_{\text{target}} \cdot a_{\text{source}} - a_{\text{target}} \cdot w)

@@ -9,12 +9,12 @@ nav_order: 80
 
 # Short Term Plasticity
 
-The Short Term Plasticity (STP) rule models transient changes in synaptic strength that occur on a short timescale, distinct from long-term plasticity mechanisms like Hebbian learning. This rule updates the synaptic strength dynamically based on whether the source neuron is actively firing or not.
+The [Short Term Plasticity (STP)](https://en.wikipedia.org/wiki/Synaptic_plasticity#Short-term_plasticity) rule models transient changes in synaptic strength that occur on a short timescale, distinct from [long-term plasticity](https://en.wikipedia.org/wiki/Synaptic_plasticity#Long-term_plasticity) mechanisms like Hebbian learning. This rule updates the synaptic strength dynamically based on whether the source neuron is actively firing or not.
 
 At each update:
 - **Activation**: If the source neuron is spiking (for spiking neurons) or its activation exceeds a threshold (for rate-based neurons), the synapse is considered *activated*.
 - **Plasticity type**:  
-  - If **STD** (short term depression) is selected, the synapse strength is decreased toward its lower bound at a rate determined by the bump rate.  
+  - If **[STD](https://en.wikipedia.org/wiki/Synaptic_plasticity#Long-term_depression)** (short term depression) is selected, the synapse strength is decreased toward its lower bound at a rate determined by the bump rate.  
   - If facilitation is selected (not explicitly named here but implied by a non-STD type), the strength is increased toward its upper bound at a rate determined by the bump rate.
 - **Decay**: When not activated, the synapse strength decays toward a baseline strength at a rate determined by the decay rate.
 
