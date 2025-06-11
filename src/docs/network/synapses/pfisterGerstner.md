@@ -9,14 +9,14 @@ nav_order: 70
 
 # Pfister and Gerstner (2006)
 
-The Pfister and Gerstner (2006) rule is a triplet-based spike-timing dependent plasticity (STDP) learning rule, specifically designed to capture complex temporal interactions in spike trains beyond traditional pair-based STDP. It updates the synaptic strength using the following principles:
+The [Pfister and Gerstner (2006) rule](https://pmc.ncbi.nlm.nih.gov/articles/PMC6674434/) is a triplet-based [spike-timing dependent plasticity (STDP)](https://en.wikipedia.org/wiki/Spike-timing-dependent_plasticity) learning rule, specifically designed to capture complex temporal interactions in spike trains beyond traditional pair-based STDP. It updates the synaptic strength using the following principles:
 
-- **Spike traces**: Four spike traces are maintained:
+- Spike traces: Four spike traces are maintained:
   - $$r_1$$ and $$r_2$$ for presynaptic spikes
   - $$o_1$$ and $$o_2$$ for postsynaptic spikes
-- **Trace decay**: Each trace decays exponentially at rates defined by their respective time constants:
+- Trace decay: Each trace decays exponentially at rates defined by their respective time constants:
   - $$\tau_+$$, $$\tau_x$$, $$\tau_-$$, and $$\tau_y$$
-- **Amplitude terms**: Weight updates depend on amplitude terms for pairs ($$A2+$$ and $$A2-$$) and triplets ($$A3+$$ and $$A3-$$).
+- Amplitude terms: Weight updates depend on amplitude terms for pairs ($$A2+$$ and $$A2-$$) and triplets ($$A3+$$ and $$A3-$$).
 
 At each update:
 - When a presynaptic spike occurs, the traces $$r_1$$ and $$r_2$$ are set to 1.
