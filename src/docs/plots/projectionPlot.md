@@ -34,6 +34,8 @@ When datasets are initially loaded, or when data are added to an existing datase
 
 **Adding new points vs re-activating old points**. When a new point is sent to the projector it is determined whether it is within a specified radius (Euclidean distance in the high dimensional space)  of an existing point.  This radius is set using the **tolerance** field (see [Preferences](#preferences)).  If a point already exists in the dataset the current point is colored a "hot color" and some [coloring managers](#coloring-manager) use this to change the display.
 
+**Tip**: If you want to stabilize the plot and focus on how incoming points relate to the existing structure (without adding new points, which can "change" the entire plot) you can increase the tolerance value to a large number, like 100. This prevents small variations from introducing new points and helps maintain a clear and stable visual representation of the current dataset.
+
 **How new points are handled**. Each type of projection handles new points in a different way, described in the sections below. Here are some examples
 
 1. Simple (Coordinate, PCA): When new data arrive, the algorithm is simply re-applied to the whole dataset. 
