@@ -7,35 +7,43 @@ has_children: false
 nav_order: 30
 ---
 
-# Allostatic Neuron
+# Allostatic Update Rule
 
-This spiking neuron model is based on the homeostatic mechanism described by Falandays et al. (2021). It introduces an adjustable internal target activation level and a dynamic spiking threshold. The model attempts to maintain its activity around the target level by adjusting incoming synaptic weights based on recent spiking history and error signals.
+The **Allostatic Update Rule** is a spiking neuron model that adjusts its internal target activation level over time, supporting dynamic homeostasis. Based on Falandays et al. (2021), it captures regulatory processes that balance activation around a moving set point.
 
-At each timestep, the neuron:
-1. Applies **leaky integration** to its current activation using a fixed leak rate.
-2. Receives input from presynaptic spiking neurons, accumulating this input additively.
-3. Spikes if the resulting activation exceeds the current threshold, then reduces its activation by the threshold amount.
-4. Learns by adjusting incoming synaptic weights based on the **error** between its current activation and internal target.
-5. Updates its target activation and threshold to maintain **homeostatic regulation**.
+Each neuron maintains:
 
-This model uses the following equations:
-- **Leaky integration**:  
-  $$x_n(t+1) = \max(0, x_n(t) \cdot \text{leakRate} + I)$$  
-  where $$I$$ is total input from presynaptic spikes.
+- An activation level $$x_n$$.
+- A target activation level $$T_n$$.
+- A spiking threshold $$T'_n = 2T_n$$.
 
-- **Spiking condition**:  
-  The neuron spikes if $$x_n > T'_n$$, where $$T'_n = 2T_n$$ is the current threshold.
+The neuron updates as follows:
 
-- **Synaptic weight update**:  
-  $$\Delta w = -\frac{(x_n - T_n)}{N}$$ for each presynaptic spike, where $$N$$ is the number of such spikes.
+1. Activation decay with input  
+   $$
+   x_n \leftarrow \max(0,\; x_n \cdot \text{leakRate} + \sum_j w_j \cdot \text{spike}_j)
+   $$
 
-- **Target update**:  
-  $$T_n \leftarrow T_n + \text{learningRate} \cdot (x_n - T_n)$$, with a lower bound of 1. The threshold is then updated as $$T'_n = 2T_n$$.
+2. Spike condition and reset  
+   $$
+   \text{if } x_n > T'_n \Rightarrow \text{spike}, \quad x_n \leftarrow x_n - T'_n
+   $$
 
-# Parameters
+3. Synaptic weight adaptation (only from spiking sources) 
+   $$
+   w_j \leftarrow w_j - \frac{x_n - T_n}{N}
+   $$
 
-- **leakRate**: Controls the decay of activation over time. A value of 0.75 means the neuron retains 75% of its activation at each step without further input.
+4. Target adaptation and threshold update
+   $$
+   T_n \leftarrow \max(1,\; T_n + \eta \cdot (x_n - T_n)), \quad T'_n \leftarrow 2T_n
+   $$
 
-- **learning rate**: Determines how quickly the neuron adapts its target activation in response to the error between current activation and the target.
+This rule causes a neuron to maintain activity around its evolving target, modifying both its incoming weights and threshold accordingly.
+
+## Parameters
+
+- **Leak Rate**: Proportion of activation retained after each time step. A value of 0.75 implies a 25% decay in the absence of input.
+- **Learning Rate**: How quickly the target activation level adapts to current activity.
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

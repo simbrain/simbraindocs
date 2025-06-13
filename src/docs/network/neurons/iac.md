@@ -7,30 +7,41 @@ has_children: false
 nav_order: 80
 ---
 
-# IAC Neuron
 
-These nodes get their name from the IAC or ["Inter-Active Competition"](https://en.wikipedia.org/wiki/Interactive_activation_and_competition_networks) network which John McClelland and David Rummelhart developed in the 1980's and featured later as a prominent example in their book Parallel Distributed Processing (1988). IAC networks continue to be used today, in particular to study psychological processes. Activation of these nodes is often interpreted as degree of belief in some hypothesis, while connection strengths represent evidentiary relationships between these beliefs.
+# IAC (Interactive Activation and Competition)
 
-The basic dynamics of an IAC neuron are similar to the [decay neurons](decay.html). The user sets a resting value and a decay rate, and the neuron will decay towards that resting value proportionally to the decay rate. IAC neurons change activation as follows:
+The **IAC** rule models neurons that participate in excitatory and inhibitory interactions, often used in psychological models of cognition and perception. It is based on the framework described in McClelland (1981), simulating gradual competitive activation dynamics within bounded ranges.
+
+At each time step, the neuron's activation is updated by:
 
 $$
-a = a + \left\{
-\begin{array}{ll}
-(u - a)w - \lambda(a - r) & \text{if } w > 0 \\
-(a - l)w - \lambda(a - r) & \text{otherwise}
-\end{array}
-\right.
+\Delta a = \text{inputEffect} - \text{decay} \cdot (a - r)
 $$
 
-where activation level is $$a$$, $$w$$ is weighted inputs, $$u$$ is upper bound, $$l$$ is lower bound, $$r$$ is the resting value, and $$\lambda$$ is the decay rate.
+Where:
 
-## Decay Rate
+- $$a$$ is the current activation,
+- $$r$$ is the resting value,
+- $$\text{inputEffect}$$ is computed based on the sign of input:
 
-The rate at which activation decays to its resting value, denoted by $$\lambda$$.
+$$
+\text{inputEffect} =
+\begin{cases}
+(1 - a) \cdot I, & \text{if } I \geq 0 \\
+(a - L) \cdot I, & \text{if } I < 0
+\end{cases}
+$$
 
-## Rest
+Here, $$I$$ is the input to the neuron, $$1$$ is the upper bound, and $$L$$ is the lower bound.
 
-The resting value $$r$$ which the activation decays to.
+The neuron's activation is then adjusted by the total change, optional noise is added, and the result is clipped to stay within bounds.
+
+## Parameters
+
+- **Decay Rate**: Controls how quickly the activation returns toward the resting value in the absence of input.
+- **Rest**: The baseline activation level toward which the neuron decays over time.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 ## Add Noise
 

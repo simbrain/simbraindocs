@@ -9,28 +9,28 @@ nav_order: 220
 
 # Three Value
 
-The Three Value neuron-type is much like a **binary neuron**, in that its activation is determined by a threshold. In a Three Value neuron, however, there are two unique thresholds instead of just one. If the **weighted input** plus the bias term exceeds the Lower Threshold, the activation is set to the Lower Value. Likewise, if the Upper Threshold is exceeded, the activation is set to the Upper Value. If neither the Upper Threshold nor the Lower Threshold are exceeded, the activation is set to the Middle Value.
+The **Three Value** rule extends the behavior of a binary neuron by allowing three distinct activation states. A neuron's activation is determined by comparing its input (plus a fixed bias) to two thresholds:
 
-## Bias
+$$
+x = \text{input} + \text{bias}
+$$
 
-A fixed amount of input to the node. This value is added to the weighted input when determining the activation.
+The neuron's output is then:
 
-## Lower Threshold
+$$
+a =
+\begin{cases}
+\text{Lower Value}, & x < \text{Lower Threshold} \\
+\text{Upper Value}, & x > \text{Upper Threshold} \\
+\text{Middle Value}, & \text{otherwise}
+\end{cases}
+$$
 
-If the weighted input plus the bias is less than this value, the activation is set to the Lower Value.
+This rule allows for a ternary decision model useful in systems requiring an explicit "neutral" or "no response" state between excitatory and inhibitory thresholds.
 
-## Upper Threshold
+## Parameters
 
-If the weighted input plus the bias is greater than this value, the activation is set to the Upper Value.
+- **Bias**: A constant value added to the input before threshold comparisons.
+- **Middle Value**: Output when the input falls between the Lower and Upper Thresholds.
 
-## Lower Value
-
-The activation is set to this value if the weighted input plus the bias exceeds the Lower Threshold.
-
-## Middle Value
-
-If the weighted input plus the bias does not exceed the Upper or Lower Thresholds, then the activation is set to this value.
-
-## Upper Value
-
-If the weighted input plus the bias is greater than the Upper Threshold, then the activation is set to this value.
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

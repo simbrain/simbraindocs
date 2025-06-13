@@ -12,32 +12,28 @@ nav_order: 40
 <!-- Link to Relu when we have it -->
 <!-- Link to weighted inputs in update logic -->
 
-The binary activation function (also threshold or heavyside; and closely related to [ReLU](linear)) is a common type of activation function in neural networks. The activation level $$a$$ of a binary node is set to an upper value $$u$$ (set in the upper bound field) if the weighted input $$w$$ plus a bias term $$b$$ is greater than the threshold $$\theta$$, and a lower value $$l$$ (set in the lower bound field) otherwise:
+The **Binary** rule models a neuron that switches between two discrete values based on a threshold comparison. This is a hard-threshold activation function commonly used in early neural models and logic-based systems.
+
+At each time step, the neuron's input is compared to a threshold:
 
 $$
-    a_k = f(n_k) =  \left\{
-        \begin{array}{lc}
-        \ell & {\rm if} \; w \leq \theta \\
-        u  & {\rm if} \;  w > \theta
-    \end{array} 
-    \right.
+a =
+\begin{cases}
+\text{upperBound}, & \text{if } x > \text{threshold} \\
+\text{lowerBound}, & \text{otherwise}
+\end{cases}
 $$
 
-This type of activation function is also referred to as a threshold function, and these units are sometimes called "linear threshold units."
+Where:
 
-## Threshold
+- $$x$$ is the input to the neuron,
+- $$a$$ is the resulting activation.
 
-The threshold value $$\theta$$. Weighted inputs above this value cause the node to enter its on state. This provides a simple model of the voltage potential that real neuron membranes must exceed in order to fire an action potential.
+This rule is often used for binary classification, digital logic emulation, and models where sharp decision boundaries are needed.
 
-## On Value
+## Parameters
 
-The upper value $$u$$ that occurs when the weighted input to node is above threshold.
+- **Threshold**: The input value above which the neuron fires (i.e., switches to the upper bound).
+- **Bias**: Optional bias added to the neuron, though not used directly in the threshold computation in this implementation.
 
-## Off Value
-
-The lower value $$l$$ that occurs when the weighted input to node is less than or equal to the threshold.
-
-## Bias
-
-A fixed amount of input to this node, denoted by *b* above.
-
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
