@@ -7,26 +7,35 @@ has_children: false
 nav_order: 60
 ---
 
-# Decay Neuron
+# Decay
 
-This type of neuron decays towards a fixed base-line value. There are two ways the neuron can decay: either by an absolute amount, or a relative amount. At each iteration of the network, **weighted inputs** are added to the neuron's current activation value, and that sum then decays.
+The **Decay** rule models neurons that return toward a baseline over time, either by a fixed amount or by a fraction of the remaining distance. At each time step, the neuron's activation is updated based on input and then decayed. The direction of decay is determined by whether the current activation is above or below the baseline.
 
-## Relative/Absolute
+Let $$a$$ be the current activation and $$b$$ the baseline. The decay behavior follows:
 
-- If **Relative** is chosen, then at each iteration, the neuron's activation value is changed in the direction of the base-line value by a fixed proportion of its distance from that value. Since the amount the activation decays is a fraction of its current activation, this method is "relative."
-- If **Absolute** is chosen, then at each iteration, the neuron's activation value is changed in the direction of the base-line value by a fixed amount, or decay amount.
+- **Relative decay**:
 
-## Base-line
+  $$
+  \Delta a = \text{decayFraction} \cdot |a - b|
+  $$
 
-The fixed value the neuron decays to.
+- **Absolute decay**:
 
-## Decay amount
+  $$
+  \Delta a = \text{decayAmount}
+  $$
 
-The amount by which the activation is changed each iteration if absolute decay is chosen.
+The value $$\Delta a$$ is added or subtracted as needed to bring activation closer to the baseline. If noise is enabled, random perturbation is applied after decay. Clipping can be enabled to constrain the activation within a fixed range.
 
-## Decay fraction
+## Parameters
 
-The proportion of the distance between the current value and the base-line value, by which the activation is changed each iteration if relative decay is chosen.
+- **Update Type**: Selects between relative and absolute decay behavior.
+- **Decay Amount**: The fixed amount subtracted from the activation each step if absolute decay is used.
+- **Decay Fraction**: The proportion of the distance to the baseline used for each decay step if relative decay is used.
+- **Base Line**: The value the neuron decays toward.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
+
 
 ## Add Noise
 

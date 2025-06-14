@@ -7,31 +7,37 @@ has_children: false
 nav_order: 70
 ---
 
-# FitzHugh-Nagumo Neuron
 
-The [FitzHugh-Nagumo](https://en.wikipedia.org/wiki/FitzHugh%E2%80%93Nagumo_model) neuron model (also see this [Scholarpedia](http://www.scholarpedia.org/article/FitzHugh-Nagumo_model) article; note that our notation here follows the Scholarpedia article, not the wikipedia article), is a 2-d simplification of the 4-d Hodkin-Huxley model (the variables are voltage and internal recovery variable w). A close and simpler cousin of Moris-Lecar models. Based on the idea that a non-linear voltage term and a recovery term will capture most observed spiking dynamics.
+# FitzHugh-Nagumo
 
-As a family tree, Hodkin-Huxley came first, then FitzHugh-Nagumo, then Moris-Lecar.
+The **FitzHugh-Nagumo** rule is a two-variable spiking neuron model that captures the basic dynamics of an action potential. It models a neuron's voltage and a recovery variable, producing realistic spike-like behavior.
 
-Parameter descriptions are given here though it may help to simply think of these as abstract parameters of a complex dynamical system. More detailed description of similar parameters are in the **AdEx** docs.
+The neuron's state is described by two coupled differential equations:
 
-<!-- link for ADEX docs from simbrain3 docs does not work -->
+$$
+\frac{dv}{dt} = v - \frac{v^3}{3} - w + I \\
+\frac{dw}{dt} = a(bv + 0.7 - c w)
+$$
 
-## A (Recovery Rate)
+Where:
 
-Abstract measure of how much "resource" a cell is depleting in response to large changes in voltage. A time constant for V and the recovery variable w.
+- $$v$$ is the membrane potential (activation).
+- $$w$$ is a recovery variable.
+- $$I$$ is total input: external input, background current, and optional noise.
+- $$a, b, c$$ are model parameters controlling the shape and timing of spikes.
+- A spike is recorded when $$v \geq \text{threshold}$$.
 
-## B (Rec. Voltage Dependence)
+The rule models oscillatory behavior, rest states, and excitability, and is commonly used in computational neuroscience to simulate spiking behavior without the complexity of full Hodgkin-Huxley dynamics.
 
-How much the recovery variable w depends on voltage.
+## Parameters
 
-## C (Rec. Self Dependence)
+- **A (Recovery Rate)**: Controls how strongly the recovery variable responds to changes in voltage.
+- **B (Rec. Voltage Dependence)**: Scales how much voltage affects the recovery dynamics.
+- **C (Rec. Self Dependence)**: Determines how quickly the recovery variable returns to baseline.
+- **Spike Threshold**: If the voltage exceeds this value, the neuron is considered to have spiked.
+- **Background Current**: Constant input current applied to the neuron.
 
-How quickly the recovery variable recovers to its baseline value.
-
-## Background Current (nA)
-
-Background current to the cell.
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 ## Add Noise
 

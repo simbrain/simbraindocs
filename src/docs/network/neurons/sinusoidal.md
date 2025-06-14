@@ -7,19 +7,32 @@ has_children: false
 nav_order: 190
 ---
 
-# Sinusoidal Generator
+# Sinusoidal
 
-The activation of this type of neuron varies sinusoidally over time between the upper bound and lower bound of the neuron.
+The **Sinusoidal** rule generates an oscillating signal based on a sine wave. It is used as an **activity generator**, not driven by input but producing rhythmic output over time. This is useful in simulations involving rhythmic inputs, periodic behavior, or neural oscillations.
 
-Note that this type of neuron functions autonomously; it does not use sensory inputs or inputs from other neurons. It can be thought of as a signal generation device.
+At each time step, the neuron's activation is updated by:
 
-## Phase
+$$
+a(t) = \left(\frac{U - L}{2}\right) \cdot \sin(f \cdot t + \phi) + \left(\frac{U + L}{2}\right)
+$$
 
-The phase tells us where we start in a period of the sinusoidal oscillation.  It basically determines a start value for an oscillation.  This number should be between 0 and 2π. 
+Where:
 
-## Frequency
+- $$a(t)$$ is the neuron's activation at time $$t$$,
+- $$U$$ and $$L$$ are the upper and lower bounds,
+- $$f$$ is the frequency of oscillation,
+- $$\phi$$ is the phase (initial position in the sine cycle),
+- Optional noise can be added after computing the sine value.
 
-The frequency tells us how frequently the activation oscillates. For example, a low value (e.g. .001) will make the activation slowly vary over time.  A higher value (e.g. 1) will create rapid oscillations.
+This rule produces a smooth continuous waveform within a bounded range, centered between the upper and lower limits.
+
+## Parameters
+
+- **Phase**: The initial offset in the sine wave cycle (in radians).
+- **Frequency**: Controls how fast the activation oscillates over time.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 ## Add Noise
 

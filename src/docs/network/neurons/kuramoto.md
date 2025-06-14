@@ -7,34 +7,39 @@ has_children: false
 nav_order: 110
 ---
 
-# Kuramoto Neuron
 
-The Kuramoto neuron is based on the [Kuramoto model](https://en.wikipedia.org/wiki/Kuramoto_model), which describes a system of coupled oscillators with varying natural frequencies. In the neural context, it models each neuron's phase as a point on a circle (from 0 to $$2\pi$$) and updates that phase based on the difference between its current phase and the phases of its input neurons.
+# Kuramoto
 
-Each neuron's phase $$\theta$$ evolves over time as a function of its intrinsic frequency and the sine of phase differences with its neighbors. This creates synchronized behavior under certain coupling conditions and is useful in modeling biological oscillations, such as those seen in central pattern generators or circadian rhythms.
+The **Kuramoto** update rule implements a phase-coupled oscillator model inspired by the Kuramoto model of synchronization. Each neuron's activation is treated as a phase angle $$\theta$$, which evolves over time based on the phase differences between itself and its input neurons.
 
-The update rule is governed by:
+At each time step, the neuron computes:
 
 $$
-\frac{d\theta_i}{dt} = \omega_i + \frac{1}{N} \sum_{j} K_{ij} \sin(\theta_j - \theta_i)
+\theta' = \theta + \Delta t \cdot \left( \omega + \frac{1}{N} \sum_j K_j \sin(\theta_j - \theta) \right)
 $$
 
-where:
-- $$\theta_i$$ is the current phase of neuron $$i$$,
-- $$\omega_i$$ is its natural frequency,
-- $$K_{ij}$$ is the synaptic strength from neuron $$j$$ to $$i$$,
-- $$N$$ is the number of input neurons.
+Where:
 
-At each update, the neuron's phase is incremented by the computed derivative and wrapped back to the $$[0, 2\pi)$$ range.
+- $$\theta$$ is the neuron's current phase (activation).
+- $$\omega$$ is the neuron's natural frequency.
+- $$K_j$$ is the strength of synapse $$j$$.
+- $$\theta_j$$ is the phase of presynaptic neuron $$j$$.
+- $$N$$ is the number of input synapses.
+- $$\Delta t$$ is the simulation time step.
 
-This neuron is ideal for:
-- Modeling synchronization phenomena
-- Exploring phase-coupled oscillations
-- Simulating networks with periodic behavior
+The updated phase is then wrapped into the interval $$[0, 2\pi]$$.
 
-# Parameters
+This rule models synchronization phenomena and can be used to simulate coupled oscillators, rhythmic behavior, and collective entrainment in neural networks.
 
-- **Natural Frequency**: TODO
+## Parameters
+
+- **Natural Frequency**: The constant intrinsic rotation speed $$\omega$$ of the oscillator.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
+
+## Add Noise
+
+If enabled, random noise sampled from a probability distribution is added to the phase after update. This can be used to simulate stochastic dynamics.
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 

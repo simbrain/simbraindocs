@@ -7,18 +7,29 @@ has_children: false
 nav_order: 130
 ---
 
-# Logistic Generator
+# Logistic
 
-A simple quadratic map that produces chaotic behavior. It based on the well-known [logistic](https://en.wikipedia.org/wiki/Logistic_map) map:
+The **Logistic** rule is a chaotic activity generator based on the **logistic map**, a classic discrete-time dynamical system. It produces oscillating or chaotic activity depending on the growth rate. This rule is distinct from the logistic sigmoid function and is used to generate internal activity over time rather than compute a transfer function based on input.
 
-$$\begin{equation*} x_{n+1}=rx_n(1-x_n)\end{equation*}$$
+The update equation is:
 
-The logistic map takes a number in the interval [0,1] back to itself. Here the quadratic map has been rescaled so that it takes a number in the interval from the **lower bound** to the **upper bound** back into itself. The growth rate determines the exact form of the quadratic function.
+$$
+y = \frac{a - L}{U - L} \\
+y' = r \cdot y \cdot (1 - y) \\
+a' = y' \cdot (U - L) + L
+$$
 
-Note that the output of the function is **clipped** so as to stay within the upper and lower bounds.
+Where:
 
-Not to be confused with the **logistic sigmoid** neuron activation function.
+- $$a$$ is the current activation,
+- $$a'$$ is the next activation,
+- $$r$$ is the growth rate,
+- $$U$$ and $$L$$ are the upper and lower bounds.
 
-## Growth Rate
+When $$r$$ is between 3.6 and 4.0, the map exhibits chaotic behavior. Lower values lead to periodic or stable activity.
 
-`r` in the equation above. A number that determines the exact form of the quadratic function. It must be between 0 and 4. To produce chaotic behavior it should be between 3.56 and 4. Due to the presence of periodic windows not all growth rates in this interval produce chaos. By default the growth rate is 3.9, which does produce chaotic behavior.
+## Parameters
+
+- **Growth Rate**: Controls the behavior of the system. Must be between 0 and 4. Higher values tend toward chaos.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

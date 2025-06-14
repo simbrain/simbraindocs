@@ -11,9 +11,11 @@ nav_order: 100
 
 **Hebbian learning** rules suffer from the fact that weights tend to achieve maximum or minimum values. Several variants of Hebbian learning have been introduced to address this issue; Subtractive Normalization is one of them.
 
-Subtractive normalization is a form of Hebbian learning where the sum of the weights attaching to a given neuron is kept relatively constant. This is achieved by subtracting the product of the target neuron activation \(a_t\) and the average activation of source neurons \(a_i\) attaching to \(a_t\):
+Subtractive normalization is a form of Hebbian learning where the sum of the weights attaching to a given neuron is kept relatively constant. This is achieved by subtracting the product of the target neuron activation $$a_t$$ and the average activation of source neurons $$a_i$$ attaching to $$a_t$$:
 
-<!-- TODO --> Add image of equation or latex for equation  
+$$
+\Delta w = \eta a_t a_s - \eta a_t \bar{a}_s
+$$
 
 In order for the effect of keeping the sum of the weights attached to a neuron constant, those weights must all use this rule.
 
@@ -27,4 +29,4 @@ Also see K. Miller and D. MacKay, "The Role of Constraints in Hebbian Learning",
 
 ## Learning Rate
 
-The learning rate \(\eta\).
+The learning rate $$\eta$$ scales how quickly the synapse adjusts its strength based on the activity difference. It affects both the Hebbian term and the subtractive normalization term. A value of 0 disables learning.

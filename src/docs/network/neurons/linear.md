@@ -7,48 +7,42 @@ has_children: false
 nav_order: 120
 ---
 
-# Linear Neuron
+# Linear
 
-This is a standard type of neuron where the activation *a* is a linear function of the weighted inputs $$w$$ plus a bias term *b*, with *m* representing the slope:
+The **Linear** rule computes a neuron's activation by scaling its input with a constant slope, optionally adding noise and applying a clipping method. This rule is commonly used in simple neural models and serves as a base for other activation types.
 
-$$ a = m(W + b) $$
-
-This rule is flexible, and different activation behaviors can be achieved using the clipping type described below.
-
-## Clipping Type
-
-There are three clipping types that determine how the activation function behaves:
-
-- **No Clipping**: A pure linear function. No limits are placed on the output.
-- **Relu**: The Rectified Linear Unit, clips values below 0 to 0. 
+The basic update rule is:
 
 $$
-  a = \max(0, m(W + b))
+a = \text{slope} \cdot x
 $$
 
-- **Piecewise Linear**: Clips the output between a lower and upper bound. To approximate sigmoid-like behavior, choose `Piecewise Linear` and set appropriate bounds.
+Where:
 
-## Slope
+- $$a$$ is the neuron's activation,
+- $$x$$ is the total input,
+- The slope scales the response.
 
-The slope *m* scales the weighted inputs plus the bias *b*. Setting slope to 1.0 and bias to 0 results in the node passing on its input unchanged.
+Different clipping types determine how this result is transformed:
 
-This is commonly used in [input and output nodes](../../workspace/couplings.html).
+- **No Clipping**: $$a = \text{slope} \cdot x$$
+- **Relu**: $$a = \max(0, \text{slope} \cdot x)$$
+- **Piecewise Linear**: 
+  $$
+  a = \min(\text{upperBound}, \max(\text{lowerBound}, \text{slope} \cdot x))
+  $$
 
-## Bias
+Noise can optionally be added to the activation before clipping.
 
-A fixed amount of input to this node, denoted by *b* in the activation equation.
+## Parameters
 
-- To set a horizontal intercept of *h*, set *b = -h*.
-- To set a vertical intercept of *v*, set *b = v/m*.
-
-## Bounds
-
-Only used if the clipping type is set to *Piecewise Linear*.
-
-- Upper Bound: Maximum allowed value of activation.
-- Lower Bound: Minimum allowed value of activation.
-
-These values are ignored in Relu and No Clipping modes (except in UI controls like increment/decrement).
+- **Slope**: The multiplier applied to the neuron's input to compute its activation.
+- **Type**: The clipping strategy applied to the activation. Options are:
+  - No Clipping
+  - Piecewise Linear
+  - ReLU
+  
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 ## Add Noise
 
