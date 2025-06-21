@@ -17,32 +17,50 @@ As a family tree, Hodgkin-Huxley came first, then FitzHugh-Nagumo, then Morris-L
 
 Membrane potential is what shows as activation.
 
-Parameter descriptions are given here though it may help to simply think of these as the parameters of a complex dynamical system. More detailed description of similar parameters are in the **AdEx** docs.
+Parameter descriptions are given here though it may help to simply think of these as the parameters of a complex dynamical system. More detailed description of similar parameters are in the **[AdEx](adaptiveExIntegAndFire.md)** docs.
 
-## Membrane Properties
+The model tracks membrane voltage $$V$$ and a potassium gating variable $$w_K$$:
 
-- Capacitance (µF/cm²): Behaves like a time constant. Higher capacitance leads to slower changes in the cell.
-- Voltage const. 1: How does calcium respond to voltage.
-- Voltage const. 2: How does calcium respond to voltage.
-- Threshold (mV): Voltages above this make the neuron spike.
-- Background current (nA): A constant level of current that can be set.
-- Add Noise: Whether to add noise to
+$$
+\frac{dV}{dt} = \frac{I_{bg} - I_{ion} + I_{syn} + I_{noise}}{C}
+$$
 
-## Ion Properties
+$$
+\frac{dw_K}{dt} = \phi \cdot \lambda(V) \cdot \left(K_{\infty}(V) - w_K\right)
+$$
 
-- Ca²⁺ Conductance (µS): Calcium conductance. If higher, voltage pulled more quickly to Ca²⁺ equilibrium.
-- K⁺ Conductance (µS): Potassium conductance. If higher, voltage pulled more quickly to K⁺ equilibrium.
-- Leak Conductance (µS): Leak conductance. If higher, voltage pulled more quickly to Leak equilibrium.
-- Ca²⁺ Equilibrium (mV): Calcium equilibrium.
-- K⁺ Equilibrium (mV): Potassium equilibrium.
-- Leak Equilibrium (mV): Leak equilibrium.
+Where:
 
-## K⁺ Consts.
+- $$I_{ion} = I_{Ca} + I_K + I_L$$ is the total ionic current.
+- $$I_{Ca} = g_{Ca} \cdot m_{\infty}(V) \cdot (V - V_{Ca})$$
+- $$I_K = g_K \cdot w_K \cdot (V - V_K)$$
+- $$I_L = g_L \cdot (V - V_L)$$
+- $$m_{\infty}(V) = 0.5 \cdot (1 + \tanh((V - V_{m1}) / V_{m2}))$$
+- $$K_{\infty}(V) = 0.5 \cdot (1 + \tanh((V - V_{w1}) / V_{w2}))$$
+- $$\lambda(V) = \cosh((V - V_{w1}) / 2V_{w2})$$
 
-- K⁺ Const. 1: V3 on the Scholarpedia page, which roughly corresponds to how potassium current responds to membrane voltage.
-- K⁺ Const. 2: V4 on the Scholarpedia page.
-- K⁺ ϕ: Potassium channel time constant/decay rate. If higher, potassium changes more slowly.
+A spike is recorded if the membrane potential exceeds a fixed **threshold**.
 
-## Add Noise
+## Parameters
 
-If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.
+**Ion Properties**
+- **Ca²⁺ Conductance (µS/cm²)**: Maximal calcium conductance.
+- **K⁺ Conductance (µS/cm²)**: Maximal potassium conductance.
+- **Leak Conductance (µS/cm²)**: Maximal leak conductance.
+- **Ca²⁺ Equilibrium (mV)**: Reversal potential for calcium current.
+- **K⁺ Equilibrium (mV)**: Reversal potential for potassium current.
+- **Leak Equilibrium (mV)**: Reversal potential for leak current.
+
+**Membrane Properties**
+- **Capacitance (µF/cm²)**: Affects the rate of membrane voltage change.
+- **Voltage Const. 1, 2**: Shape the voltage dependence of calcium activation.
+- **Threshold (mV)**: Spike occurs when voltage exceeds this threshold.
+- **Background Current (nA)**: Constant applied input current.
+
+**Potassium Constants**
+- **K⁺ Const. 1, 2**: Shape the voltage dependence of potassium gating.
+- **K⁺ φ**: Time constant for potassium gating variable dynamics.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
+
+

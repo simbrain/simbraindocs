@@ -38,7 +38,3 @@ The rule models oscillatory behavior, rest states, and excitability, and is comm
 - **Background Current**: Constant input current applied to the neuron.
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
-
-## Add Noise
-
-If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.

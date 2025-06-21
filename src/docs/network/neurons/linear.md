@@ -43,9 +43,3 @@ Noise can optionally be added to the activation before clipping.
   - ReLU
   
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
-
-## Add Noise
-
-When this is enabled, random noise (from a specified distribution) is added to the output *after* applying the linear transformation and clipping. This is useful for adding variability to the neuron's response.
-
-For more information on the noise generator, click [here](../../utilities/randomizers.html).

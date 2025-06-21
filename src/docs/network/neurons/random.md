@@ -29,3 +29,5 @@ This generator produces uncorrelated outputs across time steps, and it ignores a
 - **Noise Generator**: A probability distribution used to sample random values.
 
 Random activity generators produce a random value at each update over time; they have their activation set by noise generators. For details how the noise generator works, click **[here](/docs/utilities/randomizers)**.
+
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
