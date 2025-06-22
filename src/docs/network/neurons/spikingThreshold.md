@@ -32,12 +32,6 @@ A spike is emitted (and stored in the neuron's spike flag) whenever this rule re
 
 ## Parameters
 
-### Threshold
-
-Specifies the **minimum input value** required for the neuron to spike. If the weighted sum of inputs (plus noise, if enabled) is greater than or equal to this value, the neuron activates with a spike.
-
-### Add Noise
-
-If enabled, **random noise** is added to the input before comparison with the threshold. This noise is sampled from a [Probability Distribution](/docs/utilities/randomizers), allowing for exploration of stochastic spiking behavior.
+- **Threshold**: The input value at which the neuron spikes. If the total input (plus any noise) is greater than or equal to this value, the neuron activates.
 
 For other adjustable properties like noise and sigmoid function type, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

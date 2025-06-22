@@ -37,9 +37,4 @@ This rule models synchronization phenomena and can be used to simulate coupled o
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
-## Add Noise
-
-If enabled, random noise sampled from a probability distribution is added to the phase after update. This can be used to simulate stochastic dynamics.
-
-For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 

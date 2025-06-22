@@ -44,9 +44,6 @@ This equation explains how the neuron's activation evolves over time based on it
 
 - **Leak Constant** defines how strongly the neuron will be attracted to its baseline activation when no significant input is present. It determines the rate at which the neuron "decays" or moves back to its resting state.
 
-### Add Noise
-If set to true, **random noise** is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.
-
 For other adjustable properties like noise and sigmoid function type, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 

@@ -37,32 +37,14 @@ This version of them model is from Eugene Izhikevich (2004), "Which Model to Use
 
 ## Parameters
 
-There are four main parameters for this system. $$a, b, c, d$$. It can be hard to interpret them directly, but see the table below which shows how they can be set to achieve common forms of neural behavior. According to Izhikivech, "The model can exhibit firing patterns of all known types of cortical neurons with [a suitable] choice of parameters."
+- **A**: Controls the time scale of the recovery variable. Smaller values make recovery slower.
+- **B**: Sensitivity of the recovery variable to voltage.
+- **C**: Membrane potential reset value after a spike.
+- **D**: Recovery variable increment after a spike.
+- **Threshold**: Value of $$v$$ that triggers a spike and reset.
+- **I bkgd**: Constant background current applied each time step.
 
-
-### A
-
-Parameter for recovery variable.
-
-### B
-
-Parameter for recovery variable.
-
-### C
-
-The value for *v* which occurs after a spike.
-
-### D
-
-A constant value added to *u* after spikes.
-
-### Ibg
-
-Constant background current.
-
-## Add Noise
-
-If this is set to true, random values are added to the activation via a noise generator. For details of how the noise generator works, click **here**.
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
 ## Some useful Parameter Settings
 

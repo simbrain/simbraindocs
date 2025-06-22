@@ -33,6 +33,3 @@ If a neuron has no incoming connections, its activation is set to zero. Optional
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
-## Add Noise
-
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the Product activation function is applied. For details how the noise generator works, click [here](../../utilities/randomizers.html).

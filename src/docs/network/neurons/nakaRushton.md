@@ -59,30 +59,15 @@ Both differential equations are implemented by integrating a differential equato
 
 See Hugh Wilson, *Spikes, Decisions, and Actions,* Oxford: Oxford University Press, pp. 19-22, and 81-82.
 
-## Steepness
+## Parameters
 
-This value, denoted by *N* above, controls the steepness of the sigmoidal-like function *S*(*W*).
+- **Steepness**: Controls the sharpness of the sigmoidal activation curve.
+- **Semi-Saturation Constant**: The input value at which output reaches half of the upper bound.
+- **Time Constant**: How quickly activation moves toward its steady-state.
+- **Use Adaptation**: Enables spike-rate adaptation dynamics.
+- **Adaptation Parameter**: Scales the influence of current activation on adaptation.
+- **Adaptation Time Constant**: Controls how quickly adaptation returns to baseline.
 
-## Semi-saturation constant
+For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
-This value, denoted by sigma above, is the point at which *S*(*W*) reaches half of its maximum value. It affects both steepness and the location of the inflection point. For small values of sigma, *S* is approximately a step function; for large values the function becomes less steep and the location of the inflection point increases.
 
-## Time constant
-
-This value, denoted by &#964; above, controls the rate at which the activation tends to the fixed point *S*(*W*).
-
-## Add Noise
-
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the activation is computed. For details how noise generator works, click [here](../../utilities/randomizers.html). <!-- TODO --> Revisit computation of this relative to time-step.
-
-## Use Adaptation
-
-If this is set to true, spike rate adaptation (described above) is utilized.
-
-## Adaptation Parameter
-
-The parameter of spike rate adaptation.
-
-## Adaptation Time Constant
-
-This value, denoted by Ta above, controls the rate at which the adaptation variable tends to its minimum value.

@@ -43,8 +43,5 @@ The neuron's activation is then adjusted by the total change, optional noise is 
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)
 
-## Add Noise
-
-If this is set to true, random values are added to the activation via a noise generator. The random values are added after the sigmoidal activation function is applied. For details on how the noise generator works, click [here](../../utilities/randomizers.md).
 
 
