@@ -22,12 +22,11 @@ The synapse group dialog contains four tabs, each of which links to another comp
 
 **Weights:** Allows you to edit the individual synapse strengths using a [Synapse Adjustment Dialog](networkDialogs)
 
-**Update Rule:** Allows you to set all of the update rules (that is, local learning rules) of the synapses in this group at once. Note that only one rule can be specified. If multiple rules are desird then a [custom simulation](../simulations) can be built.
+**Update Rule:** Allows you to set all of the update rules (that is, local learning rules) of the synapses in this group at once. Note that only one rule can be specified in this dialog. If multiple rules are desird then synapses must be made visible and edited directly, or a [custom simulation](../simulations) can be used.
 
 **Connection Strategy:** See [connection strategy](connections). Each synapse group is associated with a connection strategy that can be incrementally adjusted.
 
 **Weight Matrix:** Allows you to edit the individual synapse strengths using a [weight matrix editor](networkDialogs)
-
 
 
 ## Synapse Visibility
