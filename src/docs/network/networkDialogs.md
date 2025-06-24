@@ -1,5 +1,5 @@
 ---
-title: Network dialogs
+title: Network Dialogs
 layout: default
 parent: Networks
 has_children: false
@@ -55,18 +55,18 @@ The weight matrix viewer allows weights connecting two sets of neurons to be vie
 
 One can manipulate the strength of connections through the weight matrix viewer. Clicking on a cell allows one to manipulate the synaptic strength of the connection represented by the cell. Cells can also be selected (e.g. using `ctrl/command-A`) or shift-selected, and then groups of them randomized or otherwise altered. Values can also be loaded from a .csv file. Their values can also be saved to a .csv file (see toolbar below)
 
-### Weight Matrix Viewer for Free Neurons
+## Weight Matrix Viewer for Free Neurons
 
 To view the synapses connecting two sets of loose neurons set **source and target neurons** and then select Show Weight Matrix from the insert menu or by right clicking on any of the relevant neurons. Cells in the table correspond to connections between source (red) neurons as rows and target (green) neurons as columns. Values in these cells represent the strengths of connections. Non-existent connections are represented by gray boxes (see the image below).
 
-### Synapse Group Weight Matrix Viewer
+## Synapse Group Weight Matrix Viewer
 
 In this context the matrix represents the weights of a **synapse group**, which connects a source and target neuron group. Cells in the table correspond to connections between neurons in the source neuron group (rows) and target neuron group (column). Values in these cells represent the strength of connections.
 
 Note: Currently the weight matrix viewer is disabled for synapse groups with more than 10,000 synapses. This is due to the fact that a table of that size would be unnavigable, and of dubious use. At that size individual synapses are much less important. This is also to prevent users from accidentally attempting to view _extremely_ large tables (much greater than 10,000 entries), which can cause the JVM to run out of memory.
 
 
-### Weight Matrix Viewer Toolbar
+## Weight Matrix Viewer Toolbar
 
 - **Randomize**: Pressing the Random button will uniformly randomize the strength of all connections represented in the weight matrix viewer between two numbers (default (1,-1))
 
@@ -75,7 +75,6 @@ Note: Currently the weight matrix viewer is disabled for synapse groups with mor
 - **Open**: Pressing the Open button allows one to open a .csv file and set the values of the connections represented by the viewer to the values specified in the file. The .csv being loaded must have the same dimensions as the weight matrix of the synapse group.
 
 - **Save**: Pressing the Save button allows one to save the weight matrix as a .csv file.
-
 
 
 # Excitatory / Inhibitory Ratio

@@ -20,7 +20,7 @@ Synapse groups are created in the same way synapses are. See [building basics](b
 
 The synapse group dialog contains four tabs, each of which links to another component used elsewhere in Simbrain, with an apply button that applies changes to the group.
 
-**Weights:** Allows you to edit the individual synapse strengths using a [Synapse Adjustment Dialog](networkDialogs)
+**Weights:** Allows you to edit the individual synapse strengths using a [synapse adjustment dialog](networkDialogs)
 
 **Update Rule:** Allows you to set all of the update rules (that is, local learning rules) of the synapses in this group at once. Note that only one rule can be specified in this dialog. If multiple rules are desird then synapses must be made visible and edited directly, or a [custom simulation](../simulations) can be used.
 
@@ -29,19 +29,8 @@ The synapse group dialog contains four tabs, each of which links to another comp
 **Weight Matrix:** Allows you to edit the individual synapse strengths using a [weight matrix editor](networkDialogs)
 
 
-## Synapse Visibility
 
-By right clicking any synapse group interaction box, the user has the ability to "toggle synapse visibility". Toggling synapse visibility either reveals each of the individual synapses constituting the group.
-
-**Visible synapses:** In this mode (first of the four images here) all synapses can be seen, and can be directly edited like synapses generally are. However, these are not [free synapses](../../Network.html#freeSynapse). They are still members of a group and so it is suggested that they be interacted with primarily at the group level, via the [interaction box](../groups.html#interactionBox).
-
-**Invisible synapses:** Here the group of synapses is replaced by a green arrow with an [interaction box](../groups.html#interactionBox) in the center. This is the preferred mode of dealing with large groups of synapses.
-
-**Note:** For very large synapse groups (~10,000) it is *not advisable* to make each individual synapse visible. In fact, there is a network parameter, `visibility threshold`. Synapses cannot be made visible above this threshold.
-
-
-
-### Right Click Menu
+## Right Click Menu
 
 **Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the interaction box.
 
@@ -61,6 +50,6 @@ By right clicking any synapse group interaction box, the user has the ability to
 
 **Enable / Disable synapses:** [Enables or disables](../synapse.html#Enabled) all synapses in this group. They will stop passing information along; functionally equivalent to (temporarily) removing the group.
 
-**Toggle synapse visibility:** Toggles [synapse visibility](#synapseVisibility).
+**Toggle synapse visibility:** Toggles synapse visibility. By right clicking any synapse group interaction box, the user has the ability to "toggle synapse visibility". Toggling synapse visibility either reveals each of the individual synapses constituting the group. Note that large synapse group it is *not advisable* to make each individual synapse visible. There is a network parameter, `visibility threshold` that can be set in the [network preferences dialog](networkPreferences). Synapses cannot be toggled to visible above this threshold.
 
 
