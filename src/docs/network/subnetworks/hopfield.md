@@ -9,11 +9,13 @@ nav_order: 60
 
 # Hopfield Network
 
-<!-- TODO: Add image -->
+<!-- TODO: Add image. Discuss how continuous hopfield is implemented. -->
 
-A discrete **Hopfield network** is a collection of **binary neurons** that are recurrently connected to each other. They are useful in pattern completion tasks: a Hopfield network stores a number of "memories" (e.g., the network shown stores the letter "Z") and can retrieve these memories from partial patterns. Hopfield networks have certain analytical properties that make them ideal for mathematical analysis.
+A discrete [Hopfield network](http://www.scholarpedia.org/article/Hopfield_network) is a collection of **binary neurons** that are recurrently connected to each other. They are useful in pattern completion tasks: a Hopfield network stores a number of "memories" (e.g., the network shown stores the letter "Z") and can retrieve these memories from partial patterns. They illustrate the concept of an attractor. Each memory is an attractor and a partial cue for that memory is an initial condition. The system can also be understood as going to a minimum on an energy landscape; when recalling patterns you can observe energy value reducing, often to lower and lower negative numbers.
 
-To get a feel for how a Hopfield network works, open the Hopfield simulation and follow the included directions.
+To get a feel for how a Hopfield network works, run one the Hopfield simulations and follow the included directions.
+
+Note that the network only takes binary patterns. These are converted to bipolar (-1,1) before a Hebbian learning is applied.
 
 ## Creation / Editing
 
@@ -73,6 +75,3 @@ Train the Hopfield network using the Hebb rule to learn the current pattern of a
 
 To create a continuous Hopfield network, use a set of **Additive neurons** in a standard network. These can be connected appropriately and trained by using **Hebbian synapses**. The user then clamps all neurons, iterates to train the synapses, then clamps all weights. On clamping, see **toolbar**.
 
-## References
-
-See the **Scholarpedia article on Hopfield Networks**.

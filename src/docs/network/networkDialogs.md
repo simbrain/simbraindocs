@@ -49,7 +49,7 @@ Scale all synapse values up or down by changing their strengths as much as the i
 
 Change the set of weights to have the indicated ratio of excitatory to inhibitory. The polarizer attempts to produce a ratio that is consistent with the polarity of source neurons, if polarized soure neurons are used. See [Excitatory / Inhibitory Ratio](#excitatory--inhibitory-ratio).
 
-# Weight Matrix Viewer
+# Weight Matrix Viewer / Editor
 
 The weight matrix viewer allows weights connecting two sets of neurons to be viewed in a tabular format. They can be used either for **free neurons** or within **synapse groups**.
 
