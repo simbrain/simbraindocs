@@ -1,5 +1,6 @@
 ---
 title: Pfister Gerstner
+published: false
 layout: default
 grand_parent: Networks
 parent: Synapses

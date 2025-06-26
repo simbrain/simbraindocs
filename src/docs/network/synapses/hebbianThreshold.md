@@ -1,5 +1,6 @@
 ---
 title: Hebbian Threshold
+published: false
 layout: default
 grand_parent: Networks
 parent: Synapses
@@ -9,8 +10,7 @@ nav_order: 50
 
 # Hebbian Threshold Rule
 
-A [Hebbian learning rule](https://en.wikipedia.org/wiki/Hebbian_theory) that updates synaptic strengths based on the correlation between pre- and post-synaptic activities, incorporating an output threshold.  
-When sliding threshold is active, the output threshold adapts each step:  
+A [Hebbian learning rule](https://en.wikipedia.org/wiki/Hebbian_theory) that updates synaptic strengths based on the correlation between pre- and post-synaptic activities, incorporating an output threshold.  When the sliding threshold is active, the output threshold adapts each step:  
 
 $$
 \text{outputThreshold} = \text{outputThreshold} + \text{outputThresholdMomentum} \cdot (\text{output}^2 - \text{outputThreshold})
