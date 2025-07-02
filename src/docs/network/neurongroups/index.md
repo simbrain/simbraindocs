@@ -67,9 +67,11 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the interaction box.
 
-**Rename Group:** Input another name for the group.
+**Rename Neuron Collections:** Input another name for the group.
 
-**Remove Group:** Delete the group.
+**Remove Neuone Group:** Delete the group.
+
+**Apply Layout:** 
 
 **Select Neurons:** Select all neurons in the group.
 
@@ -81,17 +83,32 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Unclamp Neurons:** Unclamp all the neurons in the group.
 
+**Connect Selected Objects with Weight Matrix:**
+
+**Connect Selected Neuron Groups with Synapse Groups:** 
+
 **Set Group as Source:** Set the group as source group. Used when creating synapse groups. The concept is the same as with individual neurons described [here](../connections.html#sourceTarget) but with neuron groups rather than individual neurons.
 
-**Clear Source Neuron Groups:** Deselect the group as source neuron group.
+**Clear Source as Neuron Groups:** Deselect the group as source neuron group.
 
 **Connect Neuron Group with Synapse Group:** Connect source and target neuron groups with a synapse group.
+
+**Create Supervised Model:**
+
+**Input Data:**
+
+**Add Current Pattern to Input Data:**
+
+**Plot:** Plot the neuron group's activations across a graph
+
+**Add Coupled Image World:** Add an image world that is coupled to the neuron group
+
+**Start/Stop Recording:** Starts recording the activation values from the neuron group to a .csv file or stops if it is already recording. When starting recording, a dialog shows up asking you to specify a name for the spike recording file. If the network is a spiking network, then each line of the file begins with a time and is followed by neuron IDs (in this case, the ".csv" file is not really CSV).
 
 **Send Vector Coupling To:** Copies all activation values in the neuron group and represents them as a vector where each element in the vector is the activation value of a single neuron in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/Couplings.html) page.
 
 **Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the neurons in the group based on the incoming vector.
 
-**Start/Stop Recording:** Starts recording the activation values from the neuron group to a .csv file or stops if it is already recording. When starting recording, a dialog shows up asking you to specify a name for the spike recording file. If the network is a spiking network, then each line of the file begins with a time and is followed by neuron IDs (in this case, the ".csv" file is not really CSV).
 
 
 

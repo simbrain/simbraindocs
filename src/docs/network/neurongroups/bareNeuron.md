@@ -7,14 +7,26 @@ has_children: false
 nav_order: 20
 ---
 
-# Bare Neuron Group
+# Bare Neuron
 
-The bare neuron group does not have any specific update rules or other features associated with it, but it is very useful because neurons in a group can be manipulated *as* a group. For example, they can be associated with other neuron groups using synapse groups.
+The **Bare Neuron** group is the simplest kind of neuron group in Simbrain. It is a basic collection of neurons, all sharing the same update rule (e.g., linear, sigmoidal, spiking). This group is ideal for constructing custom networks from the ground up without any specialized behavior like competition, softmax normalization, or spatial structure.
 
-### Creation / Edit Dialog
+This group is essentially a wrapper around a list of neurons, providing convenience for group-level operations such as updating, layout, and rule assignment.
 
-See  **main page** for listing.
+During each simulation update:
 
-### Right Click Menu
+1. Each neuron accumulates input from incoming synapses.
+2. Each neuron updates its activation using the shared update rule.
+3. Inputs are cleared after the update step.
 
-Click  **here** for listing.
+## Behavior
+
+- All neurons in the group use the same update rule.
+- The update rule can be changed after creation.
+- Neurons are sorted spatially at creation (left to right, top to bottom).
+- Group layout and identity can be managed like any other network model.
+
+## Parameters
+
+- **Number of Neurons**: Determines how many neurons are included in the group at creation.
+- **Update Rule**: All neurons use the same rule (e.g., Linear, Sigmoidal, Spiking Threshold).

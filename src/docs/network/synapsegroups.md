@@ -72,7 +72,9 @@ This tab is covered in the [weight visualization](../weightVisualization.html) d
 
 **Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the interaction box.
 
-**Remove Group:** Delete the group.
+**Delete Synapse Group:** Delete the group.
+
+**Rename Synapse Group:** Change the name of the synapse group
 
 **Select Synapses:** Select all neurons in the group. Suggest using this primarily when synapses are [visible](#synapseVisibility).
 
@@ -89,3 +91,11 @@ This tab is covered in the [weight visualization](../weightVisualization.html) d
 **Enable / Disable synapses:** [Enables or disables](../synapse.html#Enabled) all synapses in this group. They will stop passing information along; functionally equivalent to (temporarily) removing the group.
 
 **Toggle synapse visibility:** Toggles [synapse visibility](#synapseVisibility).
+
+**Send Vector Coupling To:** Copies all activation values in the synapse group and represents them as a vector where each element in the vector is the activation value of a single synapse in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/Couplings.html) page.
+
+**Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the synapsess in the group based on the incoming vector.
+
+
+
+
