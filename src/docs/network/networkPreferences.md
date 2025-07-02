@@ -1,5 +1,5 @@
 ---
-title: Preferences
+title: Network Preferences
 layout: default
 parent: Networks
 has_children: false

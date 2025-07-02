@@ -1,5 +1,6 @@
 ---
 title: Short Term Plasticity
+published: false
 layout: default
 grand_parent: Networks
 parent: Synapses

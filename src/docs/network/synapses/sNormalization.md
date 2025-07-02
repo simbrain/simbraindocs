@@ -1,5 +1,6 @@
 ---
 title: Subtractive Normalization
+published: false
 layout: default
 grand_parent: Networks
 parent: Synapses
@@ -9,7 +10,7 @@ nav_order: 100
 
 # Subtractive Normalization
 
-**Hebbian learning** rules suffer from the fact that weights tend to achieve maximum or minimum values. Several variants of Hebbian learning have been introduced to address this issue; Subtractive Normalization is one of them.
+**Hebbian learning** rules suffer from the fact that weights tend to achieve maximum or minimum values. Several variants of Hebbian learning have been introduced to address this issue, and subtractive normalization is one of them.
 
 Subtractive normalization is a form of Hebbian learning where the sum of the weights attaching to a given neuron is kept relatively constant. This is achieved by subtracting the product of the target neuron activation $$a_t$$ and the average activation of source neurons $$a_i$$ attaching to $$a_t$$:
 

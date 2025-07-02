@@ -8,103 +8,61 @@ nav_order: 155
 
 # Tables
 
-Simbrain tables are tables used throughout Simbrain to display data and allow for some numerical operations (e.g. an ability to randomize or normalize data).
+Simbrain tables are tables used throughout Simbrain to display data and allow for some numerical operations (e.g. an ability to randomize or normalize data). Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. 
 
 <img src="/assets/images/table.png" alt="Table" style="width:500px;"/>
 
 
 [Data world](../worlds/dataworld) is a simbrain component based on tables. 
 
-Table data can be imported from and exported to [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values) or .csv files (which can be read by most spreadsheet programs, e.g. Excel).
+# Toolbar and Menu Actions
 
-Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. Note: In some cases the hotkey and context menu give inconisistent results. In those cases try using toolbars or regular menus.
+This is a list of possible actions in toolbars, popup menus, and menus. They will occur in different combinations in different ables.
 
+## Export / import
 
-# Co-occurence Matrix
+- **Export to csv**: Export to [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values) or .csv file. Allows you to choose whether or not to include column and row names.
+- **Import from csv**: Import from a csv file.
 
-This is a matrix plot, a bit like an R corrplot, where you can choose a comparison function and make a matrix of comparisons.
+## Edit Table Structure
 
-<img src="/assets/images/tableWithComparisons.png" alt="Matrix Plot"/>
+- **Insert Row**: Insert a new row above the highlighted row.
+- **Insert Column**: Insert a new column.
+- **Delete Row**: Delete the highlighted row.
+- **Delete Column**: Delete the highlighted column.
+- **Set Rows / Columns**: Set table shape to a specific number of rows and columns
 
+## Edit and Analyze Table Values
 
-# Menus
-
-## Edit
-
-- **Set rows / columns**: Add a set number of row(s) and column(s).
-
-### Fill Values
-
+- **Randomize**: See [above](tables.html#randomize).
+- **Fill Values**: See [above](tables.html#fill-values).
 - **Fill Table**: Fill the entire table with a set value.
 - **ZeroFill the Table**: Fill the entire table with the zero value.
+- **Boxplot columns**: Create boxplot for all numeric columns.
 
 ### Randomize
 
 - **Randomize**: Randomizes selected cell(s) in the table by sampling from an uniform distribution.
 - **Randomization Bounds**: Adjusts the upper and lower limit for randomization of the data in the table.
 - **Normalize Column(s)**: [Rescales](https://en.wikipedia.org/wiki/Feature_scaling) the values in a column using maximum and minimum values so that they all lie in the range [0,1].
-- **Shuffle Rows**: Randomly permute the rows of the table.
+
+## Advance rows
+
+- **Apply and increment row**.  Send current row of data to the model in question, e.g. the input row of a feed-forward network, and move to next row
+- **Apply row.** Apply to current row but don't advance. This one can be used in conjunction with advance row.
+- **Advance row.** ove to the next row.
 - **Iteration Mode**: When a table is in iteration mode, every time a network it is coupled to is iterated, the selected row moves forward. Running a coupled network thereby has the effect of iterating through the entire set of columns. This feature allows one to create a specific sequence of inputs to a network and repeatedly deliver it.
 
-## Pop-up Menu
+# Co-occurence Matrix
 
-- **Insert Row**: Insert a new row above the highlighted row.
-- **Insert Column**: Insert a new column.
-- **Delete Row**: Delete the highlighted row.
-- **Delete Column**: Delete the highlighted column.
-- **Edit > Set Rows / Columns**: See [above](tables.html#edit).
-- **Randomize**: See [above](tables.html#randomize).
-- **Fill Values**: See [above](tables.html#fill-values).
+This is a matrix plot, a bit like an [R corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html, where you can choose a comparison function and make a matrix of comparisons. The comparisons are made between the **row** of the table: all pairwise row comparison are shown.
 
-# Toolbars
+<img src="/assets/images/tableWithComparisons.png" alt="Matrix Plot"/>
 
-Note that the items from toolbar differs in different tables.
-
-## Open / Save Toolbar
-
-This toolbar allows you to open and save data.
-
-- Open .csv data.
-
-- Save table as .csv data.
-
-## Table Structure Toolbar
-
-This toolbar allows you to add and remove rows and columns.
-
-- Add a row to the table. Inserts a row above the curently selected row, or as the bottom row if none is selected
-
-- Add a column to the table.
-
-- Remove a row from the table.
-
-- Remove column from the table.
-
-## Randomization Toolbar
-
-For randomizing values in table cells.
-
-- Randomize all cells in the table by sampling from an uniform distribution.
-
-- Adjust upper and lower bounds of the randomization.
-
-# Input Tables
-
-One use of tables is as a way of producing inputs to a neural network. We call
-This panel uses a Simbrain table to enter numeric data to a set of neurons. These can be invoked in [neuron arrays](../network/arraysMatrices), neuron collections, and in [supervised learning](../network/trainingNetworks). 
-
-These tables have all the functions of Simbrain tables, with additional features for iterating through the rows of a table and sending the current row's data to the a network model.
-
-
-## Menu and Toolbar Items for Input Tables
-
-Basicall these tables can be used in two modes. The first mode just iterates through the rows and applies the current row:
-
-- Apply and increment row.  Send current row of data to the model in question, e.g. the input row of a feed-forward network, and move to next row
-
-Or separately increment row and then apply. In this mode we choose a row then apploy it, and increment when we want, using these commands:
-
-- Apply row. Apply curren row but don't advance. This one can be used in conjunction with advance row.
-
-- Advance row. Move to the next row.
+### Comparison Functions
+- **Correlation**:
+- **Covariance**:
+- **Cosine similarity**:
+- **Euclidean Distance**:
+- **Dot Product**:
 

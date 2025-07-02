@@ -8,30 +8,35 @@ nav_order: 90
 
 # Neuron Groups and Collections
 
-A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetwork.html). This page covers properties common to all neuron group types. Details of each type can be found on their respective page.
+A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetwork.html). 
 
-To create a neuron group, either use the `insert menu` and select `bare neuron group` or use the `Insert > Add neurons...` command and select the checkbox to create a group. For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
+<img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
+
+## Creation
+
+To create a neuron group, you can
+
+- use the `insert menu` and select `bare neuron group` 
+- use the `Insert > Add neurons...` command and select the checkbox to create a group. 
+
+For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
 
 
-Neuron collections are a lightweight alternative to neuron groups. They can overlap. They have a green rather than a yellow interaction box. They are create by selecting nodes and pressing `shift-G`.
+# Neuron Collection
 
-Here are the main differences.
+Neuron collections are a lightweight alternative to neuron groups. Unlike neuron groups, they can overlap. They have a green rather than a yellow interaction box. They are created by selecting nodes and pressing `shift-G`.
 
-Neuron Groups:
+Here are some of the main differences. Neuron groups
 - Contain neurons as children
 - Have their own layout object
 - When deleting, all nodes are deleted
 - Have subclasses (like SOM, Competitive) with custom updating
 
-Neuron Collections:
+While neuron collections are:
 - Loose associations mainly for labeling
 - Do not have custom update
 - Deleting does not delete neurons
 - Can overlap each other and neuron groups, even when in subnetworks
-
-
-
-<img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
 
 <img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
 

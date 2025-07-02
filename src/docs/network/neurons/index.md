@@ -20,7 +20,6 @@ Some more neuraly realistic rules involve [spiking](../spikingneurons).
 
 ## Graphical Conventions
 
-
 The color of a neuron generally represents the activation of a neuron, with red for "hot" activation above 0, blue for "cool" activation below 0, and white for no activation. The number shown is rounded activation; functionally, however, double precision floating point values are used. This value can be seen by lingering over a neuron for a tooltip or double clicking on it.
 
 More detail on these conventions, in particular for more neurally realistic simulations:
