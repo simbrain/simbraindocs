@@ -17,7 +17,7 @@ The competitive network combines elements of **winner take all networks** and He
 
 A competitive network may either be created as a group or a network. As a network, it has a self-contained layer of input nodes and it can be trained using a table of inputs. As a group, it is up to the user to connect it to other neurons, and the inputs these produce will determine its weights to it over time.
 
-### Algorithm
+## Algorithm
 
 The basic algorithm described here is the original PDP version due to Rumelhart and Zipser. An alternative, due to Alvarez and Squire, is also available (see references below).
 
@@ -36,13 +36,13 @@ This algorithm ensures that the winning unit's weights come over time to resembl
 
 The division by the sum of inputs maintains the normalization of the weight vectors. Thus, if more strength is added to one weight, it is taken away from another.
 
-### Initialization
+## Initialization
 
 Competitive networks are initialized with some number of units, and are by default laid out as a line. There are no connections. Connections must be made leading into the network, and they should be constrained to only take values between 0 and 1.
 
 A variant of the competitive learning algorithm called "leaky learning" requires all weights to learn on each time step, rather than just the winning weight. The algorithm for the weight change on the losing units is the same as above, but a new learning rate parameter is used, which will typically be smaller than the winning unit learning rate, so that weights attaching to losing neurons learn more slowly.
 
-### Creation / Editing
+## Creation / Editing
 
 Properties inherited from neuron group are described on the **neuron group** page.
 
@@ -50,7 +50,7 @@ Properties inherited from neuron group are described on the **neuron group** pag
 - **Number of Input Neurons:** Sets number of input neurons.
 - **Update Method: Rummelhart-Zipser:** The Rummelhart-Zipser method described above.
 - **Update Method: Alvarez-Squire:** The Alvarez-Squire method described in the link below in references.
-- **Epsilon:** A standard learning rate, which determines how quickly synapses change.
+- **Learning Rate (Episilon):** A standard learning rate, which determines how quickly synapses change.
 - **Winner Value:** The value for the winning neuron.
 - **Loser Value:** The value for all losing neurons.
 - **Use Leaky Learning:** Whether to use the leaky learning rule. Leaky learning requires all weights to learn, not just the weights attaching to the winning unit.
@@ -59,20 +59,20 @@ Properties inherited from neuron group are described on the **neuron group** pag
 - **Synapse Decay Percent:** Amount to decay incoming synapses at every iteration. Cf. the Alvarez-Squire paper.
 - **Layout:** See the **layouts** page.
 
-### Right Click Menu
+## Right Click Menu
 
-Generic right-click items are described on the **neuron group** page.
+Generic right-click items are described on the **[neuron group](index.html)** page.
 
 - **Edit/Train Competitive:** Opens edit dialog to edit and train the competitive network.
 - **Add Current Pattern To Input Data:** Adds the current pattern in the input nodes of the network to the network's input table (viewable in the **training dialog**). Useful for creating a training set for a competitive network using GUI activations or activations from a larger simulation.
 - **Train On Current Pattern:** Iterate the training algorithm once using the current inputs.
 - **Randomize Synapses:** Randomize synapses connected the competitive group, which are the ones trained using the algorithm.
 
-### Training
+## Training
 
 Training a network involves specifying input data and then running the algorithm. This process is covered **here**.
 
-### References
+## References
 
 - The Rummelhart and Zipser update rules is described [here](https://web.stanford.edu/group/pdplab/pdphandbook/handbookch7.html). Also see the PDP volumes, volume 1, chapter 5.
 - The Alvarez and Squire version of the algorithm is described in [this PNAS paper](http://www.pnas.org/content/91/15/7041.full.pdf).

@@ -7,30 +7,26 @@ has_children: false
 nav_order: 50
 ---
 
-# Winner-Take-All Network
+The **Winner Take All (WTA)** group enforces competitive dynamics among its neurons: only one neuron "wins" based on having the strongest input or activation, and all others are suppressed. This is useful for modeling categorical selection, decision-making, and inhibitory competition where only one output should be active at a time.
 
-The neuron with the highest **weighted input** in a winner-take-all network takes on an upper value, while all other neurons take on the lower value. In case of a tie, the node that wins is chosen randomly.
+At each time step:
 
-## Initialization
+1. Each neuron accumulates and updates its inputs using its own update rule.
+2. The neuron with the highest net input (or activation) is selected as the **winner**.
+3. The winner's activation is set to a **win value** (e.g., 1.0).
+4. All other neurons are set to a **lose value** (e.g., 0.0).
+5. Optionally, the winner can be chosen at random based on a probability, even if it's not the strongest neuron.
 
-When creating a WTA network, you can specify how many neurons are in the network and also values for the parameters listed below. The standard [layouts](../layouts.html) are also available.
+If multiple neurons are tied for the highest input, one of the tied neurons is selected randomly.
 
 ## Parameters
 
-**Number of Units:** The number of units in the network.
+- **Winning Value**: The activation value assigned to the winning neuron (default: 1.0).
+- **Losing Value**: The activation value assigned to all non-winning neurons (default: 0.0).
+- **Random Winner**: If enabled, occasionally choose a winner at random regardless of input.
+- **Random Probability**: The probability of choosing a random winner when "Random Winner" is enabled.
 
-**Lower Value:** The activation of any node which does not have the greatest weighted input.
+## Notes
 
-**Upper Value:** The activation of the node which has the greatest weighted input.
-
-**Set Winner Randomly:** If selected, there is some chance that the winner is chosen randomly.
-
-**Probability of choosing a random winner:** When "set winner randomly" is selected, this is the probability of randomly choosing a winner.
-
-## Creation/Edit Dialog
-
-Click **here** for listing.
-
-## Right Click Menu
-
-Click **here** for listing.
+- The winner is determined by comparing **net input** values by default. You can also configure the system to compare **activations** if needed.
+- In case of ties, the winner is chosen uniformly at random from the top-scoring neurons.

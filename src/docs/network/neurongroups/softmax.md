@@ -31,3 +31,6 @@ The exponentiation step increases the influence of larger input values, producin
 - When $$0 < T< 1$$ the distribution becomes more predictable, and thus more sharply peaked. Think of a "cooler" distribution. In a classification task this can be interpreted as more confidence about the predictions.  
 
  One application of temperature is to large language models, where turning the temperature up can encourage the system to produce less predictable responses and turning it down can lead it to rely more on its training data.
+
+
+

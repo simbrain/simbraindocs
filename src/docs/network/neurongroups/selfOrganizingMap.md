@@ -11,7 +11,7 @@ nav_order: 40
 
 A **self-organizing map** or SOM is a kind of **competitive network**, which over time is tuned to represent the structure of a set of inputs. For example, an SOM exposed to a dataset consisting of different smells will learn to distinguish those smells over time. Moreover, the positions of the nodes in the SOM are significant: nearby nodes come to represent similar inputs. In a smell network, one group of neighboring nodes might come to represent different cheese smells, while another group might come to represent different flower smells. To get a feel for how SOM's work try the workspaces called "somLetters.zip" and "somSmells.zip".
 
-<!-- TODO --> Add image of equation or latex for equation  
+<!-- TODO --> Add image of equation or latex for equation (not in simbrain3)
 
 An SOM may either be created as a group or a network. As a network, it has a self-contained layer of input nodes and it can be trained using a table of inputs. As a group, it is up to the user to connect it to other neurons, and the inputs these produce will determine the way it comes to represent those inputs over time.
 
