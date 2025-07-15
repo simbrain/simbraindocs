@@ -39,51 +39,88 @@ In a typical connnectionist network, the weight matrix is matrix multiplied by a
 
 ## Neuron Array Right Click Menu
 
-**Cut:** Cut selected neurons, (connected) synapses, and neuron groups 
+**Cut:** Cut selected neurons, (connected) synapses, and neuron groups
+
 **Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+
 **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+
 **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+
 **Edit:**
+
 **Delete:** Delete selected node(s)
+
 **Connect Selected Objects...:** Creates synapse, weight matrix, etc. between selected source and target entities
+
 **Toggle Line / Grid:** Toggle line / grid style
+
 **Toggle Horizontal / Vertical Layout:** Toggle horizontal / vertical layout
+
 **Toggle Circle Mode:** Toggle activation rendering mode between circle and image
+
 **Toggle Bias Visibility:** Toggle whether biases are visible
+
 **Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
+
 **Input Data...:** Opens a dialog that can be used to send inputs to this layer
+
 **Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
+
 **Randomize Selection:** Randomize Selected Elements (r)
+
 **Randomize Bias:** Randomize biases of selected nodes
+
 **Edit Components:** 
+
 **Plot Activations:** Plot neuron activations across available graph type
+
 **Plot Biases:** Plot neuron biases across available graph type
+
 **Add Coupled Image World:**
+
 **Record Activations:**
+
 **Record Biases:**
+
 **Align:**
+
 **Space:**
+
 **Create NeuronArray Coupling:**
 
 
 ## Weight Matrix Right Click Menu
 
 **Cut:** Cut selected neurons, (connected) synapses, and neuron groups 
-**Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
-**Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
-**Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
-**Edit:**
-**Delete:** Delete selected node(s)
-**Randomize Selection:** Randomize Selected Elements (r)
-**Diagonalize:** Diagonalize array
-**Transpose Weight Matrix Image (Current Target -> Source):** Transpose the weight matrix image
-**Plot Weight Matrix:** Plot weight matrix across available graph type
-**Show Eigenvalues:** Show eigenvalues for this matrix if it is a square
-**Set Spectral Radius:** Rescale matrix so that max eigenvalue is the specified value
-**Randomize Symmetric:** Use network weight randomizer to randomize the matrix symmetrically
-**Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
-**Create WeigthMatrix Coupling:**
 
+**Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+
+**Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+
+**Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+
+**Edit:**
+
+**Delete:** Delete selected node(s)
+
+**Randomize Selection:** Randomize Selected Elements (r)
+
+**Diagonalize:** Diagonalize array
+
+**Transpose Weight Matrix Image (Current Target -> Source):** Transpose the weight matrix image
+
+**Plot Weight Matrix:** Plot weight matrix across available graph type
+
+**Show Eigenvalues:** Show eigenvalues for this matrix if it is a square
+
+**Set Spectral Radius:** Rescale matrix so that max eigenvalue is the specified value
+
+**Randomize Symmetric:** Use network weight randomizer to randomize the matrix symmetrically
+
+**Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
+
+**Create WeigthMatrix Coupling:**
 
 
 ## Differences with synapse group
