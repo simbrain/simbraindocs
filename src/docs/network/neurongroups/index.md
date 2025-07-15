@@ -8,7 +8,7 @@ nav_order: 90
 
 # Neuron Groups and Collections
 
-A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetwork.html). 
+A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetworks). 
 
 <img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
 
@@ -20,6 +20,11 @@ To create a neuron group, you can
 - use the `Insert > Add neurons...` command and select the checkbox to create a group. 
 
 For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
+
+Neuron groups can be linked by [Weight Matrices](../arraysMatrices.html) or [Synapse Groups](../synapsegroups.html):
+
+1) To link neuron groups with weight matrices, you  must use the [1-2 trick](../buildingBasics.html#source-and-target-objects).
+2) To link neuron groups with synapse groups you mus tuse the [1-3 trick](../buildingBasics.html#source-and-target-objects).
 
 
 # Neuron Collection
@@ -58,7 +63,7 @@ While neuron collections are:
 
 ## Neurons
 
-See the [neuron](../neuron.html) page.
+See the [neuron](../neurons) page.
 
 ## Layout
 
@@ -76,7 +81,7 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Remove Neuone Group:** Delete the group.
 
-**Apply Layout:** 
+**Apply Layout:** Apply a layout to this neuron group
 
 **Select Neurons:** Select all neurons in the group.
 
@@ -84,25 +89,25 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Select Outgoing Synapses:** Select all outgoing synapse groups and/or free synapses.
 
-**Clamp Neurons:** Clamp all neurons in the group. See [Clamping](../neuron.html#clamping).
+**Clamp Neurons:** Clamp all neurons in the group. See [Clamping](../neurons#clamping).
 
 **Unclamp Neurons:** Unclamp all the neurons in the group.
 
-**Connect Selected Objects with Weight Matrix:**
+**Connect Selected Objects with Weight Matrix:** Automatically connect arrays with weight matrices
 
-**Connect Selected Neuron Groups with Synapse Groups:** 
+**Connect Selected Neuron Groups with Synapse Groups:** Automatically connect arrays with synapse groups
 
-**Set Group as Source:** Set the group as source group. Used when creating synapse groups. The concept is the same as with individual neurons described [here](../connections.html#sourceTarget) but with neuron groups rather than individual neurons.
+**Set Group as Source:** Set the group as source group. Used when creating synapse groups. The concept is the same as with individual neurons described [here](../buildingBasics.html#source-and-target-objects) but with neuron groups rather than individual neurons.
 
 **Clear Source as Neuron Groups:** Deselect the group as source neuron group.
 
 **Connect Neuron Group with Synapse Group:** Connect source and target neuron groups with a synapse group.
 
-**Create Supervised Model:**
+**Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
 
-**Input Data:**
+**Input Data:** Opens a dialog that can be used to send inputs to this layer
 
-**Add Current Pattern to Input Data:**
+**Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
 
 **Plot:** Plot the neuron group's activations across a graph
 

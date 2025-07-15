@@ -56,6 +56,6 @@ The synapse group dialog contains four tabs, each of which links to another comp
 
 **Send Vector Coupling To:** Copies all activation values in the synapse group and represents them as a vector where each element in the vector is the activation value of a single synapse in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/Couplings.html) page.
 
-**Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the synapsess in the group based on the incoming vector.
+**Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the synapses in the group based on the incoming vector.
 
 
