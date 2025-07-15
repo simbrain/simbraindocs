@@ -72,7 +72,7 @@ Here are some source and target neurons which are about to connected in a feed-f
 
 This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
 
-Generally there are three things to do, which we call the "1-2 trick" (though sometimes itis also 1-3)
+Generally there are three things to do, which we call the "1-2 trick" (though sometimes it is also 1-3)
 
 1. To designate objects as source select them and press the `1` key. They will be surrounded by a red border. You can also use menu command like right click select `Set Source(s)`.
 
