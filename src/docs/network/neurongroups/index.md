@@ -8,7 +8,7 @@ nav_order: 90
 
 # Neuron Groups and Collections
 
-A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](../groups.html#interactionBox). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetworks). 
+A neuron group is a logical grouping of neurons surrounded by a gray line and an [interaction box](/docs/network/buildingBasics.html#interaction-boxes). There are various types of neuron groups in Simbrain, each with parameters that can be set, and they are also constituents of [subnetworks](../subnetworks). 
 
 <img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
 
@@ -75,7 +75,7 @@ See the [test inputs](../training/testInputs.html) page.
 
 ## Right Click Menu
 
-**Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the interaction box.
+**Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the [interaction box](/docs/network/buildingBasics.html#interaction-boxes).
 
 **Rename Neuron Collections:** Input another name for the group.
 

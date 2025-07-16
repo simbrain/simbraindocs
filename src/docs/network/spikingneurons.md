@@ -14,7 +14,7 @@ Since spikes are discrete events without a numerical value, some way of converti
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
 
-When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a PSR.
+When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a [PSR](/docs/network/updateLogic.html#PSR).
 
 # History and General Comments
 

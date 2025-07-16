@@ -15,12 +15,12 @@ The Simbrain workspace is the framework within which a simulation is run. It con
 
 The workspace is visible in the GUI as the Simbrain desktop(see below). The desktop contains menus, a toolbar, and a main space in which all components are shown. There is also a set of tabs at the bottom of the network (not visible by default; to see them use View > Property Tabs) which allow the user to view couplings, set certain properties of components, and monitor a simulation in other ways.
 
-Workspaces are stored as .zip files. These files contain .xml representations of all components and couplings in a simulation. They can be unzipped, and individual saved component and couplings can be inspected. (Note that you cannot currently change the files, rezip, and re-open). Workspace files save couplings and components and custom updates, but sometimes a more sophisticated workspace environment must be created. In these cases **scripting** can be used.
+Workspaces are stored as .zip files. These files contain .xml representations of all components and couplings in a simulation. They can be unzipped, and individual saved component and couplings can be inspected. (Note that you cannot currently change the files, rezip, and re-open). Workspace files save couplings and components and custom updates, but sometimes a more sophisticated workspace environment must be created. In these cases a custom [script](/docs/simulations/) can be written.
 
 
 # Running the Workspace
 
-Run / stp / stop: The workspace and its components can be run by pressing pressing the play button in the tool-bar to repeatedly iterate the network. Note that the image on the button becomes that of a "stop" button . Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch. You can also press the step button (or press "space") to iterate the network a single time. Sometimes repeatedly hitting the space bar is useful way to test a network.  See [update](update)
+Run / step / stop: The workspace and its components can be run by pressing pressing the play button in the tool-bar to repeatedly iterate the network. Note that the image on the button becomes that of a "stop" button . Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch. You can also press the step button (or press "space") to iterate the network a single time. Sometimes repeatedly hitting the space bar is useful way to test a network.  See [update](update)
 
 
 # Examples
