@@ -33,7 +33,9 @@ Weight Matrices can be added by connecting any two neuron arrays or neuron group
 
 ## PSR Matrix
 
-In a typical connnectionist network, the weight matrix is matrix multiplied by a vector "input" to produce a vector "output" (batch computations can also be done but that is covered elsewhere). However, to account for spike responses, this matrix product is factored into two parts in Simbrain. (1) The input vector is elementwise (Hadamard) multiplied by each row of the matrix. This is the PSR Matrix. Each row of the matrix is like a post-synaptic response along the various points on a dendrite. Then later (2) the row sums of the PSR matrix can be taken, which is equivalent to the traditional matrix-vector multiplication.  However, the PSR Matrix can also be updated using spike responders.
+In a typical connnectionist network, the weight matrix is matrix multiplied by a vector "input" to produce a vector "output" (batch computations can also be done but that is covered elsewhere). 
+
+However, to account for spike responses, this matrix product is factored into two parts in Simbrain. (1) The input vector is elementwise (Hadamard) multiplied by each row of the matrix. This is the PSR Matrix. Each row of the matrix is like a post-synaptic response along the various points on a dendrite. Then later (2) the row sums of the PSR matrix can be taken, which is equivalent to the traditional matrix-vector multiplication.  However, the PSR Matrix can also be updated using spike responders.
 
 <!-- TODO: Picture. Show many to one case, where it's clear the results must first be multiplied then summed -->
 
