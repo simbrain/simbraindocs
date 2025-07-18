@@ -49,32 +49,9 @@ for model in networkModels:
     model.update()
 ```
 
-That is, first accumulate all the inputs to every network model. Then, in a separate step, update all the network models. 
+First accumulate all the inputs to every network model. These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these are added together. This step includes updating the PSR (or PSR Matrix) associated with each incoming synapse or weight matrix. In the default case this just amounts to multiplying inputs times activations for each incoming synapse or weight matrix. Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSR as well. 
 
-Neurons are always updated using [neuron update rules](neurons). Synapses or weights are sometimes updated using local [learning rules](synapses). PSRs are sometimes updated via [spike responders](spikeresponders).
-
-## PSR Update
-
-Post synaptic response or PSR must handle two cases. First, the case of a regular "connectionist" network, where it is just an input times an activation, which is not a quantity that is usually named at all. However the case where a synapse must respond to spikes it is a time varying quantity an that is where the concept of a "PSR" is most familiar. But logically the variable is there regardless. 
-
-For a given neuron, `update()` just works by iterating through fan-in synapses and calling `updatePSR()`, and then aggregating these to update activation. This allows connectionist and spiking neurons to connect to the same neuron
-
-```kotlin
-for synapse in fanIn:
-    synapse.updatePSR()
-    activation += synapse.psr
-```
-
-Here is how the `psr` is updated:
-
-```kotlin
-if spikeResponder:
-    // The spike responder updates the psr
-    spikeResonder.apply(this)
-else
-    // Connectionist case
-    psr = source.activation * weightStrength
-```
+Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc.
 
 # How Rules Operate on Data
 
