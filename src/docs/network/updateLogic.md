@@ -49,7 +49,15 @@ for model in networkModels:
     model.update()
 ```
 
-First accumulate all the inputs to every network model. These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these are added together. This step includes updating the PSR (or PSR Matrix) associated with each incoming synapse or weight matrix. In the default case this just amounts to multiplying inputs times activations for each incoming synapse or weight matrix. Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSR as well. 
+First accumulate all the inputs to every network model (mainly neurons, neuron collections, and neuron arrays). These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these are added together. 
+
+```kotlind
+for w in fanIn:
+    w.updatePSR()
+    activation += synapse.psr
+```
+
+Updating the PSR (or PSR Matrix) usualy amounts to multiplying inputs times activations or matrix multiplying input activations by a weight matrix. Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
 
 Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc.
 
