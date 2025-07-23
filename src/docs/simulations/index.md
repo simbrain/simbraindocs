@@ -42,6 +42,12 @@ To lay things out in network hover over interaction boxes for coordinates
 
 Sometimes after `addModels` in kotlin `.?join()` is useful to wait to make sure things are done before moving on.
 
+# Tips
+
+- When creating many neurons, try to use `addNeurons` rather than `addNeuron` in a loop, for a performance gain. See spikingNetworkSimulation.kt for an example
+
+- When calling `addNetworkModels` it is generally a good idea to add `.awaitAll()` after to ensure the gui is set up properly (some commands rely on the gui bounds being properly set, and if they are called out of order unexpected results can occur)
+
 # Using AI to make a Simulation
 
 Note that it's not so hard to make a simulation using AI.For example using a ChatGPT project, and adding the following source files to it

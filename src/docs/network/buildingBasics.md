@@ -47,7 +47,7 @@ Most graphical and color conventions can be customized using the [preference dia
 
 # Selecting Objects
 
-Neurons, weights, groups, and textboxes can be selected so that operations can be performed on the selected group of items (e.g., randomizing selected items, nudging them up or down, etc.). Selecting neurons and weights is important, because many Simbrain operations apply to selected sets of weights and/or nodes. Groups are selected by their interaction boxes. The selection interface basically works the way most computer drawing programs work. Use the left-click button to "lasso" or "rubberband" screen items. Once some items are selected, you can hold down the shift key and single-click to fine tune your selection.
+Neurons, weights, groups, and textboxes can be selected so that operations can be performed on the selected group of items (e.g., randomizing selected items, nudging them up or down, etc.). Selecting neurons and weights is important, because many Simbrain operations apply to selected sets of weights and/or nodes. Groups are selected by their [interaction boxes](#interaction-boxes). The selection interface basically works the way most computer drawing programs work. Use the left-click button to "lasso" or "rubberband" screen items. Once some items are selected, you can hold down the shift key and single-click to fine tune your selection.
 
 Note that most selection operations must be done in selection mode, the default mode, which is entered by pressing "S" or the selection button.
 
@@ -72,7 +72,7 @@ Here are some source and target neurons which are about to connected in a feed-f
 
 This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
 
-Generally there are three things to do, which we call the "1-2 trick" (though sometimes it is also 1-3)
+Generally there are three things to do, which we call the "`1-2` trick" (though sometimes it is also 1-3)
 
 1. To designate objects as source select them and press the `1` key. They will be surrounded by a red border. You can also use menu command like right click select `Set Source(s)`.
 
@@ -82,17 +82,27 @@ Generally there are three things to do, which we call the "1-2 trick" (though so
 
 4. To deselect source objects click on an empty space in the network and press `esc` or `1` . You can also use menu command like right click select `Clear Source(s)`.
 
+# Interaction Boxes
+
+Many items in Simbrain have interaction boxes, which look like this:
+
+<img src="/assets/images/interactionBoxes.png" alt="interaction boxes" style="width:200px;"/>
+
+This example shows two interaction boxes, one for a [neuron group](neurongroups) called "input layer", and one for a [synapse group](synapsegroups).
+
+You can drag things by the interaction box, right-click on them for a context menu, or double-click on them to open a dialog.
+
 # Transient Wrappers vs. Permanent Objects
 
 Some objects like neuron collections and supervised models are transient wrappers around other objects. When they are deleted by their interactoin boxes, the objects they wrap are not deleted.  They are designated by green interaction boxes.
 
 Other objects like neuron groups and subnetworks are essentially linked to the objects they wrap around. If you select their interaction boxes and delete them, all the objects they contain are also deleted. They are designated by yellow interaction boxes.
 
-Tldr: if the interaction box is green, it's "temporary". If it's yellow it's more permanent.
+Tldr: if the [interaction box](#interaction-boxes) is green, it's "temporary". If it's yellow it's more permanent.
 
 As a result of this neuron collections and supervised models can overlap one another. Shown here is an example
 
-TODO: Show a few overlapping neuron collections and superivsed models.
+<img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
 
 <a id="connect-items"></a>
 # Connecting Items Together 
@@ -117,10 +127,9 @@ To use menu commands: Select your desired source neuron(s), designate them as so
 
 ## Groups and Collections
 
-<!-- Links -->
-1-2 can be used on interaction boxes for groups and collections to make a weight matrix connecting two groups. 
+`1-2` can be used on interaction boxes for [neuron groups and collections](neurongroups/) to make a weight matrix connecting two groups. 
 
-1-3 can be used to make a synapse group rather than a weight matrix.
+`1-3` can be used to make a [synapse group](synapsegroups) rather than a weight matrix.
 
 ## Connection Strategies and Custom Scripts
 

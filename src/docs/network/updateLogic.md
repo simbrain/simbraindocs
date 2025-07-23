@@ -8,76 +8,107 @@ nav_order: 30
 
 # How Network Updates Work
 
-When a network is open and the workspace is iterated, an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in network's nodes and other changes. These changes have a complex logic that is described here.  This complexity stems from Simbrain's effort to support many configurations. This includes networks which mix free neurons and synapses, local learning rules, array-based computations, spiking networks, and more custom forms of update. 
+When a network is open and the workspace is iterated, an **update algorithm** is repeatedly called, which is visible in the form of spreading activity in networks nodes and other changes. These changes have a complex logic that is described here.  This complexity stems from Simbrain's effort to support many configurations. This includes networks which mix free neurons and synapses, local learning rules, array-based computations, spiking networks, and more custom forms of update. 
 
 The next section gives a broad overview of update focusing on the case of free neurons and synapses. The rest of this document covers more specific topics and forms of update.
 
-# The Basic Idea
+# Basics
 
 The way information flows from one node to another via a weight provides a useful starting point for understanding how network updates work in Simbrain. In the simplest and easiest-to-understand case, activation in one node is multiplied by a weight strength, and the result is sent to the next node where it becomes the new activation. In the example below assume the weight strength is .5, so that the output is half the input.
 
 <img src="/assets/images/synapseRulesBasic.png" alt="synapse basics" style="width:600px;"/>
 
-There are several variables that play an important role in this process (especially when we consider more complicated cases), but that are not directly visible in Simbrain
+There are several variables that play an important role in this process.
 
-- **PSR**: (shown as a diamond above). This is the "output" of a synapse. Usually it is just source activation times weight. In the example above it is $$.1$$. However, sometimes the PSR varies over time in response to spikes.
+- **Activation**. A number that represents that how active a neuron is. The precise intepretation depnds on what kind of neuron it is. This is visible as the color of a neuron. More information on the graphical display of activations is in the [neuron](neurons) documentation.
 
-- **Input** (shown as open rectangles above). A buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](/docs/workspace/Couplings.html). This supports asynchronous or [buffered update](#buffered-update).
+- **Strength**. How strong or efficacious a synapse is in transmitting information, and whether it is excitatory or inhibitory. More information on the graphical display of activations is in the [synapse](synapses) documentation.
 
-<img src="/assets/images/multipleSynapses.png" alt="summation" style="width:600px;"/>
+Two additional values are crucial to the process, but are not visible in the GUI:
+
+- **Input**: Input to a neuron, shown as open rectangles above. A buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](/docs/workspace/Couplings.html). This supports asynchronous or [buffered update](#buffered-update).
+
+<a name="PSR"></a>
+- **PSR** : Post synaptic response or "output" of a synapse, shown as diamonds above.  Usually the PSR of a node is just source activation times weight. Sometimes the PSR varies over time in response to spikes (see [spike responders](spikeresponders)). The logic of PSR updates is discussed in [PSR update](#psr-update).
 
 When multiple source nodes connect to a target node, the input to the target node is a summation of PSRs across the source nodes. In the example above, the target node accumulates PSRs from three other nodes. Since in this case there are no spike responders, the target input is a simple weighted sum. In this image we have also shown dotted lines feeding into each input, which emphasizes that information from external couplings can be part of the input to any neuron.
 
-All of these values can exist as arrays: activations, inputs, weight strengths, PSRs, etc. 
+<img src="/assets/images/multipleSynapses.png" alt="summation" style="width:600px;"/>
 
-The input to a neuron is transformed into an activation using an [update rule](#update-rules). In general we try to separate data from **rules** that act on these data structures, like update rules, learning rules, and spike responders.
+As we will see, all of these values can exist as arrays: activations, inputs, weight strengths, PSRs, etc. 
 
-<!-- The synapse has two main intrinsic state variables: `psr` or post-synaptic-response, and `strength`. The strength is the classic weight value of a synapse. The `psr` is a variable that corresponds to the "output" of the synapse. In the basic case, the `psr` is just the source neuron activation for the synapse times the weight strength. In the case shown, if the weight strength is .5, then the psr is .2 * .5, and so on update the target synapse is set to .1. Often in a neural network this is all we have. -->
+# Buffered Update
 
+The default way networks are updated is using buffered update (other options are discussed in [update actions](#update-actions)). The value of buffered update is that it allows for determinstic updating, that is independent of the order in which network models (without this system, you would get different results depending on what order you added items to Simbrain). 
 
-# Update Rules
+Here is the basic algorithm in pseudo code:
+```kotlin
+for model in networkModels:
+    model.accumulateInputs()
+for model in networkModels:
+    model.update()
+```
 
-[Neurons](neurons/), [synapses](synapses), [neuron arrays and weight matrices](arraysMatrices), and [spike responders](spikingneurons) all use a design that separates update rules from the data they operate on. These can be called **rule objects**.  We will start with the case of neurons; the same basic structure applies to other objects as well.
+First accumulate all the inputs to every network model (mainly neurons, neuron collections, and neuron arrays). These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these are added together. 
 
-This schematic shows three main types of value associated with a neuron, all of which can be edited using a Simbrain [property editor](../utilities/propertyEditor.html).
+```kotlind
+for w in fanIn:
+    w.updatePSR()
+    activation += synapse.psr
+```
 
-<img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:400px;"/>
+Updating the PSR (or PSR Matrix) usualy amounts to multiplying inputs times activations or matrix multiplying input activations by a weight matrix. Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
 
-1. **Neuron variables**. These are variables like activation and bias that every neuron has. It also includes the input buffer which accumulates inputs from other network models and from couplings.
-2. **Update rule variables**. These are variables associated with the update rule. They are called "state variables" in the property dialog. These variables change as the update rule is changed. In the case shown above, an [Izhikevich neuron](neurons/izhikevich.html) is associated with a recovery variable. 
-3. **Update rules**. These are rules that _operate_ on neuron and update rule variables, which can dynamically change as a network is updated. Update rules are associated with parameters that determine how they operate. The parameters do not change as the network is updated.
+Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc.
+
+# How Rules Operate on Data
+
+[Neurons](neurons/), [synapses](synapses), [neuron arrays and weight matrices](arraysMatrices), and [spike responders](spikingneurons) all use a design that separates update rules from the data they operate on. We will start with the case of neurons; the same basic structure applies to other objects as well.
+
+These are the three main types of value associated with a neuron, all of which can be edited using a Simbrain [property editor](../utilities/propertyEditor.html).
+
+<!-- <img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:400px;"/> -->
+
+First, there are two kinds of data that can dynamically change as a network is updated:
+
+- **Neuron variables**. These are variables like activation and bias that every neuron has. It also includes the input buffer which accumulates inputs from other network models and from couplings.
+- **Update rule variables**. These are variables associated with the update rule. They are called "state variables" in the property dialog. These variables change as the update rule is changed. In the case shown above, an [Izhikevich neuron](neurons/izhikevich.html) is associated with a recovery variable. 
+
+Then, there are rules which _operate_ on this data:
+
+- **Update rules and parameters**. These are rule objects associated with a range of parameters that can be edited in property editors. These rules determine how the data are updated. The parameters do not change as the network is updated.
 
 The dialog for the Izhikevich neuron shows where each category is in the dialog. 
 
 <img src="/assets/images/izhikDialog.png" alt="neuron rule and data holder" style="width:400px;"/>
 
-# Update Rules on Array Data
+# Update Rules can Operate on Array Data
 
-The same update rules that operate on scalar data can operate on array data. For example, in a [neuron array](arraysMatrices), the same three categories of data are present: top-level variables (here neuron array variables), update rule variables, and an update rule. Shown below is a schematic which shows how these categories apply to a neuron array using an Izhikevich rule. 
+The same update rules that operate on scalar data can operate on array data. For example, in a [neuron array](arraysMatrices), the same categories of data are present: top-level variables like an activation array, and rules specific to an update rule (like a recovery array) variables.
 
-<img src="/assets/images/ruleAndDataHolderArray.png" alt="update rule operating on array data" style="width:800px;"/>
+<img src="/assets/images/ruleAndDataHolderArray.png" alt="update rule operating on array data" style="width:300px;"/>
 
-The same rule that operates on scalar state variables with an Izhikevich neuron now operate on arrays with an Izhekevich neuron array, such as an activation array, a bias array, and a recovery array. These can be viewed and edited directly in the dialog. 
+The same rule that operates on scalar state variables with an Izhikevich neuron now operate on arrays with an Izhekevich neuron <array class=""></array>
 
 # Synapses, Learning Rules, and Spike Responders
 
 These same ideas apply to [synapses](synapses), but there are now potentially _two_ rule objects. There is a learning rule, which updates the synapse's strength, and a [spike responder](spikeresponders), which updates the PSR in response to spikes. Each of these rules can be associated with rule-dependent variables, for example variables which track the course of a spike response (though currently few learning rules or spike responders are associated with special variables). The schematic below shows a synapse with a [Hebbian](synapses/hebbian) learning rule for the weight strength and a [Jump and decay](spikeresponders/jumpdecay) spike responder. 
 
-<img src="/assets/images/synapseRulesFull.png" alt="synapse spike responder and learning rule" style="width:600px;"/>
+<!-- <img src="/assets/images/synapseRulesFull.png" alt="synapse spike responder and learning rule" style="width:600px;"/> -->
 
 By default synapses are pretty simple. The learning rule is set to "static synapse rule" and the spike responder is set to "no rule", in which case the synapse is just a static weight value.  But as the image above shows, they can become quite complex, with rules modifying weight strengths and spike response as a simulation runs.
 
 Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](trainingNetworks.html).
 
-
 # Weight Matrices
 
-The structure of a synapse is mirrored in [weight matrices](arraysMatrices.html), but all state variables are matrices. This is similar to the relationship between neurons and neuron arrays discussed above.  Below is a schematic using Hebbian learning (which will now update a weight matrix) and a Jump and Decay spike responder (which will now update a PSR Matrix)
+The structure of a synapse is mirrored in [weight matrices](arraysMatrices.html), but all state variables are now matrices. This is similar to the relationship between neurons and neuron arrays discussed above. Below is a schematic
 
+<img src="/assets/images/synapseRulesMatrix.png" alt="Weight matrix rule objects" style="width:250px;"/>
 
-<img src="/assets/images/synapseRulesMatrix.png" alt="Weight matrix rule objects" style="width:500px;"/>
+The weight matrix can be updated using a synapse update rule and the PSR matrix can be updated using a spike responder.
 
-With supervised learning, e.g. backprop, an external trainer updates the weight matrix. Still Hebbian learning, dynamic spike response, etc.--all the same logic as with free synapses--are available in the matrix case.
+<!-- Weights can also be modified using [supervised learning](trainingNetworks). -->
 
 <!--  In fact in the code the rule objects are shared. Here again `psr` is the "output", but this time of a whole weight matrix. This it is a `psrmatrix`. If there is no spike responder set, the `psrmatix` is the matrix product the source activaiton vector and the actual weight matrix. If there is a [spike responder](spikeresponders/), it is applied to the weight matrix object, and directly updates the `psrmatrix`, using the `weightMatrix`, `source.activationArray` as needed, and anything other matrix-shaped state variables (like a matrix of recovery variables) associated the spike responder itself.
 
@@ -87,7 +118,7 @@ Before we summed PSRs but now we are “summing PSR matrices” and then mutatin
 
 # Update actions
 
-At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, `Buffered update`. However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
+At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, [buffered update](#buffered-update). However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
 
 Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update.html). 
 
@@ -98,19 +129,7 @@ From `Network > Edit Update Sequence...` the following dialog shows
 At each network iteration each of these actions is executed in sequence. Some built-in actions can be added from the GUI using the `Add action` button. Update order can be adjusted using the other buttons or by dragging items on the screen. In this case, the default `Buffered update` is called followed by a custom action that was created in a script (this is the `Simulations > Cognitive Maps > Agent Trails` script).
 
 
-## Buffered Update
 
-The default action, and usually all that is needed, is buffered update. The value of buffered update is that it allows for determinstic updating, that is independent of the order in which network models (without this system, you would get different results depending on what order you added items to Simbrain). 
-
-Here is the basic algorithm in pseudo code:
-```kotlin
-for model in networkModels:
-	model.accumulateInputs()
-for model in networkModels:
-	model.update()
-```
-
-That is, first accumulate all the inputs to every network model. Then, in a separate step, update all the network models. This ensures deterministic updating regardless of the order in which the list of network models is traversed.
 
 ### Network Model Update Order
 
@@ -131,30 +150,6 @@ Note that items _within_ [Neuron groups](neurongroups/) and [subnetworks](subnet
 <!-- [Neuron groups](../neurongroups) and [subnetworks](subnetworks) have their own customized update functions. For example, [feedforward](subnetworks/feedForward.html) networks update the input nodes first, then hidden layers in sequence, then  output nodes.  [Neuron collections](neurongroups/index.html#neuron-collections) don't have custom update. [Hopfield](subnetworks/hopfield.html) networks have three kinds of update, including stochastic update where a random node is selected for update each iteration. -->
 
 
-### PSR Update
-
-Here is how synapses `psr` is updated, in pseudocode:
-
-```kotlin
-fun Synapse.updatePSR():
-    if spikeResponder:
-        // The spike responder updates the psr
-        spikeResonder.apply(this)
-    else
-        // Connectionist case
-        psr = source.activation * weightStrength
-```
-
-For a given neuron,  `update()` just works by iterating through fan-in synapses and calling `updatePSR()`, and then aggregating these to update activation. This allows connectionist and spiking neurons to connect to the same neuron
-
-```kotlin
-fun Neuron.update()
-    for synapse in fanIn:
-        synapse.updatePSR()
-        activation += synapse.psr
-```
-
-<!-- Synaptic inputs are a bit more complicated than weighted inputs as they attempt to capture some of the dynamics of real synapses in the brain. This type of input is meant specifically for translating action potentials (spikes) created when spiking neurons fire into a continuous value which can be interpreted by other neurons. (So this input type is not meaningful if the pre-synaptic neuron does not produce action potentials). Synaptic inputs perform a weighted sum over the post-synaptic responses of the incoming synapses, which are themselves governed by **spike responders**. More details can be found in the **spike responder** and **spiking neuron** documentation pages. The basic idea is that spikes are modeled as being instantaneous in time and spike responders generate a continuous value from this instantaneous one, for example producing a decaying stream of input to the post-synaptic neuron after a spike (as in the animated image above). -->
 
 
 ### Why Buffering Matters

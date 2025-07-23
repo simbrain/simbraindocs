@@ -7,32 +7,30 @@ nav_order: 5
 
 # What's new in Simbrain 4
 
-Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2016 and 2025. During this time, most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit tests were added, and many new new features were introduced.
+Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 and 2025. During this time, most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit-tests were added, and hundreds of new features were introduced.
 
 # New or improved components
 
-* Image world complete rewrite.
-* Evolutionary framework. Evolve networks and virtual robots to do things.
-* Full simulation environment. Easy to make custom simulations, far better than bsh.
-* Text world rewrite including support for computational linguistics 
-* The tables and "data world" have been complete rewritten
-* Odor world substantial revision (see below)
+* A [neuro-evolutionary](evolution/) framework was added. Evolve virtual robots to do things!
+* A full [simulation environment](simulations/) was introduced, replacing the earlier scripting environment.
+* A [classifier](network/subnetwork/classfier) object was added, which wraps an existing machine learning framework was introduced, [Smile](https://haifengl.github.io/classification.html). 
+
 
 # Network
 
-* Complete rewrite and refactored [update logic](network/updateLogic.html).
-* Matrix backend and a carefully developed GUI for showing matrix operations and having communication between matrix objects.
 * Undo /redo (Finally!)
-* A wrapper on an existing machine learning framework, [Smile](https://haifengl.github.io/). 
-* Supervised models that allow for immediae learning. A nice way to get a feel for how things work, and for tuning a network too. Each time you press “L” (for learn) the network learns by one increment. You can watch things happen in real time. Repeatedly press to implement learning. Finds the shortest path between source (Red selection) and target (green selection) and trains those using backprop
-* Neuron Collections. A new way of organizing free neurons. If you delete the collection, the neurons are still there.
-* Relu activation function directly available.  The color of the node is set by the upper bound, which is a graphical upper bound. 
+* The major change is array-based neural networks, including a carefully developed GUI (see [neuron arrays and matrices](network/arraysMatrices)) for visualizing array and matrix operations in Simbrain's signature intuitive style.
+* Introduction of transformer blocks and support for language models.
+* [Supervised models](network/supervisedModels) that allow for using backprop on the fly on a source and target set of neurons or neuron arrays, including through paths of diverging and reconverging weights.
+* [Neuron collections](network/neuronGroups#neuron-collection) were introduced as a new way of organizing  neurons. These are lightweight wrappers on neurons that can overlap.
+* New activation functions, connection strategies, subnetwork types (e.g. [restricted Boltzmann machines](network/subnetworks/restrictedBoltzmannMachine)) spike responderes, and much more!
 
 # Plots
 
-* New pixel plot
-* Complete rewrite of projection component with new color managers.
-* Time series updated. Fixed range vs. auto-range. "Auto-range is a feature that automatically adjusts the range of the time series data based on the maximum and minimum values present at a given time. This dynamic adjustment allows for optimized visualization and analysis, as it ensures all relevant data points are included and properly scaled within the chart or graph. It is especially useful for time series data with high variability or unpredictability."
+* A new [pixel plot](plots/pixelPlot) was introduced.
+* The [projection plot](plots/projectionPlot) was rewritten, and new color managers were introduced.
+* [Time series](plots/timeSeries) were updated with better auto-range capacities.
+* [Raster plots](plots/rasterPlot) were updated and improved.
     
 # Odor World
 
@@ -43,6 +41,20 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2016 
 * Animated sprites
 * More sensor and effector types 
 
+# Image world
+
+* [Image world](worlds/imageworld.html) has been completely rewritten. 
+* Groups of images can be loaded and flipped through in an album
+* Images can also be edited live using a simple editor
+
+# Text world
+
+* [Text world](worlds/textworld.html) has been completely rewritten. 
+* Word embeddings are much easier to manage 
+* A full suite of text extraction methods was introduced
+* Bytepair encodings can be visualized
+
 # Other
 
-* Preference framework rewritten
+* The [preference](network/networkPreferences) framework was rewritten
+* The [tables](utilities/tables) and [data world](worlds/dataworld) have been completely rewritten on top of the Smile framework.

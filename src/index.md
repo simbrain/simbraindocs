@@ -4,11 +4,12 @@
 
 layout: default
 ---
-# Note: This Document is a Work in Progress
-Currently these documents are in a highly fragmentary state. We are hoping to have a first draft around the time Simbrain 4.0 beta is actually released, which should be late summer 2024. 
-
 # Documentation for Simbrain 4.0
 Simbrain is a tool for building artificial neural networks that has been developed with the philosophy of ease-of-use and intuitive design. We encourage you to simply launch Simbrain and experiment. For in-depth documentation on each aspect of Simbrain follow the links below. Simbrain is open source and uses the GNU license. For credits click [here](https://simbrain.net/SimbrainCredits.html).
+
+# What's New in 4.0
+
+Simbrain 4.0 took over a decade to write and has been completely refactored. An overview of the major changes is on the [what's new](docs/whatsnew) page.
 
 # Workspace
 The Simbrain [workspace](docs/workspace) is the encompassing framework which contains all simulation components (networks, worlds, etc.), as well as mechanisms for connecting them together via "couplings", scripting, etc. Other general topics concerning simbrain simulations.

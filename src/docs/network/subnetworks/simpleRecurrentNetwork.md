@@ -19,8 +19,6 @@ To see an SRN in action see `Language Models > Next Word Prediction` or `Backpro
 
 According to [this site](https://web.stanford.edu/group/pdplab/pdphandbook/handbookch8.html): "The Simple Recurrent Network (SRN) was conceived and first used by Jeff Elman, and was first published in a paper entitled Finding structure in time (Elman, 1990). The paper was ground-breaking for many cognitive scientists and psycholinguists, since it was the first to completely break away from a prior commitment to specific linguistic units (e.g. phonemes or words), and to explore the vision that these units might be emergent consequences of a learning process operating over the latent structure in the speech stream. Elman had actually implemented an earlier model in which the input and output of the network was a very low-level spectrogram-like representation, trained using a spectral information extracted from a recording of his own voice saying 'This is the voice of the neural network'. We will not discuss the details of this network, except to note that it learned to produce this utterance after repeated training, and contained no explicit feature, phoneme, syllable, morpheme, or word-level units."
 
-<!-- TODO: Add image -->
-
 ## Training
 
 Training a network involves specifying input data, target data, and then running the algorithm. The overall method is the same as with backprop networks. However, there is an important difference with SRNs. It is assumed that a given input to an SRN will occur *after* previous patterns have occurred. For example, in the "srn_temporalXOR.zip" workspace, a network has been trained to perform a **logical exclusive or** in time. So an input of 1 after a 0 should produce a 1. But the same input of 1 after another 1 should produce a 0.
