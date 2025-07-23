@@ -49,7 +49,7 @@ for model in networkModels:
     model.update()
 ```
 
-First accumulate all the inputs to every network model (mainly neurons, neuron collections, and neuron arrays). These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these are added together. 
+First accumulate all the inputs to every network model (mainly neurons, neuron collections, and neuron arrays). These inputs include external inputs from couplings and PSRs from incoming synapses or weight matrices. All of these inputs are added together. 
 
 ```kotlind
 for w in fanIn:
@@ -57,9 +57,9 @@ for w in fanIn:
     activation += synapse.psr
 ```
 
-Updating the PSR (or PSR Matrix) usualy amounts to multiplying inputs times activations or matrix multiplying input activations by a weight matrix. Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
+Updating the PSR (or PSR Matrix) usualy amounts to multiplying inputs times activations (for neurons) or matrix multiplying input activations by a weight matrix (for neuron arrays, etc.). Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
 
-Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc.
+Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc. Once the update function is done with processing, it will **clear inputs** in preparation for the next application of accumulate inputs.
 
 # How Rules Operate on Data
 
