@@ -24,7 +24,6 @@ See youtube videos online.
 <!-- TODO -->
 * Iterate. Iterate the network once. This can be done by clicking the  button in the desktop toolbar, or pressing the space-bar in the network (these are slightly different operations, but we can ignore the distinction for now). Observe activation pass from the source to the target neuron. Iterate again and the activation clears out.
 
-
 ## Basic things to do in a network
 
 * Add neurons to a network. Click in one of the networks you created (most of the next steps assume you have created a network and it is in focus).  Now create some neurons, by presing the button or using the "p" key. Do this a few times to create a line of neurons. (For all network key commands, the network window must be selected for the command to work)
@@ -41,7 +40,6 @@ See youtube videos online.
 
 * Clamp things.
 
-
 * Select and randomize a weight. Select the weight you created by clicking on it (the weight or synapse is the red disk connecting one node to another; see the picture here) . If that is tricky, lasso over the connection line. You can also press "w", which selects all weights. A green halo will show up around the weight. 
 
 * Ranomize weights. As with neurons, randomize by pressing the randomize button  or pressing "r". Do this a few times to get a sense of what happens when synapses are randomized. If they are positive their color is red; if negative blue. The size of the weight is proportional the strength of the synapse.
@@ -54,12 +52,12 @@ See youtube videos online.
 ## Connect one neuron to another using the 1-2 trick.
 
 1. Create two neurons. You will make a connection from a "source" to a "target" neuron.
-1. Designate one neuron as a "source neuron",  by selecting Edit > Connect > Set source neuron(s) or pressing the "1" key, which is a keyboard shortcut for selecting source neurons. Observe the red halo that appears around the neuron.
-1. Select the target neuron just by lassong it using your mouse.
-1. Connect the source to the target neuron using Edit > Connect > All to all or by pressing the "2" key.   If a dialog appears just click "OK".  This dialog will not appear if you click "2".
+2. Designate one neuron as a "source neuron",  by selecting Edit > Connect > Set source neuron(s) or pressing the "1" key, which is a keyboard shortcut for selecting source neurons. Observe the red halo that appears around the neuron.
+3. Select the target neuron just by lassong it using your mouse.
+4. Connect the source to the target neuron using Edit > Connect > All to all or by pressing the "2" key.   If a dialog appears just click "OK".  This dialog will not appear if you click "2".
     After a while you can get quick at selecting, and using this sequence:
     select source neurons > "1" > select target neurons > "2"
-1. If you like, clear the "source neuron" halo by going to Edit  > Clear source neuron(s) or by clicking outside any neurons or weights and pressing "1".
+5. If you like, clear the "source neuron" halo by going to Edit  > Clear source neuron(s) or by clicking outside any neurons or weights and pressing "1".
 
 
 <!-- 
@@ -178,56 +176,56 @@ Note that if you plot more than 25 neurons you will have to add more dimensions 
 
 ## Desktop
 
-Command-o: Open a workspace file
-Command-s: Save the current file
-Command-n: Create a new network
-Command-k: Clear workspace (close all components)
-Command-q: Quit
+- **Command-o:** Open a workspace file
+- **Command-s:** Save the current file
+- **Command-n:** Create a new network
+- **Command-k:** Clear workspace (close all components)
+- **Command-q:** Quit
 
 ## All Components
 
-Command-o: Open a file of the given workspace type
-Command-s: Save the current file
-Command-w: Close the component
+- **Command-o:** Open a file of the given workspace type
+- **Command-s:** Save the current file
+- **Command-w:** Close the component
 
 ## Network Component (Network must be in focus)
 
-- 1: Set selected nodes to source nodes
-- 2: Connect source to target nodes using current connection (by default all to all)
-5: Turn display of weights on and off. Performance goes way up when weights are - off so this is a good one to know!
-c: "Clear" all. Set selected nodes and weights to zero. WARNING! Setting weights to zero is not always a desired outcome! Use with caution. A safer alternative is - 'k' which only clears node activations.
-- Command-c: Copy selected items (does not apply to all groups and subnetwork types)
-- Command-d: Duplicate selected items
-Alt-d: print debug info to the console (only visible if Simbrain is run from a - terminal command).
-- Command-e: Edit selected neurons or weights
-- f: Fit camera to screen
-- F: Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
-- g: Create a new neuron group
-- Command-G: Add selected free neurons to a neuron group
-- i: Wand mode
-k: Clear all node activations. Leaves nodes selected so that, for example, this - can be followed by a randomization (r).
-- n: Select all neurons
-p: Add or "put" a new node. Nodes will be added next to selected nodes or where - you last clicked in the network panel
-- r: Randomize selected objects.
-- s: Selection mode (the default mode)
-- t: Text mode
-- w: Select all weights
-- Command-v: Paste selected items
-- Command-x: Cut selected items
-- Delete: Delete selected items
-- Escape: Unselect all objects and remove source handles
-- Arrows: Increment or decrement selected items (neurons or synapses).
-- Option-Arrows: Contextually increment or decrement selected neurons.
-- Shift-Arrow: Nudge objects (move them a few pixels)
-- Space-bar: Update network
+- **1:** Set selected nodes to source nodes
+- **2:** Connect source to target nodes using current connection (by default all to all)
+- **5:** Turn display of weights on and off. Performance goes way up when weights are - off so this is a good one to know!
+- **c:** "Clear" all. Set selected nodes and weights to zero. WARNING! Setting weights to zero is not always a desired outcome! Use with caution. A safer alternative is - 'k' which only clears node activations.
+- **Command-c:** Copy selected items (does not apply to all groups and subnetwork types)
+- **Command-d:** Duplicate selected items
+- **Alt-d:** print debug info to the console (only visible if Simbrain is run from a - terminal command).
+- **Command-e:** Edit selected neurons or weights
+- **f:** Fit camera to screen
+- **F:** Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
+- **g:** Create a new neuron group
+- **Command-G:** Add selected free neurons to a neuron group
+- **i:** Wand mode
+- **k:** Clear all node activations. Leaves nodes selected so that, for example, this - can be followed by a randomization (r).
+- **n:** Select all neurons
+- **p:** Add or "put" a new node. Nodes will be added next to selected nodes or where - you last clicked in the network panel
+- **r:** Randomize selected objects.
+- **s:** Selection mode (the default mode)
+- **t:** Text mode
+- **w:** Select all weights
+- **Command-v:** Paste selected items
+- **Command-x:** Cut selected items
+- **Delete:** Delete selected items
+- **Escape:** Unselect all objects and remove source handles
+- **Arrows:** Increment or decrement selected items (neurons or synapses).
+- **Option-Arrows:** Contextually increment or decrement selected neurons.
+- **Shift-Arrow:** Nudge objects (move them a few pixels)
+- **Space-bar:** Update network
 
 ## Some Useful Key Sequences
 
-- n > c   to clear all neurons (set them to 0)
-- n > r    to randomize all neurons
-- w > r   to randomize all weights
-- a > r   to randomize all weights and neurons
-n > 1 > 2  > r (to create a recurrent network where each node connects to all others)
+- **n > c:**   to clear all neurons (set them to 0)
+- **n > r:**    to randomize all neurons
+- **w > r:**   to randomize all weights
+- **a > r:**   to randomize all weights and neurons
+- **n > 1 > 2  > r:** (to create a recurrent network where each node connects to all others)
 
 ## Key Sequences for connecting neurons
 
@@ -236,9 +234,9 @@ n > 1 > 2  > r (to create a recurrent network where each node connects to all ot
 
 ## Dataworld Component
 
-`Command-r`: randomize all cells within given bounds.
-`Command-n`: normalize all values relative to columns.
-`Command-z`: zero out all cells
+**Command-r:** randomize all cells within given bounds.
+**Command-n:** normalize all values relative to columns.
+**Command-z:** zero out all cells
 
 ## Notes on shortcuts
 
