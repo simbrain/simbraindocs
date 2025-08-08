@@ -41,88 +41,88 @@ However, to account for spike responses, this matrix product is factored into tw
 
 ## Neuron Array Right Click Menu
 
-**Cut:** Cut selected neurons, (connected) synapses, and neuron groups
+- **Cut:** Cut selected neurons, (connected) synapses, and neuron groups
 
-**Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+- **Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
 
-**Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+- **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
 
-**Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+- **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
 
-**Edit:**
+- **Edit:**
 
-**Delete:** Delete selected node(s)
+- **Delete:** Delete selected node(s)
 
-**Connect Selected Objects...:** Creates synapse, weight matrix, etc. between selected source and target entities
+- **Connect Selected Objects...:** Creates synapse, weight matrix, etc. between selected source and target entities
 
-**Toggle Line / Grid:** Toggle line / grid style
+- **Toggle Line / Grid:** Toggle line / grid style
 
-**Toggle Horizontal / Vertical Layout:** Toggle horizontal / vertical layout
+- **Toggle Horizontal / Vertical Layout:** Toggle horizontal / vertical layout
 
-**Toggle Circle Mode:** Toggle activation rendering mode between circle and image
+- **Toggle Circle Mode:** Toggle activation rendering mode between circle and image
 
-**Toggle Bias Visibility:** Toggle whether biases are visible
+- **Toggle Bias Visibility:** Toggle whether biases are visible
 
-**Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
+- **Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
 
-**Input Data...:** Opens a dialog that can be used to send inputs to this layer
+- **Input Data...:** Opens a dialog that can be used to send inputs to this layer
 
-**Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
+- **Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
 
-**Randomize Selection:** Randomize Selected Elements (r)
+- **Randomize Selection:** Randomize Selected Elements (r)
 
-**Randomize Bias:** Randomize biases of selected nodes
+- **Randomize Bias:** Randomize biases of selected nodes
 
-**Edit Components:** 
+- **Edit Components:** 
 
-**Plot Activations:** Plot neuron activations across available graph type
+- **Plot Activations:** Plot neuron activations across available graph type
 
-**Plot Biases:** Plot neuron biases across available graph type
+- **Plot Biases:** Plot neuron biases across available graph type
 
-**Add Coupled Image World:**
+- **Add Coupled Image World:**
 
-**Record Activations:**
+- **Record Activations:**
 
-**Record Biases:**
+- **Record Biases:**
 
-**Align:**
+- **Align:**
 
-**Space:**
+- **Space:**
 
-**Create NeuronArray Coupling:**
+- **Create NeuronArray Coupling:**
 
 
 ## Weight Matrix Right Click Menu
 
-**Cut:** Cut selected neurons, (connected) synapses, and neuron groups 
+- **Cut:** Cut selected neurons, (connected) synapses, and neuron groups 
 
-**Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+- **Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
 
-**Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+- **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
 
-**Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+- **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
 
-**Edit:**
+- **Edit:**
 
-**Delete:** Delete selected node(s)
+- **Delete:** Delete selected node(s)
 
-**Randomize Selection:** Randomize Selected Elements (r)
+- **Randomize Selection:** Randomize Selected Elements (r)
 
-**Diagonalize:** Diagonalize array
+- **Diagonalize:** Diagonalize array
 
-**Transpose Weight Matrix Image (Current Target -> Source):** Transpose the weight matrix image
+- **Transpose Weight Matrix Image (Current Target -> Source):** Transpose the weight matrix image
 
-**Plot Weight Matrix:** Plot weight matrix across available graph type
+- **Plot Weight Matrix:** Plot weight matrix across available graph type
 
-**Show Eigenvalues:** Show eigenvalues for this matrix if it is a square
+- **Show Eigenvalues:** Show eigenvalues for this matrix if it is a square
 
-**Set Spectral Radius:** Rescale matrix so that max eigenvalue is the specified value
+- **Set Spectral Radius:** Rescale matrix so that max eigenvalue is the specified value
 
-**Randomize Symmetric:** Use network weight randomizer to randomize the matrix symmetrically
+- **Randomize Symmetric:** Use network weight randomizer to randomize the matrix symmetrically
 
-**Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
+- **Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
 
-**Create WeigthMatrix Coupling:**
+- **Create WeigthMatrix Coupling:**
 
 
 ## Differences with synapse group
@@ -130,3 +130,67 @@ However, to account for spike responses, this matrix product is factored into tw
 Synapse groups are collections of synapses and thus have a few extra features, including delays and polarity and more learning rules.
 
 
+## Weight Matrix Dialog Options
+
+### Properties Tab:
+
+- **Label:** Optional string description
+
+- **Update Priority:** 
+
+- **Increment Amount:** Amount to increment components when pressing up and down
+
+- **Clamped:** See [Clamping](../neurons#clamping)
+
+- **Learning Rule:** Learn more about spike responders [here.](./synapses/)
+
+- **Spike Responder:** Learn more about spike responders [here.](./spikeresponders/)
+
+### Weight Matrix Tab:
+
+- **Editing the Weight Matrix:** To learn more about changing the weight matrix and editing specific values click [here](./networkDialogs.html#weight-matrix-viewer--editor/)
+
+## Neuron Array Dialog Options:
+
+### Main Tab:
+
+- **Activations:** Neuron activations
+
+- **Label:** Optional string description
+
+- **Labels:** Labels for each neuron
+
+- **Clamped:** See [Clamping](../neurons#clamping)
+
+- **Bias Array:** Biases
+
+- **Use Layer Norm:** Whether to use layer normalization
+
+- **Increment Amount:** Amount to increment components when pressing up and down
+
+- **Update Priority:** 
+
+
+### GUI Tab:
+
+- **Show Activations:** Whether to show activations as a pixel image
+
+- **Grid Mode:** If true, show activations as a grid, otherwise show them as a line
+
+- **Circle Mode:** If true, show activations as neuron circles
+
+- **Vertical Layout:** If true, orient the array vertically, otherwise horizontally
+
+- **Biases Visible:** If true, show biases
+
+### Update Rule Tab:
+
+- **Update Rule:** Learn more about spike responders [here.](./synapses/)
+
+- **Upper Bound:** Upper bound that determines the maximum level of activity of a node
+
+- **Lower Bound:** Lower bound that determines the minimum level of activity of a node
+
+- **Type:** No clipping; Clip floor and ceiling (Piecewise Linear); Clip floor (RELU)
+
+- **Slope:** Slope of linear rule
