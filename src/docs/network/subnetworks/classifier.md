@@ -35,15 +35,68 @@ Classifers are first-class components of Simbrain that can interact with other S
 
 # Training and Testing
 
-Double clicking on a classifier's interaction box allows you to train it, test it on new data, and edit it's training and testing data.
+Double clicking on a classifier's interaction box opens the training dialog, which provides comprehensive training and testing functionality.
 
-In the data tables at the bottom of the dialog all the input and target data are shown.   Clicking on the step button allows specific inputs to be tested. 
+## Training Dialog Interface
+
+The training dialog includes:
+
+- **Classifier Properties**: Configuration panel for algorithm-specific parameters
+- **Training Statistics**: Real-time display of training performance metrics
+- **Testing Statistics**: Performance metrics on held-out testing data
+- **Training Data Panel**: Table view of input features and target classes
+- **Testing Data Panel**: Table view of testing dataset
+
+## Data Management
+
+Training and testing data are displayed in interactive tables:
+
+- **Input Data**: Feature vectors shown as rows in the input table
+- **Target Data**: Class labels displayed with appropriate randomizers
+- **Class Naming**: Uses integer coding (Class 1, Class 2, etc.) for output neurons
+- **Data Editing**: Tables support adding, removing, and modifying training examples
+
+## Training Process
+
+To train the classifier:
+
+1. Edit training data in the data tables as needed
+2. Adjust classifier parameters in the properties panel
+3. Click "Train" to fit the model to the current training data
+4. Monitor training and testing statistics for performance
+
+## Testing Workflow
+
+Testing can be performed in two ways:
+
+- **Step through data**: Use the step button to test specific inputs from the testing table
+- **Live testing**: Send data to the input layer and update the workspace to see real-time classification
 
 The classifier can also be tested on new data simply by passing data to the input layer and updating the workspace. 
 
 # Visualizing the Classifier
 
-Right clicking on the interaction box and selecting `Visualize Classifier` plots all training data and colors the data by class label. As new data are passed through the classifier the new data is shown as a differently colored dot. This allows for an intuitive and fairly standard way of understanding how the classifeir works.
+Right clicking on the interaction box and selecting `Visualize Classifier` opens a projection plot that provides visual insight into classifier behavior.
+
+## Visualization Plot Features
+
+The visualization plot shows:
+
+- **Training Data Points**: All training examples plotted and colored by class label
+- **Class Boundaries**: Visual representation of how the classifier separates different classes
+- **Real-time Testing**: New data passed through the classifier appears as differently colored dots
+- **Interactive Display**: Click and explore the data space to understand classification regions
+
+## Troubleshooting Visualization Updates
+
+If the visualization plot doesn't update when new data is passed through:
+
+- Ensure the classifier has been trained on current data
+- Check that the input layer is receiving new data correctly
+- Verify the workspace is updating (try manual update if needed)
+- Confirm the plot window is still active and responsive
+
+This visualization provides an intuitive and standard way of understanding how the classifier works and how it partitions the input space.
 
 # Creation Parameters
 

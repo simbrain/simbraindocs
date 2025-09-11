@@ -18,17 +18,37 @@ The best way to get a feel for what is possible is to have a look at a few simul
 
 To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
 
-
 ## Setting up a Simulation (Kotlin)
 
-Here is the basic way to get started. Set up a simulation environment as described [here](https://github.com/simbrain/simbrain/wiki/Getting-From-Source), with IntelliJ reccomended as your IDE
+Cimulations are implemented as Kotlin (and in some cases Java) classes that extend the `Simulation` base class, providing structured and maintainable code.
 
-- Find the File “RegisteredSimulations.kt”. 
-- Click `Shift-Shift`, then click on project tab and use the compass tool to see where you are.
+Here is the basic way to get started. Set up a simulation environment as described [here](https://github.com/simbrain/simbrain/wiki/Getting-From-Source), with IntelliJ recommended as your IDE
+
+- Find the File "RegisteredSimulations.kt" 
+- Click `Shift-Shift`, then click on project tab and use the compass tool to see where you are
 - Add an item using other examples as a template
-- Copy an existing Kotlin sim from `src.kotlin.org.simbrain.custom_sims.simulations`. The projection demo is a good starting point.
+- Copy an existing Kotlin sim from `src.kotlin.org.simbrain.custom_sims.simulations`. The projection demo is a good starting point
 
 Then more or less follow the template, much of it is quite straightforward.
+
+## Simulation Class Structure
+
+All custom simulations extend the `Simulation` base class and implement:
+
+- **Constructor**: Takes a `SimbrainDesktop` parameter for GUI integration
+- **getName()**: Returns the simulation name for menu display
+- **run()**: Contains the main simulation logic
+- **instantiate()**: Creates a new instance for execution
+
+## Migration Guidelines
+
+To migrate from BSH scripts to Kotlin simulations:
+
+1. **Identify Core Logic**: Extract the main simulation logic from BSH scripts
+2. **Create Simulation Class**: Extend the `Simulation` base class
+3. **Use SimulationUtils**: Replace direct API calls with the `sim` utility object
+4. **Register Simulation**: Add the new simulation to the registered simulations list
+5. **Test Integration**: Ensure the simulation works within the Simbrain desktop environment
 
 ## Fine-Tuning A Simulation
 

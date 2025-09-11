@@ -10,10 +10,30 @@ nav_order: 20
 
 A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](index.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are [attributes](couplings.html#attributes).
 
-There are a few main ways to create couplings:
-- Use a popup menu to create a coupledcomponent. This is the easiest way to go. For example, right click on a neuron group, and select `plot activation > bar chart` to couple a neuron group to a bar chart. 
-- Make two components and use the `create coupling menu` context menus to couple one to the other. This allows you to select the source and target components using popup menus. For example, right click on a neuron to create a scalar coupling from a neuron to one time series in a [time series](../plots/timeSeries.html) plot, or right click on an [image world](../worlds/imageworld.html) to create a coupling from a neuron array to the image world neuron group's interaction box to create a vector coupling to or from a neuron group.
-- Use the coupling manager, a gui interface that allows custom couplings to made and special features like visibility to be set.
+There are several ways to create couplings:
+
+## Quick Coupling via Context Menus
+
+The easiest way to create couplings is through context menu shortcuts:
+- **Right-click on a neuron group** and select `plot activation > bar chart` to couple a neuron group to a bar chart
+- **Right-click on components** to see available coupling options in the context menu
+- **Select coupling targets** directly from popup menus without needing to understand attribute details
+
+## Manual Coupling Creation
+
+For more control over coupling creation:
+- **Create coupling menus**: Right-click on components to access "create coupling" options
+- **Source-target selection**: Choose source and target components using popup menus  
+- **Vector couplings**: Right-click on neuron arrays or image worlds to create vector couplings
+- **Scalar couplings**: Right-click on individual neurons for scalar time series couplings
+
+## Coupling Manager Interface
+
+The coupling manager provides comprehensive coupling control:
+- **Custom couplings**: Create couplings between any compatible attributes
+- **Visibility settings**: Control which attributes are visible for coupling
+- **Many-to-many couplings**: Create multiple couplings simultaneously
+- **Advanced features**: Access specialized coupling options not available in context menus
 
 Couplings can also be made programmatically in [simulations](../simulations).
 
@@ -93,7 +113,27 @@ The coupling manager is organized in to three columns. Multiple items in each of
 
 The following commands are possible in the coupling manager:
 
-**Add coupling(s)**: This button creates new couplings, as follows. It begins with the first selected attribute in the producer list and the first selected attribute in the producer list, and then creates a coupling between those attributes. If multiple consumers and producers are selected it creates as many couplings as it can in this way. The default is to link each selected producer with one selected consumer, but if many-one is selected in the drop-down box next to the add coupling(s) button, then multiple couplings are created, one for each combination of selected producers and consumers.
+**Add coupling(s)**: This button creates new couplings between selected producers and consumers. The coupling creation process:
+
+- Links the first selected producer with the first selected consumer
+- Creates additional couplings for multiple selections
+- **One-to-One Mode** (default): Each producer links to one consumer
+- **Many-to-Many Mode**: Creates couplings for all combinations of selected producers and consumers
+- **Type Checking**: Only creates couplings between compatible attribute types
+
+## Enhanced Coupling Features
+
+The modern coupling system includes several advanced features:
+
+**Priority-Based Coupling**: Attributes have priority values that determine automatic coupling preferences when multiple options are available.
+
+**Infix Coupling Operator**: Programmatic coupling creation uses the `couple` infix operator for readable code: `producer couple consumer`.
+
+**Attribute Filtering**: The coupling manager can filter attributes by type, visibility, and other criteria.
+
+**Many-to-One Support**: Unlike earlier versions, Simbrain 4.0 supports many-to-one couplings for scenarios like input aggregation, though care should be taken to avoid value conflicts.
+
+**Automatic Type Matching**: The system automatically finds compatible producer-consumer pairs based on type compatibility and priority.
 
 **Delete Couplings**: This button deletes all selected couplings from the coupling list.
 

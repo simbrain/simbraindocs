@@ -27,21 +27,74 @@ Neuron groups can be linked by [Weight Matrices](../arraysMatrices.html) or [Syn
 2) To link neuron groups with synapse groups you mus tuse the [1-3 trick](../buildingBasics.html#source-and-target-objects).
 
 
-# Neuron Collection
+# Neuron Collections vs Neuron Groups
 
-Neuron collections are a lightweight alternative to neuron groups. Unlike neuron groups, they can overlap. They have a green rather than a yellow interaction box. They are created by selecting nodes and pressing `shift-G`.
+Understanding the distinction between neuron collections and neuron groups is crucial for effective network organization.
 
-Here are some of the main differences. Neuron groups
-- Contain neurons as children
-- Have their own layout object
-- When deleting, all nodes are deleted
-- Have subclasses (like SOM, Competitive) with custom updating
+## Neuron Collections
 
-While neuron collections are:
-- Loose associations mainly for labeling
-- Do not have custom update
-- Deleting does not delete neurons
-- Can overlap each other and neuron groups, even when in subnetworks
+Neuron collections are lightweight assemblages of neurons with minimal structural constraints:
+
+**Creation**: Select neurons and press `Shift+G` or use the right-click menu
+
+**Characteristics**:
+- **Loose Associations**: Primarily for labeling and visual organization
+- **Overlap Support**: Can share neurons with other collections and groups
+- **Flexible Membership**: Neurons can belong to multiple collections simultaneously
+- **No Custom Update**: Collections don't enforce specific update rules
+- **Non-destructive Deletion**: Removing a collection doesn't delete its neurons
+- **Green Interaction Box**: Visual distinction from neuron groups
+
+**Use Cases**:
+- Organizing neurons by functional role (e.g., "input layer", "hidden layer")
+- Creating overlapping functional groups for analysis
+- Temporary groupings for specific operations
+- Labeling regions without structural constraints
+
+## Neuron Groups
+
+Neuron groups enforce structural consistency and provide specialized functionality:
+
+**Creation**: Use Insert menu or create during neuron addition with the group checkbox
+
+**Characteristics**:
+- **Structural Containers**: Neurons are children of the group
+- **Consistent Update Rules**: All neurons share the same update rule type
+- **Exclusive Membership**: Neurons belong to only one group at a time
+- **Custom Layouts**: Groups have their own layout management
+- **Specialized Subclasses**: SOM, Competitive, WTA, and other specialized types
+- **Destructive Deletion**: Removing a group deletes all its neurons
+- **Yellow Interaction Box**: Visual distinction from collections
+
+**Use Cases**:
+- Layer organization in feed-forward networks
+- Self-organizing maps and competitive learning structures
+- Groups requiring uniform update rules
+- Structured network architectures
+
+## Relationship to Update Responsibilities
+
+The choice between collections and groups affects network update behavior:
+
+### Neuron Groups
+- **Centralized Updates**: The group manages updates for all neurons
+- **Consistent Timing**: All neurons update simultaneously
+- **Specialized Processing**: Subclasses can implement custom group-level operations
+- **Polarity Management**: Groups can enforce consistent excitatory/inhibitory properties
+
+### Neuron Collections  
+- **Individual Updates**: Each neuron updates independently
+- **Heterogeneous Rules**: Neurons can have different update rules
+- **Flexible Timing**: Update timing depends on individual neuron properties
+- **Mixed Polarities**: Collections can contain both excitatory and inhibitory neurons
+
+## Connection Compatibility
+
+Both collections and groups can be connected via:
+- **Weight Matrices**: Use the 1-2 trick for matrix-based connections
+- **Synapse Groups**: Use the 1-3 trick for individual synapse management
+
+The choice of connection type often depends on whether you need fine-grained control (synapse groups) or efficient computation (weight matrices).
 
 <img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
 

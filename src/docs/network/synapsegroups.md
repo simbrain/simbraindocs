@@ -8,9 +8,34 @@ nav_order: 100
 
 # Synapse Groups
 
-Synapse groups are colletions of synapses linking a source to a target [neuron group or collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse Groups offer a way to manipulate all synapses in a group at once.
+Synapse groups are collections of synapses linking a source to a target [neuron group or collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
 
-Synapse groups are associated with a [connection strategy](../connections.html), which holds randomizers and parameters related to the connectivity of the synapse group. Thus you can specify these parameters and adjust and reapply them incrementally, for example slowing increasing the sparsity of a connection.
+## Transient Wrapper Concept
+
+Synapse groups act as lightweight, transient wrappers around collections of synapses. They provide:
+
+- **Organizational Structure**: Group related synapses for easier management
+- **Batch Operations**: Apply changes to all synapses simultaneously
+- **Connection Management**: Track relationships between source and target neuron collections
+- **Visibility Control**: Show or hide individual synapses within the group
+
+The "transient" nature means synapse groups can be created, modified, and deleted without affecting the underlying synapse data structure, making them flexible organizational tools.
+
+## Connection Strategy Integration
+
+Synapse groups are associated with a [connection strategy](../connections.html), which holds randomizers and parameters related to the connectivity of the synapse group. This allows you to:
+
+- **Specify Connection Parameters**: Set probability distributions, distance functions, and connectivity patterns
+- **Incremental Adjustments**: Modify parameters and reapply them (e.g., slowly increasing sparsity)
+- **Dynamic Reconfiguration**: Change connection strategies without recreating the entire group
+
+## Excitatory/Inhibitory Separation
+
+Synapse groups automatically handle polarity management:
+
+- **Automatic Polarity Assignment**: Synapses are assigned excitatory or inhibitory properties based on source neuron polarity
+- **Polarity Preservation**: Group operations respect individual synapse polarities
+- **Batch Polarity Changes**: The entire group's polarity balance can be adjusted through connection strategy parameters
 
 <!-- TODO: Show some pics -->
 
