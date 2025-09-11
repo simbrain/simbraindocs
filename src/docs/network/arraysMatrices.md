@@ -8,19 +8,57 @@ nav_order: 80
 
 # Neuron Arrays and Weight Matrices
 
-Simbrain originated as a way to focus intuition on loose or "free"-standing neurons and their connections, which model neuroscience or else show how the connection to neuroscence works in an intuitive way.  However most neural networks software use vectors and matrices to represent neural networks, which make computations far more efficient. 
+Simbrain originated as a way to focus intuition on loose or "free"-standing neurons and their connections, which model neuroscience or else show how the connection to neuroscence works in an intuitive way. However most neural networks software use vectors and matrices to represent neural networks, which make computations far more efficient.
 
-In Simbrain 4 array-based approaches have been incorporated (using [Smile matrix](https://haifengl.github.io/linear-algebra.html) objects), and are integrated in such a way that they can be used alongside all the existing machinery, using similar GUI visualizations.
+In Simbrain 4 array-based approaches have been incorporated (using [Smile matrix](https://haifengl.github.io/linear-algebra.html) objects), and are integrated in such a way that they can be used alongside all the existing machinery, using similar GUI visualizations. Arrays and matrices provide efficient operations for large-scale neural network simulations and support modern machine learning workflows.
 
 <img src="/assets/images/neuronArrayWeightMatrix.png" alt="Neuron array and weight matrix" style="width:400px;"/>
 
 ## Neuron Arrays
- 
-These are represenations of arrays of neurons. They are column vectors in the underlying code. They can be represented as a line or grid by using a toggle button. They are updated using the same [update logic](updateLogic.html) as with free neurons. In fact the rule objects are shared.
 
-## Weight matrices
+Neuron arrays are collections of neurons backed by Smile matrices, stored as column vectors. They provide efficient computation for large numbers of neurons while maintaining compatibility with Simbrain's visualization and update systems.
 
-These are represenations of weights. They can be updated using shared local learning rules. They are shadowed by a matrix of post synaptic responses to allow for for spiking rules in a matrix setting. Right click context menu allows common operations.
+### Display Modes
+
+Neuron arrays can be displayed in multiple ways:
+- **Line mode**: Shows neurons as a horizontal or vertical line
+- **Grid mode**: Arranges neurons in a rectangular grid
+- **Circle mode**: Displays individual neurons as circles
+- **Image mode**: Shows activations as a color-coded pixel image
+
+Toggle between these modes using the right-click menu or the GUI tab in the neuron array dialog.
+
+### Array Operations
+
+Neuron arrays support several operations:
+- **Layer normalization**: Normalize activations across the array
+- **Bias handling**: Each neuron can have an individual bias value
+- **Increment/decrement**: Adjust all activations by a fixed amount
+- **Clear**: Reset all activations to zero
+- **Randomize**: Set activations to random values
+
+## Weight Matrices
+
+Weight matrices represent connections between neuron arrays or neuron groups. They provide efficient matrix-based computation for large-scale networks and support various learning rules and operations.
+
+### Matrix Structure
+
+Weight matrices have dimensions of target size × source size. Each entry represents the connection strength from a source neuron to a target neuron. The matrix supports both excitatory and inhibitory connections, with automatic masking to separate these connection types.
+
+### Matrix Operations
+
+Weight matrices support numerous operations:
+- **Diagonalize**: Create an identity-like matrix
+- **Randomize**: Fill with random values
+- **Randomize symmetric**: Create symmetric random matrices
+- **Zero diagonal**: Remove self-connections
+- **Clear**: Set all weights to zero
+
+### Mathematical Properties
+
+For square matrices, additional operations are available:
+- **Eigenvalues**: Calculate and display eigenvalues
+- **Spectral radius**: Set the maximum eigenvalue to control network dynamics
 
 ## Creating Arrays and Matrices
 
@@ -29,15 +67,52 @@ An array can be inserted into a Network Window through two methods:
 1) Insert > "Add Neuron Array"
 2) Pressing the Keyboard shortcut "Y"
 
-Weight Matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#source-and-target-objects). 
+Weight Matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#source-and-target-objects).
+
+## Matrix Integration
+
+Simbrain uses efficient matrix operations for array-based computation. This provides:
+
+### Benefits
+- Fast computation for large networks
+- Efficient memory usage
+- Modern neural network compatibility
+
+### Integration with Other Components
+Arrays can connect with other network components:
+- Neuron groups can connect to arrays via weight matrices
+- Arrays can connect to synapse groups
+- Mixed neuron and array networks are supported 
 
 ## PSR Matrix
 
-In a typical connnectionist network, the weight matrix is matrix multiplied by a vector "input" to produce a vector "output" (batch computations can also be done but that is covered elsewhere). 
+The Post-Synaptic Response (PSR) matrix is a key innovation in Simbrain that extends traditional matrix-vector multiplication to support spiking neural networks.
 
-However, to account for spike responses, this matrix product is factored into two parts in Simbrain. (1) The input vector is elementwise (Hadamard) multiplied by each row of the matrix. This is the PSR Matrix. Each row of the matrix is like a post-synaptic response along the various points on a dendrite. Then later (2) the row sums of the PSR matrix can be taken, which is equivalent to the traditional matrix-vector multiplication.  However, the PSR Matrix can also be updated using spike responders.
+### Traditional vs PSR Computation
 
-<!-- TODO: Picture. Show many to one case, where it's clear the results must first be multiplied then summed -->
+In typical neural networks:
+- Output = Weight Matrix × Input Vector
+
+In Simbrain, this is split into two steps:
+1. **PSR Matrix Creation**: Each row of the weight matrix is element-wise multiplied by the input vector
+2. **Summation**: Row sums of the PSR matrix produce the final output
+
+This factorization allows spike responders to modify individual synaptic responses before summation, enabling more biologically realistic computation.
+
+### Spike Response Integration
+
+The PSR matrix can be processed by [spike responders](./spikeresponders.html) before summation, allowing for:
+- Non-linear synaptic responses
+- Temporal dynamics at individual synapses
+- Biologically plausible computation models
+
+### Excitatory and Inhibitory Separation
+
+Weight matrices maintain separate masks for excitatory and inhibitory connections:
+- **Excitatory mask**: Binary matrix marking positive weights
+- **Inhibitory mask**: Binary matrix marking negative weights
+
+These masks enable separate processing of excitatory and inhibitory inputs, which is important for biologically realistic models.
 
 ## Neuron Array Right Click Menu
 
@@ -73,23 +148,17 @@ However, to account for spike responses, this matrix product is factored into tw
 
 - **Randomize Bias:** Randomize biases of selected nodes
 
-- **Edit Components:** 
+- **Edit Components:** Edit the entries of the matrix or array
 
 - **Plot Activations:** Plot neuron activations across available graph type
 
 - **Plot Biases:** Plot neuron biases across available graph type
 
-- **Add Coupled Image World:**
+- **Add Coupled Image World:** Couples an image world to this neuron array
 
-- **Record Activations:**
+- **Record Activations:** Start recording activations to a data world
 
-- **Record Biases:**
-
-- **Align:**
-
-- **Space:**
-
-- **Create NeuronArray Coupling:**
+- **Record Biases:** Start recording biases to a data world
 
 
 ## Weight Matrix Right Click Menu
@@ -101,8 +170,6 @@ However, to account for spike responses, this matrix product is factored into tw
 - **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
 
 - **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
-
-- **Edit:**
 
 - **Delete:** Delete selected node(s)
 
@@ -122,75 +189,81 @@ However, to account for spike responses, this matrix product is factored into tw
 
 - **Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
 
-- **Create WeigthMatrix Coupling:**
 
+## Differences with Synapse Groups
 
-## Differences with synapse group
+While weight matrices and synapse groups both represent connections, they have different capabilities:
 
-Synapse groups are collections of synapses and thus have a few extra features, including delays and polarity and more learning rules.
+### Weight Matrices
+- Fast computation for large networks
+- Best for fully-connected layers
+- Support matrix operations (eigenvalues, spectral radius)
+- Learning rules work on entire matrix
+
+### Synapse Groups
+- Individual synapse properties
+- Support connection delays
+- More learning rule options
+- Can connect any network components
+- Support for sparse connectivity
 
 
 ## Weight Matrix Dialog Options
 
-### Properties Tab:
+### Properties Tab
 
-- **Label:** Optional string description
+- **Label**: Optional string description for identification
+- **Update Priority**: Determines update order in network (lower numbers update first)
+- **Increment Amount**: Amount to increment all weights when using keyboard shortcuts
+- **Clamped**: Prevents weight updates during learning (see [Clamping](../neurons#clamping))
+- **Learning Rule**: Specifies how weights change during training
+- **Spike Responder**: Processes PSR matrix entries (see [Spike Responders](./spikeresponders.html))
 
-- **Update Priority:** 
+### Weight Matrix Tab
 
-- **Increment Amount:** Amount to increment components when pressing up and down
+- **Matrix Editor**: Direct editing of weight values in spreadsheet format
+- **Import/Export**: Load weights from files or save current values
+- **Visualization**: Color-coded display of weight magnitudes
+- **Statistics**: View weight distribution, min/max values, and norms
 
-- **Clamped:** See [Clamping](../neurons#clamping)
+For detailed matrix editing instructions, see [Weight Matrix Viewer](./networkDialogs.html#weight-matrix-viewer--editor/).
 
-- **Learning Rule:** Learn more about spike responders [here.](./synapses/)
+### Data Tab
 
-- **Spike Responder:** Learn more about spike responders [here.](./spikeresponders/)
-
-### Weight Matrix Tab:
-
-- **Editing the Weight Matrix:** To learn more about changing the weight matrix and editing specific values click [here](./networkDialogs.html#weight-matrix-viewer--editor/)
+- **PSR Matrix**: View post-synaptic response values
+- **Weight Array**: Access weight values for coupling
+- **Matrix Properties**: View matrix dimensions and statistics
 
 ## Neuron Array Dialog Options:
 
-### Main Tab:
+### Main Tab
 
-- **Activations:** Neuron activations
+- **Activations**: Current activation values for all neurons
+- **Label**: Optional string description for identification
+- **Labels**: Individual labels for each neuron in the array
+- **Clamped**: Prevents activation updates (see [Clamping](../neurons#clamping))
+- **Bias Array**: Individual bias values for each neuron
+- **Use Layer Norm**: Applies layer normalization after each update
+- **Increment Amount**: Amount to increment all activations using keyboard shortcuts
+- **Update Priority**: Determines update order in network (lower numbers update first)
 
-- **Label:** Optional string description
+### GUI Tab
 
-- **Labels:** Labels for each neuron
+- **Show Activations**: Display activations as color-coded pixel image
+- **Grid Mode**: Show neurons in rectangular grid vs. single line
+- **Circle Mode**: Display individual neuron circles instead of image
+- **Vertical Layout**: Orient array vertically instead of horizontally
+- **Biases Visible**: Show bias values as small indicators
 
-- **Clamped:** See [Clamping](../neurons#clamping)
+### Update Rule Tab
 
-- **Bias Array:** Biases
+- **Update Rule**: Neuron update function (Linear, Sigmoidal, etc.)
+- **Upper Bound**: Maximum activation value
+- **Lower Bound**: Minimum activation value
+- **Clipping Type**: How to handle out-of-bounds values
+  - **None**: No clipping applied
+  - **Clip**: Hard clipping to bounds (piecewise linear)
+  - **Floor**: Minimum clipping only (ReLU-style)
+- **Slope**: Linear rule slope parameter
 
-- **Use Layer Norm:** Whether to use layer normalization
-
-- **Increment Amount:** Amount to increment components when pressing up and down
-
-- **Update Priority:** 
-
-
-### GUI Tab:
-
-- **Show Activations:** Whether to show activations as a pixel image
-
-- **Grid Mode:** If true, show activations as a grid, otherwise show them as a line
-
-- **Circle Mode:** If true, show activations as neuron circles
-
-- **Vertical Layout:** If true, orient the array vertically, otherwise horizontally
-
-- **Biases Visible:** If true, show biases
-
-### Update Rule Tab:
-
-- **Update Rule:** Learn more about spike responders [here.](./synapses/)
-
-- **Upper Bound:** Upper bound that determines the maximum level of activity of a node
-
-- **Lower Bound:** Lower bound that determines the minimum level of activity of a node
-
-- **Type:** No clipping; Clip floor and ceiling (Piecewise Linear); Clip floor (RELU)
-
-- **Slope:** Slope of linear rule
+For more information on update rules, see [Neuron Update Rules](./neurons.html#update-rules).
