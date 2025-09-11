@@ -95,4 +95,3 @@ When right clicking on a neuron a popup-menu appears whose actions will usually 
 
 - **Send Scalar Coupling To**: Create a **coupling** from selected source nodes' activation to a target consumer.
 - **Receive Scalar Coupling From**: Create a **coupling** from a target producer elsewhere in Simbrain to the selected node, which treats them as an external **input** to the neuron.
-

@@ -21,7 +21,7 @@ To create a neuron group, you can
 
 For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
 
-Neuron groups can be linked by [Weight Matrices](../arraysMatrices.html) or [Synapse Groups](../synapsegroups.html):
+Neuron groups can be linked by [Weight Matrices](../arraysMatrices) or [Synapse Groups](../synapsegroups):
 
 1) To link neuron groups with weight matrices, you  must use the [1-2 trick](../buildingBasics.html#source-and-target-objects).
 2) To link neuron groups with synapse groups you mus tuse the [1-3 trick](../buildingBasics.html#source-and-target-objects).
@@ -120,11 +120,11 @@ See the [neuron](../neurons) page.
 
 ## Layout
 
-See the [layouts](../layouts.html) page.
+See the [layouts](../layouts) page.
 
 ## Input Data
 
-See the [test inputs](../training/testInputs.html) page.
+See the [test inputs](../testInputs) page.
 
 ## Right Click Menu
 
@@ -168,7 +168,7 @@ See the [test inputs](../training/testInputs.html) page.
 
 **Start/Stop Recording:** Starts recording the activation values from the neuron group to a .csv file or stops if it is already recording. When starting recording, a dialog shows up asking you to specify a name for the spike recording file. If the network is a spiking network, then each line of the file begins with a time and is followed by neuron IDs (in this case, the ".csv" file is not really CSV).
 
-**Send Vector Coupling To:** Copies all activation values in the neuron group and represents them as a vector where each element in the vector is the activation value of a single neuron in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/Couplings.html) page.
+**Send Vector Coupling To:** Copies all activation values in the neuron group and represents them as a vector where each element in the vector is the activation value of a single neuron in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/couplings) page.
 
 **Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the neurons in the group based on the incoming vector.
 

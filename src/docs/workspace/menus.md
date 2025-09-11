@@ -17,13 +17,13 @@ Save Workspace As: Save the current workspace and specify a name for the file.
 
 - **Clear Workspace**: Remove all components and couplings from current workspace, and remove any additional windows from the desktop.
 
-- **Edit Update** Sequence:Open the Edit Update Sequence dialog; see [update](update.html).
+- **Edit Update** Sequence:Open the Edit Update Sequence dialog; see [update](update).
 
-- **Workspace Properties**: Open workspace [preferences](preferences.html) dialog.
+- **Workspace Properties**: Open workspace [preferences](preferences) dialog.
 
 ## View
 
-- **Property Tabs**: Opens [Property Tabs](propertyTabs.html), which is used to monitor the state of the workspace and set properties.
+- **Property Tabs**: Opens [Property Tabs](propertyTabs), which is used to monitor the state of the workspace and set properties.
 
 - **Resize All Windows**: Resize all windows on screen so they fit on the current desktop. Helpful when windows get lost offscreen, or when opening a workspace created on a larger monitor than the one you are using.
 
@@ -31,21 +31,21 @@ Save Workspace As: Save the current workspace and specify a name for the file.
 
 ## Insert
 
-- **New Network**: Insert a new [Network](../network/index.html) component in to the workspace.
+- **New Network**: Insert a new [Network](../network/) component in to the workspace.
 
-- **New Plot > Bar Chart**:  Insert a new [Bar Chart](../plots/barChart.html).
+- **New Plot > Bar Chart**:  Insert a new [Bar Chart](../plots/barChart).
 
-- **New Plot > Histogram**:  Insert a new [Histogram](../plots/histogram.html).
+- **New Plot > Histogram**:  Insert a new [Histogram](../plots/histogram).
 
-- **New Plot > Pie Chart**:  Insert a new [Pie Chart](../plots/pieChart.html).
+- **New Plot > Pie Chart**:  Insert a new [Pie Chart](../plots/pieChart).
 
-- **New Plot > Projection Plot**:  Insert a new [Projection Plot](../plots/projectionPlot.html).
+- **New Plot > Projection Plot**:  Insert a new [Projection Plot](../plots/projectionPlot).
 
 <!-- Scatter plot not in Plots section -->
 
 - **New Plot > Scatter plot**:  Insert a new **Scatter Plot**. 
 
-- **New Plot > Time Series**:  Insert a new [Time Series](../plots/timeSeries.html).
+- **New Plot > Time Series**:  Insert a new [Time Series](../plots/timeSeries).
 
 - **New World > Data World**:  Insert a new [Data World](../worlds/dataworld.html).
 

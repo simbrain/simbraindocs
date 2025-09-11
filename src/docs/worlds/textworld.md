@@ -24,15 +24,32 @@ To create a new Text World component you can use
 - Right click on the deskopt and `Insert > New World > Text World`
 - Click on the world icon and select `Text World`
 
-# Dictionary
+# Token Embeddings
 
- Associates string tokens with vector representations. Each member of a list of String tokens is associated with a row of a Matrix of doubles.
- 
- Allows for reverse mappings from vectors back to tokens using a [KDTree].
- 
- All tokens are converted to lower case.
+Text worlds use **token embeddings** to associate string tokens with vector representations. Each token (word, character, or subword) maps to a vector of numbers that can be consumed by neural networks.
 
- 
+## Tokenizers
+
+Text worlds support multiple tokenization strategies:
+
+- **Simple Tokenizer**: Splits text into words, with options for punctuation, spaces, and newlines
+- **Byte Pair Encoding (BPE)**: Advanced subword tokenization that learns merge rules from training text
+
+Configure tokenizers through the properties dialog to control how text is parsed into tokens.
+
+## Embedding Types
+
+- **One-Hot Encoding**: Each token maps to a unique vector with a single 1 and zeros elsewhere
+- **Dense Embeddings**: Learned vector representations from training documents
+
+## Language Model Integration
+
+Text worlds integrate with neural language models through:
+
+- **Context Windows**: Encode sequences of tokens for transformer-style models
+- **Auto-advance**: Automatically progress through text during generation
+- **Sampling Strategies**: Control how next tokens are selected (top-k, temperature-based)
+- **Text Synchronization**: Bidirectional coupling with networks for reading and generation
 
 # Menu Commands
 

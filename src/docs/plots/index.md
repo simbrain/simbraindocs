@@ -11,17 +11,17 @@ nav_order: 65
 
 In Simbrain, dynamic neural activity can be visualized and recorded using plots. Plots are composed of one or more visual representations (such as bars, dots, and lines) of sets of values taken directly from coupled neurons. These visual representations can be valuable in statistical analyses and for viewing dynamic patterns in neural activations over time. 
 
-**Warning**: As seen in the [Workspace Updating]((../workspace/update.html)) page, buffered updates first write to a buffer, then read from it. This means that the update order does not matter. Unfortunately, this also means that the plot will always display one time-step behind. An easy work-around for this is to go to `Workspace > Edit Update Sequence`, and set a custom update order where (1) the network is updated, (2) the coupling is updated, and (3) the plot is updated. Finally, you must remove the default buffered update action. 
+**Warning**: As seen in the [Workspace Updating](../workspace/update) page, buffered updates first write to a buffer, then read from it. This means that the update order does not matter. Unfortunately, this also means that the plot will always display one time-step behind. An easy work-around for this is to go to `Workspace > Edit Update Sequence`, and set a custom update order where (1) the network is updated, (2) the coupling is updated, and (3) the plot is updated. Finally, you must remove the default buffered update action. 
 
 ## Adding Plots
 
-To add a plot component to the workspace either press on the plot button plot button  in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu `Insert > New Plot >...``
+To add a plot component to the workspace either press on the plot button in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu `Insert > New Plot >...`
 
 ## Coupling to Plots
 
-Plots must be [coupled](../workspace/couplings.html) to other workspace components to do anything interesting. They receive data primarily from neural networks and display updated data at each workspace update.
+Plots must be [coupled](../workspace/couplings) to other workspace components to do anything interesting. They receive data primarily from neural networks and display updated data at each workspace update.
 
-This can be done the standard ways described in the [couplings](../workspace/couplings.html) doc, but for pltos there are also custom actions on many network components to instantly created a coupled plot. This is by far the easiest and most convenient way to do it.
+This can be done the standard ways described in the [couplings](../workspace/couplings) doc, but for plots there are also custom actions on many network components to instantly create a coupled plot. This is by far the easiest and most convenient way to do it.
 
 Some plots take vector couplings, some scalar, some both.
 

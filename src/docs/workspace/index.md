@@ -9,9 +9,9 @@ nav_order: 10
 
 The Simbrain workspace is the framework within which a simulation is run. It contains components which are coupled to one another, and tools for managing these interactions.   More specifically, the workspace  is responsible for:
 
-1. Maintaining a list of [components](components.html) (neural networks, virtual worlds, data tables, plots, etc.)
-2. Maintaining a list of [couplings](couplings.html), which are links between components (e.g. from a neural network to a time-series plot of the activation of some nodes in that network).
-3. Managing simulation [updates](update.html).  The network is updated using the play or step buttons in the [toolbar](toolbars.html), and the current iteration number is also visible in the toolbar. Custom forms of update are also available.
+1. Maintaining a list of [components](components) (neural networks, virtual worlds, data tables, plots, etc.)
+2. Maintaining a list of [couplings](couplings), which are links between components (e.g. from a neural network to a time-series plot of the activation of some nodes in that network).
+3. Managing simulation [updates](update).  The network is updated using the play or step buttons in the [toolbar](toolbars), and the current iteration number is also visible in the toolbar. Custom forms of update are also available.
 
 The workspace is visible in the GUI as the Simbrain desktop(see below). The desktop contains menus, a toolbar, and a main space in which all components are shown. There is also a set of tabs at the bottom of the network (not visible by default; to see them use View > Property Tabs) which allow the user to view couplings, set certain properties of components, and monitor a simulation in other ways.
 

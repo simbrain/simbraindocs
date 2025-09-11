@@ -12,16 +12,16 @@ At the bottom of the simbrain desktop is a set of tabs (invisible by default; to
 
 ## Components
 
-A list of the [components](components.html) in the workspace. Each row corresponds to one component, and contains these colums:
+A list of the [components](components) in the workspace. Each row corresponds to one component, and contains these colums:
 
 - **Component**: The name of the component.
 - **Type**: Shows the kind of workspace components (network, bar chart, time series, etc).
 - **GuiOn**: A simple checkbox allowing the user to enable (default) or disable the component's GUI. Doing this will visually remove the component from the workspace, lowering the computational time and memory usage of all network operations.
-- **Update On**: A simple checkbox allowing the user to enable (default) or disable the updating of a network component. If this option is not selected, the component will not update when the global (workspace) update is activated (see: [Updates](update.html) for more information).
+- **Update On**: A simple checkbox allowing the user to enable (default) or disable the updating of a network component. If this option is not selected, the component will not update when the global (workspace) update is activated (see: [Updates](update) for more information).
 
 ## Couplings
 
-A list of all the [couplings](couplings.html) in the workspace.
+A list of all the [couplings](couplings) in the workspace.
 
 ## Terminal
 

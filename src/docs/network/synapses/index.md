@@ -55,6 +55,6 @@ More detailed adjustments parameters can be adjusted using the synapse dialog by
 
 When right-clicking on a synapse, a popup-menu appears whose actions will usually apply to selected synapses. Most of these actions are described in the **menu documentation**. The following actions only appear in the popup menu:
 
-- **Send Scalar Coupling To**. Creates a coupling such that this synapse's strength is forwarded to some other scalar consumer in Simbrain, e.g., a time-series graph. See the **couplings** page.
+- **Send Scalar Coupling To**. Creates a coupling such that this synapse's strength is forwarded to some other scalar consumer in Simbrain, e.g., a time-series graph. See the [couplings](../../workspace/couplings) page.
 
 - **Receive Scalar Coupling from**. Creates a coupling such that this synapse's strength is set by the value of some other scalar producer in Simbrain.

@@ -13,7 +13,7 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 
 
 * A [neuro-evolutionary](evolution/) framework was added. Evolve virtual robots to do things!
 * A full [simulation environment](simulations/) was introduced, replacing the earlier scripting environment.
-* A [classifier](network/subnetwork/classfier) object was added, which wraps an existing machine learning framework was introduced, [Smile](https://haifengl.github.io/classification.html). 
+* A [classifier](network/subnetworks/classifier) object was added, which wraps an existing machine learning framework [Smile](https://haifengl.github.io/classification.html). 
 
 
 # Network
@@ -22,7 +22,7 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 
 * The major change is array-based neural networks, including a carefully developed GUI (see [neuron arrays and matrices](network/arraysMatrices)) for visualizing array and matrix operations in Simbrain's signature intuitive style.
 * Introduction of transformer blocks and support for language models.
 * [Supervised models](network/supervisedModels) that allow for using backprop on the fly on a source and target set of neurons or neuron arrays, including through paths of diverging and reconverging weights.
-* [Neuron collections](network/neuronGroups#neuron-collection) were introduced as a new way of organizing  neurons. These are lightweight wrappers on neurons that can overlap.
+* [Neuron collections](network/neurongroups#neuron-collection) were introduced as a new way of organizing neurons. These are lightweight wrappers on neurons that can overlap.
 * New activation functions, connection strategies, subnetwork types (e.g. [restricted Boltzmann machines](network/subnetworks/restrictedBoltzmannMachine)) spike responderes, and much more!
 
 # Plots
@@ -34,7 +34,7 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 
     
 # Odor World
 
-[Odor World](worlds/odorworld.html) has been significantly rewritten to be closer to a standard 2d game
+[Odor World](worlds/odorworld) has been significantly rewritten to be closer to a standard 2d game
 
 * Zooming and panning in larger worlds
 * Tiles and tilemaps with support from [Tiled](https://www.mapeditor.org/) 
@@ -43,13 +43,13 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 
 
 # Image world
 
-* [Image world](worlds/imageworld.html) has been completely rewritten. 
+* [Image world](worlds/imageworld) has been completely rewritten. 
 * Groups of images can be loaded and flipped through in an album
 * Images can also be edited live using a simple editor
 
 # Text world
 
-* [Text world](worlds/textworld.html) has been completely rewritten. 
+* [Text world](worlds/textworld) has been completely rewritten. 
 * Word embeddings are much easier to manage 
 * A full suite of text extraction methods was introduced
 * Bytepair encodings can be visualized

@@ -26,7 +26,7 @@ There are several variables that play an important role in this process.
 
 Two additional values are crucial to the process, but are not visible in the GUI:
 
-- **Input**: Input to a neuron, shown as open rectangles above. A buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](/docs/workspace/Couplings.html). This supports asynchronous or [buffered update](#buffered-update).
+- **Input**: Input to a neuron, shown as open rectangles above. A buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](../workspace/couplings). This supports asynchronous or [buffered update](#buffered-update).
 
 <a name="PSR"></a>
 - **PSR** : Post synaptic response or "output" of a synapse, shown as diamonds above.  Usually the PSR of a node is just source activation times weight. Sometimes the PSR varies over time in response to spikes (see [spike responders](spikeresponders)). The logic of PSR updates is discussed in [PSR update](#psr-update).
@@ -65,14 +65,14 @@ Then, in a separate step, update all the network models. Neuron activations are 
 
 [Neurons](neurons/), [synapses](synapses), [neuron arrays and weight matrices](arraysMatrices), and [spike responders](spikingneurons) all use a design that separates update rules from the data they operate on. We will start with the case of neurons; the same basic structure applies to other objects as well.
 
-These are the three main types of value associated with a neuron, all of which can be edited using a Simbrain [property editor](../utilities/propertyEditor.html).
+These are the three main types of value associated with a neuron, all of which can be edited using a Simbrain [property editor](../utilities/propertyEditor).
 
 <!-- <img src="/assets/images/ruleAndDataHolder.png" alt="neuron rule and data holder" style="width:400px;"/> -->
 
 First, there are two kinds of data that can dynamically change as a network is updated:
 
 - **Neuron variables**. These are variables like activation and bias that every neuron has. It also includes the input buffer which accumulates inputs from other network models and from couplings.
-- **Update rule variables**. These are variables associated with the update rule. They are called "state variables" in the property dialog. These variables change as the update rule is changed. In the case shown above, an [Izhikevich neuron](neurons/izhikevich.html) is associated with a recovery variable. 
+- **Update rule variables**. These are variables associated with the update rule. They are called "state variables" in the property dialog. These variables change as the update rule is changed. In the case shown above, an [Izhikevich neuron](neurons/izhikevich) is associated with a recovery variable. 
 
 Then, there are rules which _operate_ on this data:
 
@@ -81,6 +81,17 @@ Then, there are rules which _operate_ on this data:
 The dialog for the Izhikevich neuron shows where each category is in the dialog. 
 
 <img src="/assets/images/izhikDialog.png" alt="neuron rule and data holder" style="width:400px;"/>
+
+## Data Holders and State Variables
+
+Each update rule creates its own **data holder** object to store the state variables it needs. For example, the Naka-Rushton neuron rule uses an adaptation variable `a`, while the Izhikevich rule uses a recovery variable `v`. When you change the update rule, Simbrain automatically creates the appropriate data holder for that rule.
+
+Data holders serve different purposes for scalar and matrix-based components:
+
+- **Scalar data holders** store state variables for individual neurons and synapses
+- **Matrix data holders** store arrays of state variables for neuron arrays and weight matrices
+
+Some update rules use simple data holders with minimal state, while others like spiking models require complex state tracking. The data holder appears in the property editor as "State variables" and its contents depend entirely on the selected update rule.
 
 # Update Rules can Operate on Array Data
 
@@ -98,11 +109,11 @@ These same ideas apply to [synapses](synapses), but there are now potentially _t
 
 By default synapses are pretty simple. The learning rule is set to "static synapse rule" and the spike responder is set to "no rule", in which case the synapse is just a static weight value.  But as the image above shows, they can become quite complex, with rules modifying weight strengths and spike response as a simulation runs.
 
-Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](trainingNetworks.html).
+Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](trainingNetworks).
 
 # Weight Matrices
 
-The structure of a synapse is mirrored in [weight matrices](arraysMatrices.html), but all state variables are now matrices. This is similar to the relationship between neurons and neuron arrays discussed above. Below is a schematic
+The structure of a synapse is mirrored in [weight matrices](arraysMatrices), but all state variables are now matrices. This is similar to the relationship between neurons and neuron arrays discussed above. Below is a schematic
 
 <img src="/assets/images/synapseRulesMatrix.png" alt="Weight matrix rule objects" style="width:250px;"/>
 
@@ -120,7 +131,7 @@ Before we summed PSRs but now we are “summing PSR matrices” and then mutatin
 
 At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, [buffered update](#buffered-update). However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
 
-Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update.html). 
+Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update). 
 
 From `Network > Edit Update Sequence...` the following dialog shows
 
@@ -133,7 +144,7 @@ At each network iteration each of these actions is executed in sequence. Some bu
 
 ### Network Model Update Order
 
-Buffering solves some but not all problems with update order. For example, it makes a difference whether a [Hebbian](synapses/hebbian.html) synapse is updated before or after neuron update. Thus, by default, network models are updated in the following determinate order:
+Buffering solves some but not all problems with update order. For example, it makes a difference whether a [Hebbian](synapses/hebbian) synapse is updated before or after neuron update. Thus, by default, network models are updated in the following determinate order:
 
 - Neuron
 - NeuronGroup
@@ -172,7 +183,7 @@ Since buffered update accumulates the inputs to every node first, and then updat
 
 ## Priority Based Update of Free Neurons
 
-Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward.html) works under the hood).
+Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward) works under the hood).
 
 Here is the basic algorithm in pseudo code:
 ```kotlin
