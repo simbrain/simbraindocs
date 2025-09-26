@@ -18,18 +18,127 @@ The best way to get a feel for what is possible is to have a look at a few simul
 
 To get a feel for how to build edit them try finding them in the code and modifying them in simple ways (e.g. modifying the paramters at the top) and then re-run them. 
 
-## Setting up a Simulation (Kotlin)
+## Creating a Custom Simulation
 
-Cimulations are implemented as Kotlin (and in some cases Java) classes that extend the `Simulation` base class, providing structured and maintainable code.
+Creating custom simulations allows you to build sophisticated neural network models with custom behaviors, update patterns, and visualizations. This guide will walk you through the complete process.
 
-Here is the basic way to get started. Set up a simulation environment as described [here](https://github.com/simbrain/simbrain/wiki/Getting-From-Source), with IntelliJ recommended as your IDE
+### Getting Started
 
-- Find the File "RegisteredSimulations.kt" 
-- Click `Shift-Shift`, then click on project tab and use the compass tool to see where you are
-- Add an item using other examples as a template
-- Copy an existing Kotlin sim from `src.kotlin.org.simbrain.custom_sims.simulations`. The projection demo is a good starting point
+You have two primary language options for creating custom simulations:
 
-Then more or less follow the template, much of it is quite straightforward.
+- **Kotlin** (recommended): Better tooling and more extensive support
+- **Java**: Still supported but being phased out
+
+#### Prerequisites
+
+1. Set up your development environment as described in the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Getting-From-Source)
+2. Use IntelliJ IDEA as your recommended IDE
+3. Explore existing simulations in `src/main/kotlin/org/simbrain/custom_sims/simulations`
+
+### Setting up a Kotlin Simulation
+
+Here's the step-by-step process to create a new Kotlin simulation:
+
+#### 1. Register Your Simulation
+
+- Open `RegisteredSimulations.kt` (use `Shift-Shift` to find it quickly)
+- Click on the project tab and use the compass tool to see your location
+- Add a new simulation entry using existing examples as templates
+
+#### 2. Create Your Simulation File
+
+- Copy an existing simulation file as a template (e.g., `projectionSim.kt`)
+- Place it in `src/main/kotlin/org/simbrain/custom_sims/simulations`
+- Follow the established template structure
+
+#### 3. Basic Template Structure
+
+```kotlin
+class MyCustomSimulation(desktop: SimbrainDesktop) : Simulation(desktop) {
+
+    override fun getName(): String = "My Custom Simulation"
+
+    override fun run() {
+        // Your main simulation logic here
+    }
+
+    override fun instantiate(): Simulation {
+        return MyCustomSimulation(desktop)
+    }
+}
+```
+
+### Key Customization Techniques
+
+#### Adding Documentation
+
+You can add interactive documentation to your simulation:
+
+```kotlin
+val doc = addDocViewer("My Simulation", """
+# My Simulation
+This is a custom simulation that demonstrates...
+
+## Features
+- Custom neural networks
+- Real-time visualization
+- Interactive controls
+""")
+```
+
+#### Custom Update Actions
+
+Create custom update patterns for precise control over simulation execution:
+
+```kotlin
+workspace.addUpdateAction("My Custom Update") {
+    // Your custom update logic here
+    // This runs each simulation step
+}
+```
+
+This is particularly useful when:
+- Buffered updates cause problems
+- You need couplings to update in a specific order
+- You want immediate updates each iteration for coherent results
+
+#### Fine-Tuning Your Simulation
+
+1. **Component Positioning**: Arrange components in the GUI as desired
+2. **Get Coordinates**: Use the Simbrain console command `componentBounds()` to capture positions
+3. **Additional Commands**: Use `tips()` in the console for more helpful commands
+4. **Network Layout**: Hover over interaction boxes to see coordinates for precise placement
+
+### Working with Odor Worlds
+
+When creating simulations with Odor Worlds, keep these specifics in mind:
+
+- **Window vs World Size**: The `place` command sets window size, not world size
+- **Setting World Size**:
+  - Use `fitWorldToFrameSize()` to match world size to window
+  - Or use `updateMapSize()` directly: `world.tileMap.updateMapSize(20, 18)`
+- **Viewing**: Use `fitFrameToWorld()` to zoom view to show the entire world
+
+### Setting up a Java Simulation
+
+While Kotlin is recommended, Java simulations are still supported:
+
+1. Copy `TestSim.java` as your template
+2. Register it in `RegisteredSimulations.kt` (Java simulations have `()` in their registration)
+3. Implement your main logic in the `run` function
+
+Note: Java simulations have less tooling support compared to Kotlin.
+
+### Best Practices
+
+When creating custom simulations, follow these guidelines for optimal results:
+
+1. **Explore Existing Code**: Study existing simulations to understand patterns and conventions
+2. **Use Provided Templates**: Start with templates rather than building from scratch
+3. **Experiment Iteratively**: Make small changes and test frequently
+4. **Leverage Console Commands**: Use console commands for fine-tuning component placement and behavior
+5. **Performance Considerations**: When creating many neurons, use `addNeurons` instead of `addNeuron` in a loop for better performance
+6. **GUI Synchronization**: When calling `addNetworkModels`, add `.awaitAll()` afterward to ensure proper GUI setup before proceeding
 
 ## Simulation Class Structure
 
