@@ -7,11 +7,11 @@ nav_order: 65
 
 # Plots
 
-## General/intro
+## Overview
 
 In Simbrain, dynamic neural activity can be visualized and recorded using plots. Plots are composed of one or more visual representations (such as bars, dots, and lines) of sets of values taken directly from coupled neurons. These visual representations can be valuable in statistical analyses and for viewing dynamic patterns in neural activations over time. 
 
-**Warning**: As seen in the [Workspace Updating](../workspace/update) page, buffered updates first write to a buffer, then read from it. This means that the update order does not matter. Unfortunately, this also means that the plot will always display one time-step behind. An easy work-around for this is to go to `Workspace > Edit Update Sequence`, and set a custom update order where (1) the network is updated, (2) the coupling is updated, and (3) the plot is updated. Finally, you must remove the default buffered update action. 
+Warning: As seen in the [Workspace Updating](../workspace/update) page, buffered updates first write to a buffer, then read from it. This means that the update order does not matter. Unfortunately, this also means that the plot will always display one time-step behind. An easy work-around for this is to go to `Workspace > Edit Update Sequence`, and set a custom update order where (1) the network is updated, (2) the coupling is updated, and (3) the plot is updated. Finally, you must remove the default buffered update action. 
 
 ## Adding Plots
 
@@ -39,59 +39,56 @@ The basic ways to couple to plots is similar across cases.
 
 ## File
 
-- **Import from xml**: Imports a bar chart from a stored `.xml` file.
-
-- **Export to xml** : Exports the current bar char to a `.xml` file.
-
-- **Rename**: Renames current bar chart window.
-
-- **Close**: Closes the current bar chart.
+- **Import from XML**: Load a previously saved plot from a stored `.xml` file.
+- **Export to XML**: Save the current plot to a `.xml` file.
+- **Rename**: Rename the current plot window.
+- **Close**: Close the current plot window.
 
 
-## JFreeChart Right Click Menu
+## JFreeChart Right-Click Menu
 
-These are commands that are available by right clicking in all Simbrain charts; they are based on built in functions associated with **JFreeChart**
+These are commands that are available by right-clicking in most Simbrain charts (except Pixel Plot). They are based on built-in functions associated with **JFreeChart**.
 
-- **Copy**: Copies the plot.
-- **Save As**: Saves the current plot as a .png file.
-- **Print**: Prints the current plot.
-- **Zoom In / Zoom Out**: User can zoom in or out just the domain or range axis, or both axes.
-- **Auto Range**: Automatically re-adjusts the range of domain or range axis, or both axes.
-- **Properties**: Opens the JFreeChart properties dialog.
+- **Copy**: Copy the plot.
+- **Save As**: Save the current plot as a `.png` file.
+- **Print**: Print the current plot.
+- **Zoom In / Zoom Out**: Zoom in or out on just the domain or range axis, or both axes.
+- **Auto Range**: Automatically re-adjust the range of the domain or range axis, or both axes.
+- **Properties**: Open the JFreeChart properties dialog.
 
 ### Title Tab
 
-- **Show** Title: Sets the title visibility.
-- **Text**: Insert the title of chart here.
-- **Font**: Configures font style, size and attributes (bold, italic) of the title.
-- **Color**: Sets color of the title.
+- **Show Title**: Set the title visibility.
+- **Text**: The title text of the chart.
+- **Font**: Configure font style, size, and attributes (bold, italic) of the title.
+- **Color**: Set the color of the title.
 
 ### Domain and Range Axis
 
-- **Label**: Sets the title of X (domain) and Y (range) axis.
-- **Font**: Configures font style, size and attributes (bold, italic) of the axes.
-- **Paint**: Sets color of axes.
+- **Label**: Set the title of the X (domain) and Y (range) axis.
+- **Font**: Configure font style, size, and attributes (bold, italic) of the axes.
+- **Paint**: Set the color of the axes.
 
 ### Ticks
 
-- **Show Tick Labels**: By checking this option, the incremental values are visible on the chart.
-- **Tick Label Font**: Configures the font style, size and attributes (bold, italic) of the tick label.
-- **Show Tick Marks**: By checking this option, the tick marks are visible on the plot.
+- **Show Tick Labels**: When checked, the incremental values are visible on the chart.
+- **Tick Label Font**: Configure the font style, size, and attributes (bold, italic) of the tick labels.
+- **Show Tick Marks**: When checked, the tick marks are visible on the plot.
 
 ### Range
 
-- **Auto-Adjust Range**: By checking this option, the range of the plot is automatically adjusted to fit the data points.
-- **Minimum Range Value**: Sets the minimum range value of the plot.
-- **Maximum Range Value**: Sets the maximum range value of the plot.
+- **Auto-Adjust Range**: When checked, the range of the plot is automatically adjusted to fit the data points.
+- **Minimum Range Value**: Set the minimum range value of the plot.
+- **Maximum Range Value**: Set the maximum range value of the plot.
 
 ### Appearance
 
-- **Outline Stroke**: Configures the boderline style of choosing.
-- **Outline Paint**: Sets the color of the outline stroke.
-- **Background Paint**: Configures the backgroung color of choosing.
-- **Orientation**: Adjusts the plot's orientation as either vertical (range is shown on the vertical axis and domain is shown horizontally on the plot), or horizontal (range is shown horizontally on the plot and domain is on the vertical axis).
+- **Outline Stroke**: Configure the border line style.
+- **Outline Paint**: Set the color of the outline stroke.
+- **Background Paint**: Configure the background color.
+- **Orientation**: Adjust the plot's orientation as either vertical (range is shown on the vertical axis and domain is shown horizontally on the plot), or horizontal (range is shown horizontally on the plot and domain is on the vertical axis).
 
 ### Other Tab
 
-- **Draw Anti-Aliased**: By checking this option, the lines of the plot are more defined for better visibility.
-- **Background Paint**: Adjusts the color of the window's background.
+- **Draw Anti-Aliased**: When checked, the lines of the plot are more defined for better visibility.
+- **Background Paint**: Adjust the color of the window's background.

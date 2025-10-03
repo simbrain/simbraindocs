@@ -24,21 +24,20 @@ Similarly for weight strengths, etc.
 
 # Preferences
 
-- **Empty Pie Threshold**: If the *total* activation (sum of absolute values) falls below this threshold, the chart displays a single "Empty pie" slice. This prevents the appearance of misleading visuals when all values are near zero. To always show the relative proportions of even small values, set this threshold to 0. This can be useful to prevent cases where (for example) all of a neuron's activations die down to nearly 0 but the relative small values are still shown. If interested in showing these relationships simply set this threshold to 0.
+- **Empty Pie Threshold**: If the total activation (sum of absolute values) falls below this threshold, the chart displays a single "Empty pie" slice. This prevents the appearance of misleading visuals when all values are near zero. To always show the relative proportions of even small values, set this threshold to 0.
 
 # Menus
 
 ## File
 
-- **Import from xml**: Imports a bar chart from a stored .xml file.
-- **Export to xml**: Exports the current bar char to a .xml file.
-- **Rename**: Renames current bar chart window.
-- **Close**: Closes the current bar chart.
+- **Import from XML**: Load a previously saved pie chart.
+- **Export to XML**: Save the current pie chart.
+- **Rename**: Rename the pie chart window.
+- **Close**: Close the pie chart window.
 
 ## Edit
 
-- **Preferences**: See [preferences](#preferences)
-
+- **Preferences**: See [preferences](#preferences).
 
 ## Help
 
@@ -46,4 +45,4 @@ Similarly for weight strengths, etc.
 
 ## Right-Click Menu
 
-- The context menu is a **[JFreeChart menu](./#jfreechart-right-click-menu)**.
+- The context menu is a [JFreeChart menu](./#jfreechart-right-click-menu).

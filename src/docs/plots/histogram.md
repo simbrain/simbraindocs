@@ -19,14 +19,20 @@ In the example below, notice that 36 neurons are at their minimum value while 27
 
 As with other plots, several simultaneous datasets (histograms) can be displayed. Each will be displayed in a different color. For an example along these lines see the [synapse adjustment dialog](/docs/network/networkDialogs.html#synapse-adjustment-dialog).
 
+# Panel Buttons
+
+- **Clear**: Clear all data from the histogram.
+- **Set bins**: Apply the number of bins specified in the adjacent text field. The number of bins determines how the data range is divided for counting values.
+- **# of Bins**: Text field where you can enter the desired number of bins for the histogram.
+
 # Menus
 
-## File Menu
+## File
 
-- **Import from xml**: Imports a bar chart from a stored .xml file.
-- **Export to xml**: Exports the current bar char to a .xml file.
-- **Rename**: Renames current bar chart window.
-- **Close**: Closes the current bar chart.
+- **Import from XML**: Load a previously saved histogram.
+- **Export to XML**: Save the current histogram.
+- **Rename**: Rename the histogram window.
+- **Close**: Close the histogram window.
 
 ## Help
 
@@ -34,4 +40,4 @@ As with other plots, several simultaneous datasets (histograms) can be displayed
 
 ## Right-Click Menu
 
-- The context menu is a **[JFreeChart menu](./#jfreechart-right-click-menu)**.
+- The context menu is a [JFreeChart menu](./#jfreechart-right-click-menu).

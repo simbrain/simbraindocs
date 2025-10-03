@@ -16,28 +16,28 @@ A [time series plot](https://en.wikipedia.org/wiki/Time_series) allows you to tr
 
 - **Add**: Add a time series to the plot.
 - **Remove**: Remove a time series from the plot.
-- **Clear Graph Data**: Clears all data from the plot.
-- **Show Graph Properties**: Opens up properties menu for the plot.
+- **Clear Graph Data**: Clear all data from the plot.
+- **Show Graph Properties**: Open the properties menu for the plot.
 
 # Preferences
-- **Auto Range**: When selected, the y-axis is automatically scaled so that the series with the greatest magnitude fits inside the window. It can be useful to turn this off to get a better sense overall changes in magnitude since while it is on they will fill up the window.
-- **Range Lower Bound**: Sets the minimum value of the y-axis.
-- **Range Upper Bound**: Sets the maximum value of the y-axis.
+- **Auto Range**: When selected, the y-axis is automatically scaled so that the series with the greatest magnitude fits inside the window. It can be useful to turn this off to get a better sense of overall changes in magnitude, since while it is on they will fill up the window.
+- **Range Lower Bound**: Minimum value of the y-axis (when auto range is off).
+- **Range Upper Bound**: Maximum value of the y-axis (when auto range is off).
 - **Fixed Width**: When selected, maintains a fixed amount of time points displayed in the plot.
-- **Window Size**: Sets the width of the x-axis.
+- **Window Size**: Width of the x-axis (number of time points to display when fixed width is enabled).
 
 # Menus
 
 ## File
 
-- **Open**: Opens a time series from a stored .xml file.
-- **Save**: Saves the current time series.
-- **Save As**: Saves the current time series and allows you to specify a name for the file.
-- **Close**: Closes the current time series.
+- **Open**: Load a previously saved time series.
+- **Save**: Save the current time series.
+- **Save As**: Save the current time series with a new name.
+- **Close**: Close the time series window.
 
 ## Edit
 
-- **Preferences**: See [preferences](#preferences)
+- **Preferences**: See [preferences](#preferences).
 
 ## Help
 
@@ -45,4 +45,4 @@ A [time series plot](https://en.wikipedia.org/wiki/Time_series) allows you to tr
 
 ## Right-Click Menu
 
-- The context menu is a **[JFreeChart menu](./#jfreechart-right-click-menu)**.
+- The context menu is a [JFreeChart menu](./#jfreechart-right-click-menu).
