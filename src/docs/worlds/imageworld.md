@@ -57,29 +57,26 @@ When editing a pipeline, you can add the following operation types. Operations a
 
 Changes the image dimensions to specified width and height values. Uses high-quality bilinear interpolation for smooth scaling.
 
-**Properties:**
 - **Enabled**: Whether this operation is active
 - **Name**: Display name for this operation
 - **Width**: Target width in pixels (must be positive)
 - **Height**: Target height in pixels (must be positive)
 
-**Usage notes:** If input dimensions already match the target, no scaling is performed. Resize operations are typically placed early in the pipeline to reduce computational cost of subsequent operations.
+If input dimensions already match the target, no scaling is performed. Resize operations are typically placed early in the pipeline to reduce computational cost of subsequent operations.
 
 ### Grayscale
 
 Converts color images to monochromatic (grayscale) using standard color space conversion. This operation has no configurable parameters beyond the standard enabled/name fields.
 
-**Properties:**
 - **Enabled**: Whether this operation is active
 - **Name**: Display name for this operation
 
-**Usage notes:** Uses the standard luminance formula to preserve perceived brightness when converting to grayscale. Often used before edge detection or threshold operations.
+Uses the standard luminance formula to preserve perceived brightness when converting to grayscale. Often used before edge detection or threshold operations.
 
 ### Threshold
 
 Converts images to binary (pure black and white) by comparing each pixel's brightness against a threshold value. Pixels with brightness above the threshold become white; those below become black.
 
-**Properties:**
 - **Enabled**: Whether this operation is active
 - **Name**: Display name for this operation
 - **Threshold**: Threshold value from 0.0 to 1.0
@@ -87,13 +84,12 @@ Converts images to binary (pure black and white) by comparing each pixel's brigh
   - 1.0 = all pixels become black (maximum threshold)  
   - 0.5 = typical middle value for balanced thresholding
 
-**Usage notes:** The operation first converts the image to grayscale using the standard luminance formula (0.299 × Red + 0.587 × Green + 0.114 × Blue), then applies the threshold. Useful for creating high-contrast binary representations.
+The operation first converts the image to grayscale using the standard luminance formula (0.299 × Red + 0.587 × Green + 0.114 × Blue), then applies the threshold. Useful for creating high-contrast binary representations.
 
 ### Edge Detection
 
 Detects edges in images using various algorithms. Edges are identified where rapid changes in brightness occur, typically corresponding to object boundaries.
 
-**Properties:**
 - **Enabled**: Whether this operation is active
 - **Name**: Display name for this operation
 - **Method**: Edge detection algorithm
@@ -105,13 +101,12 @@ Detects edges in images using various algorithms. Edges are identified where rap
 - **Enhance Edges**: Whether to enhance detected edges for better visibility. When enabled, edge strength is doubled for clearer visualization.
 - **Gaussian Blur Sigma**: Apply Gaussian blur before edge detection to reduce noise (0 = no blur). Higher values (e.g., 1.0-2.0) reduce noise but may blur fine details.
 
-**Usage notes:** The image is automatically converted to grayscale before edge detection. Applying a small amount of Gaussian blur (sigma ~1.0) can improve results on noisy images.
+The image is automatically converted to grayscale before edge detection. Applying a small amount of Gaussian blur (sigma ~1.0) can improve results on noisy images.
 
 ### Gabor Filter
 
 Applies Gabor filtering for detecting edges and textures at specific orientations and frequencies. Gabor filters combine a Gaussian envelope with a sinusoidal wave pattern and are commonly used in computer vision for feature detection.
 
-**Properties:**
 - **Enabled**: Whether this operation is active
 - **Name**: Display name for this operation
 - **Frequency**: Spatial frequency of the sinusoidal component (range: 0.01 to 1.0). Higher values detect finer details.
@@ -121,7 +116,7 @@ Applies Gabor filtering for detecting edges and textures at specific orientation
 - **Phase**: Phase offset of the sinusoidal component. Shifts the wave pattern.
 - **Kernel Size**: Size of the filter kernel in pixels (must be odd, minimum: 3). Larger kernels capture more spatial context but are slower to compute.
 
-**Usage notes:** Gabor filters are particularly useful for texture analysis and oriented edge detection. Different orientation values can detect edges at different angles. For detecting all orientations, multiple Gabor operations with different orientation values can be combined in separate pipelines.
+Gabor filters are particularly useful for texture analysis and oriented edge detection. Different orientation values can detect edges at different angles. For detecting all orientations, multiple Gabor operations with different orientation values can be combined in separate pipelines.
 
 ### Pipeline Configuration Dialog
 

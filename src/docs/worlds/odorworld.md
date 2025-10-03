@@ -129,31 +129,21 @@ A Hearing sensor is associated with a specific utterance. When a hearing sensor 
 
 ## Grid Sensor
 
-Agents in Simbrain are able to detect their spatial location in the OdorWorld map via grid sensors. These sensors fire  an agent senses that it is inside a location associated with that particular cell. An input neuron coupled with a grid sensor acts a bit like a [place cell](https://en.wikipedia.org/wiki/Place_cell). 
+Agents can detect their spatial location in the OdorWorld map via grid sensors. The sensor divides a region of the world into a grid of cells, and outputs a vector where one element is active (set to the activation amount) depending on which cell the agent currently occupies. An input neuron coupled with a grid sensor acts like a [place cell](https://en.wikipedia.org/wiki/Place_cell). 
 
-Note that it is up to the user to make a neuron group with a shape that matches the grid sensor to get expected results
+To use grid sensors effectively, create a neuron group with dimensions that match the grid sensor's rows and columns (e.g., a 5x5 grid sensor should be coupled to a 5x5 neuron array).
 
 ### Parameters
 
-- **Activation Amount:** Determines the amount of activation for a
-    neuron coupled to a grid sensor when the grid sensor is activated.
-
-- **Start X:** Defines the x-coordinates for the location of the
-    top-left corner of the grid sensor.
-
-- **Start Y:** Defines the y-coordinates for the location of the
-    top-left corner of the grid sensor.
-
-- **Num Columns:** Determines the number of columns in the sensor
-    grid.
-
-- **Num Rows:** Determines the number of rows in the sensor grid.
-
-- **Cell Width:** Determines the width (horizontal length) of each
-    tile in the sensor grid.
-
-- **Cell Height:** Determines the height (vertical length) of each
-    tile in the sensor grid.
+- **Activation Amount:** The activation value sent to a neuron when the agent is in the corresponding grid cell
+- **Start X:** X-coordinate for the location of the top-left corner of the grid sensor
+- **Start Y:** Y-coordinate for the location of the top-left corner of the grid sensor
+- **Num Columns:** Number of columns in the sensor grid
+- **Num Rows:** Number of rows in the sensor grid
+- **Cell Width:** Width (horizontal length) of each cell in the sensor grid (in pixels)
+- **Cell Height:** Height (vertical length) of each cell in the sensor grid (in pixels)
+- **Grid Visibility:** Whether to display the sensor grid overlay in the world view
+- **Highlighter Visibility:** Whether to highlight the currently active grid cell
 
 ## Object Sensor
 
@@ -179,24 +169,26 @@ graphically represented by a white dot.
 
 ## Bump Sensor
 
-Agents in Simbrain can sense the presence of objects in OdorWorld such
-as trees, tents, etc. An agent can detect when it 'bumps' or touches one
-of these map objects via bump sensors. Each bump Sensor is graphically
-represented by a white dot and are characterized by the following parameters:
+Agents can detect collisions with objects in OdorWorld (such as trees, tents, walls, etc.) via bump sensors. When the agent touches or collides with any collidable object, the bump sensor activates. Bump sensors are graphically represented by a white dot.
 
 ### Parameters
 
-- **Base Value:** Determines the output value when a sensor is
-    'bumped' by an object.
+- **Sensor Angle:** Angle from the agent's center at which the sensor is positioned (degrees)
+- **Sensor Length:** Distance from the agent's center to the sensor
+- **Base Value:** Output value when the sensor detects a collision
+- **Show Label:** Whether to display the sensor's label in the world view
 
 ## Tile Sensor
 
-Agents are able to sense specific tile sensors in a [tile map](#tile-map).  The specified sensor must be associated with a tile `type` that that tile is also associated with.
+Agents are able to sense specific tile types in a [tile map](#tile-map). The sensor responds when the agent is on or near tiles of a specified type (e.g., "water", "grass"). The sensor uses a decay function to determine activation based on distance from matching tiles.
 
 ### Parameters
 
-- **Tile ID:** Id of the tile to respond to
-- **Output Amount:** How much to output when the agent is on top of this tile.
+- **Tile Type:** The type of tile this sensor responds to (e.g., "water", "grass")
+- **Sensor Angle:** Angle from the agent's center of perspective at which the sensor is placed (degrees)
+- **Sensor Length:** Distance from the agent's center to the sensor location
+- **Base Value:** Base activation value before decay is applied
+- **Decay Function:** Determines how the sensor's response diminishes with distance from matching tiles. Configured in a separate dispersion tab.
 
 
 # Effectors

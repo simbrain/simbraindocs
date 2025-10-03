@@ -8,61 +8,64 @@ nav_order: 155
 
 # Tables
 
-Simbrain tables are tables used throughout Simbrain to display data and allow for some numerical operations (e.g. an ability to randomize or normalize data). Most table operations (e.g. randomization) are applied by selecting cells and either using a hotkey or applying an item from a toolbar, menu, or context menu. 
+Simbrain tables are spreadsheet-style components used throughout Simbrain to display data and perform numerical operations (randomization, normalization, filling, etc.). Most table operations are applied by selecting cells and using keyboard shortcuts, toolbar buttons, or context menu items.
 
 <img src="/assets/images/table.png" alt="Table" style="width:500px;"/>
 
+[Data World](../worlds/dataworld) is a Simbrain component based on tables. Tables are also used in various dialogs and for data visualization throughout the application.
 
-[Data world](../worlds/dataworld) is a simbrain component based on tables. 
+# Table Operations
 
-# Toolbar and Menu Actions
+## Import and Export {#import-export}
 
-This is a list of possible actions in toolbars, popup menus, and menus. They will occur in different combinations in different ables.
+- **<span id="import-csv">Import CSV</span>**: Import data from a [comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values) (`.csv`) file. Configure whether to include column/row names.
 
-## Export / import
+- **<span id="export-csv">Export CSV</span>**: Export table data to a `.csv` file. Configure whether to include column/row names.
 
-- **Export to csv**: Export to [comma separated values](https://en.wikipedia.org/wiki/Comma-separated_values) or .csv file. Allows you to choose whether or not to include column and row names.
-- **Import from csv**: Import from a csv file.
+- **<span id="import-arff">Import ARFF</span>**: Import data from a [WEKA ARFF](https://waikato.github.io/weka-wiki/formats_and_processing/arff_stable/) file format (commonly used in machine learning).
 
-## Edit Table Structure
+## Edit Structure {#edit-structure}
 
-- **Insert Row**: Insert a new row above the highlighted row.
-- **Insert Column**: Insert a new column.
-- **Delete Row**: Delete the highlighted row.
-- **Delete Column**: Delete the highlighted column.
-- **Set Rows / Columns**: Set table shape to a specific number of rows and columns
+- **<span id="set-rows-columns">Set Rows / Columns</span>**: Change table dimensions. A dialog prompts for new dimensions. All cells are zeroed out.
 
-## Edit and Analyze Table Values
+- **<span id="insert-row">Insert Row</span>**: Insert a new row above the selected row (or at bottom if none selected). New rows are initialized with default values.
 
-- **Randomize**: See [above](tables.html#randomize).
-- **Fill Values**: See [above](tables.html#fill-values).
-- **Fill Table**: Fill the entire table with a set value.
-- **ZeroFill the Table**: Fill the entire table with the zero value.
-- **Boxplot columns**: Create boxplot for all numeric columns.
+- **<span id="delete-rows">Delete Rows</span>**: Delete all selected rows. Multiple rows can be selected and deleted simultaneously.
 
-### Randomize
+- **<span id="insert-column">Insert Column</span>**: Insert a new column to the right of the selected column (or leftmost if none selected).
 
-- **Randomize**: Randomizes selected cell(s) in the table by sampling from an uniform distribution.
-- **Randomization Bounds**: Adjusts the upper and lower limit for randomization of the data in the table.
-- **Normalize Column(s)**: [Rescales](https://en.wikipedia.org/wiki/Feature_scaling) the values in a column using maximum and minimum values so that they all lie in the range [0,1].
+- **<span id="delete-columns">Delete Columns</span>**: Delete all selected columns. Multiple columns can be selected and deleted simultaneously.
 
-## Advance rows
+## Edit Values {#edit-values}
 
-- **Apply and increment row**.  Send current row of data to the model in question, e.g. the input row of a feed-forward network, and move to next row
-- **Apply row.** Apply to current row but don't advance. This one can be used in conjunction with advance row.
-- **Advance row.** ove to the next row.
-- **Iteration Mode**: When a table is in iteration mode, every time a network it is coupled to is iterated, the selected row moves forward. Running a coupled network thereby has the effect of iterating through the entire set of columns. This feature allows one to create a specific sequence of inputs to a network and repeatedly deliver it.
+- **<span id="fill">Fill</span>**: Fill selected cells with a specified value. A dialog prompts for the value, which must be compatible with the column's data type.
 
-# Co-occurence Matrix
+- **<span id="zero-fill">Zero Fill</span>** (**Z**): Fill selected cells with zero. Faster alternative to Fill when zeroing out cells.
 
-This is a matrix plot, a bit like an [R corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html, where you can choose a comparison function and make a matrix of comparisons. The comparisons are made between the **row** of the table: all pairwise row comparison are shown.
+- **<span id="randomize">Randomize</span>** (**Ctrl/Cmd+R**): Randomize selected cells using the current randomizer distribution (default: uniform). Configure the distribution using Edit Randomizer.
 
-<img src="/assets/images/tableWithComparisons.png" alt="Matrix Plot"/>
+- **<span id="edit-randomizer">Edit Randomizer</span>**: Configure the probability distribution for randomization (uniform, normal/Gaussian, etc.). Affects all subsequent Randomize operations.
 
-### Comparison Functions
-- **Correlation**:
-- **Covariance**:
-- **Cosine similarity**:
-- **Euclidean Distance**:
-- **Dot Product**:
+## Visualization and Analysis {#visualization}
+
+- **<span id="boxplot">Boxplots for Columns</span>**: Create boxplots showing distribution of values (median, quartiles, outliers) for all numeric columns. Opens in a new window.
+
+- **<span id="matrix-plot">Show Matrix Plot</span>**: Create a matrix visualization of pairwise relationships between row vectors using comparison functions (Correlation, Covariance, Cosine Similarity, Euclidean Distance, Dot Product). If rows are selected, only those are compared; otherwise all rows are compared. Useful for understanding high-dimensional data relationships.
+
+- **<span id="plot-embedding">Plot Word Embedding</span>**: Create a PCA projection plot of table data in 2D or 3D. Each row becomes a point. Row labels are displayed as point labels. Useful for exploring word embeddings and high-dimensional data patterns.
+
+- **<span id="eigenvalues">Show Eigenvalues</span>**: Display eigenvalues of the table data as a matrix. Only available for square numeric tables. Useful for understanding matrix properties and dimensionality.
+
+# Context Menu and Keyboard Shortcuts
+
+Most table operations can be accessed via:
+- **Toolbar buttons** at the top of the table panel
+- **Right-click context menu** on selected cells
+- **Keyboard shortcuts** (listed with each operation above)
+
+**Selection tips:**
+- Click and drag to select a rectangular region of cells
+- **Shift+Click** to extend selection
+- **Ctrl/Cmd+Click** to select multiple non-contiguous cells
+- Click on row/column headers to select entire rows or columns
 
