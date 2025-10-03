@@ -24,7 +24,7 @@ Custom simulations in Simbrain allow you to create sophisticated setups with cus
 - Custom logging and analysis
 - Interactive demonstrations and experiments
 
-The best way to understand what's possible is to explore existing simulations. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
+The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
 
 
 ## Creating a Custom Simulation
@@ -35,15 +35,15 @@ The best way to understand what's possible is to explore existing simulations. R
 2. Use IntelliJ IDEA as your IDE
 3. Explore existing simulations in `src/main/kotlin/org/simbrain/custom_sims/simulations`
 
-Modern simulations are written in Kotlin using a functional approach (though Java is still supported but being phased out).
+Simulations are written in Kotlin using a functional approach (though Java is still supported but being phased out).
 
-### 1. Create Your Simulation File
+### Create Your Simulation File
 
 Create a new `.kt` file in `src/main/kotlin/org/simbrain/custom_sims/simulations` (or an appropriate subdirectory). Use an existing simulation as a template—for example, `neuroscience/SpikingNeuronSim.kt` for a simple example.
 
-### 2. Basic Template Structure
+### Basic Template Structure
 
-Modern Kotlin simulations use the `newSim` function with a `SimulationScope` lambda:
+Kotlin simulations use the `newSim` function with a `SimulationScope` lambda:
 
 ```kotlin
 val myCustomSimulation = newSim {
@@ -82,7 +82,7 @@ val myCustomSimulation = newSim {
 }
 ```
 
-### 3. Register Your Simulation
+### Register Your Simulation
 
 Open `RegisteredSimulations.kt` (use `Shift-Shift` in IntelliJ to find it quickly) and add your simulation to the menu structure:
 
@@ -97,15 +97,15 @@ val simulations = dir("Simulations", alphabetical = true) {
 }
 ```
 
-The DSL uses `dir` to create menu folders and `item` to add individual simulations. The label you provide appears in the menu and can be used to run the simulation from the command line.
+Use `dir` to create menu folders and `item` to add individual simulations. The label you provide appears in the menu and can also be used to run the simulation from the command line.
 
-### Adding Documentation
+### Adding Documentation to a simulation
 
 You have two main options for adding documentation to your simulation:
 
 #### Sidebar Documentation (Recommended)
 
-Most modern simulations use `addSidebarInfo` to display documentation in a collapsible sidebar:
+Most simulations use `addSidebarInfo` to display documentation in a collapsible sidebar:
 
 ```kotlin
 addSidebarInfo(
@@ -127,11 +127,11 @@ addSidebarInfo(
 )
 ```
 
-The sidebar can be shown or hidden by default using the `initiallyOpened` parameter, and you can control its width. See `SpikingNeuronSim.kt` for a complete example.
+The sidebar can be shown or hidden by default using the `initiallyOpened` parameter, and you can also control its width. See `SpikingNeuronSim.kt` for a complete example.
 
 #### Standalone Document Viewer
 
-For more extensive documentation that needs its own window, use `addDocViewer`:
+To place documentation in its own window, use `addDocViewer`:
 
 ```kotlin
 val doc = addDocViewer("Documentation Title", """
@@ -236,17 +236,11 @@ Creating simulations with AI assistance (like ChatGPT) can accelerate developmen
 
 Simulations can be saved to `.zip` workspace files and reopened later. However, not all simulation elements can be serialized automatically—particularly custom update actions and control panels. The `newSim` id parameter and `registerReopenFunction` solve this problem.
 
-#### The Problem
-
-When you save a workspace:
+The problem is this. When you save a workspace:
 - **Serialized**: Networks, neurons, synapses, worlds, entities, plots, couplings
 - **Not serialized**: Custom update actions, control panels, event handlers
 
-Without special handling, reopening a saved simulation would lose these dynamic elements.
-
-#### The Solution
-
-Use the `id` parameter and register a reopen function:
+Without special handling, reopening a saved simulation would lose these dynamic elements. The solution is to use the `id` parameter and register a reopen function:
 
 ```kotlin
 val mySimulation = newSim("my_unique_simulation_id") {
@@ -291,20 +285,19 @@ suspend fun SimulationScope.setupDynamicElements(workspace: Workspace) {
 }
 ```
 
+On First Run: 
+- The simulation creates all components
+- Sets `workspace.simulationId = "my_unique_simulation_id"`
+- Calls your setup function to add dynamic elements
 
-1. **On First Run**: 
-   - The simulation creates all components
-   - Sets `workspace.simulationId = "my_unique_simulation_id"`
-   - Calls your setup function to add dynamic elements
+On Save:
+- The `simulationId` is saved with the workspace
+- All serializable components are saved
 
-2. **On Save**:
-   - The `simulationId` is saved with the workspace
-   - All serializable components are saved
-
-3. **On Reopen**:
-   - Workspace deserializes all saved components
-   - Finds the simulation by matching the saved `simulationId` with registered simulations
-   - Calls your `registerReopenFunction` to re-add dynamic elements
+On Reopen:
+- Workspace deserializes all saved components
+- Finds the simulation by matching the saved `simulationId` with registered simulations
+- Calls your `registerReopenFunction` to re-add dynamic elements
 
 
 The key pattern is to:
@@ -313,17 +306,15 @@ The key pattern is to:
 3. Call that function both in the main block and in the reopen function
 4. Use `getModelByLabel` or `getModelById` to retrieve deserialized components
 
-**Examples**
-
 See these simulations for complete working examples:
 - `RecurrentProjection.kt` - Shows control panel recreation
 - `ClassicalConditioning.kt` - Shows custom update action restoration
 - `SimpleOperant.kt` - Another behavioral simulation with custom updates
 
 Tips:
-- **Unique IDs**: Use descriptive, unique simulation IDs to avoid conflicts
-- **Labels Matter**: Set meaningful labels on network models you'll need to retrieve later
-- **Test Reopen**: Always test saving and reopening to ensure your dynamic elements are restored correctly
+- Unique IDs: Use descriptive, unique simulation IDs to avoid conflicts
+- Labels Matter: Set meaningful labels on network models you'll need to retrieve later
+- Test Reopen: Always test saving and reopening to ensure your dynamic elements are restored correctly
 
 ### Java Simulations (Legacy)
 

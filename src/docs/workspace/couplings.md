@@ -115,29 +115,16 @@ The following commands are possible in the coupling manager:
 
 **Add coupling(s)**: This button creates new couplings between selected producers and consumers. The coupling creation process:
 
-- Links the first selected producer with the first selected consumer
-- Creates additional couplings for multiple selections
-- **One-to-One Mode** (default): Each producer links to one consumer
-- **Many-to-Many Mode**: Creates couplings for all combinations of selected producers and consumers
-- **Type Checking**: Only creates couplings between compatible attribute types
-
 ## Enhanced Coupling Features
 
 The modern coupling system includes several advanced features:
 
-**Priority-Based Coupling**: Attributes have priority values that determine automatic coupling preferences when multiple options are available.
-
-**Infix Coupling Operator**: Programmatic coupling creation uses the `couple` infix operator for readable code: `producer couple consumer`.
+**Priority-Based Coupling**: Attributes have priority values that determine automatic coupling preferences when multiple options are available (this feature applies to scripting notthe GUI )
 
 **Attribute Filtering**: The coupling manager can filter attributes by type, visibility, and other criteria.
 
-**Many-to-One Support**: Unlike earlier versions, Simbrain 4.0 supports many-to-one couplings for scenarios like input aggregation, though care should be taken to avoid value conflicts.
-
-**Automatic Type Matching**: The system automatically finds compatible producer-consumer pairs based on type compatibility and priority.
-
 **Delete Couplings**: This button deletes all selected couplings from the coupling list.
 
-<!-- "Attribute visibility" section is not present in this page -->
 
 **Set Attribute Visibilities**: This button opens up the **attribute visibility** dialog for the currently selected consumer or producer list.
 
