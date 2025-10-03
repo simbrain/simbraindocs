@@ -3,7 +3,6 @@ title: Randomizers
 layout: default
 parent: Utilities
 has_children: false
-nav_order: 150
 ---
 
 # Randomizers
@@ -12,11 +11,13 @@ Random numbers are needed in many cases in Simbrain. The Simbrain object that ge
 
 ## Common Properties
 
-- **Clipping:** When clipping is enabled, the randomizer will reject outside the floor and ceiling values. This is convenient, but it create artificial "pile-ups" at the floor and ceiling values. Other clipping methods are possible but not yet implemented.
+Some distributions support clipping to restrict values within a specific range:
 
-- **Floor:** An artificial minimum value set by the user. Any values drawn from the distribution set to the ceiling value. Any values drawn from the distribution below the minimum are set to the floor value.
+- **Floor**: An artificial minimum value set by the user. Any values drawn from the distribution below the minimum are set to the floor value.
 
-- **Ceiling:** An artificial maximum value set by the user. Any values drawn from the distribution above the maximum are set to the ceiling value.
+- **Ceiling**: An artificial maximum value set by the user. Any values drawn from the distribution above the maximum are set to the ceiling value.
+
+When clipping is enabled, the randomizer rejects values outside the floor and ceiling values. This is convenient, but it can create artificial "pile-ups" at the floor and ceiling values.
 
 <!-- TODO --> Add image
 
@@ -50,14 +51,24 @@ An [exponential](https://en.wikipedia.org/wiki/Exponential_distribution) distrib
 
 A [gamma](https://en.wikipedia.org/wiki/Gamma_distribution) distribution is the more general family that exponential families come from. Sometimes used to model synaptic strengths and firing rates. For more on the parameters (shape and scale) the reader is referred wikipedia page.
 
-- **Shape:** See [here](https://en.wikipedia.org/wiki/Gamma_distribution#Characterization_using_shape_k_and_scale_.CE.B8).
-
-- **Scale:** See [here](https://en.wikipedia.org/wiki/Gamma_distribution#Characterization_using_shape_k_and_scale_.CE.B8).
-
 ## Pareto
 
 A [Pareto](https://en.wikipedia.org/wiki/Pareto_distribution) distribution is a power-law distribution with a minimum value and a power.
 
-- **Slope:** the power of the distribution.
+- **Slope**: The power of the distribution.
 
-- **Minimum:** the minimum value the distribution will produce. Note that floor should never be lower than minimum.
+- **Minimum**: The minimum value the distribution will produce. Note that floor should never be lower than minimum.
+
+## Poisson
+
+A [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution) distribution is a discrete probability distribution that models the number of events occurring in a fixed interval. Often used to model counting processes.
+
+- **Mean Value**: The discrete value you should expect to see most often. Also called lambda (λ).
+
+## Uniform Integer
+
+A discrete uniform distribution that produces integer values with equal probability over a specified range.
+
+- **Floor**: The minimum integer value (inclusive).
+
+- **Ceiling**: The maximum integer value (inclusive).
