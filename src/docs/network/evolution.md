@@ -55,10 +55,10 @@ Under the hood, an evolutionary simulation involves genes (often organized into 
 
 - **Node genes**: associated with a single neuron and can encode arbitrarily many features of it, like its bias, update rule, etc.
 - **Synapse genes**: associated with a single synapse, similar to node genes. Has a reference to source and target node genes. 
-- **Node rule genes**: used to encode for a [neuron update rule](../network/neurons). Usually associated with a node gene.
-- **Synapse genes**: used to encode a [local learning rule](../network/synapses).
-- **Connection genes**: associated with a [connection strategy](../network/connections) which is applied to a set of nodes when the gene is expressed.
-- **Layout genes**: associated with a [layout object](../network/layouts) which is applied to a set of nodes when the gene is expressed.
+- **Node rule genes**: used to encode for a [neuron update rule](neurons). Usually associated with a node gene.
+- **Synapse genes**: used to encode a [local learning rule](synapses).
+- **Connection genes**: associated with a [connection strategy](connections) which is applied to a set of nodes when the gene is expressed.
+- **Layout genes**: associated with a [layout object](layouts) which is applied to a set of nodes when the gene is expressed.
 
 Mutations often work by iterating through these genes and setting their properties.
 
