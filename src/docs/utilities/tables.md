@@ -21,8 +21,6 @@ Simbrain tables are spreadsheet-style components used throughout Simbrain to dis
 
 - **<span id="export-csv">Export CSV</span>**: Export table data to a `.csv` file. Configure whether to include column/row names.
 
-- **<span id="import-arff">Import ARFF</span>**: Import data from a [WEKA ARFF](https://waikato.github.io/weka-wiki/formats_and_processing/arff_stable/) file format (commonly used in machine learning).
-
 ## Edit Structure {#edit-structure}
 
 - **<span id="set-rows-columns">Set Rows / Columns</span>**: Change table dimensions. A dialog prompts for new dimensions. All cells are zeroed out.

@@ -7,26 +7,13 @@ has_children: false
 
 # Property Editors
 
-Simbrain includes a sophisticated system for automating the tedious process of creating dialogs to edit properties of objects. This Annotated Property Editor system is similar to the old JavaBeans framework but produces nicer dialogs and allows more customizations. While sometimes the result ends up a bit rough, it allows us to rapidly add features to the software.
-
-The system automatically generates appropriate widgets based on property types, validates input, and provides many advanced features for creating interactive dialogs.
+Simbrain includes a sophisticated system for automating the process of creating dialogs to edit properties of objects. The system automatically generates appropriate widgets based on annotations in the code. These dialogs have a familiar look and feel, and certain standard behaviors when editing single objects or groups of objects in Simbrain.
 
 <img src="/assets/images/propertyEditor.png" alt="Annotated property editor" style="width:400px;"/>
 
-## Where Property Editors Appear
-
-Property editors appear in many contexts throughout Simbrain:
-
-- Right-clicking objects and selecting "Edit..." or "Properties..."
-- Neuron and synapse dialogs
-- Network group and subnetwork dialogs
-- World object configuration dialogs
-- Table column configuration
-- Randomizer and decay function configuration
-
 ## Supported Property Types
 
-The editor automatically selects the appropriate widget based on the property type:
+The editor automatically selects the appropriate widget based on property type:
 
 - **Numeric types** (Int, Long, Short, Float, Double): Spinners with validation
 - **Boolean**: Checkbox with three states (Yes/No/Null for multi-object editing)
