@@ -8,16 +8,24 @@ nav_order: 40
 
 # Simbrain Preferences
 
-There are several ways to set overall Simbrain preferences. A few things can be set in the GUI, and others can be set in a configuration file.
+Workspace preferences can be accessed from File > Workspace preferences... These preferences control default behaviors and settings for the Simbrain workspace.
 
-## GUI Preferences
+## Workspace Preferences
 
-Simulation Delay: use this to slow down a simulation, by specifying a number of milliseconds to sleep between workspace iterations.  The default is 0, so that the workspace runs at its maximum speed.
+These preferences are accessible through the workspace preferences dialog:
 
-## Configuration file
+- **Show info dock by default**: When enabled, the simulation info panel will be shown by default when opening Simbrain or simulations.
 
-The text file {SimbrainHome}/etc/config.properties contains a variety of properties can be set. Most are self-explanatory. Simply change these using a text editor and restart Simbrain.
+- **Show bottom dock by default**: When enabled, the bottom dock (containing Components, Terminal, and Performance tabs) will be shown by default.
 
-## Local Preferences
+- **Bottom dock size**: Size of the bottom dock in pixels. This determines how much vertical space the bottom dock occupies when visible.
 
-Other properties are automatically set in local [preferences](https://docs.oracle.com/javase/8/docs/technotes/guides/preferences/index.html) files. For example, the various graphical preferences for networks (background color, "hot" node color, etc.). Most of these preferences can be reverted using "revert to defaults" in relevant dialogs.
+- **Simulation directory**: Default directory for opening and saving workspace simulation files (.zip files). By default, points to the `simulations/workspaces` folder.
+
+- **Table directory**: Default directory for importing and exporting tables stored as CSV files. By default, points to the `simulations/tables` folder.
+
+- **Import / export directory**: Default directory for importing and exporting XML files for individual components.
+
+## Network Preferences
+
+Network-specific preferences (such as display colors, default neuron types, etc.) can be accessed from File > Network preferences... See the [Network documentation](../network/) for details.

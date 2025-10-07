@@ -8,31 +8,34 @@ nav_order: 60
 
 # Toolbars
 
-## Data Toolbar
+The main toolbar provides quick access to common workspace operations. Buttons are organized into functional groups separated by dividers.
 
-The data toolbar allows the user to save or load the state of the workspace.
+## File Operations
 
-- **Open**: when clicked on will bring up a file chooser, allowing the user to load a saved workspace.
-- **Save**: when clicked will bring up a file chooser allowing the user to save the current workspace.
+- **Open**: Opens a file chooser to load a saved workspace from a .zip file.
+- **Save**: Saves the current workspace. If the workspace has not been saved before, opens a file chooser.
 
-## Global Network Update Toolbar
+## Update Controls
 
-The global iteration toolbar holds options allowing the user to update all the networks in the workspace simultaneously.
+- **Iterate**: Updates the workspace once (single step). Same as pressing the spacebar.
+- **Run/Stop**: Toggle button that runs the workspace continuously until clicked again. Changes between "Run" and "Stop" states.
 
-- **Global step update algorithm**: One click will update every network in the workspace by one timestep.
-- **Global iteration update algorithm**: One click will continue to updating every network in the workspace iteratively until clicked again. Note that the image on the button becomes that of a "stop" button Stop. Pressing this button will stop the network. Thus the play/stop button acts as a toggle switch.
+## Coupling
 
-## Coupling Toolbar
+- **Coupling manager**: Opens the [coupling manager](couplings.html) dialog, which allows creating and managing couplings between workspace components.
 
-- **Coupling manager**: clicking this icon will bring up the coupling manager, allowing the user to send information between different objects in Simbrain. For more information see: [Couplings](couplings.html).
+## Component Creation
 
-## Network, Statistic, and Training Toolbar
+- **Network**: Creates a new [Network](../network/index.html) component. Clicking opens a new network window where you can construct neural networks.
+- **Worlds**: Dropdown button displaying a menu of available [worlds](../worlds/)
+- **Plots**: Dropdown button displaying a menu of available [plots](../plots/)
+- **Console**: Creates a new [console](../utilities/terminal.html) for command-line access to Simbrain features.
 
-- The [Network](../network/index.html) creator: clicking this button will open a network window in the workspace. From the network window the user can construct any number of networks available within Simbrain.
-- The [World](../worlds/index.html) button, when clicked displays a menu of the different kinds of worlds available in Simbrain. Worlds exist as a sort of virtual place where neural networks in Simbrain can both acquire input and in some cases effect their environment with their output.
-- The statistics button brings up a list of statistical visuals, which can be coupled to various aspects of Simbrain's neural networks.
-- The console button allows the user command line level access to Simbrain's features.
+## View Controls
+
+- **Bottom dock**: Toggles visibility of the bottom panel containing Components, Terminal, and Performance tabs. See [Property Tabs](propertyTabs).
+- **Info panel**: Toggles visibility of the side info panel that displays documentation and help content. Only enabled when content is available.
 
 ## Iteration Display
 
-To the right of all toolbars is a display of the current iteration number.  It can be reset to zero by double clicking on it.
+To the right of all toolbar buttons is a display of the current iteration number. It can be reset to zero by double-clicking on it. While a simulation is running, an animated indicator appears to show that the workspace is active.

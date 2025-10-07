@@ -10,8 +10,6 @@ nav_order: 20
 
 A coupling is a one-way informational link between two objects in a Simbrain simulation. Couplings allow information to flow between components in the Simbrain [workspace](index.html) (e.g. from a network to a bar chart). A coupling consists of a producer and a consumer. Producers and consumers are [attributes](couplings.html#attributes).
 
-There are several ways to create couplings:
-
 ## Quick Coupling via Context Menus
 
 The easiest way to create couplings is through context menu shortcuts:
@@ -27,7 +25,9 @@ For more control over coupling creation:
 - **Vector couplings**: Right-click on neuron arrays or image worlds to create vector couplings
 - **Scalar couplings**: Right-click on individual neurons for scalar time series couplings
 
-## Coupling Manager Interface
+## Coupling Manager
+
+![Basic coupling](/assets/images/couplingManager.png)
 
 The coupling manager provides comprehensive coupling control:
 - **Custom couplings**: Create couplings between any compatible attributes
@@ -48,26 +48,32 @@ A coupling contains a *producer* and *consumer* attribute. These two attributes 
 
 ## Attributes
 
-An attribute is any part of a component which has a value that may be sent to or recieved from another component, i.e. something that produces values or consumes values. Examples are neuron activations, weight strengths, or bars on a bar chart, or sensor values for an agent in a virtual world. A coupling is a pair that contains one producing attribute and one consuming attribute.
+An attribute is any property of a component that can send or receive values, the "hooks" that make couplings possible. Examples include:
+- Neuron activations
+- Synapse weight strengths  
+- Bar chart bar values
+- Agent sensor readings in virtual worlds
+- Time series data points
 
-Most windows in Simbrain (i.e. workspace [components](components.html)) are wrappers around other objects (e.g. neurons), whose values can be linked to one another. These values are [attributes](couplings.html#attributes) and can (for instance) include such values as the activation of a given neuron in the workspace, or a value of a line on a time-series. Attributes can be thought of as the "hooks" or "anchor points" that make up couplings, and couplings represent the uni-directional data flow between these hooks. For example, a simulation might involve coupling neurons whose neurons are producers to a bar chart whose bars are consumers (to see this, try bar chart test in the script menu).
+Attributes have a data type: scalar (double), vector (double array), or text (string). Only attributes of the same type can be coupled together.
 
-When coupling to neurons it is often suggested to use **add inputs**, because each node accumulates input values (see [network update](/docs/network/updateLogic)). Coupling into an activation overwrites the activation, and is not additive, so it is not reccomended. However coupling _from_ an activation (for example when using plots) is fine.
+### Coupling to Neurons
 
-Each attribute has a data type, as described above: currently scalar (double), vector (array of doubles), and String.
+When coupling to neurons, it's recommended to use the add inputs consumer rather than setting activation directly. The "add inputs" attribute accumulates multiple incoming values (see [network update](/docs/network/updateLogic)), while setting activation directly overwrites the previous value. Coupling from neuron activations (e.g., to plots) works either way.
 
-The attributes in a component can be viewed in the coupling manager dialog.
+You can view and modify which attributes are visible in the coupling manager using the "Set Attribute Visibilities" button.
 
 ## Attribute Visibility
 
-Not all attributes are automatically "visible" in the relevant gui components (coupling manager, menus, etc. described below). The reason is that there are so many things that can be attributes (every numerical property of every neuron and synapse in a neural network, for example), that it would overwhelm the gui. Each component has some attributes visible by default. To modify what the visible attributes are, use the set attribute visibility dialog, accessible from the coupling manager. For example, in this dialog, we see available attributes for the currently selected network component. Only neuron activations are visible in this component. When clicking on the visibility checkboxes notice that attributes appear and disappear in the producer list window.
+Not all attributes are automatically visible in the coupling manager, menus, and context menus. Since components can have hundreds of potential attributes (consider every property of every neuron and synapse in a network), only a subset are visible by default to avoid overwhelming the interface.
 
-TODO: Add Image
+To change which attributes are visible, use the "Set Attribute Visibilities" button in the coupling manager. This opens a dialog where you can check or uncheck attributes for the selected component. As you toggle visibility, attributes appear and disappear in the producer and consumer lists.
 
+<img src="/assets/images/attributeVisibilityPanel.png" alt="Attribute Visibility Panel" style="max-width: 75%;">
 
 # Coupling Types
 
-Currently Simbrain has three types of attributes, and thus tyree types of coupling:
+Currently Simbrain has three types of attributes, and thus three types of coupling:
 
 - Scalar (doubles in the underlying code).
 - Vector (double-arrays). These are shown as green in the coupling manager.
@@ -80,7 +86,7 @@ Coupling can be theoretically any datatype in scripts and in the code, but these
 
 # Scalar Couplings
 
-An easy way to get a feel for how couplings work is through the example of scalar couplings. An example is shown below that links a [Network](../network/network.html) to an [OdorWorld](../worlds/odorworld.html). In this example one of the couplings in the pursuer simulation is shown (the simulation has 5 couplings total, one for each neuron). The coupling shown takes the current activation of the "turn right" neuron (the producer) and sends it to the turn right action on the mouse (the consumer). Note that in this example, the mouse will turn right when the workspace is updated, because there is more right turning activation than left turning activation.
+An easy way to get a feel for how couplings work is through the example of scalar couplings. An example is shown below that links a [Network](../network/) to an [OdorWorld](../worlds/odorworld.html). In this example one of the couplings in the pursuer simulation is shown (the simulation has 5 couplings total, one for each neuron). The coupling shown takes the current activation of the "turn right" neuron (the producer) and sends it to the turn right action on the mouse (the consumer). Note that in this example, the mouse will turn right when the workspace is updated, because there is more right turning activation than left turning activation.
 
 There are many examples of scalar couplings that can be made. Here are some examples where the producer is a neuron:
 

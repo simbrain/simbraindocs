@@ -131,7 +131,7 @@ Before we summed PSRs but now we are “summing PSR matrices” and then mutatin
 
 At each network iteration a sequence of actions is executed. Usually only one action is updated, the default update action, [buffered update](#buffered-update). However, custom actions can be added and update can be customized, either in the GUI, or for even more custom applications, in [scripts](../simulations).
 
-Actions are set using a GUI that is largely the same as in [workspace update](../workspace/update). 
+Actions are set using a GUI that is largely the same as in [workspace update](../workspace/workspaceUpdate). 
 
 From `Network > Edit Update Sequence...` the following dialog shows
 
