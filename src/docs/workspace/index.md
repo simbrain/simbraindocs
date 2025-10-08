@@ -11,7 +11,7 @@ The Simbrain workspace is the framework within which a simulation is run. It con
 
 1. Maintaining a list of [components](components) (neural networks, virtual worlds, data tables, plots, etc.)
 2. Maintaining a list of [couplings](couplings), which are links between components (e.g. from a neural network to a time-series plot of the activation of some nodes in that network).
-3. Managing simulation [updates](update).  The network is updated using the play or step buttons in the [toolbar](toolbars), and the current iteration number is also visible in the toolbar. Custom forms of update are also available.
+3. Managing workspace [updates](workspaceUpdate).  The network is updated using the play or step buttons in the [toolbar](toolbars), and the current iteration number is also visible in the toolbar. Custom forms of update are also available.
 
 The workspace is visible in the GUI as the Simbrain desktop. The desktop contains menus, a toolbar, and a main space in which all components are shown. There is also a bottom dock (not visible by default; to show it use View > Bottom dock) which contains tabs for viewing components, using the terminal, and monitoring performance.
 
@@ -20,7 +20,7 @@ Workspaces are stored as .zip files. These files contain .xml representations of
 
 # Running the Workspace
 
-The workspace and its components can be run by pressing the Run button in the toolbar to repeatedly iterate the workspace. The button becomes a "Stop" button while running. Pressing it again will stop the workspace. Thus the Run/Stop button acts as a toggle switch. You can also press the Step button (or press spacebar) to iterate the workspace a single time. Sometimes repeatedly hitting the spacebar is a useful way to test a simulation. See [update](update) for more details.
+The workspace and its components can be run by pressing the Run button in the toolbar to repeatedly iterate the workspace. The button becomes a "Stop" button while running. Pressing it again will stop the workspace. Thus the Run/Stop button acts as a toggle switch. You can also press the Step button (or press spacebar) to iterate the workspace a single time. Sometimes repeatedly hitting the spacebar is a useful way to test a simulation. See [workspace update](workspaceUpdate) for more details.
 
 
 
