@@ -6,7 +6,7 @@ has_children: false
 nav_order: 30
 ---
 
-# MENUS
+# Menus
 
 ## File
 

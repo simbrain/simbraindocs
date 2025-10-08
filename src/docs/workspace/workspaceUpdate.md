@@ -29,6 +29,7 @@ When the default buffered update does not produce a desired result a custom upda
 
 To customize how the workspace updates, go to `File > Edit update sequence...`. This opens a dialog showing the current list of update actions that will be executed in order at each iteration.
 
+<img src="/assets/images/workspaceUpdateSequence.png" alt="Workspace Update Sequence Dialog" style="max-width: 50%;">
 
 ### Managing Update Actions
 
@@ -48,7 +49,7 @@ The Add button shows these predefined actions:
 
 By removing the default action and adding individual component and coupling updates in specific orders, you can create custom update sequences that avoid the one-iteration delay. For example, update a component, then its outgoing coupling, then the target component - this way changes propagate immediately in one iteration rather than waiting for the next iteration.
 
-Important notes:
+Additional notes:
 - Actions can be added multiple times (e.g., update a component twice per iteration)
 - If you remove the default action, newly added components and couplings won't automatically be included in the update sequence
 

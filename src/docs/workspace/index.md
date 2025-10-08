@@ -23,10 +23,4 @@ Workspaces are stored as .zip files. These files contain .xml representations of
 The workspace and its components can be run by pressing the Run button in the toolbar to repeatedly iterate the workspace. The button becomes a "Stop" button while running. Pressing it again will stop the workspace. Thus the Run/Stop button acts as a toggle switch. You can also press the Step button (or press spacebar) to iterate the workspace a single time. Sometimes repeatedly hitting the spacebar is a useful way to test a simulation. See [update](update) for more details.
 
 
-# Examples
-
-To see some different workspaces, try opening a workspace file by pressing the Open button in the [toolbar](toolbars.html). It defaults to a workspace directory with various examples in it.
-
-You can also try invoking simulations from the [Simulations menu](menus.html). These create workspaces demonstrating various neural network concepts and models.
-
 
