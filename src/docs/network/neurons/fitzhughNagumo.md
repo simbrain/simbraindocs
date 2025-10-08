@@ -4,13 +4,12 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 70
 ---
 
 
 # FitzHugh-Nagumo
 
-The **FitzHugh-Nagumo** rule is a two-variable spiking neuron model that captures the basic dynamics of an action potential. It models a neuron's voltage and a recovery variable, producing realistic spike-like behavior.
+The FitzHugh-Nagumo rule is a two-variable spiking neuron model that captures the basic dynamics of an action potential. It models a neuron's voltage and a recovery variable, producing realistic spike-like behavior.
 
 The neuron's state is described by two coupled differential equations:
 

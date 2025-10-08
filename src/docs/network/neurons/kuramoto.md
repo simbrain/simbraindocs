@@ -4,13 +4,12 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 110
 ---
 
 
 # Kuramoto
 
-The **Kuramoto** update rule implements a phase-coupled oscillator model inspired by the Kuramoto model of synchronization. Each neuron's activation is treated as a phase angle $$\theta$$, which evolves over time based on the phase differences between itself and its input neurons.
+The Kuramoto update rule implements a phase-coupled oscillator model inspired by the Kuramoto model of synchronization. Each neuron's activation is treated as a phase angle $$\theta$$, which evolves over time based on the phase differences between itself and its input neurons.
 
 At each time step, the neuron computes:
 

@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 210
 ---
 
 # Stochastic
 
-The **Stochastic** rule is a simple spiking activity generator that fires based on a fixed probability. At each time step, the neuron independently samples a random value to determine whether it spikes. This rule can be used to simulate spontaneous spiking activity or probabilistic inputs to a network.
+The Stochastic rule is a simple spiking activity generator that fires based on a fixed probability. At each time step, the neuron independently samples a random value to determine whether it spikes. This rule can be used to simulate spontaneous spiking activity or probabilistic inputs to a network.
 
 The update behavior is defined as:
 

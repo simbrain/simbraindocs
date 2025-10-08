@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 50
 ---
 
 # Continuous Sigmoidal Neuron
 
-The **Continuous Sigmoidal Neuron** is a type of artificial neuron designed to simulate continuous changes in activation over time. It utilizes a numerical integration process to smoothly update its activation based on the inputs it receives, making it ideal for scenarios where gradual, continuous changes in neuron behavior are needed. This neuron can optionally incorporate noise in its updates, adding a layer of stochasticity to its behavior.
+The Continuous Sigmoidal Neuron is a type of artificial neuron designed to simulate continuous changes in activation over time. It utilizes a numerical integration process to smoothly update its activation based on the inputs it receives, making it ideal for scenarios where gradual, continuous changes in neuron behavior are needed. This neuron can optionally incorporate noise in its updates, adding a layer of stochasticity to its behavior.
 
 This neuron model is especially useful in neural networks where you want the neuron's activation to evolve continuously, such as in simulations of real-world biological processes or in continuous-time neural models.
 

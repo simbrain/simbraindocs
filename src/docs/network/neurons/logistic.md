@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 130
 ---
 
 # Logistic
 
-The **Logistic** rule is a chaotic activity generator based on the **logistic map**, a classic discrete-time dynamical system. It produces oscillating or chaotic activity depending on the growth rate. This rule is distinct from the logistic sigmoid function and is used to generate internal activity over time rather than compute a transfer function based on input.
+The Logistic rule is a chaotic activity generator based on the logistic map, a classic discrete-time dynamical system. It produces oscillating or chaotic activity depending on the growth rate. This rule is distinct from the logistic sigmoid function and is used to generate internal activity over time rather than compute a transfer function based on input.
 
 The update equation is:
 

@@ -4,22 +4,21 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 60
 ---
 
 # Decay
 
-The **Decay** rule models neurons that return toward a baseline over time, either by a fixed amount or by a fraction of the remaining distance. At each time step, the neuron's activation is updated based on input and then decayed. The direction of decay is determined by whether the current activation is above or below the baseline.
+The Decay rule models neurons that return toward a baseline over time, either by a fixed amount or by a fraction of the remaining distance. At each time step, the neuron's activation is updated based on input and then decayed. The direction of decay is determined by whether the current activation is above or below the baseline.
 
 Let $$a$$ be the current activation and $$b$$ the baseline. The decay behavior follows:
 
-- **Relative decay**:
+- Relative decay:
 
   $$
   \Delta a = \text{decayFraction} \cdot |a - b|
   $$
 
-- **Absolute decay**:
+- Absolute decay:
 
   $$
   \Delta a = \text{decayAmount}

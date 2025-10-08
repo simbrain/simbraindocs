@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 30
 ---
 
 # Allostatic Update Rule
 
-The **Allostatic Update Rule** is a spiking neuron model that adjusts its internal target activation level over time, supporting dynamic homeostasis. Based on Falandays et al. (2021), it captures regulatory processes that balance activation around a moving set point.
+The Allostatic Update Rule is a spiking neuron model that adjusts its internal target activation level over time, supporting dynamic homeostasis. Based on Falandays et al. (2021), it captures regulatory processes that balance activation around a moving set point.
 
 Each neuron maintains:
 

@@ -14,7 +14,7 @@ Neurons or "nodes" are represented by circles. The numbers inside the neurons co
 
 There are a variety of different neuron types in Simbrain. The update rule of a neuron corresponds to what kind of neuron it is: linear, sigmoidal, etc. This page addresses properties common to all of the different neuron types. Details on particular neuron types can be found on their respective pages. Even more custom behaviors can be defined using [simulations](../../simulations).
 
-Some rules produce **activity generators**, which don't respond to inputs, but only produce outputs. They are represented by squares rather than circles in the GUI.
+Some rules produce activity generators, which don't respond to inputs, but only produce outputs. They are represented by squares rather than circles in the GUI.
 
 Some more neuraly realistic rules involve [spiking](../spikingneurons).
 
@@ -40,7 +40,7 @@ Where $$f$$ represents the neuron's update rule, and $$net_{i}$$ is the weighted
 
 Note that a sensory input term I is also added to the weighted input if the node has a [coupling](../../workspace/couplings) attached to it.
 
-**Tip**: To make a neuron whose activation value equals its weighted input, use a [linear neuron](linear) with slope = 1 and bias = 0. Linear neurons are great for quickly displaying unfiltered values.
+To make a neuron whose activation value equals its weighted input, use a [linear neuron](linear) with slope = 1 and bias = 0. Linear neurons are great for quickly displaying unfiltered values.
 
 
 ## Polarity
@@ -59,7 +59,7 @@ Different neuron types are updated in different ways. See the discussion of cont
 
 By selecting a neuron or set of neurons and pressing certain buttons, those neuron's properties can quickly be adjusted. This can be done while a network is running and can be useful for exploring a networks' properties.
 
-- **Increment / Decrement**: Press the up and down buttons to adjust neuron activations. If the up key is pressed, the **increment** amount of a given neuron is added to the current activation, without regard to bounds or the nature of the neuron's update rule.
+- **Increment / Decrement**: Press the up and down buttons to adjust neuron activations. If the up key is pressed, the increment amount of a given neuron is added to the current activation, without regard to bounds or the nature of the neuron's update rule.
 - **Contextual Increment / Decrement**: Press the up and down buttons with the option or alt key pressed. This adjusts the neuron's activation in a way that respects the parameters and boundaries of the update rules. Note that contextual increment / decrement is not implemented for all neuron types.
 - **Randomize**: Press the "r" key or the "dice" button on the toolbar to randomize all selected neurons. How randomization is done varies by neuron type.
 - **Clear**: Press the "c" key or the "eraser" button on the toolbar to set the activations of all selected neurons to 0. This also clears all fan-in synapses and their delay queues.
@@ -78,7 +78,7 @@ These fields are common to many different neuron update rules.
 - **Clipping**: If a neuron uses clipping, then if its activation exceeds its upper or lower bound, the activation is set to the upper or lower bound that it exceeds. Similarly with weights and their strength.
 - **Upper bound**: This field plays different roles depending on the type of the neuron (documented accordingly) but in general it determines the maximum level of activity of a node. It also determines what the most "active" color possible for the neuron is. The upper and lower bound also determine the bounds of randomization.
 - **Lower bound**: This field plays different roles depending on the type of the neuron but in general it determines the minimum level of activity of a node. It also determines the "least active" color for a neuron.
-- **Priority**: The priority of a given neuron, used in **priority based update**. Lower numbers correspond to higher priority (think of first priority, second priority, etc.), and will be updated first when the network's update method is set to priority based update. Priorities can be viewed in the GUI using the **view** menu.
+- **Priority**: The priority of a given neuron, used in priority based update. Lower numbers correspond to higher priority (think of first priority, second priority, etc.), and will be updated first when the network's update method is set to priority based update. Priorities can be viewed in the GUI using the view menu.
 - **Increment**: This sets the amount that a neuron is incremented when it is manually adjusted. For example, if increment is set to .1, then each time the up arrow is pressed the neuron will increase its activation by .1. This feature does not affect the neuron while the network is being iterated.
 - **Polarity**: See [Polarity](#polarity).
 - **Add Noise**: If set to true, random noise is added to the activation after each update. The noise is generated from a distribution (by default, a uniform distribution). This can be useful for simulating stochastic neural activity. See [Randomizers](/docs/utilities/randomizers) for more detail.
@@ -87,11 +87,11 @@ These fields are common to many different neuron update rules.
 
 Clamped items are not updated on update. However even if clamped, manualy adjustment and adjustvement via input tables (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
 
-In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update it's activation. It sits on whatever value it's had. It holds on to current activation. Note: However the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, **testing input tables**, used in many **subnetworks**, can modify clamped neurons. The clamp neurons button in **neuron group** clamps all the neurons in that group.
+In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update it's activation. It sits on whatever value it's had. It holds on to current activation. However, the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, testing input tables, used in many subnetworks, can modify clamped neurons. The clamp neurons button in neuron group clamps all the neurons in that group.
 
 ## Popup Menu (Selected Neurons)
 
-When right clicking on a neuron a popup-menu appears whose actions will usually apply to selected neurons. Most of these actions are described in the **menu documentation**. The following actions only appear in the popup menu:
+When right clicking on a neuron a popup-menu appears whose actions will usually apply to selected neurons. Most of these actions are described in the menu documentation. The following actions only appear in the popup menu:
 
-- **Send Scalar Coupling To**: Create a **coupling** from selected source nodes' activation to a target consumer.
-- **Receive Scalar Coupling From**: Create a **coupling** from a target producer elsewhere in Simbrain to the selected node, which treats them as an external **input** to the neuron.
+- **Send Scalar Coupling To**: Create a coupling from selected source nodes' activation to a target consumer.
+- **Receive Scalar Coupling From**: Create a coupling from a target producer elsewhere in Simbrain to the selected node, which treats them as an external input to the neuron.

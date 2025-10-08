@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 120
 ---
 
 # Linear
 
-The **Linear** rule computes a neuron's activation by scaling its input with a constant slope, optionally adding noise and applying a clipping method. This rule is commonly used in simple neural models and serves as a base for other activation types.
+The Linear rule computes a neuron's activation by scaling its input with a constant slope, optionally adding noise and applying a clipping method. This rule is commonly used in simple neural models and serves as a base for other activation types.
 
 The basic update rule is:
 
@@ -25,9 +24,9 @@ Where:
 
 Different clipping types determine how this result is transformed:
 
-- **No Clipping**: $$a = \text{slope} \cdot x$$
-- **Relu**: $$a = \max(0, \text{slope} \cdot x)$$
-- **Piecewise Linear**: 
+- No Clipping: $$a = \text{slope} \cdot x$$
+- Relu: $$a = \max(0, \text{slope} \cdot x)$$
+- Piecewise Linear: 
   $$
   a = \min(\text{upperBound}, \max(\text{lowerBound}, \text{slope} \cdot x))
   $$

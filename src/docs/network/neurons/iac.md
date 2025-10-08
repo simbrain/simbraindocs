@@ -4,13 +4,12 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 80
 ---
 
 
 # IAC (Interactive Activation and Competition)
 
-The **IAC** rule models neurons that participate in excitatory and inhibitory interactions, often used in psychological models of cognition and perception. It is based on the framework described in McClelland (1981), simulating gradual competitive activation dynamics within bounded ranges.
+The IAC rule models neurons that participate in excitatory and inhibitory interactions, often used in psychological models of cognition and perception. It is based on the framework described in McClelland (1981), simulating gradual competitive activation dynamics within bounded ranges.
 
 At each time step, the neuron's activation is updated by:
 
@@ -27,12 +26,12 @@ Where:
 $$
 \text{inputEffect} =
 \begin{cases}
-(1 - a) \cdot I, & \text{if } I \geq 0 \\
+(U - a) \cdot I, & \text{if } I \geq 0 \\
 (a - L) \cdot I, & \text{if } I < 0
 \end{cases}
 $$
 
-Here, $$I$$ is the input to the neuron, $$1$$ is the upper bound, and $$L$$ is the lower bound.
+Here, $$I$$ is the input to the neuron, $$U$$ is the upper bound, and $$L$$ is the lower bound.
 
 The neuron's activation is then adjusted by the total change, optional noise is added, and the result is clipped to stay within bounds.
 

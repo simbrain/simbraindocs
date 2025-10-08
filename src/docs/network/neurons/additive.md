@@ -3,8 +3,7 @@ title: Additive (Continuous Hopfield)
 layout: default  
 grand_parent: Networks  
 parent: Neurons  
-has_children: false  
-nav_order: 10
+has_children: false
 ---
 
 # Additive (Continuous Hopfield) Neuron

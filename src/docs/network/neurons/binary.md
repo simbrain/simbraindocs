@@ -4,7 +4,6 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 40
 ---
 
 # Binary Neuron
@@ -12,7 +11,7 @@ nav_order: 40
 <!-- Link to Relu when we have it -->
 <!-- Link to weighted inputs in update logic -->
 
-The **Binary** rule models a neuron that switches between two discrete values based on a threshold comparison. This is a hard-threshold activation function commonly used in early neural models and logic-based systems.
+The Binary rule models a neuron that switches between two discrete values based on a threshold comparison. This is a hard-threshold activation function commonly used in early neural models and logic-based systems.
 
 At each time step, the neuron's input is compared to a threshold:
 
@@ -34,6 +33,5 @@ This rule is often used for binary classification, digital logic emulation, and 
 ## Parameters
 
 - **Threshold**: The input value above which the neuron fires (i.e., switches to the upper bound).
-- **Bias**: Optional bias added to the neuron, though not used directly in the threshold computation in this implementation.
 
 For all other parameters, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

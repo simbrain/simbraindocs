@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 190
 ---
 
 # Sinusoidal
 
-The **Sinusoidal** rule generates an oscillating signal based on a sine wave. It is used as an **activity generator**, not driven by input but producing rhythmic output over time. This is useful in simulations involving rhythmic inputs, periodic behavior, or neural oscillations.
+The Sinusoidal rule generates an oscillating signal based on a sine wave. It is used as an activity generator, not driven by input but producing rhythmic output over time. This is useful in simulations involving rhythmic inputs, periodic behavior, or neural oscillations.
 
 At each time step, the neuron's activation is updated by:
 

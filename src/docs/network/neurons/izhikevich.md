@@ -4,7 +4,6 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 100
 ---
 
 # Izhikevich Neuron
@@ -17,12 +16,12 @@ The variables $$u$$ and $$v$$ are governed by these differential equations:
 
 $$
 \begin{align*}
-\dot{v} &= .004 v^2 + 5v + 140 - u + I + n) \\[2mm]
+\dot{v} &= .04 v^2 + 5v + 140 - u + I \\[2mm]
 \dot{u} &= a(bv - u) \\
 \end{align*}
 $$
 
-Where $$n$$ is the net input from other neurons. The other parameters are described below. Whenever $$v \geq v_{peak}$$ a spike occurs and the voltage and recovery variable are reset:
+Where $$I$$ is the total input (net input from other neurons plus background current). The other parameters are described below. Whenever $$v \geq v_{peak}$$ a spike occurs and the voltage and recovery variable are reset:
 
 $$
 \begin{align*}

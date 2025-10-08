@@ -4,7 +4,7 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 230
+published: false
 ---
 
 # Timed Accumulator Neuron Model

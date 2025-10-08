@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 170
 ---
 
 # Random
 
-The **Random** rule is an activity generator that assigns a new random activation value to the neuron at each time step. Values are sampled from a specified probability distribution, typically uniform by default. This rule is useful for producing stochastic inputs or modeling spontaneous fluctuations in neural activity.
+The Random rule is an activity generator that assigns a new random activation value to the neuron at each time step. Values are sampled from a specified probability distribution, typically uniform by default. This rule is useful for producing stochastic inputs or modeling spontaneous fluctuations in neural activity.
 
 At each step:
 

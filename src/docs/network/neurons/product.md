@@ -4,12 +4,11 @@ layout: default
 grand_parent: Networks
 parent: Neurons
 has_children: false
-nav_order: 160
 ---
 
 # Product
 
-The **Product** rule computes a neuron's activation as the product of its inputs. This type of multiplicative interaction is used in certain neural architectures, including **Sigma-Pi** and **Long Short-Term Memory** (LSTM) networks.
+The Product rule computes a neuron's activation as the product of its inputs. This type of multiplicative interaction is used in certain neural architectures, including Sigma-Pi and Long Short-Term Memory (LSTM) networks.
 
 The update equation depends on whether weights are used:
 
