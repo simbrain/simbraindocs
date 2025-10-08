@@ -53,11 +53,11 @@ Pfister, J-P, and Gerstner, W. "Triplets of Spikes in a Model of Spike Timing-De
 
 # Parameters
 
-- **Tau+**: Decay rate for $$r_1$$ trace, $$\tau_+$$.
-- **Tau x**: Decay rate for $$r_2$$ trace, $$\tau_x$$.
-- **Tau-**: Decay rate for $$o_1$$ trace, $$\tau_-$$.
-- **Tau y**: Decay rate for $$o_2$$ trace, $$\tau_y$$.
-- **A2+**: Amplitude of weight change for a pre-post spike pair.
-- **A2-**: Amplitude of weight change for a post-pre spike pair.
-- **A3+**: Amplitude of triplet term for potentiation.
-- **A3-**: Amplitude of triplet term for depression.
+- **Tau+**: Decay rate for $$r_1$$ trace (range: 1 to 100)
+- **Tau x**: Decay rate for $$r_2$$ trace (range: 1 to 100)
+- **Tau-**: Decay rate for $$o_1$$ trace (range: 1 to 100)
+- **Tau y**: Decay rate for $$o_2$$ trace (range: 1 to 100)
+- **A2+**: Amplitude of weight change for a pre-post spike pair (range: 0 to 0.1)
+- **A2-**: Amplitude of weight change for a post-pre spike pair (range: 0 to 0.1)
+- **A3+**: Amplitude of triplet term for potentiation (range: 0 to 0.1)
+- **A3-**: Amplitude of triplet term for depression (range: 0 to 0.1)

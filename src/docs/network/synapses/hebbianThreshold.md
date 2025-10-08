@@ -22,8 +22,8 @@ $$
 \Delta w = \text{learningRate} \cdot \text{input} \cdot \text{output} \cdot (\text{output} - \text{outputThreshold})
 $$
 
-# Preferences
-- **Learning rate**: Learning rate for Hebb threshold rule.
-- **Threshold**: Output threshold for Hebb threshold rule.
-- **Threshold momentum**: Amount the output threshold can adapt at each step.
-- **Sliding threshold**: Use sliding output threshold for Hebb threshold rule.
+# Parameters
+- **Learning rate**: Learning rate for Hebb threshold rule
+- **Threshold**: Output threshold for Hebb threshold rule
+- **Threshold Momentum**: Amount the output threshold can adapt at each step
+- **Sliding Threshold**: Use sliding output threshold for Hebb threshold rule

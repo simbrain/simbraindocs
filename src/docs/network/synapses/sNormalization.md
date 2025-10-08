@@ -28,6 +28,6 @@ See Peter Dayan and Larry Abbott, *Theoretical Neuroscience*, Cambridge, MA: MIT
 
 Also see K. Miller and D. MacKay, "The Role of Constraints in Hebbian Learning", *Neural Computation* 6, 120-126 (1994).
 
-## Learning Rate
+# Parameters
 
-The learning rate $$\eta$$ scales how quickly the synapse adjusts its strength based on the activity difference. It affects both the Hebbian term and the subtractive normalization term. A value of 0 disables learning.
+- **Learning rate**: The learning rate $$\eta$$ scales how quickly the synapse adjusts its strength based on the activity difference. It affects both the Hebbian term and the subtractive normalization term. A value of 0 disables learning

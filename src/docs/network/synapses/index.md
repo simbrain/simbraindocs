@@ -29,23 +29,24 @@ Free synapses are represented by colored semicircles at the ends of these lines.
 
 These are properties common to all synapses, regardless of type. All of them have some reflection in the GUI interface, but some of them only matter to the GUI interface (e.g., increment). For some synapses, upper bound and lower bound do not have a significant role other than to limit how large the graphical representation of the synapse can be.
 
-- **Strength**. The strength is how "strong" this synapse is. This is represented by the size of the weight. Once a synapse has been selected, strength can be incremented by the up and down arrows or can be randomized.
-- **Enabled / Disabled**. An enabled synapse operates as usual, transmitting information from a source neuron to a target neuron. If disabled, the synapse will no longer do this. Functionally, the synapse does not exist.
-- **Frozen / Unfrozen**. If frozen, a synapse's strength will not be changed by learning. Local synapse update rules won't be called when the network is updated, and supervised learning is also prevented from adjusting synapses. Compare **clamping** in neurons. **Note:** However, a frozen synapse's strength can still be set externally, via the keyboard and input tables.
-- **Upper Bound**. This field plays different roles depending on the type of the synapse, but in general, it determines the maximum strength of a weight. It also determines the range of colors which a neuron can take on. This, along with the lower bound field, determines the bounds of randomization.
-- **Lower Bound**. This field, like the upper bound, plays different roles depending on the type of the synapse, but in general, it determines the minimum strength of a weight. It also determines the range of colors which a neuron can take on. This, along with the upper bound, determines the bounds of randomization.
-- **Increment**. The increment field sets the amount that a synapse is incremented when it is manually adjusted. For example, if increment is set to .1, then each time the up arrow is pressed the synapse will increase its strength by .1.
-- **Delay**. A positive integer that delays how many iterations, or time-steps, must occur before the pre-synaptic signal, or the activation of the pre-synaptic neuron, is delivered.
+- **Strength**: The strength is how "strong" this synapse is. This is represented by the size of the weight. Once a synapse has been selected, strength can be incremented by the up and down arrows or can be randomized.
+- **Learning Rule**: Rule which determines how synapse strength changes, usually based on the neurons it is connected to. See individual [learning rule pages](index) for details on specific rules.
+- **Spike Responder**: How this synapse responds when the presynaptic neuron (which must be spiking) spikes. See [spike responders](../spikeresponders) for details.
+- **Enabled**: An enabled synapse operates as usual, transmitting information from a source neuron to a target neuron. If disabled, the synapse will no longer do this. Functionally, the synapse does not exist.
+- **Clamped**: If clamped, a synapse's strength will not be changed by learning. Local synapse update rules won't be called when the network is updated, and supervised learning is also prevented from adjusting synapses. Compare clamping in neurons. However, a clamped synapse's strength can still be set externally, via the keyboard and input tables.
+- **Increment**: The increment field sets the amount that a synapse is incremented when it is manually adjusted. For example, if increment is set to .1, then each time the up arrow is pressed the synapse will increase its strength by .1 (range: 0 and up).
+- **Upper Bound**: This field plays different roles depending on the type of the synapse, but in general, it determines the maximum strength of a weight. It also determines the range of colors which a neuron can take on. This, along with the lower bound field, determines the bounds of randomization (range: 0 and up).
+- **Lower Bound**: This field, like the upper bound, plays different roles depending on the type of the synapse, but in general, it determines the minimum strength of a weight. It also determines the range of colors which a neuron can take on. This, along with the upper bound, determines the bounds of randomization (range: 0 and down).
+- **Delay**: A positive integer that delays how many iterations, or time-steps, must occur before the pre-synaptic signal, or the activation of the pre-synaptic neuron, is delivered (range: 0 and up).
 
 ## Quick Keyboard Adjustment of Synapse Properties
 
 By [selecting](../buildingBasics#selecting-objects) a set of weights (e.g., by pressing "w", or by lassoing over a group of lines) and pressing certain buttons, those weights' properties can quickly be adjusted.
 
-- **Increment / Decrement**. Press the up and down buttons to adjust synapse strengths. If the up key is pressed, the `increment` amount of a given synapse is added to the current strength. The size of the weight should be visibly changing. Similarly for the down key.
-- **Randomize**. Press the "r" key or the "dice" button on the toolbar to randomize all selected synapses.
-- **Clear**. Press `c` key or the "eraser" button on the tool
-bar to set the strengths of all selected synapses to 0. This also clears the delay queue.
-- **Hard Clear**: Press `Shift-c` to "hard clear" a set of weights, forcing them to be 0.
+- **Increment / Decrement**: Press the up and down buttons to adjust synapse strengths. If the up key is pressed, the `increment` amount of a given synapse is added to the current strength. The size of the weight should be visibly changing. Similarly for the down key.
+- **Randomize**: Press the `r` key or the "dice" button on the toolbar to randomize all selected synapses.
+- **Clear**: Press `c` key or the "eraser" button on the toolbar to clear the post-synaptic response (psr) and delay queue of all selected synapses. This does NOT set synapse strengths to 0.
+- **Hard Clear**: Press `Shift-c` to "hard clear" selected synapses, which clears the psr and delay queue AND sets the strengths to 0.
 
 ## Synapse Dialog / Editing Synapses
 
