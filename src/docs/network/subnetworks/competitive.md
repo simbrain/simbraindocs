@@ -9,9 +9,9 @@ nav_order: 30
 
 # Competitive Network
 
-A **competitive** network is a collection of neurons that compete with each other to represent clusters of inputs. With training, the nodes of a competitive network should come to represent a particular cluster of inputs.
+A competitive network is a collection of neurons that compete with each other to represent clusters of inputs. With training, the nodes of a competitive network come to represent particular clusters of inputs, making them useful for unsupervised learning and pattern classification.
 
-The competitive network combines elements of **winner take all networks** and Hebbian learning. The **self-organizing-map** is a generalization of this algorithm.
+The competitive network combines elements of winner-take-all dynamics and Hebbian learning. The [self-organizing map](selfOrganizingMap) is a spatial generalization of this algorithm.
 
 <!-- TODO: Add image -->
 
@@ -29,7 +29,7 @@ $$
 \Delta w = \epsilon \left( \frac{a_i}{\sum a_{inputs}} - w_{ij} \right)
 $$
 
-   $$\epsilon$$ is a learning rate. $$S_{inputs}$$ is the sum of all the inputs to the unit, and $$a_i$$ is an input neuron's activation. This algorithm has the result that the winning unit's weights come over time to resemble the input vector that led that unit to win. The learning rate controls how quickly this happens.
+where $$ \epsilon $$ is a learning rate, $$ \sum a_{inputs} $$ is the sum of all the inputs to the unit, and $$ a_i $$ is an input neuron's activation. This algorithm has the result that the winning unit's weights come over time to resemble the input vector that led that unit to win. The learning rate controls how quickly this happens.
 
 The division by the sum of inputs maintains the normalization of the weight vectors. Thus, if more strength is added to one weight, it is taken away from another.
 
@@ -41,36 +41,37 @@ A variant of the competitive learning algorithm called "leaky learning" requires
 
 ## Creation / Editing
 
-Properties inherited from neuron group are described on the **neuron group** page.
+When creating a competitive network, you specify:
 
-- **Number of Competitive Neurons:** Sets the number of neurons for the group.
-- **Number of Input Neurons:** Sets number of input neurons.
-- **Update Method: Rummelhart-Zipser:** The Rummelhart-Zipser method described above.
-- **Update Method: Alvarez-Squire:** The Alvarez-Squire method described in the link below in references.
-- **Epsilon:** A standard learning rate, which determines how quickly synapses change.
-- **Winner Value:** The value for the winning neuron.
-- **Loser Value:** The value for all losing neurons.
-- **Use Leaky Learning:** Whether to use the leaky learning rule. Leaky learning requires all weights to learn, not just the weights attaching to the winning unit.
-- **Leaky epsilon:** The learning rate for losing neurons, when leaky learning is used.
-- **Normalize Inputs:** If selected, inputs are normalized prior to being used in setting weights.
-- **Synapse Decay Percent:** Amount to decay incoming synapses at every iteration. Cf. the Alvarez-Squire paper.
-- **Layout:** See the **layouts** page.
+- **Number of inputs:** Number of input neurons.
+- **Number of competitive neurons:** Number of neurons in the competitive layer.
+
+The competitive group has these parameters:
+
+- **Update method:** Select either Rummelhart-Zipser or Alvarez-Squire.
+- **Learning rate:** Determines how quickly synapses change during training.
+- **Winner Value:** The activation value for the winning neuron.
+- **Lose Value:** The activation value for all losing neurons.
+- **Normalize inputs:** If enabled, inputs are normalized prior to being used in weight updates.
+- **Use Leaky learning:** If enabled, all weights learn on each time step, not just the weights attaching to the winning unit.
+- **Leaky learning rate:** The learning rate for losing neurons when leaky learning is enabled. Only available when Use Leaky learning is enabled.
+- **Decay percent:** Amount to decay incoming synapses at every iteration. Only used with the Alvarez-Squire update method.
+- **Layout:** See the [layouts](../layouts) page.
 
 ## Right Click Menu
 
-Generic right-click items are described on the **neuron group** page.
+Common right-click items are described on the [subnetwork](.) page.
 
-- **Edit/Train Competitive:** Opens edit dialog to edit and train the competitive network.
-- **Add Current Pattern To Input Data:** Adds the current pattern in the input nodes of the network to the network's input table (viewable in the **training dialog**). Useful for creating a training set for a competitive network using GUI activations or activations from a larger simulation.
+- **Edit / Train Competitive:** Opens the training dialog to edit and train the competitive network.
 - **Train On Current Pattern:** Iterate the training algorithm once using the current inputs.
-- **Randomize Synapses:** Randomize synapses connected to the competitive group, which are the ones trained using the algorithm.
+- **Randomize:** Randomize synapses connected to the competitive group.
 
 ## Training
 
-Training a network involves specifying input data and then running the algorithm. This process is covered **here**.
+Training a competitive network involves specifying input data and then running the algorithm. The general process is covered in [Training Networks](../trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
 
 ## References
 
-The Rummelhart and Zipser update rules is described **here**. Also see the PDP volumes, volume 1, chapter 5.
+The Rumelhart and Zipser update rule is described in [this PDP handbook chapter](https://web.stanford.edu/group/pdplab/pdphandbook/handbookch7.html). Also see the PDP volumes, volume 1, chapter 5.
 
-The Alvarez and Squire version of the algorithm is described in **this PNAS** paper.
+The Alvarez and Squire version of the algorithm is described in [this PNAS paper](http://www.pnas.org/content/91/15/7041.full.pdf).

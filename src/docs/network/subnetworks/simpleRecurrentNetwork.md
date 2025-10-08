@@ -9,9 +9,9 @@ nav_order: 80
 
 # Simple Recurrent Network
 
-An Simple Recurrent Network (SRN) or "[Elman Network](https://en.wikipedia.org/wiki/Recurrent_neural_network#Elman_network)" is a kind of recurrent network. They are useful for discovering patterns in temporally extended data. They are variants on a [backprop network](backprop) trained to associate inputs together with a memory of the last hidden layer state with output states. In this way, for example, the network can predict what item will occur next in a stream of patterns. 
+A Simple Recurrent Network (SRN) or [Elman Network](https://en.wikipedia.org/wiki/Recurrent_neural_network#Elman_network) is a type of recurrent network useful for discovering patterns in temporally extended data. They are variants on a [backprop network](backprop) that include a context layer maintaining a memory of the previous hidden layer state. This memory allows the network to learn temporal dependencies and predict what item will occur next in a sequence of patterns.
 
-To see an SRN in action see `Language Models > Next Word Prediction` or `Backprop > XOR in Time`. Or just create the default SRN using `Insert > Add subnetwork > SRN`.  The default network is preloaded with a dataset that associates each pattern with a shifted version of it. If you make this network, [train it](/docs/network/trainingNetworks.html), and then test it, you should see the input move to the right and the output be a prediction of what the next input will be.
+To see an SRN in action, try the Language Models > Next Word Prediction or Backprop > XOR in Time simulations. Or create the default SRN using Insert > Add subnetwork > SRN (simple recurrent network). The default network is preloaded with a dataset that associates each pattern with a shifted version of it. If you train this network and then test it, you should see the input move to the right and the output predict what the next input will be.
 
 <img src="/assets/images/srn.png" alt="SRN" style="width:400px;"/>
 
@@ -21,19 +21,22 @@ According to [this site](https://web.stanford.edu/group/pdplab/pdphandbook/handb
 
 ## Training
 
-Training a network involves specifying input data, target data, and then running the algorithm. The overall method is the same as with backprop networks. However, there is an important difference with SRNs. It is assumed that a given input to an SRN will occur *after* previous patterns have occurred. For example, in the "srn_temporalXOR.zip" workspace, a network has been trained to perform a **logical exclusive or** in time. So an input of 1 after a 0 should produce a 1. But the same input of 1 after another 1 should produce a 0.
+Training an SRN involves specifying input data, target data, and then running the backpropagation algorithm. The general process is covered in [Training Networks](../trainingNetworks#supervised-learning). Double-click the interaction box to open the training dialog. 
+
+The key difference from standard backprop networks is that SRNs process temporal sequences. A given input to an SRN occurs after previous patterns, and the context layer maintains a memory of the previous hidden layer state. For example, in the srn_temporalXOR.zip workspace, a network has been trained to perform a logical exclusive or in time. An input of 1 after a 0 should produce a 1, but the same input of 1 after another 1 should produce a 0. The network learns to use the context layer to remember what came before.
 
 ## Creation Dialog
 
-- **Number of Input Nodes:** Number of input nodes.
-- **Number of Hidden Nodes:** Number of hidden nodes (also number of nodes in context layer).
-- **Number of Output Nodes:** Desired number of output nodes.
-- **Hidden / Output Neuron Type:** Set hidden neuron to desired type. Some variant on a **discrete sigmoidal** neuron.
+When creating an SRN network, you specify:
+
+- **Number of inputs:** Number of input nodes.
+- **Number of hidden:** Number of hidden nodes (also determines the number of nodes in the context layer, which is the same size).
+- **Number of outputs:** Desired number of output nodes.
+
+By default, hidden and output layers use [sigmoidal](../neurons/sigmoidal) neurons, while the input and context layers use [linear](../neurons/linear) neurons. The context layer is initialized with activations of 0.5.
 
 ## Right Click Menu
 
-Generic right-click items are described on the [subnetwork](index) page.
+Common right-click items are described on the [subnetwork](.) page.
 
-- **Edit/Train SRN:** Open edit dialog to train SRN network.
-- **Clear SRN:** Clear all activation and set hidden unit nodes to 0.5, as is sometimes suggested for good performance.
-- **View/Edit Data:** View and edit training set data (input data and target data).
+- **Edit / Train SRN:** Opens the training dialog to train the SRN network.

@@ -11,67 +11,41 @@ nav_order: 60
 
 <!-- TODO: Add image. Discuss how continuous hopfield is implemented. -->
 
-A discrete [Hopfield network](http://www.scholarpedia.org/article/Hopfield_network) is a collection of **binary neurons** that are recurrently connected to each other. They are useful in pattern completion tasks: a Hopfield network stores a number of "memories" (e.g., the network shown stores the letter "Z") and can retrieve these memories from partial patterns. They illustrate the concept of an attractor. Each memory is an attractor and a partial cue for that memory is an initial condition. The system can also be understood as going to a minimum on an energy landscape; when recalling patterns you can observe energy value reducing, often to lower and lower negative numbers.
+A discrete [Hopfield network](http://www.scholarpedia.org/article/Hopfield_network) is a collection of binary neurons that are recurrently connected to each other. They are useful in pattern completion tasks: a Hopfield network stores a number of memories (for example, patterns representing letters) and can retrieve these memories from partial patterns. They illustrate the concept of an attractor. Each memory is an attractor and a partial cue for that memory is an initial condition. The system can also be understood as minimizing an energy function; the network's energy value decreases as it settles into stored patterns.
 
-To get a feel for how a Hopfield network works, run one the Hopfield simulations and follow the included directions.
+To get a feel for how a Hopfield network works, try the Hopfield simulation in the simulations folder.
 
-Note that the network only takes binary patterns. These are converted to bipolar (-1,1) before a Hebbian learning is applied.
+The network uses binary patterns (0,1) which are converted to bipolar (-1,1) before Hebbian learning is applied. The interaction box displays the current energy value of the network.
 
 ## Creation / Editing
 
-Hopfield networks are initialized with some number of units and are by default laid out as a grid. They are fully interconnected with no self-connections.
+When creating a Hopfield network, you specify:
 
-### Number of Neurons
+- **Number of neurons:** The number of neurons in the network. Neurons are laid out as a grid by default.
 
-Set the desired number of neurons in this field.
+The network is fully interconnected with no self-connections. Hopfield networks have these parameters:
 
-### Update Order
-
-This can be set to random or sequential. If set to random, the neurons are updated in random order. This is the standard assumption of Hopfield networks. If sequential is used, neurons are updated in the same sequence each time, making it possible to reproduce chains of behavior.
-
-### By Priority (Only for sequential)
-
-Use neuron **priority** fields when updating sequentially.
-
-### Shuffle Order (Only for sequential)
-
-Shuffle the order of the sequential update.
+- **Update function:** Determines how neurons are updated. Three options:
+  - **Synchronous:** All neurons update simultaneously. Does not depend on update order but can produce oscillations.
+  - **Sequential:** Neurons update one at a time in a fixed sequence. More stable than synchronous.
+  - **Stochastic:** A single randomly chosen neuron is updated on each iteration. This is the traditional Hopfield approach and relates to Boltzmann machines.
+- **Learning rate:** Controls how quickly the network learns new patterns when training.
 
 ## Training
 
-To train a Hopfield network, double-click on the interaction box, load training data using the input data tab of the **training dialog**, and then press the play button.
+The general training process is covered in [Training Networks](../trainingNetworks#unsupervised-learning). To train a Hopfield network, double-click on the interaction box to open the training dialog.
+
+The network learns patterns using Hebbian learning. Binary patterns (0,1) are converted to bipolar (-1,1) before learning is applied. During training and recall, observe the energy value in the interaction box, which decreases as the network settles into stored patterns.
 
 ## Right Click Menu
 
-### Update Order
+Common right-click items are described on the [subnetwork](.) page.
 
-This can be set to random or sequential. If set to random, the neurons are updated in random order. This is the standard assumption of Hopfield networks. If sequential is used, neurons are updated in the same sequence each time, making it possible to reproduce chains of behavior. Three cases:
-
-1. **Synchronous** does not depend on the order in which nodes are updated but sometimes produces oscillations.
-2. **Sequential** is more stable. Nodes are updated one at a time and order matters. More stable than synchronous. Can either use the priority of the nodes for update order or a random order (randomize once at initialization and use this order every time).
-3. **Random**: Nodes are updated in random order. This was important in the history of Hopfield networks and is related to Boltzmann machines.
-
-### Add Current Pattern To Input Data
-
-Add the current pattern in the network to the training set. Useful for creating training data directly in the GUI.
-
-### Randomize Synapses Symmetrically
-
-Randomize the synaptic weights symmetrically.
-
-### Set Weights To Zero
-
-Set all synaptic strengths to zero.
-
-### Edit/Train Hopfield
-
-Open the edit/train dialog.
-
-### Train on Current Pattern
-
-Train the Hopfield network using the Hebb rule to learn the current pattern of activity across its nodes.
+- **Edit / Train Hopfield:** Opens the training dialog to edit and train the Hopfield network.
+- **Train On Current Pattern:** Train the Hopfield network using the Hebbian rule to learn the current pattern of activity.
+- **Randomize:** Randomize the synaptic weights symmetrically.
 
 ## Continuous Hopfield Networks
 
-To create a continuous Hopfield network, use a set of **Additive neurons** in a standard network. These can be connected appropriately and trained by using **Hebbian synapses**. The user then clamps all neurons, iterates to train the synapses, then clamps all weights. On clamping, see **toolbar**.
+To create a continuous Hopfield network, use a set of [Additive neurons](../neurons/additive) in a standard network. These can be connected appropriately and trained by using [Hebbian synapses](../synapses/hebbian). The user then clamps all neurons, iterates to train the synapses, then clamps all weights. On clamping, see the [toolbar documentation](../../workspace/toolbars).
 

@@ -9,11 +9,11 @@ nav_order: 70
 
 # Self-Organizing Map
 
-A self-organizing map or SOM is a kind of **competitive network**, which over time is tuned to represent the structure of a set of inputs. For example, an SOM exposed to a dataset consisting of different smells will learn to distinguish those smells over time. Moreover, the positions of the nodes in the SOM are significant: nearby nodes come to represent similar inputs. In a smell network, one group of neighboring nodes might come to represent different cheese smells, while another group might come to represent different flower smells. To get a feel for how SOM's work try the workspaces called "somLetters.zip" and "somSmells.zip".
+A self-organizing map (SOM) is a type of [competitive network](competitive) that learns to represent the structure of input data in a spatially organized way. Over time, the SOM's neurons become tuned to different patterns in the input, and importantly, nearby neurons in the SOM respond to similar inputs. For example, an SOM trained on different smells might develop one region that responds to cheese smells and another region that responds to flower smells. To get a feel for how SOMs work, try the somLetters.zip and somSmells.zip workspaces in the simulations folder.
 
 <!-- TODO: Add image -->
 
-An SOM may either be created as a group or a network. As a network, it has a self-contained layer of input nodes and it can be trained using a table of inputs. As a group, it is up to the user to connect it to other neurons, and the inputs these produce will determine the way it comes to represent those inputs over time.
+An SOM network includes a self-contained layer of input nodes and a SOM group, and can be trained using a table of inputs. The SOM neurons are arranged in a spatial layout (typically a grid) where position matters for the learning algorithm.
 
 ## Algorithm
 
@@ -24,24 +24,24 @@ The following algorithm is run on each iteration of a SOM network.
 <!-- TODO: Equations need to be fixed -->
 
 1. Determine the SOM neuron which is closest to the input vector by computing the following for each SOM neuron:
-   $$
-   d(i,j) = \sum_i (w_{ij} - x_j)^2
-   $$
-   Where $$ i $$ and $$ j $$ are the dimensions of the weight matrix $$ w $$, and $$ x $$ is the input vector.
+
+$$
+d(i,j) = \sum_i (w_{ij} - x_j)^2
+$$
+
+where $$ i $$ and $$ j $$ are the dimensions of the weight matrix $$ w $$, and $$ x $$ is the input vector.
 
 2. Update the winning neuron and the neurons in its update neighborhood:
-   $$
-   w_i(t+1) = w_i(t) + \alpha(t)(x - w_i(t))
-   $$
-   Where $$ \alpha $$ is the current learning rate.
+
+$$
+w_i(t+1) = w_i(t) + \alpha(t)(x - w_i(t))
+$$
+
+where $$ \alpha $$ is the current learning rate.
 
 3. Diminish learning rate and neighborhood size.
 
 The effect of the algorithm is such that the SOM neurons that remain are characteristic of the trends of input patterns.
-
-## Training
-
-Training a network involves specifying a set of input data and then running the algorithm. This will repeatedly apply the SOM algorithm. The general process is covered **here**. The decreasing learning rate and neighborhood size are shown in the interaction box. Occasionally it may be useful to reset the network to try training it again, possibly with modified parameters.
 
 ## Creation
 
@@ -49,25 +49,31 @@ SOMs are initialized by specifying a number of neurons and a layout for those ne
 
 Input vectors are activations of neurons connecting to the SOM network, and should be fully connected to the SOM network.
 
-The synapses should be either small or sampled evenly from the subspace spanned by the two largest **principal component** eigenvectors.
+The synapses should be either small or sampled evenly from the subspace spanned by the two largest principal component eigenvectors.
 
 <!-- TODO: Add image -->
 
-## Training the SOM
+## Training
 
-When used as a group only, or when linked to external networks or sources of data, those inputs train the network, and it is only up to the user to occasionally reset the parameters and the network.
+Training an SOM network involves specifying a set of input data and then running the algorithm. The general process is covered in [Training Networks](../trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
 
-When the **training dialog** is used, inputs can be specified in the input tab, and then the play button pressed until the learning rate and neighborhood size go to 0. Parameters controlling the rate at which these decay can be adjusted and learning re-run to try to achieve a desired result.
+The SOM learns by repeatedly finding the winning neuron (closest to each input) and updating weights in a neighborhood around the winner. Over time, the learning rate and neighborhood size decrease to zero, allowing the map to stabilize. The decreasing learning rate and neighborhood size are shown in the interaction box. Use Reset SOM Network from the right-click menu to restart training from initial parameter values with possibly modified parameters.
 
-## Parameters
+## Creation Parameters
 
-- **Number of SOM Neurons:** Sets number of neurons for the network.
-- **Number of Input Neurons:** Sets the number of input neurons.
-- **Initial Learning Rate:** The base learning rate from which all future learning rates are derived. Usually not equal to zero.
-- **Initial Neighborhood Size:** The base neighborhood size from which all future neighborhood sizes are derived.
-- **Learning Decay Rate:** The proportion by which the learning rate is decreased after each iteration.
-- **Neighborhood Decay Amount:** The amount that neighborhood size decreases after each iteration.
-- **Update Interval:** This is the interval that the learning decay rate and neighborhood decay amount is updated. In most cases, this is equal to the total amount of input vectors.
+When creating an SOM network, you specify:
+
+- **Number of som neurons:** Number of neurons in the SOM layer. These are laid out in a spatial grid.
+- **Number of inputs:** Number of input neurons that will be fully connected to the SOM layer.
+
+## SOM Parameters
+
+The SOM group has these learning parameters:
+
+- **Initial learning rate:** The starting learning rate from which all future learning rates are derived. This decreases over time during training.
+- **Initial Neighborhood size:** The starting radius around the winning neuron within which learning takes place. This decreases over time during training.
+- **Learning decay rate:** The rate at which the learning rate decreases after each iteration.
+- **Neighborhood decay rate:** The amount that the neighborhood size decreases after each iteration.
 
 ## Recall
 
@@ -75,12 +81,13 @@ Displays the weights attaching to the most active SOM neuron in the pool of inpu
 
 ## Right Click Menu
 
-Generic right-click items are described on the **neuron group** page.
+Common right-click items are described on the [subnetwork](.) page.
 
-- **Edit/Train SOM:** Opens edit dialog to train SOM network.
-- **Add Current Pattern To Input Data:** Add the current pattern in the network to the training set. Useful for creating training data directly in the GUI.
+- **Edit / Train SOM:** Opens the training dialog to train the SOM network.
 - **Train On Current Pattern:** Iterate the training algorithm once using the current inputs.
-- **Randomize Synapses:** Randomize synapses connected to the competitive group, which are the ones trained using the algorithm.
+- **Randomize:** Randomize synapses connected to the SOM group.
+- **Reset SOM Network:** Reset the learning rate and neighborhood size to their initial values.
+- **Recall SOM Memory:** Set the input layer activations to match the weights of the most active SOM neuron.
 
 ## References
 

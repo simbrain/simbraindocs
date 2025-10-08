@@ -15,23 +15,23 @@ Of course it could also be used just to study the machine learning stuff on its 
 
 The classifier object is a Simbrain front end to a machine learning library, [Smile](https://haifengl.github.io/classification.html) that allows standard [machine learning](https://en.wikipedia.org/wiki/Machine_learning) tools to be interfaced with other Simbrain components. It uses ideas and concepts from the Simbrain GUI to make it easy to use these components. However, these are not neural network implementations.
 
-To get a feel for classifers see the simulations in `simulations > machine learning`
+To get a feel for classifiers see the simulations in `simulations > machine learning`
 
 Three types of classifier are supported: Support Vector Machines, Logistic Regression, and K Nearest Neighbors.
 
-Each classifier is trained on a set of input-target pairs, where the inputs are features vectors and targets are sets of class labels. The classifier can then be used to assign class labels to new input patterns. Each class label is associated with one of the output neurons. Usually only one output is active for any input (one-hot, winner-take all)
+Each classifier is trained on a set of input-target pairs, where the inputs are feature vectors and targets are sets of class labels. The classifier can then be used to assign class labels to new input patterns. Each class label is associated with one of the output neurons. Usually only one output is active for any input (one-hot, winner-take-all).
 
-The classifier is implemented as a [subnetwork](index.html), with:
+The classifier is implemented as a [subnetwork](.), with:
 
-- An **input layer**, consisting of a set neurons. Input vectors are sometimes called "feature vectors" in machine learning.
-- An **output layer**, with one neuron for each possible class. 
+- An input layer, consisting of a set neurons. Input vectors are sometimes called "feature vectors" in machine learning.
+- An output layer, with one neuron for each possible class. 
 
 
 <img src="/assets/images/SVMClassifer.png" alt="SVM Classifier in Simbrain" style="width:300px;"/>
 
 Note that the arrow between the input and output layer _cannot_ be clicked on, which is different from [weight matrices](../arraysMatrices) and [synapse groups](../synapsegroups), which allow weights to be edited. In the image above note that there is no interaction box on the arrow from the input to the output layer. Machine learning algorithms like these don't use weights directly, but apply mathematical and statistical techniques directly.
 
-Classifers are first-class components of Simbrain that can interact with other Simbrain components. Because inputs and outputs are just [neuron groups](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
+Classifiers are first-class components of Simbrain that can interact with other Simbrain components. Because inputs and outputs are just [neuron groups](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
 
 # Training and Testing
 
@@ -41,20 +41,20 @@ Double clicking on a classifier's interaction box opens the training dialog, whi
 
 The training dialog includes:
 
-- **Classifier Properties**: Configuration panel for algorithm-specific parameters
-- **Training Statistics**: Real-time display of training performance metrics
-- **Testing Statistics**: Performance metrics on held-out testing data
-- **Training Data Panel**: Table view of input features and target classes
-- **Testing Data Panel**: Table view of testing dataset
+- Classifier Properties: Configuration panel for algorithm-specific parameters
+- Training Statistics: Real-time display of training performance metrics
+- Testing Statistics: Performance metrics on held-out testing data
+- Training Data Panel: Table view of input features and target classes
+- Testing Data Panel: Table view of testing dataset
 
 ## Data Management
 
 Training and testing data are displayed in interactive tables:
 
-- **Input Data**: Feature vectors shown as rows in the input table
-- **Target Data**: Class labels displayed with appropriate randomizers
-- **Class Naming**: Uses integer coding (Class 1, Class 2, etc.) for output neurons
-- **Data Editing**: Tables support adding, removing, and modifying training examples
+- Input Data: Feature vectors shown as rows in the input table
+- Target Data: Class labels displayed with appropriate randomizers
+- Class Naming: Uses integer coding (Class 1, Class 2, etc.) for output neurons
+- Data Editing: Tables support adding, removing, and modifying training examples
 
 ## Training Process
 
@@ -69,8 +69,8 @@ To train the classifier:
 
 Testing can be performed in two ways:
 
-- **Step through data**: Use the step button to test specific inputs from the testing table
-- **Live testing**: Send data to the input layer and update the workspace to see real-time classification
+- Step through data: Use the step button to test specific inputs from the testing table
+- Live testing: Send data to the input layer and update the workspace to see real-time classification
 
 The classifier can also be tested on new data simply by passing data to the input layer and updating the workspace. 
 
@@ -82,10 +82,10 @@ Right clicking on the interaction box and selecting `Visualize Classifier` opens
 
 The visualization plot shows:
 
-- **Training Data Points**: All training examples plotted and colored by class label
-- **Class Boundaries**: Visual representation of how the classifier separates different classes
-- **Real-time Testing**: New data passed through the classifier appears as differently colored dots
-- **Interactive Display**: Click and explore the data space to understand classification regions
+- Training Data Points: All training examples plotted and colored by class label
+- Class Boundaries: Visual representation of how the classifier separates different classes
+- Real-time Testing: New data passed through the classifier appears as differently colored dots
+- Interactive Display: Click and explore the data space to understand classification regions
 
 ## Troubleshooting Visualization Updates
 
@@ -114,9 +114,9 @@ SVM only supports two output classes. Internally, class labels are encoded using
 
 ## Parameters
 
-- **Polynomial Kernel Degree:** The degree of the structure used to separate the two classes.  When the degree is 1, the surface is linear. Higher degrees allow the model to capture more complex, nonlinear relationships between features, but also risk overfitting.
-- **Soft margin penalty (C):** A regularization parameter that controls the trade-off between maximizing the margin and correctly classifying training points. Larger values prioritize correct classification (resulting in a smaller margin and potential overfitting), while smaller values allow more misclassifications in order to achieve a larger margin and better generalization.
-- **Tolerance:** The stopping criterion for the optimization algorithm. Smaller values lead to more precise convergence but longer training times. Larger values result in faster training but less precise solutions.
+- **Polynomial Kernel Degree:** The degree of the polynomial kernel used to separate the two classes. When the degree is 1, the surface is linear. Higher degrees allow the model to capture more complex, nonlinear relationships between features, but also risk overfitting.
+- **Soft margin penalty parameter:** A regularization parameter that controls the trade-off between maximizing the margin and correctly classifying training points. Larger values prioritize correct classification (resulting in a smaller margin and potential overfitting), while smaller values allow more misclassifications in order to achieve a larger margin and better generalization.
+- **Tolerance of convergence test:** The stopping criterion for the optimization algorithm. Smaller values lead to more precise convergence but longer training times. Larger values result in faster training but less precise solutions.
 
 # Logistic Regression
 
@@ -125,7 +125,7 @@ The [logistic regression classifier](https://en.wikipedia.org/wiki/Logistic_regr
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Exam_pass_logistic_curve.svg" alt="logistic regression" style="width:300px;"/>
 
 
-Thus the raw output of logisic regression is a probability distribution, which can be shown in Simbrain, and which can often be useful to look out. The input is classified by selecting the class with the highest predicted probability.
+Thus the raw output of logistic regression is a probability distribution, which can be shown in Simbrain, and which can often be useful to look at. The input is classified by selecting the class with the highest predicted probability.
 
 ## Parameters
 
@@ -133,7 +133,7 @@ Thus the raw output of logisic regression is a probability distribution, which c
 
 ## K Nearest Neighbors (KNN)
 
-The [KNN Classifier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) assigns a class label to an input based on the most common label among the $$K$$ closest inputs in the training set. The idea is illusrated in this figure. The green dot corresponds to the current input or feature vector. The 3 nearest neighbors are found in the dataset (here $$K=3$$) and the green dot is classified with the triangles since most of the neighbors are triangles. 
+The [KNN Classifier](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) assigns a class label to an input based on the most common label among the $$ K $$ closest inputs in the training set. The idea is illustrated in this figure. The green dot corresponds to the current input or feature vector. The 3 nearest neighbors are found in the dataset (here $$ K=3 $$) and the green dot is classified with the triangles since most of the neighbors are triangles. 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/KnnClassification.svg" alt="KNN" style="width:300px;"/>
 
@@ -144,4 +144,11 @@ Note that the classifier does not need to be trained, it simply finds nearby poi
 ### Parameters
 
 - **K:** The number of nearest neighbors used for classification
+
+## Right Click Menu
+
+Common right-click items are described on the [subnetwork](.) page.
+
+- **Edit / Train Classifier:** Opens the training dialog to configure and train the classifier.
+- **Visualize Classifier:** Opens a projection plot showing training data points and classification boundaries.
 
