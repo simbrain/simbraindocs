@@ -7,22 +7,20 @@ has_children: false
 nav_order: 20
 ---
 
-This response function produces an instantaneous jump in the post-synaptic response equal to the *jump height*, followed by an exponential decay back to a *base-line* response at a rate which is proportional to the decay constant, *decay rate*.
+# Jump and Decay
+
+This response function produces an instantaneous jump in the post-synaptic response equal to the synaptic strength, followed by an exponential decay back to a baseline response at a rate proportional to the time constant.
 
 $$
-\large PSR(t)_{ij} = Jw_{ij}e ^ \left({\Delta_t} / {\tau} \right) + b
+\large PSR(t)_{ij} = w_{ij}e ^ \left({\Delta_t} / {\tau} \right) + b
 $$
 
-Where $$PSR(t)_{ij}$$ is the post-synaptic response of the synapse connecting neuron $$j$$ to $$i$$, $$w_{ij}$$ is the absolute efficacy or ``weight/strength'' of the synapse connecting neuron $$j$$ to neuron $$i$$, $$J$$ is the jump height, $$\Delta_t$$ is the difference between time of the last spike at neuron $$j$$ ($$t_0$$) and the current time ($$t_0 - t$$), $$\tau$$ is the decay time constant, and $$b$$ is the baseline value that $$PSR_{ij}$$ will decay to as $$e^\left(\Delta_t / \tau \right) \rightarrow 0$$.
+Where $$PSR(t)_{ij}$$ is the post-synaptic response of the synapse connecting neuron $$j$$ to $$i$$, $$w_{ij}$$ is the synaptic strength, $$\Delta_t$$ is the difference between time of the last spike at neuron $$j$$ and the current time, $$\tau$$ is the decay time constant, and $$b$$ is the baseline value that $$PSR_{ij}$$ decays to over time.
 
-## Jump Height
+All spike responders use the incoming synaptic strength as the jump height.
 
-This value is multiplied by the [strength](../../synapse.html#Strength) to determine the total instantaneous rise in a post-synaptic response to an action potential or spike.
+- **Base-Line**: The post-synaptic response value when no spikes have occurred. Alternatively, the post-synaptic response to which the spike responder decays over time.
 
-## Base-Line
+- **Time Constant**: Time constant of decay (ms). Roughly the time it takes to decay to near-baseline. Larger time constants produce slower decay.
 
-The post-synaptic response value when no spikes have occurred. Alternatively, the post-synaptic response to which the spike responder decays to over time.
-
-## Time Constant
-
-The time constant of decay and recovery (ms).
+- **Use Convolution**: If true the current spike response adds the PSR from the previous iteration, which smoothes out the response.

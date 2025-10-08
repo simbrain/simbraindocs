@@ -9,12 +9,8 @@ nav_order: 10
 
 # Step
 
-Before the spike, the step function persists at base-line value, 0. After the spike, the waveform's *response height* increases by a constant amount for a specific number of iterations or time-steps called the *response time*. After the *response time* has passed, the function returns to its base-line value.
+The step responder produces a simple, constant post-spike effect. Before a spike, the response is at baseline (0). After a spike, the response immediately jumps to the synaptic strength and remains constant for the specified response duration. After the response time has passed, the function returns to baseline.
 
-**Response Height**
+All spike responders use the incoming synaptic strength as the response height.
 
-The value by which the strength of the synapse is scaled to determine the post-synaptic response.
-
-**Response Time**
-
-The amount of time the post-synaptic response impinges on the post-synaptic cell.
+- **Response Time**: Response duration (ms). The amount of time the post-synaptic response remains at the maximum value before returning to baseline.

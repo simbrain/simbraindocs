@@ -5,6 +5,7 @@ grand_parent: Networks
 parent: Synapses
 has_children: false
 nav_order: 80
+published: false
 ---
 
 # Short Term Plasticity

@@ -9,12 +9,10 @@ nav_order: 30
 
 # Rise and Decay
 
-The response rises up to a maximum value, *maximum response*, and then decays back to a base-line value, 0, at a rate which is proportional to the *decay constant*. The global *time step* can be set when this function is selected.
+The response rises gradually to a maximum value proportional to the synaptic strength, and then decays back to baseline (0) at a rate proportional to the time constant. This responder models a slower, more gradual influence compared to jump and decay.
 
-**Maximum Response**
+All spike responders use the incoming synaptic strength as the jump height.
 
-Maximum response value.
+- **Time Constant**: Time constant for rising decay (ms). Roughly the time it takes to rise to max value then decay to near-baseline. Larger time constants produce slower changes.
 
-**Time Constant**
-
-The time constant of decay and recovery (ms).
+- **Recovery**: Internal state variable that tracks the recovery of the response. This variable is visible in the synapse property editor and can be monitored to understand the current state of the response.

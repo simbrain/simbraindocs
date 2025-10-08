@@ -23,6 +23,12 @@ To get a feel for how spike responders work try these simulations
 
 To open the property editor for a spike responder double click on the synapse. The [property editor](../utilities/propertyEditor) will contain a tab for setting its properties.
 
+## Common parameters
+
+All spike responders (except Non Responder) support the following optional parameter:
+
+- **Spike Probability**: When enabled, spikes only occur with the specified probability (0 to 1). This can model probabilistic synaptic transmission. By default this is disabled (probability = 1.0).
+
 ## More details
 
 In biological settings, when a spike arrives at a post-synaptic cell (the target neuron of the spiking neuron), a "wave" of activation is created. This is modeled using a "response function" which characterizes a synaptic current, the influx of chemicals into a target cell which occurs when vesicles are released from a source neuron. In more formal terms (most) spike responders perform a convolution of some function and the Dirac delta function representing spikes.
