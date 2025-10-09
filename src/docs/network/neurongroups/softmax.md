@@ -25,12 +25,12 @@ The exponentiation step increases the influence of larger input values, producin
 
 ## Parameters
 
-**Temperature**: a scaling parameter that controls how sharply peaked the softmax distribution is. 
-- When $$T=1$$ it is a default softmax function. 
-- When $$T>1$$ the softmax distribution becomes a more dispersed, "flatter" distribution, because more outcomes are possible. Think of a "hotter" more active system, doing slightly more random or reckless things. In classification tasks, this can be interpreted as less confidence about the classification. 
-- When $$0 < T< 1$$ the distribution becomes more predictable, and thus more sharply peaked. Think of a "cooler" distribution. In a classification task this can be interpreted as more confidence about the predictions.  
+- **Temperature**: A scaling parameter that controls how sharply peaked the softmax distribution is. 
+  - When $$T=1$$ it is a default softmax function. 
+  - When $$T>1$$ the softmax distribution becomes a more dispersed, "flatter" distribution, because more outcomes are possible. Think of a "hotter" more active system, doing slightly more random or reckless things. In classification tasks, this can be interpreted as less confidence about the classification. 
+  - When $$0 < T < 1$$ the distribution becomes more predictable, and thus more sharply peaked. Think of a "cooler" distribution. In a classification task this can be interpreted as more confidence about the predictions.  
 
- One application of temperature is to large language models, where turning the temperature up can encourage the system to produce less predictable responses and turning it down can lead it to rely more on its training data.
+One application of temperature is to large language models, where turning the temperature up can encourage the system to produce less predictable responses and turning it down can lead it to rely more on its training data.
 
 
 

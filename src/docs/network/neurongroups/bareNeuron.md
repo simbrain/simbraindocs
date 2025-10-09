@@ -9,7 +9,7 @@ nav_order: 20
 
 # Bare Neuron
 
-The **Bare Neuron** group is the simplest kind of neuron group in Simbrain. It is a basic collection of neurons, all sharing the same update rule (e.g., linear, sigmoidal, spiking). This group is ideal for constructing custom networks from the ground up without any specialized behavior like competition, softmax normalization, or spatial structure.
+The Bare Neuron group is the simplest kind of neuron group in Simbrain. It is a basic collection of neurons, all sharing the same update rule (e.g., linear, sigmoidal, spiking). This group is ideal for constructing custom networks from the ground up without any specialized behavior like competition, softmax normalization, or spatial structure.
 
 This group is essentially a wrapper around a list of neurons, providing convenience for group-level operations such as updating, layout, and rule assignment.
 

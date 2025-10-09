@@ -14,17 +14,27 @@ A neuron group is a logical grouping of neurons surrounded by a gray line and an
 
 ## Creation
 
-To create a neuron group, you can
+To create a neuron group:
 
-- use the `insert menu` and select `bare neuron group` 
-- use the `Insert > Add neurons...` command and select the checkbox to create a group. 
+- Use the `Insert` menu and select a neuron group type
+- Use `Insert > Add neurons...` and check the option to create a group
 
-For information on connecting neuron groups with synapse groups, see [the synapse group creation](SynapseGroup.html#synapseGroupCreation) documentation.
+When creating a group, you can specify the type from a dropdown menu that includes all available group types.
 
-Neuron groups can be linked by [Weight Matrices](../arraysMatrices) or [Synapse Groups](../synapsegroups):
+## Connecting Neuron Groups
 
-1) To link neuron groups with weight matrices, you  must use the [1-2 trick](../buildingBasics.html#source-and-target-objects).
-2) To link neuron groups with synapse groups you mus tuse the [1-3 trick](../buildingBasics.html#source-and-target-objects).
+Neuron groups can be connected using [Weight Matrices](../arraysMatrices) or [Synapse Groups](../synapsegroups):
+
+- **Weight Matrices**: Use the [1-2 trick](../buildingBasics.html#source-and-target-objects) to connect groups with matrix-based connections
+- **Synapse Groups**: Use the [1-3 trick](../buildingBasics.html#source-and-target-objects) to connect groups with individual synapse management
+
+## Common Parameters
+
+All neuron group types share these common parameters:
+
+- **Number of Neurons**: The number of neurons to create in the group (only visible during creation)
+
+Each specialized group type has additional parameters specific to its behavior. See the individual group type pages for details.
 
 
 # Neuron Collections vs Neuron Groups
@@ -35,9 +45,9 @@ Understanding the distinction between neuron collections and neuron groups is cr
 
 Neuron collections are lightweight assemblages of neurons with minimal structural constraints:
 
-**Creation**: Select neurons and press `Shift+G` or use the right-click menu
+Creation: Select neurons and press `Shift+G` or use the right-click menu
 
-**Characteristics**:
+Characteristics:
 - **Loose Associations**: Primarily for labeling and visual organization
 - **Overlap Support**: Can share neurons with other collections and groups
 - **Flexible Membership**: Neurons can belong to multiple collections simultaneously
@@ -45,7 +55,7 @@ Neuron collections are lightweight assemblages of neurons with minimal structura
 - **Non-destructive Deletion**: Removing a collection doesn't delete its neurons
 - **Green Interaction Box**: Visual distinction from neuron groups
 
-**Use Cases**:
+Use Cases:
 - Organizing neurons by functional role (e.g., "input layer", "hidden layer")
 - Creating overlapping functional groups for analysis
 - Temporary groupings for specific operations
@@ -55,9 +65,9 @@ Neuron collections are lightweight assemblages of neurons with minimal structura
 
 Neuron groups enforce structural consistency and provide specialized functionality:
 
-**Creation**: Use Insert menu or create during neuron addition with the group checkbox
+Creation: Use Insert menu or create during neuron addition with the group checkbox
 
-**Characteristics**:
+Characteristics:
 - **Structural Containers**: Neurons are children of the group
 - **Consistent Update Rules**: All neurons share the same update rule type
 - **Exclusive Membership**: Neurons belong to only one group at a time
@@ -66,7 +76,7 @@ Neuron groups enforce structural consistency and provide specialized functionali
 - **Destructive Deletion**: Removing a group deletes all its neurons
 - **Yellow Interaction Box**: Visual distinction from collections
 
-**Use Cases**:
+Use Cases:
 - Layer organization in feed-forward networks
 - Self-organizing maps and competitive learning structures
 - Groups requiring uniform update rules
@@ -100,19 +110,21 @@ The choice of connection type often depends on whether you need fine-grained con
 
 ## Creation/Edit Dialog
 
-<!-- TODO --> Add image
+When creating or editing a neuron group, several common properties are available:
 
-**Group ID:** Labeling that identifies the group.
+- **Group ID**: Unique identifier for the group
+- **Label**: Display name for the group
+- **Population**: Number of neurons in the group (read-only after creation)
+- **Neuron Type**: The update rule governing neurons in the group
+- **Parent**: The parent network or subnetwork, if any
 
-**Label:** Name of the group.
+Additional tabs provide access to:
 
-**Input mode:** When a neuron group is in input mode, at each update the neurons of this group are set to the values in successive rows of the [Input Data](#inputData) tab.
+- **Neurons**: Configure individual neuron properties
+- **Layout**: Arrange neurons spatially
+- **Input Data**: Set up input patterns for training or testing
 
-**Population:** Number of neurons in the group.
-
-**Neuron Type:** The neuron update rule governing the neurons in the group. If multiple different neuron update rules are being used, the value will be displayed as "...".
-
-**Parent:** Denotes the parent group (usually a subnetwork), if any.
+Group-specific parameters vary by type. See individual group type pages for details on specialized parameters like learning rates, temperature, or winner values.
 
 ## Neurons
 
@@ -128,49 +140,44 @@ See the [test inputs](../testInputs) page.
 
 ## Right Click Menu
 
-**Edit:** Edit group properties. This opens the group properties panel which includes the above sections. This is the same as double-clicking on the [interaction box](/docs/network/buildingBasics.html#interaction-boxes).
+The neuron group context menu provides access to common operations. Some specialized group types (like SOM) have additional custom menu items.
 
-**Rename Neuron Collections:** Input another name for the group.
+### Basic Operations
+- **Edit**: Opens the group properties dialog (same as double-clicking the interaction box)
+- **Rename**: Change the group's display name
+- **Remove Neuron Group**: Delete the group and all its neurons
+- **Apply Layout**: Rearrange neurons using different layout algorithms
 
-**Remove Neuone Group:** Delete the group.
+### Selection
+- **Select Internal Neurons**: Select all neurons in the group (keyboard shortcut: `S`)
+- **Select Incoming Synapses**: Select synapses targeting this group
+- **Select Outgoing Synapses**: Select synapses originating from this group
 
-**Apply Layout:** Apply a layout to this neuron group
+### Clamping
+- **Clamp Neurons**: Clamp all neurons in the group (see [Clamping](../neurons#clamping))
+- **Unclamp Neurons**: Unclamp all neurons in the group
 
-**Select Neurons:** Select all neurons in the group.
+### Connecting Groups
+- **Connect Selected Objects with Weight Matrix**: Connect to other groups using weight matrices
+- **Connect Selected Neuron Groups with Synapse Groups**: Connect using synapse groups
+- **Set Group as Source**: Mark this group as source for connection operations
+- **Clear Source Neuron Groups**: Clear source selection
 
-**Select Incoming Synapses:** Select all incoming synapse groups and/or free synapses.
+### Training and Testing
+- **Create Supervised Model**: Set up supervised learning using current activations as targets
+- **Input Data**: Open dialog to configure input patterns
+- **Add Current Pattern to Input Data**: Add current activations to the input data table
 
-**Select Outgoing Synapses:** Select all outgoing synapse groups and/or free synapses.
+### Visualization and Analysis
+- **Plot**: Create a plot of the group's activations over time
+- **Add Coupled Image World**: Create an image world coupled to this group
+- **Start/Stop Recording**: Record activation values to a CSV file
 
-**Clamp Neurons:** Clamp all neurons in the group. See [Clamping](../neurons#clamping).
+### Couplings
+- **Send Vector Coupling To**: Send activations as a vector to other Simbrain components
+- **Receive Vector Coupling from**: Receive vectors from other components to set activations
 
-**Unclamp Neurons:** Unclamp all the neurons in the group.
-
-**Connect Selected Objects with Weight Matrix:** Automatically connect arrays with weight matrices
-
-**Connect Selected Neuron Groups with Synapse Groups:** Automatically connect arrays with synapse groups
-
-**Set Group as Source:** Set the group as source group. Used when creating synapse groups. The concept is the same as with individual neurons described [here](../buildingBasics.html#source-and-target-objects) but with neuron groups rather than individual neurons.
-
-**Clear Source as Neuron Groups:** Deselect the group as source neuron group.
-
-**Connect Neuron Group with Synapse Group:** Connect source and target neuron groups with a synapse group.
-
-**Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
-
-**Input Data:** Opens a dialog that can be used to send inputs to this layer
-
-**Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
-
-**Plot:** Plot the neuron group's activations across a graph
-
-**Add Coupled Image World:** Add an image world that is coupled to the neuron group
-
-**Start/Stop Recording:** Starts recording the activation values from the neuron group to a .csv file or stops if it is already recording. When starting recording, a dialog shows up asking you to specify a name for the spike recording file. If the network is a spiking network, then each line of the file begins with a time and is followed by neuron IDs (in this case, the ".csv" file is not really CSV).
-
-**Send Vector Coupling To:** Copies all activation values in the neuron group and represents them as a vector where each element in the vector is the activation value of a single neuron in the group. This creates a coupling such that this vector is forwarded to some other component in Simbrain. See the [couplings](../../workspace/couplings) page.
-
-**Receive Vector Coupling from:** Takes some vector forwarded from some other component and sets the activation values of the neurons in the group based on the incoming vector.
+See the [couplings](../../workspace/couplings) page for more information on connecting neuron groups to other Simbrain components.
 
 
 
