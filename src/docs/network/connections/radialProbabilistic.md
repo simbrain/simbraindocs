@@ -9,14 +9,16 @@ nav_order: 80
 
 # Radial Probabilistic
 
-For each source neuron consider every target neuron in a radius and make excitatory and inhibitory synapses with them according to specified probabilities.
+Creates connections within specified radii using probability-based selection. For each source neuron, the strategy considers every target neuron within the excitatory and inhibitory radii and makes connections according to specified probabilities. This allows excitatory and inhibitory connections to have different spatial extents and densities.
 
-**Excitatory Probability**. Probability of making excitatory connections to neighboring neurons with the excitatory radius.
+## Parameters
 
-**Inhibitory Probability**.Probability of making inhibitory connections to neighboring neurons within the inhibitory radius.
+- **Exc. probability**: Probability that connections will be made to neighboring excitatory (or non-polar) neurons found within the excitatory radius (0.0 to 1.0).
 
-**Excitatory Radius**. Radius within which to make excitatory connections.
+- **Inh. probability**: Probability that connections will be made to neighboring inhibitory neurons found within the inhibitory radius (0.0 to 1.0).
 
-**Inhibitory Radius**. Radius within which to make inhibitory connections.
+- **Exc. radius**: Distance to search for excitatory neurons to connect to (in pixels).
 
-**Allow self connections**. Allow synapses from neurons to themselves.
+- **Inh. radius**: Distance to search for inhibitory neurons to connect to (in pixels).
+
+- **Allow self connections**: Whether synapses from neurons to themselves are allowed.

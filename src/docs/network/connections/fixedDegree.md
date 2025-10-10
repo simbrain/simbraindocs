@@ -9,12 +9,16 @@ nav_order: 30
 
 # Fixed Degree
 
-For each source neuron, create a fixed number of connections to or from target neurons.
+Creates a fixed number of connections to or from each neuron. For each neuron, the strategy randomly selects a fixed number of target neurons to connect with. An optional radius constraint can limit connections to spatially nearby neurons.
 
-**Degree**. Maximum number of connections a source neuron can make to a target neuron.
+## Parameters
 
-**Indegree / Outdegree**. If set to indegree then the fixed number of connections are made 'inward' from target to source neurons. If set to outdegree then the fixed number of connections radiate out from each neuron.
+- **Degree**: The number of connections allowed to or from each neuron.
 
-**Use radius**. If true, only connect within a radius specified in pixels.
+- **Indegree / outdegree**: Determines the direction of connection counting. If set to Indegree, the fixed number of connections are made inward to each neuron (connections sent in to each neuron). If set to Outdegree, the fixed number of connections radiate out from each neuron.
 
-**Allow self connections**. Allow synapses from neurons to themselves.
+- **Use radius**: If true, only connect within a specified radius. When enabled, the Radius parameter becomes available.
+
+- **Radius**: Distance within which to make connections (in pixels). Only visible when Use radius is enabled.
+
+- **Allow self connections**: Whether synapses from neurons to themselves are allowed.

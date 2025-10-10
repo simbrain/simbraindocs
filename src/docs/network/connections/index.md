@@ -15,45 +15,35 @@ Connection strategies are rules used to create patterns of connections between s
 The fastest way to create connections is using the **1-2 trick**:
 
 1. **Select source neurons** and press `1` to mark them as sources
-2. **Select target neurons** and press `2` to connect using the default strategy
+2. **Select target neurons** and press `2` to connect using the [default connection strategy](#default-connection-strategy)
 3. **Press `Shift+2`** to allow self-connections during the 1-2 trick
-
-This uses the default connection strategy set in [Network Preferences](../networkDialogs#Network-Preferences). The default strategy is **All-to-All** but can be changed to any other strategy.
 
 ## Connection Methods
 
 Connection strategies can be invoked in several ways:
 
-- **1-2 Trick**: Press `1` then `2` for quick connections using the default strategy
+- **1-2 Trick**: Press `1` then `2` for quick connections using the [default strategy](#default-connection-strategy)
 - **Right-click menu**: Select neurons, right-click, and choose from the "Connect neurons" submenu
-- **Keyboard shortcuts**: Press `2` for default connections, `3` for custom connection dialogs
+- **Keyboard shortcuts**: Press `2` for [default connections](#default-connection-strategy), `3` for custom connection dialogs
 - **Synapse groups**: Connection strategies are associated with synapse groups for organized connections
 
-## Available Strategies
 
-Simbrain provides seven connection strategies:
+## Default Connection Strategy
 
-- **[All-to-All](allToAll)**: Connects every source neuron to every target neuron
-- **[Distance-Based](distanceBased)**: Connects neurons based on spatial distance with probability decay
-- **[One-to-One](oneToOne)**: Connects each source neuron to a single corresponding target neuron
-- **[Fixed Degree](fixedDegree)**: Each source neuron connects to a fixed number of target neurons
-- **[Radial Gaussian](radialGaussian)**: Gaussian probability distribution based on distance
-- **[Radial Probabilistic](radialProbabilistic)**: Probabilistic connections with radial patterns
-- **[Sparse](sparse)**: Creates connections with specified density (percentage of possible connections)
+When you create connections using quick methods like the 1-2 trick or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
 
-## Connection Properties
+You can change the default connection strategy in [Network Preferences](../networkDialogs#Network-Preferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the 1-2 trick, keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
 
-All connection strategies share common properties:
+If you need a different connection strategy for a specific operation, use `3` instead of `2` to open the connection dialog and choose a different strategy.
 
-- **Excitatory/Inhibitory Ratio**: Percentage of excitatory vs inhibitory connections (default: 50%)
-- **Weight Randomization**: Excitatory and inhibitory weights can be randomized separately
-- **Self-Connections**: Most strategies allow or disallow connections where source equals target
-- **Bidirectional Connections**: Some strategies support connections in both directions
+## Common Properties
 
-## Post-Connection Behavior
+All connection strategies share these properties for controlling weight polarity and randomization:
 
-After creating connections:
-- **Selection**: New synapses are automatically selected for easy editing
-- **Editing**: Press `Cmd/Ctrl+E` to edit selected synapses
-- **Visibility**: Synapses may be hidden if they exceed the visibility threshold
-- **Undo**: All connection operations can be undone using `Cmd/Ctrl+Z`
+- **Excitatory/Inhibitory Ratio**: Percentage of connections that are excitatory vs inhibitory. This setting applies to strategies that use polarity (most strategies). The ratio determines how many of the created connections will have positive (excitatory) vs negative (inhibitory) weights.
+- **Excitatory Weight Randomizer**: Probability distribution used to randomize excitatory synapse strengths. Enable or disable randomization for excitatory connections.
+- **Inhibitory Weight Randomizer**: Probability distribution used to randomize inhibitory synapse strengths. Enable or disable randomization for inhibitory connections.
+
+Note that weights are created in three steps: first the strategy creates connections with initial strengths, then the excitatory/inhibitory ratio is applied, then the two sets of weights are randomized using their respective distributions.
+
+Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
