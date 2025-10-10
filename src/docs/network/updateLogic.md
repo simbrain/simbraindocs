@@ -183,7 +183,9 @@ Since buffered update accumulates the inputs to every node first, and then updat
 
 ## Priority Based Update of Free Neurons
 
-Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we used priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward) works under the hood).
+Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we use priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward) works under the hood).
+
+Priority update processes models one at a time in a specific order, allowing each model to immediately affect models updated later in the sequence. Each model accumulates its inputs and updates before the next model processes.
 
 Here is the basic algorithm in pseudo code:
 ```kotlin
@@ -191,13 +193,28 @@ for model in prioritySortedNetworkModels:
 	model.accumulateInputs()
 	model.update()
 ```
-Notice that, unlike with buffered update, we have one single loop rather than two loops.
+Notice that, unlike with buffered update, we have one single loop rather than two loops. This means each model makes its new state available to models that update later, enabling sequential processing where one layer completes before the next begins.
 
-In this case network models are associated with a priority which the user can set. Then we basically update network models in that order.
+### Setting Priorities
 
-However, in practice, it's often not needed, because relevant subnetworks already update in this way.
+Each neuron has a priority property that determines its update order. Lower numbers have higher priority and are updated first. The default priority is 0 for all neurons. Priority can be set in the neuron properties dialog (select neurons and press `Cmd/Ctrl+E`).
 
-Currently priority is only used for neuron update. If there is a demand for other items (in particular neuron arrays) to be updated using priority based update it will be added. When priority-based update is used, `Buffered Update` should be removed fro the update list, and all other groups, arrays, etc must be manually updated. 
+To view and manage priorities, go to `Network > Show Priority Table`. This displays all network models with their current priorities in an editable table. You can edit priorities by clicking in the priority column and sort by priority to see the update order. To display priority numbers directly on neurons in the network, go to `View > Show Neuron Priorities`.
+
+### Setting Up Priority Update
+
+To use priority-based update:
+
+1. Go to `File > Edit Update Sequence`
+2. Remove the "Buffered update" action
+3. Add "Priority update" action
+4. Set neuron priorities (select neurons, press `Cmd/Ctrl+E`, set Priority for each layer)
+
+Since priority update only handles neurons, you may need to add manual updates for synapse groups, weight matrices, and other network components as separate actions in the update sequence.
+
+Priority update is useful when you need sequential processing where information flows in one direction through layers (e.g., feed-forward networks where input layer priority 0, hidden layer priority 1, output layer priority 2). However, in practice, it's often not needed because relevant subnetworks already update in this way.
+
+Currently priority is only used for neuron update. When priority-based update is used, `Buffered Update` should be removed from the update list, and all other groups, arrays, etc must be manually updated. 
 
 
 # Continuous and Discrete Time Update

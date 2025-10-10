@@ -25,7 +25,7 @@ The Performance tab in the [bottom dock](propertyTabs.html) provides monitoring 
 
 ## Customizing the Update Sequence
 
-When the default buffered update does not produce a desired result a custom update order can be defined that allows immediate update without one-step delays (compare [network priority update](../network/priorityUpdate.html)). 
+When the default buffered update does not produce a desired result a custom update order can be defined that allows immediate update without one-step delays (compare [network priority update](../network/updateLogic.html#priority-based-update-of-free-neurons)). 
 
 To customize how the workspace updates, go to `File > Edit update sequence...`. This opens a dialog showing the current list of update actions that will be executed in order at each iteration.
 
