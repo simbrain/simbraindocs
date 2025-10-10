@@ -12,10 +12,13 @@ nav_order: 65
 Connects each source neuron to a single corresponding target neuron based on their spatial positioning on the canvas. This strategy ignores logical ordering (neuron IDs, creation order) and only considers physical X,Y coordinates.
 
 The strategy works by:
+
 1. Examining where neurons are physically positioned on the canvas
 2. Determining if each group is arranged vertically (height > width) or horizontally (width > height)
 3. Sorting neurons by Y coordinate (if vertical) or X coordinate (if horizontal)
-4. Pairing them up in order, automatically reversing the target list if needed to avoid crossing connections
+4. Pairing them up in whatever way minimizes crossed connections
+
+In addition to the examples below, diagonal connections can be formed which tend not to cross each other.
 
 ## Parameters
 
@@ -23,20 +26,28 @@ The strategy works by:
 
 ## Examples
 
-### Basic One-to-One
+Tip: for non bi-directional cases you can change the direction just by which neurons are designated source vs. target when you use the [1-2 trick](/docs/network/buildingBasics.html#quick-connect-1-2-trick).
+
+### Vertical arrangement
+```mermaid
+flowchart BT
+    A(( )) --> D(( ))
+    B(( )) --> E(( ))
+    C(( )) --> F(( ))
+```
+
+### Horizontal arrangement 
 ```mermaid
 flowchart LR
-    A --> D
-    B --> E
-    C --> F
+    A(( )) --> B(( ))
+    D(( )) --> E(( ))
+    G(( )) --> H(( ))
 ```
-Result: A→D, B→E, C→F
 
 ### Bidirectional
 ```mermaid
 flowchart LR
-    A <--> D
-    B <--> E
-    C <--> F
+    A(( )) <--> D(( ))
+    B(( )) <--> E(( ))
+    C(( )) <--> F(( ))
 ```
-Result: A→D, D→A, B→E, E→B, C→F, F→C

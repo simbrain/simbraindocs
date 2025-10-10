@@ -12,17 +12,17 @@ Connection strategies are rules used to create patterns of connections between s
 
 ## Quick Connection Workflow (1-2 Trick)
 
-The fastest way to create connections is using the **1-2 trick**:
+The fastest way to create connections is using the **[1-2 trick](/buildingBasics.html#quick-connect-1-2-trick)**:
 
 1. **Select source neurons** and press `1` to mark them as sources
 2. **Select target neurons** and press `2` to connect using the [default connection strategy](#default-connection-strategy)
-3. **Press `Shift+2`** to allow self-connections during the 1-2 trick
+3. **Press `Shift+2`** to allow self-connections during the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick)
 
 ## Connection Methods
 
 Connection strategies can be invoked in several ways:
 
-- **1-2 Trick**: Press `1` then `2` for quick connections using the [default strategy](#default-connection-strategy)
+- **[1-2 Trick](/buildingBasics.html#quick-connect-1-2-trick)**: Press `1` then `2` for quick connections using the [default strategy](#default-connection-strategy)
 - **Right-click menu**: Select neurons, right-click, and choose from the "Connect neurons" submenu
 - **Keyboard shortcuts**: Press `2` for [default connections](#default-connection-strategy), `3` for custom connection dialogs
 - **Synapse groups**: Connection strategies are associated with synapse groups for organized connections
@@ -30,9 +30,9 @@ Connection strategies can be invoked in several ways:
 
 ## Default Connection Strategy
 
-When you create connections using quick methods like the 1-2 trick or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
+When you create connections using quick methods like the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick) or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
 
-You can change the default connection strategy in [Network Preferences](../networkDialogs#Network-Preferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the 1-2 trick, keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
+You can change the default connection strategy in [Network Preferences](../networkDialogs#Network-Preferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
 
 If you need a different connection strategy for a specific operation, use `3` instead of `2` to open the connection dialog and choose a different strategy.
 
@@ -40,7 +40,7 @@ If you need a different connection strategy for a specific operation, use `3` in
 
 All connection strategies share these properties for controlling weight polarity and randomization:
 
-- **Excitatory/Inhibitory Ratio**: Percentage of connections that are excitatory vs inhibitory. This setting applies to strategies that use polarity (most strategies). The ratio determines how many of the created connections will have positive (excitatory) vs negative (inhibitory) weights.
+- **Excitatory/Inhibitory Ratio**: Percentage of connections that are excitatory vs inhibitory. This setting applies to strategies that use [polarity](../neurons/#polarity) (most strategies). The ratio determines how many of the created connections will have positive (excitatory) vs negative (inhibitory) weights.
 - **Excitatory Weight Randomizer**: Probability distribution used to randomize excitatory synapse strengths. Enable or disable randomization for excitatory connections.
 - **Inhibitory Weight Randomizer**: Probability distribution used to randomize inhibitory synapse strengths. Enable or disable randomization for inhibitory connections.
 

@@ -9,7 +9,7 @@ nav_order: 80
 
 # Radial Probabilistic
 
-Creates connections within specified radii using probability-based selection. For each source neuron, the strategy considers every target neuron within the excitatory and inhibitory radii and makes connections according to specified probabilities. This allows excitatory and inhibitory connections to have different spatial extents and densities.
+Creates connections within specified radii using probability-based selection. For each source neuron, the strategy considers every target neuron within the excitatory and inhibitory radii and makes connections according to specified probabilities. This allows excitatory and inhibitory connections (those based on [polarity](../neurons/#polarity)) to have different spatial extents and densities.
 
 ## Parameters
 

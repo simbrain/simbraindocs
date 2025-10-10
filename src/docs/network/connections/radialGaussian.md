@@ -9,13 +9,13 @@ nav_order: 70
 
 # Radial Gaussian
 
-Creates connections using a [Gaussian decay function](../../utilities/decayFunctions#gaussian-decay-function) that respects neuron polarity. The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, scaled differently according to the polarity of the source and target neurons. The probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
+Creates connections using a [Gaussian decay function](../../utilities/decayFunctions#gaussian-decay-function) that respects neuron [polarity](../neurons/#polarity). The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, scaled differently according to the [polarity](../neurons/#polarity) of the source and target neurons. The probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
 
 $$P(a, b) = \min\left(C_{xy} \cdot \exp\left(-\left(\frac{D(a, b)}{\lambda}\right)^2\right), 1\right)$$
 
 where:
 - $$D(a, b)$$ is the Euclidean distance in pixels
-- $$C_{xy}$$ is the scalar constant describing probabilities for making connections between neurons of polarity $$x$$ and $$y$$
+- $$C_{xy}$$ is the scalar constant describing probabilities for making connections between neurons of [polarity](../neurons/#polarity) $$x$$ and $$y$$
 - $$\lambda$$ represents the standard deviation with respect to distance for the Gaussian drop-off
 
 The larger any of the constants is relative to the others, the more likely a connection of that type will occur. For example, if $$C_{ee}$$ is 0.2 and $$C_{ii}$$ is 0.1, then excitatory-to-excitatory synapses are twice as likely as inhibitory-to-inhibitory synapses.
@@ -32,4 +32,4 @@ The larger any of the constants is relative to the others, the more likely a con
 
 - **Inh. → inh. constant**: Controls the probability of forming a connection between two inhibitory neurons.
 
-- **No polarity constant**: Governs the probability of forming connections for neurons without explicit polarity.
+- **No polarity constant**: Governs the probability of forming connections for neurons without explicit [polarity](../neurons/#polarity).
