@@ -1,9 +1,10 @@
 ---
 title: Network Menus and Toolbars
 layout: default
-parent: Networks
+parent: UI and Tools
+grand_parent: Networks
 has_children: false
-nav_order: 40
+nav_order: 10
 ---
 
 # Menus
@@ -108,3 +109,4 @@ This toolbar allows you to create and delete neurons, and change their state.
 - Set all selected neurons to 0. Weights are ignored. (Also keyboard C)
 - Create a neuron at last position clicked on screen. (Also keyboard N)
 - Delete currently selected neurons. (Also keyboard delete or backspace)
+

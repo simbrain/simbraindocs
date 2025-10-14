@@ -32,7 +32,7 @@ Connection strategies can be invoked in several ways:
 
 When you create connections using quick methods like the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick) or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
 
-You can change the default connection strategy in [Network Preferences](../networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
+You can change the default connection strategy in [Network Preferences](../ui/networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
 
 If you need a different connection strategy for a specific operation, use `3` instead of `2` to open the connection dialog and choose a different strategy.
 

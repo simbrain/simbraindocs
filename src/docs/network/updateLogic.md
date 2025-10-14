@@ -3,7 +3,7 @@ title: Network Update
 layout: default
 parent: Networks
 has_children: false
-nav_order: 30
+nav_order: 15
 ---
 
 # How Network Updates Work
@@ -109,7 +109,7 @@ These same ideas apply to [synapses](synapses), but there are now potentially _t
 
 By default synapses are pretty simple. The learning rule is set to "static synapse rule" and the spike responder is set to "no rule", in which case the synapse is just a static weight value.  But as the image above shows, they can become quite complex, with rules modifying weight strengths and spike response as a simulation runs.
 
-Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](trainingNetworks).
+Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](learning/trainingNetworks).
 
 # Weight Matrices
 

@@ -132,11 +132,11 @@ See the [neuron](../neurons) page.
 
 ## Layout
 
-See the [layouts](../layouts) page.
+See the [layouts](../ui/layouts) page.
 
 ## Input Data
 
-See the [test inputs](../testInputs) page.
+See the [test inputs](../ui/testInputs) page.
 
 ## Right Click Menu
 

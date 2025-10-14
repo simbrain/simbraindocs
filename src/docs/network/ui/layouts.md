@@ -1,9 +1,10 @@
 ---
 title: Layouts
 layout: default
-parent: Networks
+parent: UI and Tools
+grand_parent: Networks
 has_children: false
-nav_order: 190
+nav_order: 30
 ---
 
 # Neuron Layouts
@@ -53,3 +54,4 @@ Neurons are laid out in a hexagonal pattern.
 - **Number of columns:** How many columns there will be in the grid (if manually set number of columns is selected).
 
 <!-- TODO --> Add Image
+

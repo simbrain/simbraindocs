@@ -1,9 +1,10 @@
 ---
 title: Network Preferences
 layout: default
-parent: Networks
+parent: UI and Tools
+grand_parent: Networks
 has_children: false
-nav_order: 500
+nav_order: 20
 ---
 
 # Network Preferences
@@ -45,3 +46,4 @@ The Network Preferences dialog can be opened by going to **File > Network Prefer
 **Use subsampling:** If checked, use **subsampling**, which means that when a neuron group is large (has more neurons than **number of subsamples**), only use that many subsamples when sending a vector of activations to external components using couplings.
 
 **Number of subsamples:** Number of subsamples to take. This value is effectively a threshold as well: only when a neuron group has more than this many neurons is a subsample used when getting activations from a group.
+

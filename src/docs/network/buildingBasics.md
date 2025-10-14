@@ -24,7 +24,7 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
  
 - **Creating specific types of neurons**: By default, new nodes are linear. To to change one or a group just double click on them to edit them. 
  
-- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see layouts). There is also a checkbox which will make these neurons be created as a group.
+- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` and instantly create an arbitrary number of neurons specified in the `Add Neurons` window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be layed out (see [layouts](ui/layouts)). There is also a checkbox which will make these neurons be created as a group.
  
 - **Copy / Paste / Duplicate**: Create a node, set its type (as specified above), and then copy and paste or duplicate (command-D) repeatedly.
  
@@ -43,7 +43,7 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
 
 # Graphical and Color Conventions
 
-Most graphical and color conventions can be customized using the [preference dialog](networkPreferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
+Most graphical and color conventions can be customized using the [preference dialog](ui/networkPreferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
 
 # Selecting Objects
 
