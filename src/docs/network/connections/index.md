@@ -8,7 +8,7 @@ nav_order: 180
 
 # Connection Strategies
 
-Connection strategies are rules used to create patterns of connections between source and target groups of neurons. They provide a systematic way to establish synaptic connections with specific properties and patterns. All connection strategies set an [excitatory/inhibitory ratio](../networkDialogs#Excitatory-Inhibitory-Ratio) and can randomize weight strengths using probability distributions.
+Connection strategies are rules used to create patterns of connections between source and target groups of neurons. They provide a systematic way to establish synaptic connections with specific properties and patterns. All connection strategies set an [excitatory/inhibitory ratio](#excitatory--inhibitory-ratio) and can randomize weight strengths using probability distributions.
 
 ## Quick Connection Workflow (1-2 Trick)
 
@@ -32,7 +32,7 @@ Connection strategies can be invoked in several ways:
 
 When you create connections using quick methods like the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick) or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
 
-You can change the default connection strategy in [Network Preferences](../networkDialogs#Network-Preferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
+You can change the default connection strategy in [Network Preferences](../networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
 
 If you need a different connection strategy for a specific operation, use `3` instead of `2` to open the connection dialog and choose a different strategy.
 
@@ -47,3 +47,9 @@ All connection strategies share these properties for controlling weight polarity
 Note that weights are created in three steps: first the strategy creates connections with initial strengths, then the excitatory/inhibitory ratio is applied, then the two sets of weights are randomized using their respective distributions.
 
 Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
+
+## Excitatory / Inhibitory Ratio
+
+This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.
+
+This can be thought of as a way of polarizing a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the [polarity](../neurons/#polarity) of the neurons.

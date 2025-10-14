@@ -49,7 +49,7 @@ This page contains actions that are available from the network menu. Many of the
 - **Insert Neuron Group**: Insert a set of neurons within one group.
 - **Insert Network**: Add a **subnetwork** to the network.
 - **Create Input Table**: Create a **test inputs** table whose rows provide input to selected neuron(s).
-- **Display/Edit Weight Matrix**: Display a **weight matrix viewer** for the synapses between designated source and target neurons.
+- **Display/Edit Weight Matrix**: Display a weight matrix viewer for the synapses between designated source and target neurons, showing connections in a tabular format where rows represent source neurons and columns represent target neurons.
 
 ## View
 

@@ -45,13 +45,13 @@ Synapse groups are created in the same way synapses are. See [building basics](b
 
 The synapse group dialog contains four tabs, each of which links to another component used elsewhere in Simbrain, with an apply button that applies changes to the group.
 
-**Weights:** Allows you to edit the individual synapse strengths using a [synapse adjustment dialog](networkDialogs)
+**Weights:** Allows you to edit the individual synapse strengths using a [synapse adjustment dialog](synapses/synapseAdjustment)
 
 **Update Rule:** Allows you to set all of the update rules (that is, local learning rules) of the synapses in this group at once. Note that only one rule can be specified in this dialog. If multiple rules are desird then synapses must be made visible and edited directly, or a [custom simulation](../simulations) can be used.
 
 **Connection Strategy:** See [connection strategy](connections). Each synapse group is associated with a connection strategy that can be incrementally adjusted.
 
-**Weight Matrix:** Allows you to edit the individual synapse strengths using a [weight matrix editor](networkDialogs)
+**Weight Matrix:** Allows you to view and edit synapse strengths in a tabular format. Cells represent connections between source neurons (rows) and target neurons (columns). Values can be edited directly, randomized, or loaded/saved from .csv files. The viewer can be opened from the synapse group properties dialog or by right-clicking on a synapse group and selecting "Show Weight Matrix".
 
 
 

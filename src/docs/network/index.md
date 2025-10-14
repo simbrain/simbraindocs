@@ -51,5 +51,4 @@ These are customized collections of network models (neurons, neuron groups, neur
 - [Training Networks](trainingNetworks) - Training and learning 
 - [Evolution](evolution) - Evolving neural networks
 - [Network Menu](networkMenu) - Menu commands
-- [Network Dialogs](networkDialogs) - Property dialogs
 

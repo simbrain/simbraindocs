@@ -137,7 +137,7 @@ More customized methods include application of our highly developed set of [conn
 
 ## Editing weights
 
-Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](networkDialogs#Synapse-Adjustment-Dialog).
+Several dialogs exist for setting and polarizing weights according to our built-in distributions and visualizing the results with histograms. See [synapse adjustment dialog](synapses/synapseAdjustment).
 
 
 # Setting Properties
