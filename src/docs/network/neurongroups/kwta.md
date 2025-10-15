@@ -5,6 +5,7 @@ grand_parent: Networks
 parent: Neuron Groups and Collections
 has_children: false
 nav_order: 7
+published: false
 ---
 
 # KWTA Group

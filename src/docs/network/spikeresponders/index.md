@@ -3,7 +3,7 @@ title: Spike Responders
 layout: default
 parent: Networks
 has_children: true
-nav_order: 155
+nav_order: 80
 ---
 
 # Spike Responders

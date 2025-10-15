@@ -48,8 +48,7 @@ These are customized collections of network models (neurons, neuron groups, neur
 
 - [Building Networks](buildingBasics) - Basic network construction
 - [Network Update](updateLogic) - How networks are updated
-- [Training Networks](trainingNetworks) - Training and learning 
-- [Evolution](evolution) - Evolving neural networks
-- [Network Menu](networkMenu) - Menu commands
-- [Network Dialogs](networkDialogs) - Property dialogs
+- [Training Networks](learning/trainingNetworks) - Training and learning 
+- [Evolution](learning/evolution) - Evolving neural networks
+- [Network Menu](ui/networkMenu) - Menu commands
 

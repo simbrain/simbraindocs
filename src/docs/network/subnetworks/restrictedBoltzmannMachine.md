@@ -48,7 +48,7 @@ where $$ v $$ are visible units, $$ h $$ are hidden units, and $$ w $$ are weigh
 
 ## Training
 
-RBMs implement the `UnsupervisedNetwork` interface and can be trained on datasets loaded into the network. The general process is covered in [Training Networks](../trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
+RBMs implement the `UnsupervisedNetwork` interface and can be trained on datasets loaded into the network. The general process is covered in [Training Networks](../learning/trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
 
 RBMs use the contrastive divergence algorithm for training. The interaction box displays the current energy state of the network, which should generally decrease during training to indicate convergence.
 

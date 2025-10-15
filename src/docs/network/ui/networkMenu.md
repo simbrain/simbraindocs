@@ -1,9 +1,10 @@
 ---
 title: Network Menus and Toolbars
 layout: default
-parent: Networks
+parent: UI and Tools
+grand_parent: Networks
 has_children: false
-nav_order: 40
+nav_order: 10
 ---
 
 # Menus
@@ -49,7 +50,7 @@ This page contains actions that are available from the network menu. Many of the
 - **Insert Neuron Group**: Insert a set of neurons within one group.
 - **Insert Network**: Add a **subnetwork** to the network.
 - **Create Input Table**: Create a **test inputs** table whose rows provide input to selected neuron(s).
-- **Display/Edit Weight Matrix**: Display a **weight matrix viewer** for the synapses between designated source and target neurons.
+- **Display/Edit Weight Matrix**: Display a weight matrix viewer for the synapses between designated source and target neurons, showing connections in a tabular format where rows represent source neurons and columns represent target neurons.
 
 ## View
 
@@ -108,3 +109,4 @@ This toolbar allows you to create and delete neurons, and change their state.
 - Set all selected neurons to 0. Weights are ignored. (Also keyboard C)
 - Create a neuron at last position clicked on screen. (Also keyboard N)
 - Delete currently selected neurons. (Also keyboard delete or backspace)
+

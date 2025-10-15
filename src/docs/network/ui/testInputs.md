@@ -1,9 +1,10 @@
 ---
 title: Test Inputs
 layout: default
-parent: Networks
+parent: UI and Tools
+grand_parent: Networks
 has_children: false
-nav_order: 90
+nav_order: 40
 ---
 
 # Test Inputs
@@ -83,3 +84,4 @@ Test inputs complement training workflows:
 - **Development**: Test network components during development
 
 Test inputs provide an essential tool for network validation and systematic testing of neural network behavior.
+

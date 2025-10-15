@@ -40,6 +40,6 @@ Common right-click items are described on the [subnetwork](.) page.
 
 ## Training
 
-Training a competitive network involves specifying input data and then running the algorithm. The general process is covered in [Training Networks](../trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
+Training a competitive network involves specifying input data and then running the algorithm. The general process is covered in [Training Networks](../learning/trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
 
 Training sets input patterns, and the competitive group learns to represent clusters in the input data. See the [competitive group](../neurongroups/competitive#algorithm) documentation for algorithm details.

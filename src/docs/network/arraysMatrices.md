@@ -3,7 +3,7 @@ title: Neuron Arrays and Weight Matrices
 layout: default
 parent: Networks
 has_children: false
-nav_order: 80
+nav_order: 120
 ---
 
 # Neuron Arrays and Weight Matrices
@@ -226,7 +226,7 @@ While weight matrices and synapse groups both represent connections, they have d
 - **Visualization**: Color-coded display of weight magnitudes
 - **Statistics**: View weight distribution, min/max values, and norms
 
-For detailed matrix editing instructions, see [Weight Matrix Viewer](./networkDialogs.html#weight-matrix-viewer--editor/).
+The weight matrix viewer allows you to view and edit weight values in a tabular format, where cells represent connections between source neurons (rows) and target neurons (columns). Values can be edited directly, randomized, or loaded/saved from .csv files.
 
 ### Data Tab
 
