@@ -3,7 +3,7 @@ title: Connection Strategies
 layout: default
 parent: Networks
 has_children: true
-nav_order: 180
+nav_order: 90
 ---
 
 # Connection Strategies

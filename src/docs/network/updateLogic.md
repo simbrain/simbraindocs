@@ -3,7 +3,7 @@ title: Network Update
 layout: default
 parent: Networks
 has_children: false
-nav_order: 15
+nav_order: 20
 ---
 
 # How Network Updates Work

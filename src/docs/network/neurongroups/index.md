@@ -3,7 +3,7 @@ title: Neuron Groups and Collections
 layout: default
 parent: Networks
 has_children: true
-nav_order: 90
+nav_order: 100
 ---
 
 # Neuron Groups and Collections

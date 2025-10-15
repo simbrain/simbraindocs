@@ -3,7 +3,7 @@ title: Learning
 layout: default
 parent: Networks
 has_children: true
-nav_order: 30
+nav_order: 40
 ---
 
 # Learning

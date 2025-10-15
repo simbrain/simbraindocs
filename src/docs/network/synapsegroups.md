@@ -3,7 +3,7 @@ title: Synapse Groups
 layout: default
 parent: Networks
 has_children: false
-nav_order: 50
+nav_order: 110
 ---
 
 # Synapse Groups

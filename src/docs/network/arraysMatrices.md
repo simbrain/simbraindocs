@@ -3,7 +3,7 @@ title: Neuron Arrays and Weight Matrices
 layout: default
 parent: Networks
 has_children: false
-nav_order: 40
+nav_order: 120
 ---
 
 # Neuron Arrays and Weight Matrices
