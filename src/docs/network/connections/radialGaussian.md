@@ -9,7 +9,7 @@ nav_order: 70
 
 # Radial Gaussian
 
-Creates connections using a [Gaussian decay function](../../utilities/decayFunctions#gaussian-decay-function) that respects neuron [polarity](../neurons/#polarity). The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, scaled differently according to the [polarity](../neurons/#polarity) of the source and target neurons. The probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
+Creates connections using a [Gaussian decay function](../../utilities/decayFunctions#gaussian-decay-function) that respects neuron [polarity](../neurons/#polarity). The probability of making a connection drops off according to a Gaussian distribution centered on each neuron, scaled differently according to the polarity of the source and target neurons. The probability of forming a connection between a neuron $$a$$ with polarity $$x$$ and another neuron $$b$$ with polarity $$y$$ is given by:
 
 $$P(a, b) = \min\left(C_{xy} \cdot \exp\left(-\left(\frac{D(a, b)}{\lambda}\right)^2\right), 1\right)$$
 
