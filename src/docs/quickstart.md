@@ -7,242 +7,224 @@ nav_order: 7
 
 # Quick Start and Shortcuts
 
-## Some quick things you can do to see things happen...
+This guide will help you quickly start exploring Simbrain. The first sections cover basic workflows for building and running simulations, while the later sections provide comprehensive keyboard shortcut references.
 
-Run simulations from the `simulations` menu.
+## Getting Started
 
-Open different workspaces using `File > Open Workspace` (open the .zip files) and press play  in the in the workspace toolbar to see what happens.
+### Try existing simulations
 
-See youtube videos online.
+The fastest way to see Simbrain in action is to run pre-built [simulations](simulations/) from the `Simulations` menu. Each simulation demonstrates different concepts and techniques. Open one and press play in the workspace toolbar to watch it run.
 
-## Important things to be able to do
+### Clear everything
 
-* To get rid of everything in the workspace, use `File > Clear Workspace`.
+To start fresh, use [`File > Clear Desktop`](workspace/menus) (Cmd/Ctrl-K) to remove all components from the workspace.
 
-* To Add networks to the workspace. Click the network button  in the main toolbar a few times. You should see a few networks show up. You can move them around however you like and resize them. 
+## Working with Networks
 
-<!-- TODO -->
-* Iterate. Iterate the network once. This can be done by clicking the  button in the desktop toolbar, or pressing the space-bar in the network (these are slightly different operations, but we can ignore the distinction for now). Observe activation pass from the source to the target neuron. Iterate again and the activation clears out.
+Most of these operations require a [network](network/) window to be in focus (click on it first). For more details on building networks, see [Building Basics](network/buildingBasics).
 
-## Basic things to do in a network
+### Creating and selecting objects
 
-* Add neurons to a network. Click in one of the networks you created (most of the next steps assume you have created a network and it is in focus).  Now create some neurons, by presing the button or using the "p" key. Do this a few times to create a line of neurons. (For all network key commands, the network window must be selected for the command to work)
+- Press **P** to add neurons one at a time. They appear where you last clicked.
+- Press **N** (capital) and enter a number to add multiple neurons at once via dialog.
+- Press **n** (lowercase) to select all neurons. Selected objects show green halos.
+- Press **w** to select all weights (synapses).
+- Press **a** to select all objects (neurons and weights).
+- Use the mouse to lasso around objects to select them.
 
-* Select neurons and other models. Use the mouse to draw a lasso around the neurons so that they are selected. You can also press the "n" button to select all neurons. Green halos will show up around these neurons signifying that you have selected them.
+### Modifying objects
 
-* Randomize models. With neurons selected, press the randomize button  or pressing "r". Do this a few times to get a sense of what happens when neurons are randomized.
+- Press **r** to randomize selected objects. Try this several times to see different random values.
+- Press **up/down arrows** to increment or decrement activation values of selected neurons.
+- Press **c** to clear selected neuron activations (set to zero). For weights, use **Shift-C**.
+- Press **Shift-F** to toggle clamping on selected neurons. Clamped neurons don't update.
+- **Cmd/Ctrl-C** to copy, **Cmd/Ctrl-V** to paste, **Cmd/Ctrl-D** to duplicate.
+- **Delete** or **Backspace** to delete selected objects.
 
-* Copy and paste. Select some neurons, copy them using Edit > Copy (or command-c), click where you want to put a copy of those neurons, and then paste them there using Edit > Paste (or command-v). Press paste repeatedly to see multiple copies of these neurons appear.
+### Connecting neurons: the "1-2 trick"
 
-* Delete. Select all your neurons using "n", and press the delete button  or the "backspace" or "delete" key.
+This is one of the most useful techniques in Simbrain for quickly building networks. For more connection options, see [Connections](network/connections/).
 
-* Add activation or strength. Select the source neuron you just created. Press the "up" arrow button, and observe the value of the neuron change upwards.
+1. Select one or more source neurons
+2. Press **1** to designate them as sources (red halos appear)
+3. Select one or more target neurons
+4. Press **2** to connect all sources to all targets
+5. Press **Escape** to clear source designations when done
 
-* Clamp things.
+The sequence becomes: `select sources → 1 → select targets → 2 → repeat as needed → Escape`
 
-* Select and randomize a weight. Select the weight you created by clicking on it (the weight or synapse is the red disk connecting one node to another; see the picture here) . If that is tricky, lasso over the connection line. You can also press "w", which selects all weights. A green halo will show up around the weight. 
+### Running networks
 
-* Ranomize weights. As with neurons, randomize by pressing the randomize button  or pressing "r". Do this a few times to get a sense of what happens when synapses are randomized. If they are positive their color is red; if negative blue. The size of the weight is proportional the strength of the synapse.
+- Press **spacebar** to iterate the network once (single step).
+- Use the play button to run continuously. Press stop or **Escape** to halt.
+- Press **k** to clear all neuron activations. This is useful combined with randomization: `k → r`
 
-<!-- Redo with network models  -->
-* Having randomized this weight, again add activation to the source neuron and iterate the network, to see that the activation propagates differently.
+For more on how network updates work, see [Update Logic](network/updateLogic) and [Workspace Update](workspace/workspaceUpdate).
 
-* Add other objects. A layered network or "feedforward" network is one in which the nodes are organized in to a sequence layers, where each node in one layer connects to all the nodes in the next layer.  Activation flows from an input layer to an output layer.  There are no loops so these networks tend to "dissipate" activation.)
+## Useful Network Examples
 
-## Connect one neuron to another using the 1-2 trick.
+### Creating a recurrent network
 
-1. Create two neurons. You will make a connection from a "source" to a "target" neuron.
-2. Designate one neuron as a "source neuron",  by selecting Edit > Connect > Set source neuron(s) or pressing the "1" key, which is a keyboard shortcut for selecting source neurons. Observe the red halo that appears around the neuron.
-3. Select the target neuron just by lassong it using your mouse.
-4. Connect the source to the target neuron using Edit > Connect > All to all or by pressing the "2" key.   If a dialog appears just click "OK".  This dialog will not appear if you click "2".
-    After a while you can get quick at selecting, and using this sequence:
-    select source neurons > "1" > select target neurons > "2"
-5. If you like, clear the "source neuron" halo by going to Edit  > Clear source neuron(s) or by clicking outside any neurons or weights and pressing "1".
+Recurrent networks contain loops where activation can flow back to nodes it already visited, creating interesting dynamics.
 
+1. Press **N** and create 9 neurons
+2. Select all with **n**
+3. Press **1** then **2** to connect all neurons to all others (including themselves)
+4. Press **w** then **r** to randomize all weights
+5. Press **n** then **r** to randomize all neurons
+6. Press **spacebar** repeatedly to see the network dynamics
 
-<!-- 
-Let's make a new network. Delete everything you've done up until now (press "a" to select all and delete to delete).
-1. Make a row of neurons by pressing "P" a few times.
+### Editing neuron properties
 
-2. Copy and paste those neurons and move them right above the first neurons.
+1. Select some neurons
+2. Press **Cmd/Ctrl-E** or double-click to open the property dialog
+3. Try changing properties like the clamped setting or [activation function](network/neurons/)
+4. Click OK and iterate to see the effects
 
-3. Repeat. You should now have three rows or "layers" of neurons.
+### Editing weight properties
 
-4. Select the bottom row and make them source neurons using Edit  > Set source neuron(s) or by pressing the "1" key.
+1. Press **w** to select all weights
+2. Press **Cmd/Ctrl-E** to open the weight properties dialog
+3. Try changing the [learning rule](network/synapses/) to Hebbian
+4. Press **a** then **r** to randomize everything
+5. Press play and periodically press **a** then **r**. Watch the weights change size as they learn.
 
-5. Select the middle row and connect using Edit > Connect  > All to all or by pressing the "2" key.
+## Connecting Components with Couplings
 
-6. Now immediately make the middle row the new source neurons by pressing "1" while they are still selected
+[Couplings](workspace/couplings) allow you to connect different components together, such as linking network activations to plot visualizations.
 
-7. Select the final row and press "2" to connect.
+### Plotting neuron activation over time
 
-8. Activate the bottom row by selecting those neurons and pressing the "R" button to randomize them.
+1. Create a network and add some neurons
+2. Create a [time series plot](plots/timeSeries) from `Insert > New Plot > Time Series`
+3. Right-click on a neuron and select `Send coupling to > TimeSeriesPlot1 > Series0`
+4. Run the network and watch the plot track the neuron's activation
 
-9.Iterate the network a few times pressing the space-bar, to see activation propoagate through the network
+For better visualization, you can turn off auto-range in the time series preferences and manually set bounds.
 
-## Make a recurrent network 
+### Visualizing network state in a bar chart
 
-(A recurrent network is a network which contains "loops" or "cycles", in the sense that one can begin at some nodes, follow connections, and end up back at the same node.   Because activation can repeatly flow through the loops in recurrent networks, they can display interesting dynamics.)
+1. Create a network with several neurons
+2. Create a [bar chart](plots/barChart) from `Insert > New Plot > Bar Chart`
+3. Open `Couplings > Open Coupling Manager`
+4. On the left, select your network and highlight the neurons
+5. On the right, select your bar chart and highlight the bars
+6. Click "Add Couplings"
+7. Run the workspace and observe the bar chart update with neuron activations
 
-1. Make a grid of neurons using Insert > Add Neurons... A dialog will show up asking you how many neurons you want to create. Say 9 and press OK.
+### Using projection plots
 
-2. Select all the neurons with "N"
+[Projection plots](plots/projectionPlot) visualize high-dimensional network state in 2D or 3D. To set one up:
 
-3. Connect them all to themselves by pressing "1" then "2".   (This works because in step 2 they were designated as target neurons, and by pressing "1" they were designated as source neurons, and  pressing "2" connected all source to all target neurons).
+1. Create a projection plot from `Insert > New Plot > Projection`
+2. Open the coupling manager
+3. Select neurons on the left and dimensions on the right
+4. Click "Add Couplings"
 
-4. Randomize the weights by first pressing "w" to select all weights, and then pressing "r" to randomize them.
-
-5. Randomize the neurons by first pressing "n" to select all neurons, and then pressing "r" to randomize them.
-
-6. Iterate the network using the spacebar. Observe the changing behavior. Periodically re-randomize the neurons using "N" followed by "R".
-
-## Edit a few neurons
-
-1. Select all the weights in your network by pressing "w" or using Select > Edit Selected Neurons
-
-2. Double click one of the neurons, or use Edit > Edit Selected Neurons. A neuron dialog will show up allowing you to edit these neurons. Click on the More drop-down, and change the Clamped property to Yes.
-
-3. Randomize the network and iterate it, and observe that the neurons whose update rule is clamped do not change.
-
-## Edit weights
-
-1. Select all the weights in your network by pressing "w" or using Select > Select All Weights.
-
-2. Edit the weights using Edit > Edit Selected Synapse(s). A synapse dialog will show up allowing you to edit these weights. Change the learning rule to Hebbian.
-
-3. Randomize everything by using Select > Select All or pressing "a" and then pressing "r" (this randomizes weights and neurons).
-
-4. Press the play button . Periodically press "a" then "r" to re-randomize the network. Notice that the weights slowly change their size, becuse they are learning using the Hebb rule.
-
-## Create a bar chart
-
-Don't delete the network you just created. We will now graph its activity using a bar chart.
-
-1. Add a bar chart to the workspace using Desktop Menu: Insert > New Plot > Bar Chart or by clicking on the plot menu button bar chart icon in the desktop toolbar and selecting "Bar Chart"
-
-2. Connect the network to the bar-chart using the coupling manager.   Open the coupling manager using Couplings > Open Coupling Manager...  On the left side of the dialog under Producers select the network you created.  On the right side under Consumers select the bar chart you created.  Select all the neurons on the left and all the bars on the right, and click Add Couplings.
-
-3. Iterate the workspace a few times the step button  , or run the workspace using the play button . While it's running periodically reset the network using select all and randomize ("A" then "R" while the network component is in focus), and observe the changing pattern in the bar chart.
-
-# Examples
-
-Here are some quick tutorials on how to do specific things in Simbrain.    The basics of building a network and other simple examples are covered in the quick-start.
-
-## Plot the activation of a node over time with a time-series plot.
-
-1) Create a neural network and a time series plot. 
-
-2) Create  a coupling from a node in the neural network to a time series in the plot.   The easiest way to do this is as follows.  Right click on the node whose activation you want to plot, and in the context menu go to Send coupling to > TimeSeriesPlot1 > Series0.   (TimeSeriesPlot1 is the name of the time series plot. If you have multiple plots open it might be a different name.  Series0 is a particular time series in the plot.)   By repeating this for different nodes you can plot the activation of multiple neurons at once.  If you want to add more time series beyond the default 5, click "add" in the time series component. 
-
-3) Now run your simulation and you should see a plot of the changing activation of the neuron.  For some purposes it helps to turn "auto range" off in the time series preferences, and manually set  upper and lower bounds.
-
-
-## Plot the activation of a set of nodes using a projection plot and the coupling manager
-
-(There are other ways to do this, some of them simpler in some cases, but this technique also shows you how to use the coupling manager).  This assumes a network component is open in the desktop.
-
-1) Open a projection plot.  To do this either press on the plot button in the desktop toolbar, which opens up a drop down menu with different plot components, or use the menu Insert > New Plot >...  Then select projection plot.  The will add a projection plot to your desktop with a default name like "Projection 1".
-
-2) Open the coupling manager using the Couplings > Open Coupling Manager button.
-
-3) On the left panel of the coupling manager, use the top drop down box (which allows you to select components) to select the network whose activity you want to plot.
-
-4) On right panel of the coupling manager, select the plot component you added to the desktop in step 1, e.g. "Projection 1".
-
-5) In the left panel, highlight rows corresponding the neurons whose activity you are interested in plotting (do this by clicking on rows while holding the shift key down).   Neurons are labelled by ids.  To find the neurons' ids in the network window you can hover over them and look at the tooltip.
-
-6) In the right panel of the coupling manager,  highlight all the "dimension" attributes either using the mouse or by pressing command-a while that panel is in focus.
-
-7) Click "add couplings" at the bottom of the coupling manager window.
-Now when you run the workspace each new network state should produce a point in the projection plot.
-
-Note that if you plot more than 25 neurons you will have to add more dimensions to the projection plot using the add dimension button in the projection plot, or the menu Edit > Set dimensions...   If you use less than 25 neurons you don't have to reset the projection plot but you can if you'd like.
-
-## Train a backprop network on a pattern association task
-
-1) Create a backprop network, using the menu Insert > Insert Network > Backprop
-
-2) Enter a topology (a layout for the network) in the dialog that appears.   For example, enter "4,5,4" for a backprop network with 4 input nodes, 5 hidden layer nodes, and 4 output nodes.
-
-3) Now you have to create some a training set: set of input vectors and a set of target vectors which you want the network to associate.    To do either double click on the backprop tab or  right-click on it and select "Edit / Train Backprop...". 
-
-4) In the input data and target data tabs, edit the cells of the tables to create a pattern assocation task.  Row 1 of input will be associated with row 1 of target, row 2 with row 2, etc.
-
-5) Now all that's left to do is to actually train the network.  To do this,  go to the train tab and press the run button.   This runs the algorithm, which adjusts the weights to try to achieve the desired input output mapping.   As the trainer runs, the error should go down.  Once the error gets to an acceptable level (often something below .1), press the stop button.  If you have trouble getting a low value you can press the randomize button and try again. Note: Depending on the associate task you set up in step 4 you may not be able to achieve a sufficiently low error value.
-
-7) Now you can test your network to see how well it did.  To do this go to the test data tab, and click the test row button.  This will send each row of data to the network.   The target data you trained it on should appear with each click of the test row button. -->
+Each network update creates a point in the projection plot. If you couple more than 25 neurons, use the add dimension button in the projection plot first.
 
 # Keyboard Shortcuts
 
-## Desktop
+## Desktop Level
 
-- **Command-o:** Open a workspace file
-- **Command-s:** Save the current file
-- **Command-n:** Create a new network
-- **Command-k:** Clear workspace (close all components)
-- **Command-q:** Quit
+- **Cmd/Ctrl-O:** Open a workspace file
+- **Cmd/Ctrl-S:** Save the current workspace
+- **Cmd/Ctrl-N:** Create a new network
+- **Cmd/Ctrl-K:** Clear desktop (remove all components)
+- **Cmd/Ctrl-Q:** Quit Simbrain
 
 ## All Components
 
-- **Command-o:** Open a file of the given workspace type
-- **Command-s:** Save the current file
-- **Command-w:** Close the component
+- **Cmd/Ctrl-O:** Open a file of the appropriate type for this component
+- **Cmd/Ctrl-S:** Save the current component
+- **Cmd/Ctrl-W:** Close the component
 
-## Network Component (Network must be in focus)
+## Network Component
 
-- **1:** Set selected nodes to source nodes
-- **2:** Connect source to target nodes using current connection (by default all to all)
-- **5:** Turn display of weights on and off. Performance goes way up when weights are - off so this is a good one to know!
-- **c:** "Clear" all. Set selected nodes and weights to zero. WARNING! Setting weights to zero is not always a desired outcome! Use with caution. A safer alternative is - 'k' which only clears node activations.
-- **Command-c:** Copy selected items (does not apply to all groups and subnetwork types)
-- **Command-d:** Duplicate selected items
-- **Alt-d:** print debug info to the console (only visible if Simbrain is run from a - terminal command).
-- **Command-e:** Edit selected neurons or weights
-- **f:** Fit camera to screen
-- **F:** Freeze / clamp selected nodes and weights. Repeat to toggle freezing / clamping.
-- **g:** Create a new neuron group
-- **Command-G:** Add selected free neurons to a neuron group
-- **i:** Wand mode
-- **k:** Clear all node activations. Leaves nodes selected so that, for example, this - can be followed by a randomization (r).
+The network window must be in focus for these shortcuts to work. Click on the network window first. For a complete list of menu items and actions, see [Network Menus and Toolbars](network/ui/networkMenu).
+
+### Selection and Navigation
+
 - **n:** Select all neurons
-- **p:** Add or "put" a new node. Nodes will be added next to selected nodes or where - you last clicked in the network panel
-- **r:** Randomize selected objects.
-- **s:** Selection mode (the default mode)
-- **t:** Text mode
 - **w:** Select all weights
-- **Command-v:** Paste selected items
-- **Command-x:** Cut selected items
-- **Delete:** Delete selected items
-- **Escape:** Unselect all objects and remove source handles
-- **Arrows:** Increment or decrement selected items (neurons or synapses).
-- **Option-Arrows:** Contextually increment or decrement selected neurons.
-- **Shift-Arrow:** Nudge objects (move them a few pixels)
-- **Space-bar:** Update network
+- **a:** Select all objects (neurons and weights)
+- **Escape:** Clear selection and remove source neuron designations
+- **s:** Selection mode (default mode)
+- **i:** Wand mode (quickly inject activation for testing)
+- **t:** Text mode (add text annotations)
+- **f:** Fit camera to screen
 
-## Some Useful Key Sequences
+### Creating and Editing
 
-- **n > c:**   to clear all neurons (set them to 0)
-- **n > r:**    to randomize all neurons
-- **w > r:**   to randomize all weights
-- **a > r:**   to randomize all weights and neurons
-- **n > 1 > 2  > r:** (to create a recurrent network where each node connects to all others)
+- **p:** Add a single neuron where you last clicked
+- **N:** Open dialog to add multiple neurons at once
+- **g:** Create a new neuron group from scratch
+- **Cmd/Ctrl-G:** Add selected neurons to a neuron group
+- **Cmd/Ctrl-E:** Edit properties of selected objects
+- **Cmd/Ctrl-C:** Copy selected items
+- **Cmd/Ctrl-V:** Paste copied items
+- **Cmd/Ctrl-X:** Cut selected items
+- **Cmd/Ctrl-D:** Duplicate selected items
+- **Delete/Backspace:** Delete selected items
 
-## Key Sequences for connecting neurons
+### Connecting Neurons
 
-`Select source neuron(s)  > press 1 >  select target neuron(s) > press 2`  
-(Repeat as needed; when done, click in an empty part of the network window to-deselect all neurons, and press 1)
+- **1:** Set selected neurons as source neurons (red halos)
+- **2:** Connect source neurons to selected target neurons (all-to-all)
+- **Shift-2:** Same as 2 but allows self-connections
+- **3:** Open custom connection dialog
 
-## Dataworld Component
+### Modifying Values
 
-**Command-r:** randomize all cells within given bounds.
-**Command-n:** normalize all values relative to columns.
-**Command-z:** zero out all cells
+- **r:** Randomize selected objects
+- **c:** Clear selected neuron activations (set to 0)
+- **k:** Clear all neuron activations (leaves them selected)
+- **Shift-C:** Clear selected neurons and weights (sets weights to 0, use with caution)
+- **Shift-F:** Toggle clamping on selected neurons
+- **Up/Down/Left/Right:** Increment or decrement selected neuron activations
+- **Shift + Arrows:** Nudge selected objects (move them a few pixels)
 
-## Notes on shortcuts
+### Running and Testing
 
-* "Command" is a different key on different systems:
-    * PC: Control or "CTRL" key
-    * Mac: The "command" or "Apple" key.
-    * Linux: The "CTRL" key.
-* The component-specific commands only work if that component is in focus (click on the component to place it in focus)
-* The network key commands are especially useful for rapidly building networks!
+- **Spacebar:** Iterate the network once (single step)
+- **5:** Toggle weight visibility (improves performance when off)
+
+### Advanced
+
+- **6:** Select incoming weights of selected neurons
+- **7:** Select outgoing weights of selected neurons
+- **Alt-D:** Print debug info to console (terminal only)
+- **Alt-R:** Toggle vertical/horizontal layout for neuron arrays
+- **S:** Select neurons inside selected neuron groups
+
+## Useful Key Sequences
+
+These combinations are especially powerful for quickly building and testing networks:
+
+- **n → c:** Clear all neurons (set them to 0)
+- **n → r:** Randomize all neurons
+- **w → r:** Randomize all weights
+- **a → r:** Randomize everything (neurons and weights)
+- **k → r:** Clear then randomize neurons (quick reset)
+- **n → 1 → 2:** Create a fully connected recurrent network
+
+### Connection Workflow
+
+The typical workflow for connecting neurons:
+
+1. Select source neurons
+2. Press **1** (designate as sources)
+3. Select target neurons
+4. Press **2** (connect all sources to all targets)
+5. Repeat steps 1-4 as needed
+6. Press **Escape** when done to clear source designations
+
+## Notes on Shortcuts
+
+- **Command** means different keys on different systems:
+  - Mac: The Command (⌘) key
+  - Windows: The Ctrl key
+  - Linux: The Ctrl key
+- Component-specific shortcuts only work when that component is in focus (click on it first)
+- The network shortcuts are especially useful for rapidly building and testing networks
+- When in doubt, hover over toolbar buttons to see their keyboard shortcuts
