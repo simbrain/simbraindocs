@@ -20,16 +20,16 @@ The way information flows from one node to another via a weight provides a usefu
 
 There are several variables that play an important role in this process.
 
-- **Activation**. A number that represents that how active a neuron is. The precise intepretation depnds on what kind of neuron it is. This is visible as the color of a neuron. More information on the graphical display of activations is in the [neuron](neurons) documentation.
+- **Activation**: A number that represents how active a neuron is. The precise interpretation depends on what kind of neuron it is. This is visible as the color of a neuron. More information on the graphical display of activations is in the [neuron](neurons) documentation.
 
-- **Strength**. How strong or efficacious a synapse is in transmitting information, and whether it is excitatory or inhibitory. More information on the graphical display of activations is in the [synapse](synapses) documentation.
+- **Strength**: How strong or efficacious a synapse is in transmitting information, and whether it is excitatory or inhibitory. More information on the graphical display of strength is in the [synapse](synapses) documentation.
 
 Two additional values are crucial to the process, but are not visible in the GUI:
 
 - **Input**: Input to a neuron, shown as open rectangles above. A buffer that accumulates inputs from other nodes (via PSRs) and via external [couplings](../workspace/couplings). This supports asynchronous or [buffered update](#buffered-update).
 
 <a name="PSR"></a>
-- **PSR** : Post synaptic response or "output" of a synapse, shown as diamonds above.  Usually the PSR of a node is just source activation times weight. Sometimes the PSR varies over time in response to spikes (see [spike responders](spikeresponders)). The logic of PSR updates is discussed in [PSR update](#psr-update).
+- **PSR**: Post-synaptic response or "output" of a synapse, shown as diamonds above. Usually the PSR of a node is just source activation times weight. Sometimes the PSR varies over time in response to spikes (see [spike responders](spikeresponders)). The logic of PSR updates is discussed in [PSR update](#psr-update).
 
 When multiple source nodes connect to a target node, the input to the target node is a summation of PSRs across the source nodes. In the example above, the target node accumulates PSRs from three other nodes. Since in this case there are no spike responders, the target input is a simple weighted sum. In this image we have also shown dotted lines feeding into each input, which emphasizes that information from external couplings can be part of the input to any neuron.
 
@@ -39,7 +39,7 @@ As we will see, all of these values can exist as arrays: activations, inputs, we
 
 # Buffered Update
 
-The default way networks are updated is using buffered update (other options are discussed in [update actions](#update-actions)). The value of buffered update is that it allows for determinstic updating, that is independent of the order in which network models (without this system, you would get different results depending on what order you added items to Simbrain). 
+The default way networks are updated is using buffered update (other options are discussed in [update actions](#update-actions)). The value of buffered update is that it allows for deterministic updating, that is independent of the order in which network models were added (without this system, you would get different results depending on what order you added items to Simbrain). 
 
 Here is the basic algorithm in pseudo code:
 ```kotlin

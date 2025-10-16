@@ -62,12 +62,12 @@ For square matrices, additional operations are available:
 
 ## Creating Arrays and Matrices
 
-An array can be inserted into a Network Window through two methods:
+An array can be inserted into a network window through two methods:
 
-1) Insert > "Add Neuron Array"
-2) Pressing the Keyboard shortcut "Y"
+1. `Insert > Add Neuron Array`
+2. Pressing the keyboard shortcut `Y`
 
-Weight Matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#source-and-target-objects).
+Weight matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#source-target).
 
 ## Matrix Integration
 
@@ -106,88 +106,80 @@ The PSR matrix can be processed by [spike responders](./spikeresponders.html) be
 - Temporal dynamics at individual synapses
 - Biologically plausible computation models
 
-### Excitatory and Inhibitory Separation
-
-Weight matrices maintain separate masks for excitatory and inhibitory connections:
-- **Excitatory mask**: Binary matrix marking positive weights
-- **Inhibitory mask**: Binary matrix marking negative weights
-
-These masks enable separate processing of excitatory and inhibitory inputs, which is important for biologically realistic models.
-
 ## Neuron Array Right Click Menu
 
-- **Cut:** Cut selected neurons, (connected) synapses, and neuron groups
+- **Cut**: Cut selected array (Cmd/Ctrl-X)
 
-- **Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+- **Copy**: Copy selected array (Cmd/Ctrl-C)
 
-- **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+- **Paste**: Paste copied array (Cmd/Ctrl-V)
 
-- **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+- **Duplicate**: Duplicate selected array (Cmd/Ctrl-D)
 
-- **Edit:**
+- **Edit...**: Open properties dialog
 
-- **Delete:** Delete selected node(s)
+- **Delete**: Delete selected array (Backspace or Delete)
 
-- **Connect Selected Objects...:** Creates synapse, weight matrix, etc. between selected source and target entities
+- **Connect Selected Objects...**: Creates weight matrix or synapse group between selected source and target entities
 
-- **Toggle Line / Grid:** Toggle line / grid style
+- **Toggle line / grid**: Toggle line / grid style (G)
 
-- **Toggle Horizontal / Vertical Layout:** Toggle horizontal / vertical layout
+- **Toggle horizontal / vertical layout**: Toggle horizontal / vertical layout (L)
 
-- **Toggle Circle Mode:** Toggle activation rendering mode between circle and image
+- **Toggle circle mode**: Toggle activation rendering mode between circle and image (M)
 
-- **Toggle Bias Visibility:** Toggle whether biases are visible
+- **Toggle bias visibility**: Toggle whether biases are visible (B)
 
-- **Create Supervised Model:** Create supervised model with using the current activation as target for immediate training
+- **Create supervised model**: Create supervised model using the current activation as target for immediate training
 
-- **Input Data...:** Opens a dialog that can be used to send inputs to this layer
+- **Input Data...**: Opens a dialog that can be used to send inputs to this layer
 
-- **Add Current Pattern to Input Data:** Add the current activation of this layer to the input data table
+- **Add current pattern to input data**: Add the current activation of this layer to the input data table
 
-- **Randomize Selection:** Randomize Selected Elements (r)
+- **Randomize Selection**: Randomize selected elements (r)
 
-- **Randomize Bias:** Randomize biases of selected nodes
+- **Randomize Biases**: Randomize biases of this neuron array
 
-- **Edit Components:** Edit the entries of the matrix or array
+- **Edit components...**: Edit the entries of the activation array in a table
 
-- **Plot Activations:** Plot neuron activations across available graph type
+- **Plot Activations** (or **Plot Activations/Spikes** for spiking neurons): Plot neuron activations across available graph types
 
-- **Plot Biases:** Plot neuron biases across available graph type
+- **Plot Biases**: Plot neuron biases across available graph types
 
-- **Add Coupled Image World:** Couples an image world to this neuron array
+- **Add coupled image world**: Couples an image world to this neuron array
 
-- **Record Activations:** Start recording activations to a data world
+- **Record Activations**: Start recording activations to a data world
 
-- **Record Biases:** Start recording biases to a data world
+- **Record Biases**: Start recording biases to a data world
 
 
 ## Weight Matrix Right Click Menu
 
-- **Cut:** Cut selected neurons, (connected) synapses, and neuron groups 
+- **Cut**: Cut selected weight matrix (Cmd/Ctrl-X)
 
-- **Copy:** Copy selected neurons, (connected) synapses, and neuron groups 
+- **Copy**: Copy selected weight matrix (Cmd/Ctrl-C)
 
-- **Paste:** Paste copied neurons, (connected) synapses, and neuron groups 
+- **Paste**: Paste copied weight matrix (Cmd/Ctrl-V)
 
-- **Duplicate:** Duplicate selected neurons, (connected) synapses, and neuron groups 
+- **Duplicate**: Duplicate selected weight matrix (Cmd/Ctrl-D)
 
-- **Delete:** Delete selected node(s)
+- **Edit...**: Open properties dialog
 
-- **Randomize Selection:** Randomize Selected Elements (r)
+- **Delete**: Delete selected weight matrix (Backspace or Delete)
 
-- **Diagonalize:** Diagonalize array
+- **Randomize Selection**: Randomize selected elements (r)
 
-- **Transpose Weight Matrix Image (Current Target -> Source):** Transpose the weight matrix image
+- **Diagonalize**: Create an identity-like diagonal matrix
 
-- **Plot Weight Matrix:** Plot weight matrix across available graph type
+- **Plot Weight Matrix**: Plot weight matrix across available graph types
 
-- **Show Eigenvalues:** Show eigenvalues for this matrix if it is a square
+- **Show eigenvalues...**: Show eigenvalues for this matrix (only enabled for square matrices)
 
-- **Set Spectral Radius:** Rescale matrix so that max eigenvalue is the specified value
+- **Set spectral radius...**: Rescale matrix so that max eigenvalue is the specified value. Values less than 0.9 cause decay; 0.9 churns; greater than 1 explodes
 
-- **Randomize Symmetric:** Use network weight randomizer to randomize the matrix symmetrically
+- **Randomize symmetric**: Use network weight randomizer to randomize the matrix symmetrically
 
-- **Zero Diagonal:** Effectively removes self-connections (in the reccurent case)
+- **Zero diagonal**: Effectively removes self-connections (in the recurrent case)
 
 
 ## Differences with Synapse Groups
@@ -214,56 +206,44 @@ While weight matrices and synapse groups both represent connections, they have d
 
 - **Label**: Optional string description for identification
 - **Update Priority**: Determines update order in network (lower numbers update first)
-- **Increment Amount**: Amount to increment all weights when using keyboard shortcuts
-- **Clamped**: Prevents weight updates during learning (see [Clamping](../neurons#clamping))
-- **Learning Rule**: Specifies how weights change during training
-- **Spike Responder**: Processes PSR matrix entries (see [Spike Responders](./spikeresponders.html))
+- **Increment amount**: Amount to increment all weights when using keyboard shortcuts
+- **Clamped**: If checked, local learning rules won't be applied (weights can still be manually updated)
+- **Learning rule**: Specifies how weights change during training
+- **Spike responder**: Processes PSR matrix entries, only used if source connector's rule is spiking (see [Spike Responders](./spikeresponders.html))
 
 ### Weight Matrix Tab
-
-- **Matrix Editor**: Direct editing of weight values in spreadsheet format
-- **Import/Export**: Load weights from files or save current values
-- **Visualization**: Color-coded display of weight magnitudes
-- **Statistics**: View weight distribution, min/max values, and norms
 
 The weight matrix viewer allows you to view and edit weight values in a tabular format, where cells represent connections between source neurons (rows) and target neurons (columns). Values can be edited directly, randomized, or loaded/saved from .csv files.
 
 ### Data Tab
 
-- **PSR Matrix**: View post-synaptic response values
-- **Weight Array**: Access weight values for coupling
-- **Matrix Properties**: View matrix dimensions and statistics
+- **Learning rule data**: State variables for the learning rule (if any)
+- **Spike responder data**: State variables for the spike responder (if any)
+- **PSR matrix**: View post-synaptic response values
 
-## Neuron Array Dialog Options:
+## Neuron Array Dialog Options
 
 ### Main Tab
 
 - **Activations**: Current activation values for all neurons
-- **Label**: Optional string description for identification
-- **Labels**: Individual labels for each neuron in the array
-- **Clamped**: Prevents activation updates (see [Clamping](../neurons#clamping))
+- **Label array**: Individual labels for each neuron in the array
 - **Bias Array**: Individual bias values for each neuron
-- **Use Layer Norm**: Applies layer normalization after each update
-- **Increment Amount**: Amount to increment all activations using keyboard shortcuts
+- **Use Layer Norm**: If checked, applies layer normalization after each update
+- **Label**: Optional string description for identification
 - **Update Priority**: Determines update order in network (lower numbers update first)
+- **Clamped**: Prevents activation updates (see [clamping](./neurons#clamping))
+- **Increment**: Amount to increment all activations using keyboard shortcuts
 
 ### GUI Tab
 
-- **Show Activations**: Display activations as color-coded pixel image
 - **Grid Mode**: Show neurons in rectangular grid vs. single line
-- **Circle Mode**: Display individual neuron circles instead of image
 - **Vertical Layout**: Orient array vertically instead of horizontally
-- **Biases Visible**: Show bias values as small indicators
+- **Circle Mode**: Display individual neuron circles instead of color-coded image
+- **Show Bias**: Show bias values as small indicators
 
 ### Update Rule Tab
 
 - **Update Rule**: Neuron update function (Linear, Sigmoidal, etc.)
-- **Upper Bound**: Maximum activation value
-- **Lower Bound**: Minimum activation value
-- **Clipping Type**: How to handle out-of-bounds values
-  - **None**: No clipping applied
-  - **Clip**: Hard clipping to bounds (piecewise linear)
-  - **Floor**: Minimum clipping only (ReLU-style)
-- **Slope**: Linear rule slope parameter
+- **State variables**: Rule-specific state variables (depends on selected update rule)
 
-For more information on update rules, see [Neuron Update Rules](./neurons.html#update-rules).
+Update rule parameters vary by rule type. For more information on specific update rules, see [neuron update rules](./neurons.html#update-rules).

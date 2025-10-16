@@ -11,39 +11,58 @@ nav_order: 20
 
 <img src="/assets/images/networkPreferences.png" alt="Network Preferences" style="width:300px;"/>
 
-The Network Preferences dialog can be opened by going to **File > Network Preferences...** in a network window. The dialog provides ways to alter the graphical, logical, and other properties of a neural network that are not specific to any particular network element.
+The Network Preferences dialog can be opened by going to `File > Network Preferences` in a network window, or by using the keyboard shortcut `Cmd/Ctrl-,`. These preferences are global settings that apply to all networks in the Simbrain workspace.
 
-## Main
+## Colors
 
-**Color:** allows the user to change the color of the various components within the network frame. The colors that can be changed are: Background, Line, Hot node, Cool node, Excitatory weight, Inhibitory weight, Lasso, Selection, and Spiking. The current color selection is indicated by the color box located between the combo box and the "Set" button.
+The Colors tab allows customization of all visual color elements in the network display:
 
-<img src="/assets/images/networkDefaultsColors.png" alt="Network Preferences" style="width:300px;"/>
+- **Network background color**: Background color of the network canvas
+- **Node hot color**: Color for neurons with high positive activation or excitatory polarity  
+- **Node cool color**: Color for neurons with low/negative activation or inhibitory polarity
+- **Line color**: Default color for lines, borders, and neutral elements
+- **Spiking color**: Color used to highlight neurons and connections when spiking
+- **Excitatory color**: Color for excitatory synapses (positive weights)
+- **Inhibitory color**: Color for inhibitory synapses (negative weights)
+- **Zero color**: Color for synapses with zero or near-zero weights
+- **Weight matrix arrow color**: Color for arrows indicating [weight matrix](../arraysMatrices) connections
+- **Weight matrix boundary color**: Color for weight matrix boundaries and outlines
+- **Synapse group arrow color**: Color for arrows indicating [synapse group](../synapsegroups) connections
 
-- **Background color:** is the color of the network background.
-- **Cool node color:** is the color of a neuron that has an activation level less than zero.
-- **Excitatory weight color:** is the color of the synapse that has a strength greater than zero.
-- **Hot node color:** is the color of a neuron that has an activation level greater than zero.
-- **Inhibitory weight color:** is the color of the synapse that has a strength less than zero.
-- **Lasso color:** is the color of the line that appears when dragging the mouse to select neurons and weights.
-- **Line color:** is the color of the lines that connect neurons.
-- **Selection color:** is the color of the box that surrounds items that have been selected.
-- **Spiking color:** is the color of a neuron's outline (and outgoing synapse lines) when it spikes.
+## GUI
 
-<img src="/assets/images/networkDefaultsGUI.png" alt="Network Preferences" style="width:300px;"/>
+The GUI tab controls visual display settings and interface behavior:
 
-**Weight size max/min:** sets the maximum and minimum size a weight can be. This option only changes the graphical size of the weight and has no bearing on how the weight behaves.
+- **Nudge amount**: Distance in pixels to move selected objects when using Shift + arrow keys
+- **Neuron activation decimal places**: Number of decimal places to display in neuron activation text
+- **Tooltip decimal places**: Number of decimal places to display in neuron tooltips
+- **Min synapse size**: Minimum visual diameter for synapse circles in pixels
+- **Max synapse size**: Maximum visual diameter for synapse circles in pixels
+- **Visibility threshold**: Hide individual synapses when [synapse groups](../synapsegroups) exceed this number of synapses
+- **Wand radius**: Radius in pixels for the [wand tool](../buildingBasics#using-the-wand)
+- **Weight matrix target-source format**: If yes, each row of a [weight matrix](../arraysMatrices) corresponds to an output and each column corresponds to an input. If no (source-target format), each row corresponds to an input and each column corresponds to an output
+- **Matrix image max width/height**: Maximum size of the weight matrix image in pixels in either dimension (width or height)
 
-**Network Time Step:** A parameter governing the temporal granularity of the current network simulation. For example, neurons that numerically integrate a differential equation use this as their integration time step. Intuitively, if the time step is larger, the simulation runs faster: when the network is in continuous mode, each iteration will advance by this value at each iteration. For more information see the discussion of **neuron timing**.
+## Model
 
-**Synapse Visibility Threshold:** A number to determine whether **Synapse Groups** should initially have their synapses visible when created. If a new synapse group has more than this number of synapses, individual synapses will be invisible. For example, if set to 0 synapse groups are always in "invisible synapse" mode. If set to 2000, only synapse groups with more than 2000 synapses are invisible.
+The Model tab contains parameters that affect network simulation behavior:
 
-**Nudge Amount:** is the amount of indent to be used when indenting network files. This option is only valid when "Indent network files" is selected.
+- **Default network time step**: Default time step for network simulation in milliseconds. Neurons that numerically integrate differential equations use this as their integration time step. When the network is in continuous mode, each iteration advances by this value
+- **Default learning rate**: Default learning rate for [learning algorithms](../learning/)
 
-**Wand Radius:** sets the width in pixels of the **wand tool**.
+## Connections
 
-**Restore defaults:** Restore settings in the main tab to their default values.
+- **Default connection strategy**: Default method for connecting neurons when creating synapses. Options include All to All, Sparse, One to One, and other [connection strategies](../connections/)
 
-**Use subsampling:** If checked, use **subsampling**, which means that when a neuron group is large (has more neurons than **number of subsamples**), only use that many subsamples when sending a vector of activations to external components using couplings.
+## Randomizers
 
-**Number of subsamples:** Number of subsamples to take. This value is effectively a threshold as well: only when a neuron group has more than this many neurons is a subsample used when getting activations from a group.
+The Randomizers tab configures the [probability distributions](../../utilities/randomizers) used when randomizing network elements:
+
+- **Weight randomizer**: Randomizer for all free weights, regardless of polarity. Applying this can change the polarity of a neuron
+- **Excitatory randomizer**: Randomizer for all weights from polarized excitatory neurons. Applying this will not change the polarity of a neuron
+- **Inhibitory randomizer**: Randomizer for all weights from polarized inhibitory neurons. Applying this will not change the polarity of a neuron  
+- **Activation randomizer**: Randomizer for initial neuron activation values
+- **Bias randomizer**: Randomizer for all neuron biases
+
+Each randomizer can be configured with different probability distributions (Normal, Uniform, Log-Normal, etc.) and their parameters. Click the details button to configure distribution-specific settings.
 

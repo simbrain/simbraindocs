@@ -9,49 +9,40 @@ nav_order: 30
 
 # Neuron Layouts
 
-Layouts are used to organize group of neurons in a Simbrain network window. They can be used in several ways
+Layouts are used to organize neurons spatially in a Simbrain network window. They can be applied in several ways:
 
-1. To arrange a group of **free neurons**, by selecting them, and right clicking or using the edit menu to select a layout from the layout menu.
-2. To specify the layout for a **neuron group** being created
-3. To arrange existing neurons in a **neuron group**.
+1. To arrange a group of free neurons by selecting them and choosing a layout from the right-click context menu or the `Edit > Layout` menu
+2. To specify the layout for a neuron group when creating it
+3. To rearrange existing neurons in a neuron group using the group's property dialog
 
-*Note*: In each case below, "initial position" corresponnds to the last position clicked on screen, or the upper left corner if no position has been clicked (this is the same as with neurons). Examples of each kind of layout can be found below the pictures below.
+The initial position for a layout corresponds to the last position clicked on screen, or the center of the selected neurons if no position has been set.
 
 ## Grid Layout
 
-Neurons are laid out in a grid, beginning at an initial position and moving downward.
+Neurons are laid out in a grid pattern, beginning at an initial position and proceeding left-to-right, top-to-bottom.
 
-- **Horizontal Spacing between neurons:** Distance between the neurons from left to right.
+- **Horizontal Spacing**: Distance between neurons from left to right
+- **Vertical Spacing**: Distance between neurons from top to bottom
+- **Auto Columns**: If true, the number of columns is set automatically to create a square or nearly-square grid. If false, you can manually specify the number of columns
+- **Number of Columns**: Number of columns in the grid when Auto Columns is disabled
 
-- **Vertical Spacing between neurons:** Distance between the neurons up and down.
-
-- **Manully set number of columns:** If checked, the default behavior is overrideen and you can choose how many columns the grid has, using the number of columns field.  Default behavior is a square grid.
-
-- **Number of columns:** How many columns there will be in the grid (if manually set number of columns is selected).
-
-<!-- TODO --> Add Image
+When Auto Columns is enabled with more than 3 neurons, the number of columns is automatically set to the square root of the total number of neurons. For 3 or fewer neurons, 2 columns are used for better visual appearance.
 
 ## Line Layout
 
-Neurons are laid out in a line, beginning at an initial position.
+Neurons are laid out in a single line, either horizontal or vertical.
 
-- **Layout Style:** Whether the neurons are laid out horizontally or vertically.
+- **Orientation**: Whether neurons are arranged horizontally or vertically (options: Horizontal, Vertical)
+- **Spacing**: Distance between adjacent neurons
 
-- **Spacing between neurons:** Distance between the neurons.
+## Hexagonal Grid Layout
 
-<!-- TODO --> Add Image
+Neurons are laid out in a hexagonal grid pattern, with alternating rows offset to create a honeycomb appearance. This layout is particularly useful for self-organizing maps and spatial topologies.
 
-## Hexagonal Layout
+- **Horizontal Spacing**: Distance between neurons from left to right
+- **Vertical Spacing**: Distance between neurons from top to bottom
+- **Auto Columns**: If true, the number of columns is set automatically to create a square or nearly-square grid. If false, you can manually specify the number of columns
+- **Number of Columns**: Number of columns in the grid when Auto Columns is disabled
 
-Neurons are laid out in a hexagonal pattern.
-
-- **Horizontal Spacing between neurons:** Distance between the neurons from left to right.
-
-- **Vertical Spacing between neurons:** Distance between the neurons up and down.
-
-- **Manually set number of columns:** If checked, the default behavior is overrideen and you can choose how many columns the grid has, using the number of columns field.  Default behavior is a square grid.
-
-- **Number of columns:** How many columns there will be in the grid (if manually set number of columns is selected).
-
-<!-- TODO --> Add Image
+In hexagonal layouts, alternating rows are offset by half the horizontal spacing to create the hexagonal pattern.
 

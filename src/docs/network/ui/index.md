@@ -12,12 +12,12 @@ This section covers the user interface elements, menus, and tools for working wi
 
 ## Overview
 
-The network component provides a rich set of UI tools for building, editing, and managing neural networks:
+The network component provides a comprehensive set of UI tools for building, editing, and managing neural networks:
 
-- **Menus and Toolbars**: Access to all network operations through keyboard shortcuts, menu items, and toolbar buttons
-- **Preferences**: Customizable settings that control network appearance and behavior
-- **Layouts**: Tools for organizing neurons spatially in grid, line, and hexagonal patterns
-- **Test Inputs**: Interactive tables for systematically testing network responses to input patterns
+- **Menus and Toolbars**: Access to all network operations through menus, toolbars, keyboard shortcuts, and context-sensitive right-click menus
+- **Preferences**: Global settings that control network appearance, behavior, and default values across all networks in the workspace
+- **Layouts**: Tools for organizing neurons spatially using grid, line, and hexagonal grid patterns
+- **Input Tables**: Interactive matrix-based interface for systematically applying input patterns to neurons and observing network responses
 
-These tools work together to provide an efficient workflow for network construction and experimentation. Many operations support keyboard shortcuts and batch operations on selected elements.
+These tools work together to provide an efficient workflow for network construction, experimentation, and analysis. Most operations support keyboard shortcuts, work with batch selections, and provide undo/redo functionality.
 

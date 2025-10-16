@@ -7,106 +7,168 @@ has_children: false
 nav_order: 10
 ---
 
-# Menus
+# Network Menus and Toolbars
 
-This page contains actions that are available from the network menu. Many of these are associated with **keyboard shortcuts**. Many of them are also available from various right-click or popup menus, and from **toolbars**. As often as possible, they are conditionally enabled, that is, only enabled if the right conditions obtain in the network window (e.g. neurons are selected for operations on neurons).
+This page describes the menu items, keyboard shortcuts, and toolbar actions available in the network component. Many actions are conditionally enabled based on the current selection and network state.
 
-## File
+## File Menu
 
-- **Open**: Open a network file.
-- **Import from xml**: Open a network file from an xml file.
-- **Export to xml**: Save a network file as an xml file.
-- **Edit Update Sequence**: Opens the dialog for editing the **network update sequence**.
-- **Network Preferences**: Open **Network Preferences**.
+- **Import**: Import a network file
+- **Export**: Export the network to a file
+- **Rename**: Rename this network component
+- **Edit Update Sequence**: Opens the dialog for editing the network update sequence
+- **Network Preferences**: Open network preferences (Cmd/Ctrl-,)
+- **Close**: Close this network window
 
-## Edit
+## Edit Menu
 
-- **Cut**: Cut selected network elements (nodes, weights, text items, some groups) to buffer.
-- **Copy**: Copy selected network elements to buffer.
-- **Paste**: Paste network elements in buffer to screen.
-- **Delete**: Deletes selected screen items.
-- **Clear Source Neurons**: Deselect neurons that are set as **source neurons**.
-- **Set Source Neurons**: Set the selected neurons as source neurons.
-- **Connect Neurons**: Link neurons together as a connection.
-- **Connect Neurons Group with Synapse Group**: Connect source and target neurons with a synapse group.
-- **Randomize Selection**: Assign random values to neurons.
-- **Show Synapse Adjustment Dialog**: Show the **synapse adjustment dialog** for free neurons.
-- **Layout**: Align neurons to a specific layout. See **Neuron Layouts** for list of layout options.
-- **Convert neurons to Neuron Group**: Convert selected **free neurons** to a **neuron group**.
-- **Align**: Aligns neurons horizontally or vertically.
-- **Space**: The distance between two neurons.
-- **Edit Selected Neuron(s)**: Configure neuron(s) properties.
-- **Edit Selected Synapse(s)**: Configure synapse(s) properties.
-- **Select**: Pick out an element.
-- **Select all**: Select all screen elements (see selection).
-- **Set selected neurons / weights**: Open properties window for selected neurons or weights.
-- **Clamp Neurons/Weights**: Fixate neurons/weights value. See **clamping**.
-- **Set properties**: Different depending on whether you are clicked on a node or weight. If multiple nodes or weights are selected, it sets properties of that set. For more see **neuron properties**.
+- **Undo**: Undo last action (Cmd/Ctrl-Z)
+- **Redo**: Redo last undone action (Cmd/Ctrl-Shift-Z)
+- **Undo History**: Show undo history
+- **Cut**: Cut selected network elements (Cmd/Ctrl-X)
+- **Copy**: Copy selected network elements (Cmd/Ctrl-C)
+- **Paste**: Paste network elements from buffer (Cmd/Ctrl-V)
+- **Duplicate**: Duplicate selected elements (Cmd/Ctrl-D)
+- **Delete**: Delete selected elements (Backspace or Delete)
+- **Clear Source Neurons**: Deselect neurons that are set as source neurons
+- **Set Source Neurons**: Set the selected neurons as source neurons (1)
+- **Connect Neurons**: Submenu with various connection options (2 to connect, 3 for custom connection dialog, Shift-2 to allow self-connections)
+- **Randomize Selection**: Assign random values to selected elements  
+- **Show Synapse Adjustment Panel**: Show the synapse adjustment dialog for free synapses (Cmd/Ctrl-R)
+- **Connect with Weight Matrix**: Connect selected source and target neurons with a weight matrix
+- **Connect with Synapse Group**: Connect selected source and target neurons with a synapse group
+- **Layout**: Apply a layout to selected neurons (see [layouts](layouts))
+- **Create Supervised Model**: Create a supervised learning model from selected network elements
+- **Add neurons to collection**: Add selected neurons to a neuron collection (G)
+- **Align**: Submenu with horizontal and vertical alignment options
+- **Space**: Submenu for horizontal and vertical spacing options
+- **Edit Selected Models**: Edit properties of selected models (Cmd/Ctrl-E)
+- **Select**: Submenu with various selection options
+  - Select all (A or Cmd/Ctrl-A)
+  - Select all neurons (N)
+  - Select all weights (W)
+  - Select incoming weights (6)
+  - Select outgoing weights (7)
 
-## Insert
+## Insert Menu
 
-- **Add Neuron**: Add a new neuron to the network.
-- **Add Neurons**: Add a collection of neurons to the network. The update rule of the neurons and their **layout** can be specified.
-- **Insert Neuron Group**: Insert a set of neurons within one group.
-- **Insert Network**: Add a **subnetwork** to the network.
-- **Create Input Table**: Create a **test inputs** table whose rows provide input to selected neuron(s).
-- **Display/Edit Weight Matrix**: Display a weight matrix viewer for the synapses between designated source and target neurons, showing connections in a tabular format where rows represent source neurons and columns represent target neurons.
+- **Add Neuron**: Add a single neuron to the network (P)
+- **Add Neurons**: Add multiple neurons with configurable layout and update rule (N)
+- **Add Neuron Group**: Add a neuron group to the network (G)
+- **Add Neuron Array**: Add a neuron array to the network (Y)
+- **Add Classifier**: Add a classifier network
+- **Add Subnetwork**: Submenu with various subnetwork types including:
+  - Backprop network
+  - Competitive network
+  - Feed-forward network
+  - Hopfield network
+  - Self-organizing map (SOM)
+  - Simple recurrent network (SRN)
+  - Restricted Boltzmann machine (RBM)
+- **Add Text**: Add a text annotation to the network (T)
 
-## View
+## Actions Menu
 
-User can set whether or not to show network toolbars.
+The Actions menu contains special utility operations for networks:
 
-- **Toolbars**: User can set which toolbars to show in network interface. See **toolbars**.
-- **Autozoom**: Checking the "autozoom" box causes the network display to automatically resize the current neural network so it fits within the screen. Un-checking autozoom thus allows users to zoom in on data and pan it arbitrarily.
-- **Show Neuron Priorities**: Toggles whether neuron priorities (for use in priority **update**) are visible.
-- **Free Weights Visible**: Toggle whether free weights are visible in the GUI.
+- **Create Layered Free Neurons**: Create layers of free neurons with specified parameters
+- **Decay Weights**: Decay all weight values in the network
+- **Export Simbrain Web Format**: Export the network to web format
+- **Fast 100**: Quickly create 100 neurons for testing
+- **Fast Grid**: Quickly create a grid of neurons
+- **Fast Sparse**: Create sparse connections between neurons
+- **Prune Weights**: Remove weights below a threshold
+- **Randomize Polarity**: Randomize the polarity of selected neurons
 
-## Scripts
+## View Menu
 
-To create customized simulations or behaviors not possible using the Simbrain GUI, you can customize scripts. See **Scripting** for more details.
+- **Toolbars**: Submenu to toggle toolbar visibility
+  - Main Toolbar
+  - Edit Toolbar
+- **Free Weights Visible**: Toggle visibility of free weights (synapses not in synapse groups) (5)
+- **Only show synapses when spiking**: When enabled, synapses are only drawn while their source neuron is spiking
+- **Show Weight Matrix**: Display the weight matrix viewer
+- **Show Priority Table**: Display the priority table showing neuron update order
 
-- **Save Network to MATLAB File**: When you call this script, the activations of any **neuron groups** in the network and the weights in any **synapse groups** in the network will be converted to binary matlab MAT-files. Uses the **jmat.io library**.
+## Help Menu
 
-## Popup Menu (Empty Canvas)
+- **Network Help**: Open network documentation at https://docs.simbrain.net/docs/network/
 
-If you right-click (or left-click while holding down the ctrl key) anywhere on the network panel, a pop-up menu will appear, whose contents vary depending on where you click and whether there is anything in the clipboard.
+## Context Menus
 
-- **Add Neuron**: Create a new neuron at clicked location.
-- **Add Neurons**: Create neurons.
-- **Insert Neuron Group**: Create a group of neurons.
-- **Insert Network**: Creates a new network of a specified type, at clicked location.
-- **Cut, copy, paste**: Act as in a normal application. Paste only appears if there are items in the buffer to paste; cut and copy only appear if there are selected items to cut or copy. Items are pasted to clicked location.
-- **Clear Source Neurons**: Deselect **source neurons**.
-- **Set Source Neurons**: Set the selected neurons as source neurons.
-- **Network Preferences**: Opens network dialog.
-- **Scripts**: Open and apply a network .bsh script to the network.
+The network panel provides context-sensitive menus that appear when right-clicking on different elements.
 
-# Toolbars
+### Empty Canvas Context Menu
 
-Toolbars can be turned off using the **network view** menu.
+When right-clicking on an empty area of the network panel:
 
-## Mode Toolbar
+- **Add Neuron**: Create a new neuron at clicked location (P)
+- **Add Neurons**: Create multiple neurons (N)
+- **Add Neuron Group**: Create a neuron group (G)
+- **Add Neuron Array**: Create a neuron array (Y)
+- **Add Classifier**: Create a classifier network
+- **Add Subnetwork**: Submenu with various subnetwork types
+- **Add Text**: Add a text annotation (T)
+- **Cut, Copy, Paste, Duplicate**: Standard clipboard operations (only appear when applicable)
+- **Clear Source Neurons**: Deselect source neurons
+- **Set Source Neurons**: Set selected neurons as source neurons
+- **Network Preferences**: Opens network preferences dialog
 
-This toolbar allows you to set the edit mode for the network, visible as the cursor graphic.
+### Neuron Context Menu
 
-- **Selection mode**: Select nodes and weights by lassoing or left-clicking. Hotkey: S.
-- **Text mode**: In this mode, text can be added anywhere in the network panel. Text objects can be subsequently edited by double-clicking on them. Text can be formatted by right-clicking on a text object and selecting **Text Properties...**. Hotkey: T.
-- **Wand mode**: Can be used to inject activation to nodes quickly for testing. Hotkey: I. See **wand tool**.
-- **Auto-zoom**: Single click to change mode. When in auto-zoom mode, objects will automatically be fit to the page as they are created and moved. **Tip**: toggling twice when auto-zoom is off will force an auto-zoom while leaving auto-zoom off.
+When right-clicking on selected neurons:
 
-## Run Toolbar
+- Standard editing operations (Cut, Copy, Paste, Duplicate, Delete)
+- **Clear Source Neurons** / **Set Source Neurons**: Manage source neurons for connections
+- **Connect Neurons**: Submenu with connection options
+- **Layout**: Apply a layout to selected neurons
+- **Align** and **Space**: Alignment and spacing options (when multiple neurons are selected)
+- **Neuron Properties**: Edit properties of selected neurons (Cmd/Ctrl-E)
+- **Select**: Submenu to select incoming or outgoing weights
+- **Create input table**: Create an [input table](testInputs) for selected neurons
+- **Show Weight Matrix**: Display weight matrix viewer
 
-This toolbar is for running the network, independently of the workspace. It is hidden by default (because it can be easily confused with workspace run/step) and must be turned on using the **view** menu.
+### Synapse Context Menu
 
-- **Run network**: Repeatedly iterates the network. Note that the image on the button becomes that of a "stop" button. Pressing this button will stop the network. Thus, the play/stop button acts as a toggle switch.
-- Step through one update cycle (Also keyboard space and S, depending on **interaction mode**).
+When right-clicking on selected synapses:
 
-## Edit Toolbar
+- Standard editing operations (Cut, Copy, Paste, Duplicate, Delete)
+- **Synapse Properties**: Edit properties of selected synapses (Cmd/Ctrl-E)
 
-This toolbar allows you to create and delete neurons, and change their state.
+## Toolbars
 
-- Set all selected nodes (weights and/or nodes) to a random value (Also keyboard R). Randomization is a uniform distribution between the upper and lower bounds set for each neuron or weight.
-- Set all selected neurons to 0. Weights are ignored. (Also keyboard C)
-- Create a neuron at last position clicked on screen. (Also keyboard N)
-- Delete currently selected neurons. (Also keyboard delete or backspace)
+Toolbars can be toggled on and off using the `View > Toolbars` menu.
+
+### Main Toolbar
+
+The Main Toolbar controls the edit mode and zoom level:
+
+- **Selection Mode**: Select nodes and weights by clicking or lassoing (default mode)
+- **Wand Mode**: Inject activation to neurons quickly for testing (I). See [wand tool](../buildingBasics#using-the-wand)
+- **Pan Mode**: Pan the view by clicking and dragging
+- **Zoom In**: Zoom in on the network view
+- **Zoom Out**: Zoom out from the network view
+- **Auto-zoom**: Toggle auto-zoom mode. When enabled, the view automatically fits objects as they are created and moved
+
+### Edit Toolbar
+
+The Edit Toolbar provides quick access to common editing operations:
+
+- **Undo**: Undo the last action (Cmd/Ctrl-Z)
+- **Redo**: Redo the last undone action (Cmd/Ctrl-Shift-Z)
+- **Add Neuron**: Create a neuron at the last clicked position (P)
+- **Delete**: Delete currently selected items (Backspace or Delete)
+- **Clear**: Set all selected neurons to 0 (K). For weights, use Shift-C
+- **Randomize**: Set all selected neurons and weights to random values based on their configured randomizers
+
+## Additional Keyboard Shortcuts
+
+Beyond the shortcuts listed above, the following keyboard shortcuts are available:
+
+- **Arrow Keys (Up/Down/Right/Left)**: Increment or decrement selected neuron activations
+- **Shift + Arrow Keys**: Nudge selected objects in the arrow direction
+- **Escape**: Clear all selections and clear source neurons
+- **Shift-F**: Toggle clamping on selected neurons
+- **S**: Select neurons inside selected neuron groups
+- **Alt-R**: Toggle vertical/horizontal layout for selected neuron arrays
 

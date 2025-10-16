@@ -28,11 +28,11 @@ Free neurons and weights can be aggregated in various ways but are moved and adj
 
 <img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
 
-Note that neuron collections (like supervised models) are "transient wrappers". If you delete them the underlying objects remain in place. They have green interaction boxes. In cases where the surrounded objects are dependent on the group they are part of a yellow interactio box is used.
+Note that neuron collections (like supervised models) are transient wrappers. If you delete them the underlying objects remain in place. They have green interaction boxes. In cases where the surrounded objects are dependent on the group they are part of, a yellow interaction box is used.
 
-## Neuron Arrays and Weight matrices
+## Neuron Arrays and Weight Matrices
 
-An alternative to free nodes and weights (and collections of them) is neuron arrays and weight matrices, which support array based operations, as is standard in modern neural networks. These are much faster and more conventional, though somewhat less intuitive at first. See [arrays and matrices](arraysMatrices).
+An alternative to free nodes and weights (and collections of them) is neuron arrays and weight matrices, which support array-based operations, as is standard in modern neural networks. These are much faster and more conventional, though somewhat less intuitive at first. See [arrays and matrices](arraysMatrices).
 
 <img src="/assets/images/neuronArrayWeightMatrix.png" alt="neuron array and weight matrix" style="width:450px;"/>
 

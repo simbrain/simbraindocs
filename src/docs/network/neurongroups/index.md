@@ -136,7 +136,7 @@ See the [layouts](../ui/layouts) page.
 
 ## Input Data
 
-See the [test inputs](../ui/testInputs) page.
+Neuron groups and other layers can accept input data through [input tables](../ui/testInputs). Right-click on a layer and choose **Input data** to open an input table interface.
 
 ## Right Click Menu
 

@@ -85,9 +85,9 @@ These fields are common to many different neuron update rules.
 
 ## Clamping
 
-Clamped items are not updated on update. However even if clamped, manualy adjustment and adjustvement via input tables (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
+Clamped items are not updated on update. However even if clamped, manual adjustment and adjustment via [input tables](../ui/testInputs) (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
 
-In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update it's activation. It sits on whatever value it's had. It holds on to current activation. However, the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, testing input tables, used in many subnetworks, can modify clamped neurons. The clamp neurons button in neuron group clamps all the neurons in that group.
+In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update its activation. It sits on whatever value it's had. It holds on to current activation. However, the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, [input tables](../ui/testInputs), used in many subnetworks, can modify clamped neurons. The clamp neurons button in neuron group clamps all the neurons in that group.
 
 ## Popup Menu (Selected Neurons)
 
