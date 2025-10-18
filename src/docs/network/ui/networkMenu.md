@@ -22,9 +22,9 @@ This page describes the menu items, keyboard shortcuts, and toolbar actions avai
 
 ## Edit Menu
 
-- **Undo**: Undo last action (Cmd/Ctrl-Z)
+- **Undo**: Undo last [structural change](../buildingBasics#undoredo-capabilities) (Cmd/Ctrl-Z)
 - **Redo**: Redo last undone action (Cmd/Ctrl-Shift-Z)
-- **Undo History**: Show undo history
+- **Undo History**: Show undo history dialog with all undo and redo operations, allowing you to jump to any previous state
 - **Cut**: Cut selected network elements (Cmd/Ctrl-X)
 - **Copy**: Copy selected network elements (Cmd/Ctrl-C)
 - **Paste**: Paste network elements from buffer (Cmd/Ctrl-V)
@@ -154,7 +154,7 @@ The Main Toolbar controls the edit mode and zoom level:
 
 The Edit Toolbar provides quick access to common editing operations:
 
-- **Undo**: Undo the last action (Cmd/Ctrl-Z)
+- **Undo**: Undo the last [structural change](../buildingBasics#undoredo-capabilities) (Cmd/Ctrl-Z)
 - **Redo**: Redo the last undone action (Cmd/Ctrl-Shift-Z)
 - **Add Neuron**: Create a neuron at the last clicked position (P)
 - **Delete**: Delete currently selected items (Backspace or Delete)

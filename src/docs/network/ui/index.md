@@ -19,5 +19,5 @@ The network component provides a comprehensive set of UI tools for building, edi
 - **Layouts**: Tools for organizing neurons spatially using grid, line, and hexagonal grid patterns
 - **Input Tables**: Interactive matrix-based interface for systematically applying input patterns to neurons and observing network responses
 
-These tools work together to provide an efficient workflow for network construction, experimentation, and analysis. Most operations support keyboard shortcuts, work with batch selections, and provide undo/redo functionality.
+These tools work together to provide an efficient workflow for network construction, experimentation, and analysis. Most operations support keyboard shortcuts, work with batch selections, and provide [undo/redo](../buildingBasics#undoredo-capabilities) functionality.
 

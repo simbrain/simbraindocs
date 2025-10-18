@@ -104,8 +104,8 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-T:** Toggle visibility of selected [synapse groups](network/synapsegroups)
 - **Cmd/Ctrl-M:** Create [supervised model](network/learning/supervisedModels) from selected layers
 - **Cmd/Ctrl-,:** [Network preferences](network/ui/networkPreferences)
-- **Cmd/Ctrl-Z:** Undo last action
-- **Cmd/Ctrl-Y** or **Cmd/Ctrl-Shift-Z:** Redo last undone action
+- **Cmd/Ctrl-Z:** [Undo](network/buildingBasics#undoredo-capabilities) last structural change
+- **Cmd/Ctrl-Y** or **Cmd/Ctrl-Shift-Z:** [Redo](network/buildingBasics#undoredo-capabilities) last undone action
 - **S:** Select neurons inside selected neuron groups
 - **Alt-R:** Toggle vertical/horizontal layout for neuron arrays
 - **Alt-D:** Print debug info to console (terminal only)

@@ -44,7 +44,7 @@ A coupling contains a *producer* and *consumer* attribute. These two attributes 
 
 ![Basic coupling](/assets/images/Coupling_General.png)
 
-> In the underlying java code, the producer is generally calling a `getter` function on a Simbrain object and passing the result to a `setter` function on another object, as in `consumer.setValue(producer.getValue())`.
+> In the code, the producer is generally calling a `getter` function on a Simbrain object and passing the result to a `setter` function on another object, as in `consumer.setValue(producer.getValue())`.
 
 ## Attributes
 

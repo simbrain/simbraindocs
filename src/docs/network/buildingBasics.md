@@ -222,3 +222,11 @@ graph TD;
     offset_mode --"place object using offset"--> offset_mode
 ```
 
+# <span id="undoredo-capabilities">Undo/Redo Capabilities</span>
+
+Network undo/redo tracks structural changes only. This includes adding and deleting network objects (neurons, synapses, neuron groups, synapse groups, subnetworks, text objects), moving objects, creating connections between neurons and groups, pasting and duplicating objects, and applying layouts to neurons.
+
+Changes to neuron activations cannot be undone. Property changes (editing update rules, polarity, labels, or other settings via property dialogs) also cannot be undone. Changes to individual components within subnetworks cannot be undone separately; the subnetwork is treated as a single unit.
+
+The Undo History dialog provides a visual list of all undoable and redoable actions, allowing you to navigate directly to any previous state without stepping through each action sequentially.
+
