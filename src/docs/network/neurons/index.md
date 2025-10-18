@@ -30,13 +30,13 @@ More detail on these conventions, in particular for more neurally realistic simu
 
 ## Net Input 
 
-The input to a neuron is generally a weighted input, but in Simbrain to accomodate both regular and spiking nodes, it is more generally a sum of PSRs.
+The input to a neuron is generally a weighted input, but in Simbrain to accommodate both regular and spiking nodes, it is more generally a sum of PSRs.
 
 PSR is usually just weighted inputs, a weighted sum over the neuron's incoming synapses:
 
 $$ net_{i} \;=\; \sum\limits_{j = 1}^N w_{ij}a_j$$ $$ a_i \;=\; f(net_{i})$$
 
-Where $$f$$ represents the neuron's update rule, and $$net_{i}$$ is the weighted or "net" input to neuron $$i$$. Oftentimes the confectionist literature refers to the weighted input to a neuron as its net input.
+Where $$f$$ represents the neuron's update rule, and $$net_{i}$$ is the weighted or "net" input to neuron $$i$$. Oftentimes the connectionist literature refers to the weighted input to a neuron as its net input.
 
 Note that a sensory input term I is also added to the weighted input if the node has a [coupling](../../workspace/couplings) attached to it.
 

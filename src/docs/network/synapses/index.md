@@ -23,7 +23,7 @@ Free synapses are represented by colored semicircles at the ends of these lines.
 
 **Zero synapse**: a weight with a value of 0 is a way of mathematically representing the absence of a connection. In Simbrain this is currently represented as blue, inhibitory.
 
-<!-- TODO --> Add Image
+<!-- TODO: Add Image -->
 
 ## Common Synapse Properties
 

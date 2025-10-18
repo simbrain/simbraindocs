@@ -98,9 +98,9 @@ There are many examples of scalar couplings that can be made. Here are some exam
 
 # Vector Couplings
 
-The basic idea with vector couplings is the same as with scalar couplings, but they involve lists of numbers. In the image shown below, we see that the producer is the whole neuron group (which is interfaced with via the interaction box), and the consumer is the whole histogram component. The coupling takes an activation vector, consisting of the 9 activation values of the network, and sends it to the the histogram. As can be seen, two neurons have activations below 0, three have activations betwen .5 and 1, three have activations of 2, and one has an activation above 2.
+The basic idea with vector couplings is the same as with scalar couplings, but they involve lists of numbers. In the image shown below, we see that the producer is the whole neuron group (which is interfaced with via the interaction box), and the consumer is the whole histogram component. The coupling takes an activation vector, consisting of the 9 activation values of the network, and sends it to the histogram. As can be seen, two neurons have activations below 0, three have activations between .5 and 1, three have activations of 2, and one has an activation above 2.
 
-These vectors can get huge! Tens of thousands of neuron activations! As with scalar couplings, there are many types of activations that can be made.Here are some examples where the producer is a neuron group:
+These vectors can get huge! Tens of thousands of neuron activations! As with scalar couplings, there are many types of activations that can be made. Here are some examples where the producer is a neuron group:
 
 - A coupling from one neuron group to another.
 - A coupling from a neuron groups' activations to most types of chart.

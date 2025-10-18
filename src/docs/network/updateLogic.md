@@ -57,7 +57,7 @@ for w in fanIn:
     activation += synapse.psr
 ```
 
-Updating the PSR (or PSR Matrix) usualy amounts to multiplying inputs times activations (for neurons) or matrix multiplying input activations by a weight matrix (for neuron arrays, etc.). Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
+Updating the PSR (or PSR Matrix) usually amounts to multiplying inputs times activations (for neurons) or matrix multiplying input activations by a weight matrix (for neuron arrays, etc.). Some update rules require additional processing here. When the source model is spiking [spike responders](spikeresponders) are used to update the PSRs as well. 
 
 Then, in a separate step, update all the network models. Neuron activations are updated using [neuron update rules](neurons); synapses can be updated using local [learning rules](synapses); etc. Once the update function is done with processing, it will **clear inputs** in preparation for the next application of accumulate inputs.
 
@@ -174,10 +174,10 @@ Without buffering, we would get different results depending on update order. If 
 <img src="/assets/images/updateOrderN2N3.png" alt="Update n2 before n3" style="width:250px;"/>
 
 
-However, if $$n_3$$ is updated before $$n_2$$ then in the next iteration only $$n_2$$ will be active, because when $$n_3$$ was updated it's input was 0.
+However, if $$n_3$$ is updated before $$n_2$$ then in the next iteration only $$n_2$$ will be active, because when $$n_3$$ was updated its input was 0.
 
 
-<img src="/assets/images/updateOrderN3N2.png" alt="Update n3 becore n2" style="width:250px;"/>
+<img src="/assets/images/updateOrderN3N2.png" alt="Update n3 before n2" style="width:250px;"/>
 
 Since buffered update accumulates the inputs to every node first, and then updates, it does not matter in which order update occur. 
 

@@ -9,7 +9,7 @@ nav_order: 10
 
 # Training Networks in Simbrain
 
-The most common way to train neural networks is using algorithms like [backprop](https://en.wikipedia.org/wiki/Backpropagation) to update weights and biasses. This functionality is handled via a special interface and set of dialogs. Most of these dialogs have a common structure, similar to this one
+The most common way to train neural networks is using algorithms like [backprop](https://en.wikipedia.org/wiki/Backpropagation) to update weights and biases. This functionality is handled via a special interface and set of dialogs. Most of these dialogs have a common structure, similar to this one
 
 <img src="/assets/images/trainingDialog.png" style="width:500px;"/>
 
