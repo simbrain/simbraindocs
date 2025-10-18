@@ -84,7 +84,9 @@ The Simulations menu is automatically populated with available simulations from 
 
 - **Show/hide info panel**: Toggle visibility of the info panel. Same as the View menu option.
 
-- **Quick start and shortcuts**: Open the [Quick Start](../quickstart.html) page with information about getting started and keyboard shortcuts.
+- **Quick start**: Open the [Quick Start](../quickstart.html) page with information about getting started with Simbrain.
+
+- **Keyboard shortcuts**: Open the [Keyboard Shortcuts](../shortcuts.html) page with a comprehensive reference of all keyboard shortcuts organized by component.
 
 - **Credits**: Open the Simbrain credits page.
 

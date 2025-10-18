@@ -172,3 +172,5 @@ Beyond the shortcuts listed above, the following keyboard shortcuts are availabl
 - **S**: Select neurons inside selected neuron groups
 - **Alt-R**: Toggle vertical/horizontal layout for selected neuron arrays
 
+For a complete reference of all network shortcuts and shortcuts for other components, see the [Keyboard Shortcuts](../../shortcuts) page.
+
