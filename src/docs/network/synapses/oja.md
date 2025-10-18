@@ -32,5 +32,5 @@ See Peter Dayan and Larry Abbott, *Theoretical Neuroscience,* Cambridge, MA: MIT
 Connect a clamped input node to an unclamped target node with an Oja synapse and try random inputs and weight values, and you should see convergence to weight values whose square is the normalization factor. You can plot the weight's value by right clicking and using `Time Series Plot`. When you do this and randomize the weight repeatedly, you should see it repeatedly converge to, for example, 1 and -1 (for a normalization factor of 1), or 3 and -3 (for a normalization factor of 9). It is a 2 attractor system in weight space. 
 
 # Parameters
-- **Learning rate**: The learning rate $$\epsilon$$ (range: 0 and up)
+- **Learning rate**: The learning rate $$\epsilon$$.
 - **Normalization Factor**: The normalization factor $$N$$ for the sum of squared incoming weights

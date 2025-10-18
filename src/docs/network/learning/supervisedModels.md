@@ -62,9 +62,9 @@ The toolbar and properties of the training interface determine how training happ
 
 - **Stop Condition - MSE**: Stop training when the mean squared error falls below this value. If set to 0 this condition is ignored.
 
-- **Stop Condition - Accuracy**: Stop training when the validation accuracy percentage reaches this value (0-100). If set to 0 this condition is ignored. See [accuracy](trainingNetworks#accuracy).
+- **Stop Condition - Accuracy**: Stop training when the validation accuracy percentage reaches this value. If set to 0 this condition is ignored. See [accuracy](trainingNetworks#accuracy).
 
-- **Validation Split**: Proportion of data to use for validation (0-1). When set, this fraction of data is held out and not used for training, but used to compute validation metrics.
+- **Validation Split**: Proportion of data to use for validation. When set, this fraction of data is held out and not used for training, but used to compute validation metrics.
 
 - **Test**: Test button applies the current input row to the source neurons and propagates activations through the network, showing results in the target neurons without updating weights.
 

@@ -36,7 +36,7 @@ This rule is based on equations described in O'Reilly and Munakata (2000), speci
 
 # Parameters
 
-- **Learning rate**: Sets the rate of change of the synapse (range: 0 to approximately 3.33)
-- **m**: The maximum weight value (range: -10 to 10)
-- **Theta**: The weight offset value (range: -10 to 10)
-- **Lambda**: The scaling parameter for the sigmoidal function (range: -1 to 10)
+- **Learning rate**: Sets the rate of change of the synapse.
+- **m**: The maximum weight value.
+- **Theta**: The weight offset value.
+- **Lambda**: The scaling parameter for the sigmoidal function.

@@ -33,9 +33,9 @@ Source: Jean-Philippe Thivierge and Paul Cisek (2008), *Nonperiodic Synchronizat
 Also on anti-hebbian STDP: [https://journals.physiology.org/doi/pdf/10.1152/jn.00551.2006](https://journals.physiology.org/doi/pdf/10.1152/jn.00551.2006)
 
 # Parameters
-- **Tau plus**: Time constant $$ \tau_{+} $$ for LTP (weight strengthening when pre fires before post). Smaller values narrow the window within which LTP is applied (range: 0 and up)
-- **Tau minus**: Time constant $$ \tau_{-} $$ for LTD (weight decay when post fires before pre). Smaller values narrow the window within which LTD is applied (range: 0 and up)
-- **W+**: Learning rate for LTP case. Controls the magnitude of LTP changes (range: 0 and up)
-- **W-**: Learning rate for LTD. Controls magnitude of LTD changes (range: 0 and up)
-- **Learning rate**: Global learning rate $$ \eta $$ (range: 0 and up)
+- **Tau plus**: Time constant $$ \tau_{+} $$ for LTP (weight strengthening when pre fires before post). Smaller values narrow the window within which LTP is applied.
+- **Tau minus**: Time constant $$ \tau_{-} $$ for LTD (weight decay when post fires before pre). Smaller values narrow the window within which LTD is applied.
+- **W+**: Learning rate for LTP case. Controls the magnitude of LTP changes.
+- **W-**: Learning rate for LTD. Controls magnitude of LTD changes.
+- **Learning rate**: Global learning rate $$ \eta $$.
 - **Hebbian**: If true, use hebbian learning, else anti-hebbian

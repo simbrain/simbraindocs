@@ -33,7 +33,7 @@ $$
 
 where $$ISI$$ is the inter-spike interval (time since last spike), $$U$$ is the mean use parameter, $$F$$ is the facilitation time constant, and $$D$$ is the depression time constant.
 
-- **Mean Use**: Fraction (0 to 1) of available resources consumed to produce the post-synaptic current. This determines how much of the available synaptic resources are used with each spike.
+- **Mean Use**: Fraction of available resources consumed to produce the post-synaptic current. This determines how much of the available synaptic resources are used with each spike.
 
 - **Mean Depression**: Time constant in ms for short-term depression (STD). Higher values produce more STD. Depression models the depletion of synaptic resources with repeated spiking.
 
@@ -44,7 +44,5 @@ where $$ISI$$ is the inter-spike interval (time since last spike), $$U$$ is the 
 - **U**: Use/Facilitation variable. This state variable tracks the current facilitation level and is visible in the synapse property editor.
 
 - **R**: Depression variable. This state variable tracks the current resource availability and is visible in the synapse property editor.
-
-Typical parameters for modeling STD: U=0.45, D=750ms, F=50ms, with a responder decay of 20ms. For STF: U=0.15, F=750ms, D=50ms.
 
 See the [Scholarpedia article on short-term synaptic plasticity](http://www.scholarpedia.org/article/Short-term_synaptic_plasticity) for more details.

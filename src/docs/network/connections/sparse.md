@@ -23,7 +23,7 @@ For example, if you have 10% density and change to 20%, only the additional 10% 
 
 ## Parameters
 
-- **Connection density**: What percentage of total possible connections to create (0.0 to 1.0). For example, 0.1 creates 10% of possible connections, 0.5 creates 50%, and 1.0 creates all possible connections (equivalent to All-to-All).
+- **Connection density**: What percentage of total possible connections to create. For example, 0.1 creates 10% of possible connections, 0.5 creates 50%, and 1.0 creates all possible connections (equivalent to All-to-All).
 
 - **Equalize efferents**: Whether each source neuron gets exactly the same number of outgoing connections. When enabled, every source neuron will have the same number of synapses emanating from them. For example, with 10 source neurons, 10 target neurons, and 50% density, each source neuron will connect to exactly 5 targets. When disabled, each source connects to approximately 5 targets on average, but some may have 3 and others 7.
 

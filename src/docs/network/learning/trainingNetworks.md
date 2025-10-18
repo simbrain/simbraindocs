@@ -36,7 +36,7 @@ Supervised learning involves input / output data pairs. An input vector is fed i
 
 Accuracy for network training is computed per input pattern as follows:
 
-If all output neuron activations are within a threshold distance (default 0.05) of their target activations, the pattern is counted as "correct." Accuracy is displayed as a percentage: (Number of Correct Patterns / Total Number of Patterns) × 100.
+If all output neuron activations are within a threshold distance of their target activations, the pattern is counted as "correct." Accuracy is displayed as a percentage: (Number of Correct Patterns / Total Number of Patterns) × 100.
 
 This threshold-based approach provides a practical measure of how well the network matches target patterns, accounting for small numerical variations that don't significantly impact functionality.
 

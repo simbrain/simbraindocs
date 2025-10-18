@@ -13,9 +13,9 @@ Creates connections within specified radii using probability-based selection. Fo
 
 ## Parameters
 
-- **Exc. probability**: Probability that connections will be made to neighboring excitatory (or non-polar) neurons found within the excitatory radius (0.0 to 1.0).
+- **Exc. probability**: Probability that connections will be made to neighboring excitatory (or non-polar) neurons found within the excitatory radius.
 
-- **Inh. probability**: Probability that connections will be made to neighboring inhibitory neurons found within the inhibitory radius (0.0 to 1.0).
+- **Inh. probability**: Probability that connections will be made to neighboring inhibitory neurons found within the inhibitory radius.
 
 - **Exc. radius**: Distance to search for excitatory neurons to connect to (in pixels).
 

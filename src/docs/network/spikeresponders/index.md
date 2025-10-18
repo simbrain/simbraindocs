@@ -27,7 +27,7 @@ To open the property editor for a spike responder double click on the synapse. T
 
 All spike responders (except Non Responder) support the following optional parameter:
 
-- **Spike Probability**: When enabled, spikes only occur with the specified probability (0 to 1). This can model probabilistic synaptic transmission. By default this is disabled (probability = 1.0).
+- **Spike Probability**: When enabled, spikes only occur with the specified probability. This can model probabilistic synaptic transmission.
 
 ## More details
 

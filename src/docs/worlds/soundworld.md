@@ -39,7 +39,7 @@ The following properties can be configured by opening the Sound World preference
 Sound World provides several consumer couplings that allow other components (primarily networks) to trigger sounds and control their properties:
 
 - **playBeepAtVolume**: Play a beep with a specified volume. The incoming value (0.0 to 1.0) sets the volume for that beep.
-- **playBeepAtFrequency**: Play a beep at a specified frequency. The incoming value (in Hz) sets the pitch of the beep.
+- **playBeepAtFrequency**: Play a beep at a specified frequency. The incoming value sets the pitch of the beep.
 - **playBeepForDuration**: Play a beep for a specified duration. The incoming value (in seconds) sets how long the beep lasts.
 
 These couplings allow networks to generate audio feedback based on their activity. For example, you could couple neuron activation to frequency to create a pitch that varies with neural activity, or couple to volume to create sounds that get louder as neurons activate more strongly.

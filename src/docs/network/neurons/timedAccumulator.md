@@ -49,32 +49,19 @@ Where:
 
 ### Ref. Period
 
-- **Description**: The refractory period defines how long it takes before the neuron can spike again after a spike.
-- **Default Value**: `10`
-
-Controls the duration of inactivity after each spike.
+The refractory period defines how long it takes before the neuron can spike again after a spike. Controls the duration of inactivity after each spike.
 
 ### Spike Prob.
 
-- **Description**: The probability that the neuron will spike spontaneously regardless of input.
-- **Default Value**: `1E-5`
-- **Range**: [0, 1]
-
-Raising this allows for spontaneous firing in the absence of significant inputs.
+The probability that the neuron will spike spontaneously regardless of input. Raising this allows for spontaneous firing in the absence of significant inputs.
 
 ### Shape Parameter (b)
 
-- **Description**: The parameter that controls the steepness of the softmax function.
-- **Default Value**: `1.6`
-
-Affects how dramatically the neuron responds to varying synaptic weights.
+The parameter that controls the steepness of the softmax function. Affects how dramatically the neuron responds to varying synaptic weights.
 
 ### Gain ($$ \kappa $$)
 
-- **Description**: Scales the probability of spikes based on the synaptic weights.
-- **Default Value**: `0.9`
-
-Allows for adjustment of overall spiking probability, influencing the strength of the neuron’s response.
+Scales the probability of spikes based on the synaptic weights. Allows for adjustment of overall spiking probability, influencing the strength of the neuron's response.
 
 
 For other adjustable properties like noise and sigmoid function type, see [common neuron properties](/docs/network/neurons/index#common-neuron-properties)

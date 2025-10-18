@@ -26,7 +26,7 @@ When you see vertical alignments of dots, it means multiple neurons spiked at th
 
 ## Continuous vs. Spiking Neurons
 
-Although raster plots are typically used with spiking neurons, Simbrain allows you to plot neuron activations too. In this case, "spikes" are inferred: if an activation value exceeds a [spike threshold](#spike-threshold) (default 0.5), a spike is shown.
+Although raster plots are typically used with spiking neurons, Simbrain allows you to plot neuron activations too. In this case, "spikes" are inferred: if an activation value exceeds a [spike threshold](#spike-threshold), a spike is shown.
 
 When there is a vertical cluster, that means many neurons spiked at the same time, suggesting oscillations. Bands give a sense of the frequency of oscillation.
 

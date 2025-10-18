@@ -28,5 +28,5 @@ w_{\text{new}} = (1 - \gamma) \cdot w + \epsilon \cdot (a_\text{source} \cdot a_
 $$
 
 # Parameters
-- **Learning rate**: Learning rate $$\epsilon$$ for Hebb rule (range: 0 and up)
-- **Forgetting rate**: The percent of strength to remove at each time step (range: 0 to 1)
+- **Learning rate**: Learning rate $$\epsilon$$ for Hebb rule.
+- **Forgetting rate**: The percent of strength to remove at each time step.

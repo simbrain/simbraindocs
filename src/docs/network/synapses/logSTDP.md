@@ -55,18 +55,12 @@ Log-STDP only works with spiking neurons. Both the source and target neurons mus
 
 Log-STDP inherits the standard STDP parameters:
 
-- **Tau plus**: Time constant for LTP (range: 0 and up)
-- **Tau minus**: Time constant for LTD (range: 0 and up)
+- **Tau plus**: Time constant for LTP.
+- **Tau minus**: Time constant for LTD.
 - **W+**: Learning rate constant for LTP ($$ c_+ $$)
 - **W-**: Learning rate constant for LTD ($$ c_- $$)
-- **Learning rate**: Global learning rate $$ \eta $$ (range: 0 and up)
+- **Learning rate**: Global learning rate $$ \eta $$.
 - **Hebbian**: If true, use hebbian learning, else anti-hebbian
-
-Additional internal parameters (not directly user-configurable but part of the algorithm):
-- Small weight threshold ($$ J_0 = 1.0 $$): Threshold separating linear and logarithmic LTD
-- Log saturation ($$ \alpha = 5.0 $$): Degree of logarithmic push in weight distribution
-- LTP modulation ($$ \beta = 10.0 $$): Modulates LTP for larger weights
-- Noise variance (0.6): Variance of noise applied to weight changes
 
 ## Applications
 

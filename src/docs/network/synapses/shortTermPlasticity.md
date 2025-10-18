@@ -40,10 +40,10 @@ $$w_{effective} = w \cdot R \cdot u$$
 
 ## Parameters
 
-- **Mean Use**: Fraction (0 to 1) of available resources consumed to produce the post-synaptic current (range: 0 to 1)
-- **Mean Depression**: Time constant in ms for short term depression (STD). Higher values produce more STD (range: 0 and up)
-- **Mean Facilitation**: Time constant in ms for short term facilitation (STF). Higher values produce more STF (range: 0 and up)
-- **Spike Responder**: Short term plasticity sets the max response of this responder (typically JumpAndDecay with convolution enabled and time constant of 20ms)
+- **Mean Use**: Fraction of available resources consumed to produce the post-synaptic current.
+- **Mean Depression**: Time constant in ms for short term depression (STD). Higher values produce more STD.
+- **Mean Facilitation**: Time constant in ms for short term facilitation (STF). Higher values produce more STF.
+- **Spike Responder**: Short term plasticity sets the max response of this responder (typically JumpAndDecay with convolution enabled).
 
 ## Recommended Settings
 
