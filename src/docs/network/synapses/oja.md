@@ -27,7 +27,7 @@ where:
 
 Note that the strength of this synapse is **clipped** within its specified lower and upper bounds. Clipping may interfere with the intended normalization effect. Similarly, clipping the target neuron’s activation value could also interfere.
 
-See Peter Dayan and Larry Abbott, *Theoretical Neuroscience,* Cambridge, MA: MIT Press, pp. 290–291.
+See Peter Dayan and Larry Abbott, *Theoretical Neuroscience,* Cambridge, MA: MIT Press, pp. 290-291.
 
 Connect a clamped input node to an unclamped target node with an Oja synapse and try random inputs and weight values, and you should see convergence to weight values whose square is the normalization factor. You can plot the weight's value by right clicking and using `Time Series Plot`. When you do this and randomize the weight repeatedly, you should see it repeatedly converge to, for example, 1 and -1 (for a normalization factor of 1), or 3 and -3 (for a normalization factor of 9). It is a 2 attractor system in weight space. 
 

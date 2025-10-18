@@ -39,7 +39,7 @@ Simulations are written in Kotlin using a functional approach (though Java is st
 
 ### Create Your Simulation File
 
-Create a new `.kt` file in `src/main/kotlin/org/simbrain/custom_sims/simulations` (or an appropriate subdirectory). Use an existing simulation as a template—for example, `neuroscience/SpikingNeuronSim.kt` for a simple example.
+Create a new `.kt` file in `src/main/kotlin/org/simbrain/custom_sims/simulations` (or an appropriate subdirectory). Use an existing simulation as a template. For example, `neuroscience/SpikingNeuronSim.kt` is a simple example.
 
 ### Basic Template Structure
 
@@ -234,7 +234,7 @@ Creating simulations with AI assistance (like ChatGPT) can accelerate developmen
 
 ### Saving and Reopening Simulations
 
-Simulations can be saved to `.zip` workspace files and reopened later. However, not all simulation elements can be serialized automatically—particularly custom update actions and control panels. The `newSim` id parameter and `registerReopenFunction` solve this problem.
+Simulations can be saved to `.zip` workspace files and reopened later. However, not all simulation elements can be serialized automatically (particularly custom update actions and control panels). The `newSim` id parameter and `registerReopenFunction` solve this problem.
 
 The problem is this. When you save a workspace:
 - **Serialized**: Networks, neurons, synapses, worlds, entities, plots, couplings

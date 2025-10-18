@@ -49,7 +49,7 @@ o_2 \leftarrow o_2 - o_2 \cdot \frac{1}{\tau_y} \cdot dt
 $$
 
 This model is based on:
-Pfister, J-P, and Gerstner, W. "Triplets of Spikes in a Model of Spike Timing-Dependent Plasticity." *J. Neurosci.* 26 (2006): 9673–9682.
+Pfister, J-P, and Gerstner, W. "Triplets of Spikes in a Model of Spike Timing-Dependent Plasticity." *J. Neurosci.* 26 (2006): 9673-9682.
 
 # Parameters
 

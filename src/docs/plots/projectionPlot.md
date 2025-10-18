@@ -8,7 +8,7 @@ nav_order: 105
 
 # Projection Plot
 
-The projection component is derived from a program called [HiSee](https://hisee.sourceforge.net/). HiSee is a high dimensional visualizer, it let's you "see" "hi"-dimensional data. The plot uses [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) techniques, such as [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) and [multidimensional scaling](https://en.wikipedia.org/wiki/Multidimensional_scaling). It can be used to represent any high dimensional data, but in Simbrain it is primarily used to study the dynamics of a neural network.
+The projection component is derived from a program called [HiSee](https://hisee.sourceforge.net/). HiSee is a high dimensional visualizer; it lets you "see" "hi"-dimensional data. The plot uses [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction) techniques, such as [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) and [multidimensional scaling](https://en.wikipedia.org/wiki/Multidimensional_scaling). It can be used to represent any high dimensional data, but in Simbrain it is primarily used to study the dynamics of a neural network.
 
 <img src="../../assets/images/projectionPlotRandom.png" style="width:300px;"/>
 
@@ -95,7 +95,7 @@ t-SNE is particularly well-suited for datasets where you want to reveal cluster 
 
 t-SNE is iterable, and its behavior depends heavily on its hyperparameters. Press [play](#run-button) to run the algorithm and watch the data rearrange itself into a meaningful structure. Like the Sammon map, this can be a satisfying process to observe.
 
-- **Perplexity**: Effective number of neighbors to consider when computing pairwise similarities in the high-dimensional space. Low perplexity values (e.g., 5–30) emphasize very local structure, while higher values consider more global relationships. Perplexity must be tuned relative to the dataset size; too high or too low can produce noisy or distorted projections.
+- **Perplexity**: Effective number of neighbors to consider when computing pairwise similarities in the high-dimensional space. Low perplexity values (e.g., 5-30) emphasize very local structure, while higher values consider more global relationships. Perplexity must be tuned relative to the dataset size; too high or too low can produce noisy or distorted projections.
 - **Learning Rate**: Step size during the optimization process. If the learning rate is too high, the points may "explode" or diverge. If too low, the convergence will be very slow or may stall. A good default is often around 200, but this should be adjusted by trial and error. If you don't like the result, randomize the layout and try a new learning rate.
 - **Iteration Per Update**: How many iterations of the algorithm are run each time the workspace is updated.
 

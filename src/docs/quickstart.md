@@ -7,7 +7,7 @@ nav_order: 7
 
 # Quick Start
 
-The fastest way to see Simbrain in action is to run pre-built [simulations](simulations/) from the `Simulations` menu—open one and press play in the workspace toolbar to watch it run. This guide covers basic workflows for building and running networks. For more details on building networks, see [Building Basics](network/buildingBasics). For a comprehensive list of keyboard shortcuts across all components, see the [Keyboard Shortcuts](shortcuts) reference page.
+The fastest way to see Simbrain in action is to run pre-built [simulations](simulations/) from the `Simulations` menu. Open one and press play in the workspace toolbar to watch it run. This guide covers basic workflows for building and running networks. For more details on building networks, see [Building Basics](network/buildingBasics). For a comprehensive list of keyboard shortcuts across all components, see the [Keyboard Shortcuts](shortcuts) reference page.
 
 ## Working with Networks
 

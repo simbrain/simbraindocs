@@ -11,7 +11,7 @@ This page provides a comprehensive reference to keyboard shortcuts in Simbrain, 
 
 ## Using Shortcuts
 
-Component-specific shortcuts only work when that component is in focus—click on the component window first. Many actions also appear in menus and toolbars where you can hover to see their shortcuts. In this documentation, `Cmd/Ctrl` means the Command key (⌘) on Mac and the Control key on Windows and Linux.
+Component-specific shortcuts only work when that component is in focus. Click on the component window first. Many actions also appear in menus and toolbars where you can hover to see their shortcuts. In this documentation, `Cmd/Ctrl` means the Command key (⌘) on Mac and the Control key on Windows and Linux.
 
 ## Desktop and Workspace
 

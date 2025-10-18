@@ -8,7 +8,7 @@ nav_order: 60
 
 # Spiking Neurons
 
-Some types of neuron [update rule](neurons)s  produce discrete "spikes," that is, instantaneous firing events. When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation--the number in the neuron--is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
+Some types of neuron [update rule](neurons)s produce discrete "spikes" (instantaneous firing events). When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation (the number in the neuron) is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
 
 Since spikes are discrete events without a numerical value, some way of converting them into numbers is required (e.g. when a spike arrives at a synapse). This is handled using [spike responders](spikeresponders).
 
@@ -53,7 +53,7 @@ Neurons naturally maintain a sub-threshold excited state due to the averaged act
 Some tips to avoid instability in neuron models:
 
 - The time step should be small, but 0.1 is usually sufficient.
-- Be careful with time constants—they must be positive and non-zero.
+- Be careful with time constants: they must be positive and non-zero.
 - The time constant should be significantly larger than the time step. Lower time constants increase instability; values below 1 can be particularly problematic. Ideally, the time constant should be at least 10.
 - A time constant of around 3 is acceptable for spike responders, as neurotransmitters are quickly cleared from the synaptic cleft, ensuring transmission. The rise and decay of these signals require careful consideration.
 
