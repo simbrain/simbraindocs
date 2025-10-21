@@ -9,10 +9,19 @@ nav_order: 5
 
 Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 and 2025. During this time, most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit-tests were added, and hundreds of new features were introduced.
 
-# New or improved components
+# Highlights
 
-* A [neuro-evolutionary](evolution/) framework was added with 10 evolution simulations. Evolve neural networks, virtual robots, and multi-agent systems.
+* Complete infrastructure for [neuron arrays and weight matrices](network/arraysMatrices) enables vectorized operations and batch processing throughout the network system.
+* A flexible [supervised learning](network/learning/supervisedModels) framework with multiple optimizers allows training networks on the fly through complex architectures.
+* [Transformer blocks](network/arraysMatrices#transformer-block) and modern ML components (including [GELU](network/neurons/gelu) activation) enable building language models and attention-based architectures.
+* [Image World](worlds/imageworld) (formerly Vision World) was rewritten with an [image processing pipeline](worlds/imageworld#pipelines-and-couplings) system, [image albums](worlds/imageworld#image-albums), and a [live editor](worlds/imageworld#drawing-and-editing-tools).
+* [Text World](worlds/textworld) merged separate components into a unified NLP environment with [token embeddings](worlds/textworld#token-embeddings), multiple [tokenizers](worlds/textworld#tokenizers) including byte-pair encoding, and language model integration.
+* [Odor World](worlds/odorworld) now functions as a 2D game engine with [tilemaps](worlds/odorworld#tile-map), animated sprites, and new [object sensors](worlds/odorworld#object-sensor).
+* A new [pixel plot](plots/pixelPlot) was introduced for visualizing activation patterns as pixel grids.
+* The [projection plot](plots/projectionPlot) was rewritten with dimensionality reduction techniques (PCA, t-SNE, Sammon mapping) and improved coloring managers.
+* A [neuro-evolutionary](network/learning/evolution) framework was added with 10 evolution simulations for evolving neural networks, virtual robots, and multi-agent systems.
 * A full [simulation environment](simulations/) was introduced with over 70 simulations organized into 14 categories, replacing the earlier scripting environment.
+* A [classifier](network/subnetworks/classifier) subnetwork was added, wrapping the [Smile](https://haifengl.github.io/) machine learning framework.
 
 
 # Network
