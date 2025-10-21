@@ -9,7 +9,7 @@ nav_order: 10
 
 # All to All
 
-Connects every source neuron to every target neuron. This is the [default connection strategy](./index#default-connection-strategy) in Simbrain.
+Connects every source neuron to every target neuron. This is the default connection strategy in Simbrain, used by both the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) (with 100% excitatory) and the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) (with configurable excitatory/inhibitory ratio).
 
 ## Parameters
 

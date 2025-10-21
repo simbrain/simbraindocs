@@ -25,8 +25,8 @@ When creating a group, you can specify the type from a dropdown menu that includ
 
 Neuron groups can be connected using [Weight Matrices](../arraysMatrices) or [Synapse Groups](../synapsegroups):
 
-- **Weight Matrices**: Use the [1-2 trick](../buildingBasics.html#source-and-target-objects) to connect groups with matrix-based connections
-- **Synapse Groups**: Use the [1-3 trick](../buildingBasics.html#source-and-target-objects) to connect groups with individual synapse management
+- **Weight Matrices**: Use the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) to connect groups with matrix-based connections
+- **Synapse Groups**: Use the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) to connect groups with individual synapse management
 
 ## Common Parameters
 
@@ -101,8 +101,8 @@ The choice between collections and groups affects network update behavior:
 ## Connection Compatibility
 
 Both collections and groups can be connected via:
-- **Weight Matrices**: Use the 1-2 trick for matrix-based connections
-- **Synapse Groups**: Use the 1-3 trick for individual synapse management
+- **Weight Matrices**: Use the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for matrix-based connections
+- **Synapse Groups**: Use the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for individual synapse management
 
 The choice of connection type often depends on whether you need fine-grained control (synapse groups) or efficient computation (weight matrices).
 

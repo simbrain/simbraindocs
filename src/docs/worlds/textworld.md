@@ -10,7 +10,7 @@ nav_order: 100
 
 Text World transforms text into numbers and numbers into text, primarily for modeling language processing. It enables networks to "read" text, produce simulated speech, and develop connectionist models of language. Text World can also be used more generally to incorporate text processing into simulations, for example to log information or issue commands to networks.
 
-The component uses **token embeddings** that associate text tokens with vector representations, which can be coupled to neural networks and other components via [couplings](../workspace/couplings).
+The component uses [token embeddings](https://en.wikipedia.org/wiki/Word_embedding) that associate text tokens with vector representations, which can be coupled to neural networks and other components via [couplings](../workspace/couplings).
 
 Example simulations: See `simulations > NLP` for demonstrations of Text World functionality.
 
@@ -26,7 +26,7 @@ To create a new Text World component:
 
 # Token Embeddings
 
-Text World uses **token embeddings** to associate string tokens (words, characters, or subwords) with vector representations. Each token maps to a vector of numbers that can be consumed by neural networks. The token embedding can be viewed and edited via `View > Word embedding editor...`
+Text World uses token embeddings to associate string tokens (words, characters, or subwords) with vector representations. Each token maps to a vector of numbers that can be consumed by neural networks. The token embedding can be viewed and edited via `View > Word embedding editor...`
 
 ## Embedding Types
 
@@ -55,7 +55,7 @@ Co-occurrence embeddings capture semantic relationships between words based on d
 
 ### Custom
 
-Allows loading pre-trained embeddings from external sources (e.g., Word2Vec, GloVe). Custom embeddings must be manually loaded from files.
+Allows loading pre-trained embeddings from external sources (e.g., [Word2Vec](https://en.wikipedia.org/wiki/Word2vec), [GloVe](https://en.wikipedia.org/wiki/GloVe)). Custom embeddings must be manually loaded from files.
 
 - **Remove stopwords**: Excluded in custom embeddings
 - **Convert all upper case to lower case**: Normalization setting for custom embeddings
@@ -64,24 +64,24 @@ Use custom embeddings when you need pre-trained, high-quality word vectors train
 
 ## Tokenizers
 
-Tokenization determines how text is split into individual tokens. Text World supports multiple tokenization strategies:
+[Tokenization](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization) determines how text is split into individual tokens. Text World supports multiple tokenization strategies:
 
 - **Simple Tokenizer**: Splits text on whitespace and punctuation boundaries. Configurable options for handling punctuation, spaces, and newlines.
-- **Byte Pair Encoding (BPE)**: Advanced subword tokenization that learns merge rules from training text. BPE can handle unknown words by breaking them into known subword units.
+- **[Byte Pair Encoding](https://en.wikipedia.org/wiki/Byte_pair_encoding) (BPE)**: Advanced subword tokenization that learns merge rules from training text. BPE can handle unknown words by breaking them into known subword units.
 
-The tokenizer can be configured via the `Preferences` dialog or when extracting embeddings from a document.
+The tokenizer can be configured via the [Preferences](#preferences) dialog or when extracting embeddings from a document.
 
 ## Extracting Embeddings from Documents
 
 To create an embedding from a text document:
 
-1. Use the `Extract embedding...` toolbar button (or through the coupling menu when creating a new text world)
+1. Use the `Extract embedding...` toolbar button (or access it through the coupling menu when creating a new text world)
 2. Select a training document (`.txt` file)
-3. Configure the embedding type (One-Hot, Co-Occurrence, or Custom)
-4. Configure the tokenizer options
-5. The embedding will be generated from the unique tokens found in the document
+3. Choose the embedding type: One-Hot, Co-Occurrence, or Custom
+4. Configure the tokenizer options (Simple or BPE)
+5. Click OK to generate the embedding from the unique tokens found in the document
 
-The training document should be representative of the vocabulary and language patterns you want to model. Larger documents generally produce better co-occurrence embeddings.
+The training document should be representative of the vocabulary and language patterns you want to model. For co-occurrence embeddings, larger documents generally produce better semantic representations since they provide more context for learning word relationships.
 
 # Display Options
 

@@ -67,7 +67,7 @@ An array can be inserted into a network window through two methods:
 1. `Insert > Add Neuron Array`
 2. Pressing the keyboard shortcut `Y`
 
-Weight matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#source-target).
+Weight matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
 
 ## Matrix Integration
 

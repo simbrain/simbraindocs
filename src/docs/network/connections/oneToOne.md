@@ -26,7 +26,7 @@ In addition to the examples below, diagonal connections can be formed which tend
 
 ## Examples
 
-Tip: for non bi-directional cases you can change the direction just by which neurons are designated source vs. target when you use the [1-2 trick](/docs/network/buildingBasics.html#quick-connect-1-2-trick).
+Tip: for non bi-directional cases you can change the direction just by which neurons are designated source vs. target when you use the [1-2 or 1-3 trick](/docs/network/buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
 
 ### Vertical arrangement
 ```mermaid

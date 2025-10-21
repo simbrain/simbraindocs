@@ -72,13 +72,13 @@ Here are some source and target neurons which are about to connected in a feed-f
 
 This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
 
-Generally there are three things to do, which we call the "1-2 trick" (though sometimes it is also 1-3)
+Generally there are three things to do, which we call the "1-2 and 1-3 tricks"
 
 1. To designate objects as source select them and press the `1` key. They will be surrounded by a red border. You can also use menu commands like right click and select `Set Source Neurons`.
 
 2. To designate objects as target select them as usual.
 
-3. Followup actions also use number keys like `2` and `3` to connect things.
+3. Followup actions use number keys `2` or `3` to connect things (see below for the difference).
 
 4. To deselect source objects click on an empty space in the network and press `Esc` or `1`. You can also use menu commands like right click and select `Clear Source Neurons`.
 
@@ -113,23 +113,33 @@ Video instruction on connecting neurons is [here](https://www.youtube.com/watch?
 
 Note that these methods are designed to respect neuron polarity, if it is used. 
 
-## Quick-Connect (1-2 trick)
+## Quick-Connect (1-2 and 1-3 tricks)
 
-The quick and easy way to connect neurons is with the 1-2 trick.
+The quick and easy way to connect neurons and groups is with the 1-2 and 1-3 tricks.
 
-To use this method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then press `2` to connect them. 
+### 1-2 Trick: Quick Default Connections
 
-Note that when creating recurrent connections the same neurons will be both sources and targets. A quick way to make a recurrent network is to make a bunch of nodes and use keyboard commands: `N`, `1`, `2`, `A`, `R`
+To use this method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then press `2` to connect them. Press `Escape` to clear source designations when done.
+
+What the 1-2 trick does:
+- Free neurons: Connects with All-to-All, 100% excitatory, no self-connections. Press `Shift+2` to allow self-connections.
+- Neuron groups/arrays (Layers): Creates a [weight matrix](arraysMatrices) connection
+
+Note that when creating recurrent connections the same neurons will be both sources and targets. A quick way to make a recurrent network is to make a bunch of nodes and use keyboard commands: `N`, `1`, `Shift+2`, `A`, `R`
+
+### 1-3 Trick: Custom Strategy Connections
+
+To use this method: Select your desired source neuron(s), designate them as source by pressing `1`. Select your desired target neuron(s) then press `3` to connect them. Press `Escape` to clear source designations when done.
+
+What the 1-3 trick does:
+- Free neurons: Uses the [connection strategy](connections/) configured in [Network Preferences](ui/networkPreferences) (default: All-to-All with 50% excitatory/inhibitory)
+- Neuron groups/collections: Creates a [synapse group](synapsegroups) instead of a weight matrix
+
+Use the 1-3 trick when you want more control over connection patterns (e.g., sparse connections, distance-based, or mixed excitatory/inhibitory ratios).
 
 ## Menu Commands
 
 To use menu commands: Select your desired source neuron(s), designate them as source by right-clicking on one of the selected neurons and selecting `Set Source Neurons`. Then select target neurons and right-click to select `Connect Neurons`. This will open up a window that gives you the option of customizing your connection preferences.
-
-## Connecting Groups and Collections
-
-The 1-2 trick can be used on interaction boxes for [neuron groups and collections](neurongroups/) to make a weight matrix connecting two groups. 
-
-The 1-3 trick can be used to make a [synapse group](synapsegroups) rather than a weight matrix.
 
 ## Connection Strategies and Custom Scripts
 

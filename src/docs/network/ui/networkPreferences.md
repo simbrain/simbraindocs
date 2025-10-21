@@ -52,7 +52,7 @@ The Model tab contains parameters that affect network simulation behavior:
 
 ## Connections
 
-- **Default connection strategy**: Default method for connecting neurons when creating synapses. Options include All to All, Sparse, One to One, and other [connection strategies](../connections/)
+- **Default connection strategy**: Connection strategy used when pressing 3 in the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks). Options include All to All, Sparse, One to One, and other [connection strategies](../connections/)
 
 ## Randomizers
 

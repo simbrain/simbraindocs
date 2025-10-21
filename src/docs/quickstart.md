@@ -31,17 +31,15 @@ Most of these operations require a [network](network/) window to be in focus (cl
 - **Cmd/Ctrl-C** to copy, **Cmd/Ctrl-V** to paste, **Cmd/Ctrl-D** to duplicate.
 - **Delete** or **Backspace** to delete selected objects.
 
-### Connecting neurons: the "1-2 trick"
+### Connecting neurons: the "1-2 and 1-3 tricks"
 
-This is one of the most useful techniques in Simbrain for quickly building networks. For more connection options, see [Connections](network/connections/).
+This is one of the most useful techniques in Simbrain for quickly building networks. See [Building Basics](network/buildingBasics#quick-connect-1-2-and-1-3-tricks) for details. The basic workflow:
 
 1. Select one or more source neurons
 2. Press **1** to designate them as sources (red halos appear)
 3. Select one or more target neurons
 4. Press **2** to connect all sources to all targets
 5. Press **Escape** to clear source designations when done
-
-The sequence becomes: `select sources → 1 → select targets → 2 → repeat as needed → Escape`
 
 **Quick recurrent network:** To create a fully connected recurrent network, press **n** to select all neurons, then **1**, then **2**. This connects all neurons to all others (including themselves). Try it with 9 neurons: press **N** to create them, then **n → 1 → 2**, then **w → r** to randomize weights and **n → r** to randomize activations. Press **spacebar** repeatedly to see the dynamics.
 
@@ -108,23 +106,9 @@ Each network update creates a point in the projection plot. If you couple more t
 
 These combinations are especially powerful for quickly building and testing networks:
 
-### Quick Network Modifications
-
 - **n → c:** Clear all neurons (set them to 0)
 - **n → r:** Randomize all neurons
 - **w → r:** Randomize all weights
 - **a → r:** Randomize everything (neurons and weights)
 - **k → r:** Clear then randomize neurons (quick reset)
-
-### Connection Workflow
-
-The typical workflow for connecting neurons using the "1-2 trick":
-
-1. Select source neurons
-2. Press **1** (designate as sources with red halos)
-3. Select target neurons
-4. Press **2** (connect all sources to all targets)
-5. Repeat steps 1-4 as needed for additional connections
-6. Press **Escape** when done to clear source designations
-
-**Quick recurrent network:** Select neurons with **n**, then **1**, then **2** to create a fully connected recurrent network.
+- **n → 1 → 2:** Quick recurrent network (select all neurons, mark as sources, connect all-to-all)

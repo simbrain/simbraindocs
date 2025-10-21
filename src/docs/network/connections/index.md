@@ -10,31 +10,24 @@ nav_order: 90
 
 Connection strategies are rules used to create patterns of connections between source and target groups of neurons. They provide a systematic way to establish synaptic connections with specific properties and patterns. All connection strategies set an [excitatory/inhibitory ratio](#excitatory--inhibitory-ratio) and can randomize weight strengths using probability distributions.
 
-## Quick Connection Workflow (1-2 Trick)
+## Quick Connection Workflow
 
-The fastest way to create connections is using the **[1-2 trick](/buildingBasics.html#quick-connect-1-2-trick)**:
-
-1. **Select source neurons** and press `1` to mark them as sources
-2. **Select target neurons** and press `2` to connect using the [default connection strategy](#default-connection-strategy)
-3. **Press `Shift+2`** to allow self-connections during the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick)
+The fastest way to create connections is using the [1-2 and 1-3 tricks](../buildingBasics#quick-connect-1-2-and-1-3-tricks). See the [Building Basics](../buildingBasics#quick-connect-1-2-and-1-3-tricks) page for a complete explanation.
 
 ## Connection Methods
 
 Connection strategies can be invoked in several ways:
 
-- **[1-2 Trick](/buildingBasics.html#quick-connect-1-2-trick)**: Press `1` then `2` for quick connections using the [default strategy](#default-connection-strategy)
-- **Right-click menu**: Select neurons, right-click, and choose from the "Connect neurons" submenu
-- **Keyboard shortcuts**: Press `2` for [default connections](#default-connection-strategy), `3` for custom connection dialogs
-- **Synapse groups**: Connection strategies are associated with synapse groups for organized connections
+- [1-2 and 1-3 tricks](../buildingBasics#quick-connect-1-2-and-1-3-tricks): Quick keyboard shortcuts for connecting neurons
+- Right-click menu: Select neurons, right-click, and choose from the "Connect neurons" submenu
+- Synapse groups: Connection strategies are associated with synapse groups for organized connections
 
 
-## Default Connection Strategy
+## Configurable Connection Strategy
 
-When you create connections using quick methods like the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick) or the keyboard shortcut `2`, Simbrain applies a default connection strategy rather than prompting you to choose one each time. This default is [All-to-All](allToAll), which connects every source neuron to every target neuron.
+When you use the 1-3 trick, Simbrain uses the connection strategy configured in [Network Preferences](../ui/networkPreferences). By default this is [All-to-All](allToAll) with 50% excitatory and 50% inhibitory connections.
 
-You can change the default connection strategy in [Network Preferences](../ui/networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) for all quick connection operations. The default is used for the [1-2 trick](/buildingBasics.html#quick-connect-1-2-trick), keyboard shortcut `2`, and other quick connection operations that don't explicitly specify a strategy.
-
-If you need a different connection strategy for a specific operation, use `3` instead of `2` to open the connection dialog and choose a different strategy.
+You can change this strategy in [Network Preferences](../ui/networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) with your preferred excitatory/inhibitory ratio.
 
 ## Common Properties
 
