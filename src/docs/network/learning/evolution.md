@@ -9,13 +9,11 @@ nav_order: 30
 
 # Evolving Neural Networks
 
-Simbrain provides a comprehensive framework for evolving neural networks using evolutionary algorithms. To experience these in action, try the EvolveXOR simulation (details below). Unlike other Simbrain features, this framework isn't directly operable via the GUI for building evolutionary simulations with a point-and-click interface. Instead, it comprises a library of functions for creating custom simulations, producing standard interfaces, and resulting in networks, odor worlds, and other familiar Simbrain components. Sample simulations can be accessed from the simulation directory.
+Simbrain provides a comprehensive framework for evolving neural networks using [evolutionary algorithms](https://en.wikipedia.org/wiki/Evolutionary_algorithm), which is a form of [neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution). To experience these in action, try the EvolveXOR simulation (details below). Unlike other Simbrain features, this framework isn't directly operable via the GUI for building evolutionary simulations with a point-and-click interface. Instead, it comprises a library of functions for creating custom simulations, producing standard interfaces, and resulting in [networks](..), [odor worlds](../../worlds/odorworld), and other familiar Simbrain components. Sample simulations can be accessed from the simulation directory.
 
 Upon opening most evolutionary simulations, an interface appears to customize the evolutionary process, initiated by the "evolve" button. Pressing this button starts an evolutionary algorithm, using interface settings to guide the simulation's creation of a population that evolves across generations. Each generation iterates the population to stabilize simulations, calculate fitness scores, and store results, which are displayed as percentiles of the population. After each generation, a percentage of the population is eliminated, and new simulations with mutated traits of survivors replace them. This process continues until the maximum number of generations is reached or the target fitness/error is achieved. The final generation's best simulation is considered the winner, with its fitness/error score being the simulation's final output.
 
-## Basic Concepts
-
-This is a sample evolution interface from the EvolveXOR simulation.
+This is a sample which shows what the evolution interface looks like, from the `EvolveXOR` simulation.
 
 <img src="/assets/images/basicEvolutionControls.png" alt="Basic evolution interface" style="width:300px;"/>
 
@@ -31,9 +29,9 @@ This is a sample evolution interface from the EvolveXOR simulation.
 Here is how it works:
 
 1. **Initialization**: A population of simulations is created with random initial parameters
-2. **Evaluation**: Each simulation runs for a specified number of iterations and receives a fitness score
-3. **Selection**: Simulations with better fitness scores are more likely to survive
-4. **Reproduction**: Surviving simulations produce offspring with mutations
+2. **Evaluation**: Each simulation runs for a specified number of iterations and receives a [fitness score](https://en.wikipedia.org/wiki/Fitness_function)
+3. **Selection**: Simulations with better fitness scores are more likely to survive (see [evolutionary selection](https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)))
+4. **Reproduction**: Surviving simulations produce offspring with [mutations](https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm))
 5. **Iteration**: Steps 2-4 repeat until a termination condition is met
 
 ## Example Simulations
@@ -42,7 +40,7 @@ Here are some example evolutionary simulations available in Simbrain:
 
 ### EvolveXOR
 
-A classic demonstration of evolving a network to solve the XOR problem. The fitness function rewards networks that correctly compute XOR for all input combinations.
+A classic demonstration of evolving a network to solve the [XOR problem](https://en.wikipedia.org/wiki/Exclusive_or). The fitness function rewards networks that correctly compute XOR for all input combinations.
 
 To run:
 - Open the EvolveXOR simulation from the simulations menu
@@ -90,29 +88,4 @@ Some simulations support optimizing multiple objectives:
 - Speed vs. accuracy trade-offs
 - Energy efficiency vs. performance
 - Robustness vs. specialization
-
-### Co-Evolution
-
-Multiple populations can co-evolve, such as:
-- Predator-prey dynamics
-- Competitive scenarios
-- Symbiotic relationships
-
-## Tips for Effective Evolution
-
-- **Start simple**: Begin with small networks and gradually increase complexity
-- **Population size**: Larger populations explore more but take longer to evolve
-- **Mutation rate**: Balance exploration (high mutation) with refinement (low mutation)
-- **Fitness function**: Carefully design fitness to reward desired behaviors
-- **Patience**: Evolution can take many generations to find good solutions
-- **Multiple runs**: Results can vary; run multiple times with different seeds
-
-## Performance Considerations
-
-Evolutionary simulations can be computationally intensive:
-- Each generation evaluates many simulations
-- Complex networks take longer to evaluate
-- More iterations per run increases accuracy but slows evolution
-
-Consider these trade-offs when designing evolutionary experiments.
 
