@@ -32,7 +32,7 @@ For SOM group parameters (learning rate, neighborhood size, decay rates), see th
 
 ## Training
 
-Training an SOM network involves specifying a set of input data and then running the algorithm. The general process is covered in [Training Networks](../learning/trainingNetworks#unsupervised-learning). Double-click the interaction box to open the training dialog.
+Training an SOM network involves specifying a set of input data and then running the algorithm. The general process is covered in [Unsupervised Learning](../learning/unsupervisedLearning). Double-click the interaction box to open the training dialog.
 
 The SOM learns by repeatedly finding the winning neuron (closest to each input) and updating weights in a neighborhood around the winner. Over time, the learning rate and neighborhood size decrease to zero, allowing the map to stabilize. The decreasing learning rate and neighborhood size are shown in the interaction box. See the [SOM group](../neurongroups/selfOrganizingMap#algorithm) documentation for algorithm details.
 

@@ -21,7 +21,7 @@ According to [this site](https://web.stanford.edu/group/pdplab/pdphandbook/handb
 
 ## Training
 
-Training an SRN involves specifying input data, target data, and then running the backpropagation algorithm. The general process is covered in [Training Networks](../learning/trainingNetworks#supervised-learning). Double-click the interaction box to open the training dialog. 
+Training an SRN involves specifying input data, target data, and then running the backpropagation algorithm. The general process is covered in [Supervised Learning](../learning/supervisedLearning). Double-click the interaction box to open the training dialog. 
 
 The key difference from standard backprop networks is that SRNs process temporal sequences. A given input to an SRN occurs after previous patterns, and the context layer maintains a memory of the previous hidden layer state. For example, in the srn_temporalXOR.zip workspace, a network has been trained to perform a logical exclusive or in time. An input of 1 after a 0 should produce a 1, but the same input of 1 after another 1 should produce a 0. The network learns to use the context layer to remember what came before.
 

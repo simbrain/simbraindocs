@@ -109,7 +109,7 @@ These same ideas apply to [synapses](synapses), but there are now potentially _t
 
 By default synapses are pretty simple. The learning rule is set to "static synapse rule" and the spike responder is set to "no rule", in which case the synapse is just a static weight value.  But as the image above shows, they can become quite complex, with rules modifying weight strengths and spike response as a simulation runs.
 
-Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](learning/trainingNetworks).
+Note that these learning rules are local learning rules, change the weight strength only using information available to the synapse about the source and target neurons it is connected to. A more common way of updating weight strengths is externally, using a [trainer](learning/supervisedLearning).
 
 # Weight Matrices
 
@@ -119,7 +119,7 @@ The structure of a synapse is mirrored in [weight matrices](arraysMatrices), but
 
 The weight matrix can be updated using a synapse update rule and the PSR matrix can be updated using a spike responder.
 
-<!-- Weights can also be modified using [supervised learning](trainingNetworks). -->
+<!-- Weights can also be modified using [supervised learning](supervisedLearning). -->
 
 <!--  In fact in the code the rule objects are shared. Here again `psr` is the "output", but this time of a whole weight matrix. This it is a `psrmatrix`. If there is no spike responder set, the `psrmatix` is the matrix product the source activaiton vector and the actual weight matrix. If there is a [spike responder](spikeresponders/), it is applied to the weight matrix object, and directly updates the `psrmatrix`, using the `weightMatrix`, `source.activationArray` as needed, and anything other matrix-shaped state variables (like a matrix of recovery variables) associated the spike responder itself.
 

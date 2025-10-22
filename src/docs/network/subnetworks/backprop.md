@@ -23,7 +23,7 @@ By default, the input layer uses linear neurons while hidden and output layers u
 
 ## Training
 
-Training a backprop network involves specifying input data, target data, and then running the backpropagation algorithm. The general process is covered in [Training Networks](../learning/trainingNetworks#supervised-learning). To open the training dialog, double-click on the interaction box labeled "Backprop".
+Training a backprop network involves specifying input data, target data, and then running the backpropagation algorithm. The general process is covered in [Supervised Learning](../learning/supervisedLearning). To open the training dialog, double-click on the interaction box labeled "Backprop".
 
 Once the network is trained to perform a particular input-output mapping, it can be linked to other networks or components in Simbrain, or used on its own with the validation tab to test new patterns.
 

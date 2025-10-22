@@ -33,7 +33,7 @@ The network is fully interconnected with no self-connections. Hopfield networks 
 
 ## Training
 
-The general training process is covered in [Training Networks](../learning/trainingNetworks#unsupervised-learning). To train a Hopfield network, double-click on the interaction box to open the training dialog.
+The general training process is covered in [Unsupervised Learning](../learning/unsupervisedLearning). To train a Hopfield network, double-click on the interaction box to open the training dialog.
 
 The network learns patterns using Hebbian learning. Binary patterns (0,1) are converted to bipolar (-1,1) before learning is applied. During training and recall, observe the energy value in the interaction box, which decreases as the network settles into stored patterns.
 

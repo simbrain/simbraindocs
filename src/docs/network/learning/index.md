@@ -14,13 +14,15 @@ This section covers the various approaches to training and evolving neural netwo
 
 Simbrain supports several learning paradigms:
 
-- **Supervised Learning**: Training networks using input-output pairs with algorithms like backpropagation. Networks learn to map specific inputs to desired outputs through iterative weight adjustments.
+- **[Supervised Learning](supervisedLearning)**: Training networks using input-output pairs with algorithms like backpropagation. Networks learn to map specific inputs to desired outputs through iterative weight adjustments. See also [Training Parameters](trainingParameters) for details on configuring training algorithms, and [Supervised Models](supervisedModels) for a flexible approach to training arbitrary network structures.
 
-- **Supervised Models**: A flexible framework for training arbitrary collections of neuron arrays, groups, or collections linked by weight matrices or synapse groups. Supports immediate learning for real-time experimentation.
+- **[Unsupervised Learning](unsupervisedLearning)**: Networks learn patterns and structure from input data without explicit target outputs through competitive learning, self-organizing maps, and other approaches.
 
-- **Local Learning Rules**: Synaptic plasticity rules like Hebbian learning, STDP, and Oja's rule that operate locally at individual synapses based on pre- and post-synaptic activity.
+- **Local Learning Rules**: Synaptic plasticity rules like [Hebbian learning](https://en.wikipedia.org/wiki/Hebbian_theory), STDP, and Oja's rule that operate locally at individual [synapses](../synapses/) based on pre- and post-synaptic activity. These rules provide biologically plausible learning mechanisms.
 
-- **Evolutionary Algorithms**: Genetic algorithms that evolve network structures and weights across generations to optimize fitness functions.
+- **[Evolutionary Algorithms](evolution)**: Genetic algorithms that evolve network structures and weights across generations to optimize fitness functions. These methods can discover novel solutions and optimize complex behaviors.
 
-Each approach has different strengths and use cases. Supervised learning excels at function approximation and pattern recognition. Local rules capture biological plausibility and self-organization. Evolutionary methods can discover novel solutions and optimize complex behaviors.
+- **Scripting**: Other learning paradigms such as reinforcement learning can be implemented using [scripting](../../simulations).
+
+Each approach has different strengths and use cases. Supervised learning excels at function approximation and pattern recognition. Unsupervised learning discovers hidden structure in data. Local rules capture biological plausibility and self-organization. Evolutionary methods can discover novel solutions without explicit programming.
 
