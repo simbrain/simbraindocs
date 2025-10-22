@@ -324,4 +324,22 @@ While being phased out, Java simulations are still supported. See `TestSim.java`
 
 For evolutionary/genetic algorithm simulations, see `evolveMouse.kt` and the simulations in the `evolution/` directory. These implement fitness evaluation, mutation, crossover, and population management.
 
+### Running Simulations Headless
+
+Simulations can be run headless (without the GUI) from the command line using Gradle. This is useful for running long computation-intensive simulations on remote servers. The entry point is the `runSim` Gradle task in `simbrain/build.gradle.kts`.
+
+From the `simbrain` directory, run:
+
+```bash
+gradle runSim -PsimName="Simulation Name"
+```
+
+The simulation name must match a name registered in `RegisteredSimulations.kt`. For simulations that accept parameters, use the `optionString` parameter. For example:
+
+```bash
+gradle runSim -PsimName="Evolve Grazing Cows" -PoptionString="2:20:1000:100:0.5:true"
+```
+
+In the code, see `CowGrazing.kt` for details on the parameter format and implementation pattern. When run headless, the simulation saves the result to a timestamped `.zip` file that can be loaded in the GUI.
+
 
