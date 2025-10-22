@@ -38,35 +38,46 @@ The File menu (in the network file menu) contains several relevant commands.
 
 # Training 
 
-When the play button is pressed in the training panel, the supervised model trains on the data in the table. That is, the input table rows are sequentially (or randomly, see randomize below) fed in as activations of the source neurons, the network is iterated a specified number of times (see iterations per pattern), activations in the target neurons are compared with values in the target table, and the network is updated using backpropagation.  The process is repeated for a number of training epochs (by default indefinitely), or until a stop condition is reached.
+When the play button is pressed in the training panel, the supervised model trains on the data in the table. The input table rows are fed in as activations of the source neurons (sequentially or randomly depending on the Update type setting), the network is iterated to compute outputs, activations in the target neurons are compared with values in the target table, and the network weights are updated using [backpropagation](https://en.wikipedia.org/wiki/Backpropagation). The process continues until a stopping condition is reached or training is manually stopped.
 
 ## Properties
 
 The toolbar and properties of the training interface determine how training happens. See also [training](.).
 
-- **Learning Rate**: The rate at which the network learns. Higher values mean faster learning but can lead to instability. See [Backprop](../subnetworks/backprop).
+- **Loss Function**: The error metric used during training. Options include SSE (sum of squared errors) for regression, MSE (mean squared error) for regression, and [Cross Entropy](https://en.wikipedia.org/wiki/Cross-entropy) for classification tasks.
 
-- **Momentum**: Helps accelerate learning by considering the previous weight update. Values typically range from 0 to 1.
+- **Optimizer**: The optimization algorithm for updating weights. Available optimizers:
+  - **Momentum Optimizer**: Uses learning rate and [momentum](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Momentum) parameters. Momentum (0-1) helps accelerate learning by considering previous weight updates.
+  - **[Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam) Optimizer**: Adaptive moment estimation with learning rate, Beta1, and Beta2 parameters for controlling moment estimates.
+  - **[AdamW](https://arxiv.org/abs/1711.05101) Optimizer**: Adam with decoupled weight decay, adding Weight Decay and Learning Rate Decay parameters for better [regularization](https://en.wikipedia.org/wiki/Regularization_(mathematics)).
 
-- **Randomize**: If checked, training examples are presented in random order rather than sequentially.
+- **Update type**: Determines how training examples are presented:
+  - **Stochastic**: Weights are updated after each randomly selected training example (see [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)).
+  - **Epoch**: Weights are updated after processing all training examples in order.
+  - **Batch**: Weights are updated after processing a fixed-size batch (see [mini-batch gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Iterative_method)). The Batch size parameter specifies how many examples to process together.
 
-- **Training Mode**: Determines how training examples are presented:
-  - **Online**: Weights are updated after each training example
-  - **Batch**: Weights are updated after all training examples have been presented
+- **Weight Initialization Strategy**: Strategy for initializing network weights before training. Options include [Xavier](https://proceedings.mlr.press/v9/glorot10a.html) (general use), [He](https://arxiv.org/abs/1502.01852) (for ReLU networks), and LeCun (for SELU networks).
 
-- **Iterations per pattern**: Number of times the network is iterated after an input pattern is applied and before backprop is applied. Useful for recurrent networks.
+- **Stopping Condition**: Conditions for automatically stopping training:
+  - **Max Iterations**: Maximum number of training iterations before stopping.
+  - **Use Error Threshold**: When enabled, stops training when error falls below the specified Error Threshold value.
+  - **Use [Early Stopping](https://en.wikipedia.org/wiki/Early_stopping)**: When enabled, stops training when test error stops improving. Requires test data to be available.
+    - **Early Stopping Patience**: Number of test evaluations to wait for improvement before stopping (only visible when Use Early Stopping is checked).
+    - **Early Stopping Min Delta**: Minimum improvement required to reset patience counter (only visible when Use Early Stopping is checked).
 
-- **Num Epochs**: Specifies after how many epochs training should be stopped. Epochs refers to complete passes through the training set. This is useful for comparing networks, and replicability. If this is set to 0 the training will continue indefinitely or until stop conditions are met.
+- **Test Configuration**: Settings for testing during training:
+  - **Enabled**: When checked, the network is tested on validation data during training to monitor generalization.
+  - **Test Frequency**: How often to test on validation data, in training iterations (only visible when Enabled is checked).
 
-- **Stop Condition - SSE**: Stop training when the sum of squared errors falls below this value. If set to 0 this condition is ignored.
+- **Compute Accuracy**: When checked, calculates and displays classification accuracy for networks with [one-hot encoded](https://en.wikipedia.org/wiki/One-hot) targets. See [accuracy](trainingNetworks#accuracy).
 
-- **Stop Condition - MSE**: Stop training when the mean squared error falls below this value. If set to 0 this condition is ignored.
+## Toolbar Actions
 
-- **Stop Condition - Accuracy**: Stop training when the validation accuracy percentage reaches this value. If set to 0 this condition is ignored. See [accuracy](trainingNetworks#accuracy).
+- **Test**: Applies the current input row to the source neurons and propagates activations through the network, showing results in the target neurons without updating weights.
 
-- **Validation Split**: Proportion of data to use for validation. When set, this fraction of data is held out and not used for training, but used to compute validation metrics.
+- **Step**: Runs one iteration of the training algorithm.
 
-- **Test**: Test button applies the current input row to the source neurons and propagates activations through the network, showing results in the target neurons without updating weights.
+- **Play/Stop**: Starts or stops continuous training.
 
-- **Step**: Run one iteration of the training algorithm.
+- **Randomize**: Reinitializes network weights and biases using the selected weight initialization strategy.
 

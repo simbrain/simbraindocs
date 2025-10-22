@@ -17,13 +17,13 @@ This is a sample which shows what the evolution interface looks like, from the `
 
 <img src="/assets/images/basicEvolutionControls.png" alt="Basic evolution interface" style="width:300px;"/>
 
-- **Population Size**: The maximum number of simulations per generation. When some of the simulations are eliminated and replaced, the total amount of simulation per simulation cannot be larger than the set population size.
-- **Elimination Ratio**: The ratio of eliminated simulations from the population size and the ratio that is replaced by new, mutated simulations of surviving simulations.
-- **Iterations Per Run**: Each generation, the simulation is iterated by the total amount of iterations specified in iterations per run. This is to stabilize the network before calculating a fitness score of the generation.
-- **Max Generations**: The maximum number of generations that the evolutionary simulation can reach before terminating and returning the best performing network.
-- **Target Error**: The target error that we want the evolutionary simulation to be at or below.
-- **Evaluation percentile**: When the evolutionary simulation decides to terminate, the evolutionary simulation will consider the current error of the specified evaluation percentile of the current population before terminating. Note: Numbers closer to 0th percentile means better performance whereas numbers closer to 100th percentile means worse performance.
-- **Seed**: A random seed that is utilized for replicability.
+- **Population Size**: The number of simulations spawned per generation. This size stays constant throughout the evolution process.
+- **Elimination Ratio**: The percentage of the population eliminated each generation and replaced with mutated offspring of surviving simulations.
+- **Iterations Per Run**: Each generation, the simulation is iterated this many times to stabilize the network before calculating a fitness score.
+- **Max Generations**: The maximum number of generations the evolutionary simulation can reach before terminating and returning the best performing network.
+- **Target Error** (or **Target Fitness**): The target metric that stops the simulation when reached. Depending on the simulation's stopping condition, this is either a target error (stop when below this value) or target fitness (stop when above this value).
+- **Evaluation percentile**: When deciding whether to terminate, the evolutionary simulation considers the metric at this percentile of the current population. Numbers closer to 0th percentile represent better performance, while numbers closer to 100th percentile represent worse performance.
+- **Seed**: A random seed used for replicability.
 
 
 Here is how it works:
