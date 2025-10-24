@@ -22,7 +22,11 @@ Several [subnetwork](../subnetworks) types provide training dialogs with a singl
 - [Hopfield Networks](../subnetworks/hopfield): Networks that learn to store and retrieve patterns, functioning as associative memory
 - [Restricted Boltzmann Machines](../subnetworks/restrictedBoltzmannMachine): Energy-based models that learn probability distributions over input data using contrastive divergence
 
-These subnetworks  provide a dialog similar to the [supervised training interface](supervisedLearning), but with just one data [table](../../utilities/tables) instead of separate input and target tables.   Each row represents an input pattern, and columns correspond to input neurons. The network processes these patterns to discover underlying structure without being told what outputs to produce. Unlike supervised learning, there is no target or label data. The network's learning objective is determined by its architecture and learning algorithm rather than by matching desired outputs.
+These subnetworks  provide a dialog similar to the [supervised training interface](supervisedLearning), but with just one data [table](../../utilities/tables) instead of separate input and target tables.   
+
+<img src="/assets/images/unsupervisedTrainingDialog.png" style="width:300px;"/>
+
+Each row represents an input pattern, and columns correspond to input neurons. The network processes these patterns to discover underlying structure without being told what outputs to produce. Unlike supervised learning, there is no target or label data. The network's learning objective is determined by its architecture and learning algorithm rather than by matching desired outputs.
 
 A common way to train these networks is to create a pattern in the main network and train it directly using the `Train On Current Pattern` context menu command, or to add it to the training dataset using `Add Current Pattern to Training Data` and then train on the full dataset.
 
