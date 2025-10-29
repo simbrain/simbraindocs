@@ -12,7 +12,7 @@ Text World transforms text into numbers and numbers into text, primarily for mod
 
 The component uses [token embeddings](https://en.wikipedia.org/wiki/Word_embedding) that associate text tokens with vector representations, which can be coupled to neural networks and other components via [couplings](../workspace/couplings).
 
-Example simulations: See `simulations > NLP` for demonstrations of Text World functionality.
+Example simulations: See `Simulations > Language models` for demonstrations of Text World functionality.
 
 <img src="/assets/images/textWorld.png" alt="Text World" style="width:500px;"/>
 
@@ -26,11 +26,15 @@ To create a new Text World component:
 
 # Token Embeddings
 
-Text World uses token embeddings to associate string tokens (words, characters, or subwords) with vector representations. Each token maps to a vector of numbers that can be consumed by neural networks. The token embedding can be viewed and edited via `View > Word embedding editor...`
+Text World uses token embeddings to associate string tokens (words, characters, or subwords) with vector representations. The token embedding is a bidirectional mapping: it converts tokens to vectors (for sending to networks) and also converts vectors back to tokens (by finding the nearest token to a given vector). This allows networks to both consume and produce text.
+
+Each token maps to a vector of numbers that can be consumed by neural networks. The token embedding can be viewed and edited via `View > Word embedding editor...`
+
+All tokens are normalized to lowercase internally, which may affect the handling of special characters and emojis.
 
 ## Embedding Types
 
-Text World supports three embedding types, each with different properties:
+Text World supports several embedding types, each with different properties:
 
 ### One-Hot Encoding
 
@@ -53,21 +57,42 @@ Creates dense vector representations based on word co-occurrence patterns in a t
 
 Co-occurrence embeddings capture semantic relationships between words based on distributional similarity. Larger window sizes capture broader topical relationships, while smaller windows capture tighter syntactic relationships. PPMI weighting is generally recommended for better semantic representations.
 
-### Custom
+### Random
 
-Allows loading pre-trained embeddings from external sources (e.g., [Word2Vec](https://en.wikipedia.org/wiki/Word2vec), [GloVe](https://en.wikipedia.org/wiki/GloVe)). Custom embeddings must be manually loaded from files.
+Generates random vector representations for each token by sampling from a probability distribution. This can be useful for testing or as an initialization for training.
 
-- **Remove stopwords**: Excluded in custom embeddings
-- **Convert all upper case to lower case**: Normalization setting for custom embeddings
+- **Vector length**: Number of dimensions in each token's vector representation (minimum: 1). Also called the embedding dimension. Unlike one-hot and co-occurrence which produce square matrices, random embeddings let you specify any vector length.
+- **Distribution**: The probability distribution used to generate random values (e.g., normal distribution)
+- **Remove stopwords**: If enabled, common words are excluded from the embedding
+- **Convert all upper case to lower case**: If enabled, normalizes all tokens to lowercase
 
-Use custom embeddings when you need pre-trained, high-quality word vectors trained on large corpora. These typically provide better semantic representations than can be achieved from small training documents.
+Random embeddings provide a baseline for comparison or can serve as initial embeddings for further training.
 
 ## Tokenizers
 
 [Tokenization](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization) determines how text is split into individual tokens. Text World supports multiple tokenization strategies:
 
-- **Simple Tokenizer**: Splits text on whitespace and punctuation boundaries. Configurable options for handling punctuation, spaces, and newlines.
-- **[Byte Pair Encoding](https://en.wikipedia.org/wiki/Byte_pair_encoding) (BPE)**: Advanced subword tokenization that learns merge rules from training text. BPE can handle unknown words by breaking them into known subword units.
+### Simple Tokenizer
+
+Splits text on whitespace and punctuation boundaries. By default, only words are extracted as tokens, but this can be customized.
+
+- **Use punctuation**: If true, keep punctuation marks and add them as tokens
+- **Use spaces**: If true, use spaces, tabs, and newlines as distinct tokens
+- **Use returns**: If true, use newlines as tokens
+
+The Simple Tokenizer is fast and straightforward, suitable for most basic text processing tasks.
+
+### Byte Pair Encoding (BPE)
+
+Advanced subword tokenization that learns merge rules from training text. [Byte Pair Encoding](https://en.wikipedia.org/wiki/Byte_pair_encoding) can handle unknown words by breaking them into known subword units, making it more flexible than simple word-based tokenization.
+
+- **Max tokens**: Maximum number of tokens to generate
+- **Min frequency**: Minimum frequency of tokens to keep
+- **Max iterations**: Maximum number of iterations to run
+
+BPE learns to merge frequently occurring character pairs during training, building a vocabulary of subword units. This allows the tokenizer to handle out-of-vocabulary words by decomposing them into known subwords.
+
+BPE is currently experimental. The tokenizer needs to be trained on a document before it can be used (via extracting an embedding from text).
 
 The tokenizer can be configured via the [Preferences](#preferences) dialog or when extracting embeddings from a document.
 
@@ -75,17 +100,16 @@ The tokenizer can be configured via the [Preferences](#preferences) dialog or wh
 
 To create an embedding from a text document:
 
-1. Use the `Extract embedding...` toolbar button (or access it through the coupling menu when creating a new text world)
-2. Select a training document (`.txt` file)
-3. Choose the embedding type: One-Hot, Co-Occurrence, or Custom
-4. Configure the tokenizer options (Simple or BPE)
-5. Click OK to generate the embedding from the unique tokens found in the document
+1. Use `View > Extract embedding from current text` (or the toolbar button)
+2. Choose the embedding type: One-Hot, Co-Occurrence, or Random
+3. Configure the tokenizer options (Simple Tokenizer or Byte Pair Encoding)
+4. Click OK to generate the embedding from the unique tokens found in the current text
 
-The training document should be representative of the vocabulary and language patterns you want to model. For co-occurrence embeddings, larger documents generally produce better semantic representations since they provide more context for learning word relationships.
+The text should be representative of the vocabulary and language patterns you want to model. For co-occurrence embeddings, larger documents generally produce better semantic representations since they provide more context for learning word relationships.
 
-# Display Options
+# Preferences
 
-Text World provides several options for visualizing tokens in the main text area. These can be configured via `Edit > Preferences`:
+Text World provides several configurable options via `Edit > Preferences`:
 
 - **Auto advance**: If true, automatically advance to the next token on each workspace update. This allows the text to be "read" sequentially during simulation.
 
@@ -93,19 +117,9 @@ Text World provides several options for visualizing tokens in the main text area
 
 - **Show token boundaries**: If true, draw rectangles around each token to show how the text has been tokenized. Useful for understanding how the tokenizer is parsing the text.
 
+- **Tokenizer**: Configure the tokenizer type (Simple Tokenizer or Byte Pair Encoding) and its parameters. Changes to the tokenizer require that a training document has been set.
+
 - **Stop at end**: If true, stop workspace updates when the end of the text is reached. If false, the position wraps back to the beginning.
-
-# Sampling Strategy
-
-When consuming probability vectors from a network (e.g., language model outputs), Text World can sample tokens from the distribution using different strategies. This is configured via `Edit > Preferences`:
-
-- **Greedy**: Always selects the most probable token. Deterministic and produces the most likely output, but can be repetitive.
-
-- **Top-K Sampling**: Samples from the top K most probable tokens. The `k` parameter controls how many tokens to consider (higher values increase diversity).
-
-- **Top-P Sampling** (Nucleus Sampling): Samples from the smallest set of tokens whose cumulative probability exceeds threshold `p`. The `p` parameter controls the probability threshold (typical value: 0.9). Higher values include more tokens and increase diversity.
-
-Sampling strategies are primarily relevant when using Text World for text generation with neural language models. Greedy produces the most predictable output, while Top-K and Top-P balance between probable completions and creative variety.
 
 # Couplings
 
@@ -119,7 +133,7 @@ Text World supports both producing and consuming data:
 
 - **Consuming strings**: Text can be added to the text area via the `addTextAtCursor` or `addTextAtEnd` consumers.
 
-- **Record embeddings**: Text World can send its vector sequence to a Data World for recording. Use `Edit > Record word embeddings` to create this coupling automatically.
+- **Record embeddings**: Text World can send its vector sequence to a Data World for recording. Use `Edit > Record token embeddings` to create this coupling automatically.
 
 - **Couple plots**: Token vectors can be sent directly to plot components for visualization. Use `Edit > Couple Plots` to create plot couplings (e.g., projection plots to visualize word vector spaces).
 
@@ -135,15 +149,31 @@ Text World supports both producing and consuming data:
 
 ## Edit Menu
 
-- **<span id="find-replace">Find / Replace...</span>** (**Ctrl/Cmd+F**): Open find and replace dialog to search for text patterns and replace them
+- **<span id="find-replace">Find / Replace...</span>** (Cmd/Ctrl+F): Open find and replace dialog to search for text patterns and replace them
 - **Record word embeddings**: Create a coupling to a Data World component that records the token vector sequence over time
 - **Couple Plots**: Create couplings to plot components for real-time visualization of token embeddings (e.g., projection plots)
 - **Create TextWorld Coupling**: Open the coupling interface to create connections between Text World and other components
-- **<span id="preferences">Preferences</span>**: Open the preferences dialog to configure display options, tokenizer, sampling strategy, and other settings
+- **<span id="preferences">Preferences</span>**: Open the preferences dialog to configure display options, tokenizer, and other settings
 
 ## View Menu
 
+- **Extract embedding from current text**: Generate a token embedding from the text currently displayed in the text area
 - **<span id="word-embedding-editor">Word embedding editor...</span>**: Open a table view to inspect and manually edit the token-to-vector mappings. This shows the complete embedding matrix with tokens as rows and vector dimensions as columns.
+
+### Token Embedding Editor
+
+The word embedding editor displays the token embedding as a table where each row represents a token and each column represents a dimension in the embedding space.
+
+For one-hot and co-occurrence embeddings, the matrix is square (N×N) where N is the number of unique tokens found in the training document. For random embeddings, the matrix has N rows (one per token) and M columns where M is the user-specified vector length.
+
+The editor provides several actions:
+
+- **Extract embedding**: Generate a new embedding from a document
+- **View Word Embedding Source**: View the original training document used to create the embedding
+- **Import CSV**: Load token embeddings from a CSV file. The first column should contain token names, and subsequent columns contain the vector values for each dimension.
+- **Export CSV**: Save the current token embedding to a CSV file (includes token names in the first column)
+- **Show matrix plot**: Visualize the embedding matrix as a color-coded plot
+- **Open projection**: Create a projection plot to visualize tokens in 2D or 3D space using their embeddings
 
 ## Help Menu
 
@@ -151,6 +181,7 @@ Text World supports both producing and consuming data:
 
 ## Toolbar
 
+- **Extract embedding from current text**: Generate token embedding from current text
 - **Word embedding editor**: [Word embedding editor...](#word-embedding-editor)
 - **Text World Preferences**: [Preferences](#preferences)
 
