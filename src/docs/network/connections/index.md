@@ -41,6 +41,8 @@ Note that weights are created in three steps: first the strategy creates connect
 
 Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
 
+For more information on how connection strategies interact with weight adjustment, see [Weight Initialization](../weightInitialization).
+
 ## Excitatory / Inhibitory Ratio
 
 This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.

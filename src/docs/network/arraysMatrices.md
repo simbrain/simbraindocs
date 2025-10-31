@@ -57,8 +57,8 @@ Weight matrices support numerous operations:
 ### Mathematical Properties
 
 For square matrices, additional operations are available:
-- **Eigenvalues**: Calculate and display eigenvalues
-- **Spectral radius**: Set the maximum eigenvalue to control network dynamics
+- **Show eigenvalues**: Shows all eigenvalues for this matrix.
+- **Spectral radius**: Set the maximum eigenvalue to control network dynamics. The [spectral radius](https://en.wikipedia.org/wiki/Spectral_radius) operation scales all weights proportionally so that the maximum eigenvalue equals the specified value. This is done by multiplying the entire weight matrix by the ratio of the desired spectral radius to the current maximum eigenvalue.
 
 ## Creating Arrays and Matrices
 
@@ -175,7 +175,7 @@ The PSR matrix can be processed by [spike responders](./spikeresponders.html) be
 
 - **Show eigenvalues...**: Show eigenvalues for this matrix (only enabled for square matrices)
 
-- **Set spectral radius...**: Rescale matrix so that max eigenvalue is the specified value. Values less than 0.9 cause decay; 0.9 churns; greater than 1 explodes
+- **Set spectral radius...**: Rescale matrix so that max eigenvalue is the specified value. The [spectral radius](https://en.wikipedia.org/wiki/Spectral_radius) operation scales all weights proportionally by multiplying the matrix by the ratio of the desired spectral radius to the current maximum eigenvalue. Values less than 0.9 cause decay; 0.9 churns; greater than 1 explodes
 
 - **Randomize symmetric**: Use network weight randomizer to randomize the matrix symmetrically
 

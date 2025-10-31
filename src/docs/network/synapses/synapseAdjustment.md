@@ -45,3 +45,9 @@ Scale all synapse values up or down by changing their strengths as much as the i
 
 Change the set of weights to have the indicated ratio of excitatory to inhibitory. The polarizer attempts to produce a ratio that is consistent with the polarity of source neurons, if polarized soure neurons are used. See [Excitatory / Inhibitory Ratio](../connections/#excitatory--inhibitory-ratio).
 
+## Working with Connection Strategies
+
+How you use this dialog depends on how your connections were created. Some [connection strategies](../connections/) set weights to fixed values (1 or -1), while others apply probability distributions during connection creation. To preserve the excitatory/inhibitory ratio when adjusting weights, select excitatory or inhibitory in the statistics panel dropdown to modify each population separately.
+
+For a complete explanation of how connection strategies and synapse adjustment interact, see [Weight Initialization](../weightInitialization).
+
