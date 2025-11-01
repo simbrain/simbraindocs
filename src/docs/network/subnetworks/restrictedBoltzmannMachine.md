@@ -91,6 +91,8 @@ By default, a random dataset is generated for initial training. You can replace 
 
 Common right-click items are described on the [subnetwork](.) page.
 
+- **Add Current Pattern to Training Data:** Add the current visible layer activations to the training dataset.
+- **Train on current pattern...:** Opens a dialog to train the RBM on the current visible layer activations for a specified number of iterations.
+- **Train once on current pattern:** Train the RBM on the current visible layer activations for one iteration. Keyboard shortcut: `T`
 - **Edit / Train RBM:** Opens the training dialog to edit and train the RBM.
-- **Train On Current Pattern:** Train the RBM on the current visible layer activations.
-- **Randomize:** Randomize weights, biases, and neuron activations.
+- **Randomize:** Randomize weights, biases, and neuron activations. Keyboard shortcut: `R`

@@ -58,7 +58,7 @@ The synapse group dialog contains four tabs, each of which links to another comp
 
 - **Show weight matrix...**: Shows the weight matrix viewer for this group of synapses
 
-- **Freeze / Unfreeze synapses**: Freezes or unfreezes all synapses in this group. When frozen, learning will cease.
+- **Clamp / Unclamp synapses**: Clamps or unclamps all synapses in this group. When clamped, learning will cease.
 
 - **Enable / Disable synapses**: Enables or disables all synapses in this group. When disabled, they stop passing information along (functionally equivalent to temporarily removing the group).
 

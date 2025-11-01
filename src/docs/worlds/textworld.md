@@ -150,7 +150,7 @@ Text World supports both producing and consuming data:
 ## Edit Menu
 
 - **<span id="find-replace">Find / Replace...</span>** (Cmd/Ctrl+F): Open find and replace dialog to search for text patterns and replace them
-- **Record word embeddings**: Create a coupling to a Data World component that records the token vector sequence over time
+- **Record token embeddings**: Create a coupling to a Data World component that records the token vector sequence over time
 - **Couple Plots**: Create couplings to plot components for real-time visualization of token embeddings (e.g., projection plots)
 - **Create TextWorld Coupling**: Open the coupling interface to create connections between Text World and other components
 - **<span id="preferences">Preferences</span>**: Open the preferences dialog to configure display options, tokenizer, and other settings
@@ -164,7 +164,7 @@ Text World supports both producing and consuming data:
 
 The word embedding editor displays the token embedding as a table where each row represents a token and each column represents a dimension in the embedding space.
 
-For one-hot and co-occurrence embeddings, the matrix is square (N×N) where N is the number of unique tokens found in the training document. For random embeddings, the matrix has N rows (one per token) and M columns where M is the user-specified vector length.
+For one-hot and co-occurrence embeddings, the matrix is square (N?N) where N is the number of unique tokens found in the training document. For random embeddings, the matrix has N rows (one per token) and M columns where M is the user-specified vector length.
 
 The editor provides several actions:
 

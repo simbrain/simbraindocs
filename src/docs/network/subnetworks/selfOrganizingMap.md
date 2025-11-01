@@ -40,8 +40,10 @@ The SOM learns by repeatedly finding the winning neuron (closest to each input) 
 
 Common right-click items are described on the [subnetwork](.) page.
 
+- **Add Current Pattern to Training Data:** Add the current input pattern to the training dataset.
+- **Train on current pattern...:** Opens a dialog to train the network on the current input pattern for a specified number of iterations.
+- **Train once on current pattern:** Train the network for one iteration on the current input pattern. Keyboard shortcut: `T`
 - **Edit / Train SOM:** Opens the training dialog to train the SOM network.
-- **Train On Current Pattern:** Iterate the training algorithm once using the current inputs.
-- **Randomize:** Randomize synapses connected to the SOM group.
+- **Randomize:** Randomize synapses connected to the SOM group. Keyboard shortcut: `R`
 - **Reset SOM Network:** Reset the learning rate and neighborhood size to their initial values.
 - **Recall SOM Memory:** Set the input layer activations to match the weights of the most active SOM neuron.

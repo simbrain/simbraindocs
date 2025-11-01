@@ -28,5 +28,5 @@ These subnetworks  provide a dialog similar to the [supervised training interfac
 
 Each row represents an input pattern, and columns correspond to input neurons. The network processes these patterns to discover underlying structure without being told what outputs to produce. Unlike supervised learning, there is no target or label data. The network's learning objective is determined by its architecture and learning algorithm rather than by matching desired outputs.
 
-A common way to train these networks is to create a pattern in the main network and train it directly using the `Train On Current Pattern` context menu command, or to add it to the training dataset using `Add Current Pattern to Training Data` and then train on the full dataset.
+A common way to train these networks is to create a pattern in the main network and train it directly using the context menu commands. You can use `Train once on current pattern` (keyboard shortcut: `T`) to train for one iteration, or `Train on current pattern...` to specify a number of iterations. You can also add patterns to the training dataset using `Add Current Pattern to Training Data` and then train on the full dataset.
 

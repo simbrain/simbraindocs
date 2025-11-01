@@ -168,7 +168,7 @@ Examples:
 - Clearing and randomizing values: Note that while screen items are selected, neuron values can also be set to zero by pressing "C" on the keyboard (weight values are not then set to zero, because this is equivalent to deleting them, which can be done with the delete key). Pressing "R" will randomize all selected screen items, neurons and weights.
 - To clear nodes you select them and press `C`
 - To clear weights you select them and press `Shift-C` (this prevents accidentally clearing them)
-- To clamp or freeze nodes or weights use `Cmd/Ctrl-B`
+- To clamp nodes or weights use `Cmd/Ctrl-B`
 
 # Copy and Paste
 
@@ -180,7 +180,7 @@ Copy, cut, and paste in one of the following ways
 2. Use the network menu and select copy, cut, or paste.
 3. Right-click on one of the selected items and select copy or cut
 
-Smart copy/paste: Copy neurons, paste, move, and re-paste, and the new paste’s follow the rule (see placement manager and paste trails below). In this way you can quickly build big networks.
+Smart copy/paste: Copy neurons, paste, move, and re-paste, and the new paste?s follow the rule (see placement manager and paste trails below). In this way you can quickly build big networks.
 
 # Wand Tool
 
@@ -196,7 +196,7 @@ To use the wand:
 
 1. Click on the wand icon
 2. Pass the wand over neurons while left-clicking
-3. All neurons will reach their maximum level (the “upper bound” value), as shown in the image.
+3. All neurons will reach their maximum level (the ?upper bound? value), as shown in the image.
 
 ## Adjusting the wand
 

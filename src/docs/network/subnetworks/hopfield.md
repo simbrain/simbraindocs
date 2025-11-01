@@ -41,9 +41,11 @@ The network learns patterns using Hebbian learning. Binary patterns (0,1) are co
 
 Common right-click items are described on the [subnetwork](.) page.
 
+- **Add Current Pattern to Training Data:** Add the current pattern to the training dataset.
+- **Train on current pattern...:** Opens a dialog to train the network on the current pattern for a specified number of iterations.
+- **Train once on current pattern:** Train the Hopfield network using the Hebbian rule to learn the current pattern of activity for one iteration. Keyboard shortcut: `T`
 - **Edit / Train Hopfield:** Opens the training dialog to edit and train the Hopfield network.
-- **Train On Current Pattern:** Train the Hopfield network using the Hebbian rule to learn the current pattern of activity.
-- **Randomize:** Randomize the synaptic weights symmetrically.
+- **Randomize:** Randomize the synaptic weights symmetrically. Keyboard shortcut: `R`
 
 ## Continuous Hopfield Networks
 

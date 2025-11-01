@@ -34,9 +34,11 @@ For competitive group parameters (update method, learning rate, etc.), see the [
 
 Common right-click items are described on the [subnetwork](.) page.
 
+- **Add Current Pattern to Training Data:** Add the current input pattern to the training dataset.
+- **Train on current pattern...:** Opens a dialog to train the network on the current input pattern for a specified number of iterations.
+- **Train once on current pattern:** Train the network for one iteration on the current input pattern. Keyboard shortcut: `T`
 - **Edit / Train Competitive:** Opens the training dialog to edit and train the competitive network.
-- **Train On Current Pattern:** Iterate the training algorithm once using the current inputs.
-- **Randomize:** Randomize synapses connected to the competitive group.
+- **Randomize:** Randomize synapses connected to the competitive group. Keyboard shortcut: `R`
 
 ## Training
 
