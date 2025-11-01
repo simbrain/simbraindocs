@@ -13,7 +13,9 @@ A competitive group is a collection of neurons that compete with each other to r
 
 The competitive group combines elements of [winner-take-all networks](wta) and Hebbian learning. The [self-organizing map](selfOrganizingMap) is a spatial generalization of this algorithm.
 
-<!-- TODO: Add image -->
+<img src="/assets/images/competitiveNetwork.png" alt="Competitive Network" style="width: 70%;" />
+
+From the `Simulations > Competitive > Competitive network (simple)` simulation. This network has been trained on patterns P1-P5 and currently cannot distinguish P1-P3.
 
 A competitive group may be used standalone (connected to other neurons by the user) or as part of a pre-configured [competitive network](../subnetworks/competitive) that includes an input layer and training interface.
 

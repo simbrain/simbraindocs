@@ -11,9 +11,11 @@ nav_order: 40
 
 A self-organizing map (SOM) is a type of [competitive network](competitive) that learns to represent the structure of input data in a spatially organized way. For example, an SOM exposed to a dataset of different smells will learn to distinguish those smells over time. Importantly, the positions of neurons in the SOM are significant: nearby neurons come to represent similar inputs. In a smell network, one group of neighboring neurons might come to represent different cheese smells, while another group might represent different flower smells.
 
-<!-- TODO: Add image -->
+<img src="/assets/images/somNetwork.png" alt="SOM Network" style="width: 70%;" />
 
-An SOM may be used standalone (connected to other neurons by the user) or as part of a pre-configured [SOM network](../subnetworks/selfOrganizingMap) that includes an input layer and training interface. To get a feel for how SOMs work, try the "SOM network" simulation from `Simulations > Competitive`.
+From the `Simulations > Competitive > SOM network` simulation. This SOM has been trained to distinguish different smells. Notice that the cheese sensors are near each other and the flower sensors are also grouped together.
+
+An SOM may be used standalone (connected to other neurons by the user) or as part of a pre-configured [SOM network](../subnetworks/selfOrganizingMap) that includes an input layer and training interface.
 
 ## Algorithm
 

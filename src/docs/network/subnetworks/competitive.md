@@ -11,6 +11,10 @@ nav_order: 30
 
 A competitive network is a pre-configured subnetwork containing a [competitive group](../neurongroups/competitive) with an input layer and training interface. The competitive group is where the learning algorithm and parameters are defined.
 
+<img src="/assets/images/competitiveNetwork.png" alt="Competitive Network" style="width: 70%;" />
+
+From the `Simulations > Competitive > Competitive network (simple)` simulation. This network has been trained on patterns P1-P5 and currently cannot distinguish P1-P3.
+
 For details on the algorithm, parameters, and theory, see the [competitive group](../neurongroups/competitive) page.
 
 ## Structure

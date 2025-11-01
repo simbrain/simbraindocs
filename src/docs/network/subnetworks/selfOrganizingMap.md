@@ -11,7 +11,11 @@ nav_order: 70
 
 An SOM network is a pre-configured subnetwork containing a [SOM group](../neurongroups/selfOrganizingMap) with an input layer and training interface. The SOM group is where the learning algorithm and parameters are defined.
 
-For details on the algorithm, parameters, and theory, see the [SOM group](../neurongroups/selfOrganizingMap) page. To get a feel for how SOMs work, try the "SOM network" simulation from `Simulations > Competitive`.
+<img src="/assets/images/somNetwork.png" alt="SOM Network" style="width: 70%;" />
+
+From the `Simulations > Competitive > SOM network` simulation. This SOM has been trained to distinguish different smells. Notice that the cheese sensors are near each other and the flower sensors are also grouped together.
+
+For details on the algorithm, parameters, and theory, see the [SOM group](../neurongroups/selfOrganizingMap) page.
 
 ## Structure
 
