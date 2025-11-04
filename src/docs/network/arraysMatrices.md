@@ -49,8 +49,9 @@ Weight matrices have dimensions of target size × source size. Each entry repres
 
 Weight matrices support numerous operations:
 - **Diagonalize**: Create an identity-like matrix
-- **Randomize**: Fill with random values
-- **Randomize symmetric**: Create symmetric random matrices
+- **Randomize**: Fill with random values using the [default weight randomizer](#randomization-and-initialization)
+- **Randomize symmetric**: Create symmetric random matrices using the [default weight randomizer](#randomization-and-initialization)
+- **Show weight matrix histogram**: Open a dialog to visualize weight distribution and apply [weight initialization strategies](#weight-matrix-histogram-dialog)
 - **Zero diagonal**: Remove self-connections
 - **Clear**: Set all weights to zero
 
@@ -167,9 +168,13 @@ The PSR matrix can be processed by [spike responders](./spikeresponders.html) be
 
 - **Delete**: Delete selected weight matrix (Backspace or Delete)
 
-- **Randomize Selection**: Randomize selected elements (r)
-
 - **Diagonalize**: Create an identity-like diagonal matrix
+
+- **Randomize selection**: Randomize weights using the [default weight randomizer](ui/networkPreferences#randomizers) (R)
+
+- **Randomize symmetric**: Randomize the matrix symmetrically using the [default weight randomizer](ui/networkPreferences#randomizers), ensuring the matrix remains symmetric
+
+- **Show weight matrix histogram...**: Open the [weight matrix histogram dialog](#weight-matrix-histogram-dialog) to visualize weight distribution and apply initialization strategies
 
 - **Plot Weight Matrix**: Plot weight matrix across available graph types
 
@@ -177,10 +182,70 @@ The PSR matrix can be processed by [spike responders](./spikeresponders.html) be
 
 - **Set spectral radius...**: Rescale matrix so that max eigenvalue is the specified value. The [spectral radius](https://en.wikipedia.org/wiki/Spectral_radius) operation scales all weights proportionally by multiplying the matrix by the ratio of the desired spectral radius to the current maximum eigenvalue. Values less than 0.9 cause decay; 0.9 churns; greater than 1 explodes
 
-- **Randomize symmetric**: Use network weight randomizer to randomize the matrix symmetrically
-
 - **Zero diagonal**: Effectively removes self-connections (in the recurrent case)
 
+
+## Weight Matrix Histogram Dialog
+
+<img src="/assets/images/weightMatrixHistogram.png" alt="Weight Matrix Histogram Dialog" style="width:500px;"/>
+
+The weight matrix histogram dialog provides visualization and initialization tools for weight matrices. Access it by right-clicking a weight matrix and selecting `Show weight matrix histogram...`.
+
+### Statistics Panel
+
+The top section displays key statistics about the weight matrix:
+
+- **Shape**: Dimensions of the matrix (rows × columns)
+- **Mean**: Average weight value across all connections
+- **Excitatory**: Count of positive weights
+- **Median**: Middle value when all weights are sorted
+- **Inhibitory**: Count of negative weights
+- **Std. Dev**: Standard deviation of weight values
+
+### Histogram Display
+
+The histogram shows the distribution of weight values from negative to positive. Positive weights appear in red, while negative weights appear in blue, making it easy to visualize the balance between excitatory and inhibitory connections.
+
+### Weight Initialization Strategies
+
+The bottom section allows you to apply different weight initialization strategies commonly used in machine learning. Select a strategy from the dropdown and click Apply to reinitialize the matrix:
+
+- **Random Initialization**: Apply any [probability distribution](../utilities/randomizers) to the weights. This is the most flexible option, allowing you to use Uniform, Normal, Poisson, or any other available distribution
+
+- **[Xavier](https://proceedings.mlr.press/v9/glorot10a.html)**: Initializes weights using Xavier/Glorot initialization, which helps maintain activation variance across layers. Works well for sigmoid and tanh activations. Choose between Uniform or Normal distribution variants
+
+- **[He](https://arxiv.org/abs/1502.01852)**: Optimized for ReLU activation functions. Scales weights based on the number of input connections. Choose between Uniform or Normal distribution variants
+
+- **LeCun**: Classic initialization method that scales weights based on the number of inputs. Designed for SELU activation functions. Choose between Uniform or Normal distribution variants
+
+After applying a strategy, the histogram and statistics update immediately to reflect the new weight distribution. This allows you to experiment with different initialization approaches and see their effects in real-time.
+
+For more information on when to use each strategy, see [Weight Initialization](weightInitialization) and [Training Parameters](learning/trainingParameters#weight-initialization-strategy).
+
+## Randomization and Initialization
+
+Weight matrices can be randomized in several ways:
+
+### Quick Randomization
+
+The `Randomize selection` and `Randomize symmetric` menu items use the [default weight randomizer](ui/networkPreferences#randomizers) configured in network preferences. This randomizer applies to all weights regardless of polarity and can change the sign of weights.
+
+To use these options:
+1. Right-click the weight matrix
+2. Select `Randomize selection` (or press R) for standard randomization
+3. Select `Randomize symmetric` for symmetric matrices (useful for recurrent networks)
+
+Both options use the same randomizer configured in `File > Network Preferences > Randomizers > Weight randomizer`.
+
+### Advanced Initialization
+
+For more control over weight initialization, use the [weight matrix histogram dialog](#weight-matrix-histogram-dialog). This dialog provides:
+- Visual feedback through the histogram
+- Access to specialized initialization strategies (Xavier, He, LeCun)
+- Ability to configure custom probability distributions
+- Real-time statistics updates
+
+The histogram dialog is particularly useful when setting up networks for machine learning tasks, where proper weight initialization can significantly impact training performance.
 
 ## Differences with Synapse Groups
 

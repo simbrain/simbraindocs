@@ -58,10 +58,19 @@ The Model tab contains parameters that affect network simulation behavior:
 
 The Randomizers tab configures the [probability distributions](../../utilities/randomizers) used when randomizing network elements:
 
-- **Weight randomizer**: Randomizer for all free weights, regardless of polarity. Applying this can change the polarity of a neuron
+- **Weight randomizer**: Default randomizer for all free weights and [weight matrices](../arraysMatrices), regardless of polarity. Used by:
+  - `Randomize selection` menu item (keyboard shortcut R)
+  - `Randomize symmetric` menu item for weight matrices
+  - Quick randomization operations throughout the network
+  
+  This randomizer can produce both positive and negative values, potentially changing the polarity of connections. For weight matrices, consider using the [weight matrix histogram dialog](../arraysMatrices#weight-matrix-histogram-dialog) for more specialized initialization strategies.
+
 - **Excitatory randomizer**: Randomizer for all weights from polarized excitatory neurons. Applying this will not change the polarity of a neuron
+
 - **Inhibitory randomizer**: Randomizer for all weights from polarized inhibitory neurons. Applying this will not change the polarity of a neuron  
+
 - **Activation randomizer**: Randomizer for initial neuron activation values
+
 - **Bias randomizer**: Randomizer for all neuron biases
 
 Each randomizer can be configured with different probability distributions (Normal, Uniform, Log-Normal, etc.) and their parameters. Click the details button to configure distribution-specific settings.

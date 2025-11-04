@@ -58,11 +58,13 @@ Determines how training examples are presented and when weights are updated.
 
 ## Weight Initialization Strategy
 
-Strategy for initializing network weights before training begins.
+Strategy for initializing network weights before training begins. These strategies help ensure proper gradient flow during training and can significantly impact learning performance.
 
-- **[Xavier](https://proceedings.mlr.press/v9/glorot10a.html)**: General purpose initialization, works well for sigmoid and tanh activations
-- **[He](https://arxiv.org/abs/1502.01852)**: Designed for ReLU activation functions
-- **LeCun**: Designed for SELU activation functions
+- **[Xavier](https://proceedings.mlr.press/v9/glorot10a.html)**: General purpose initialization, works well for sigmoid and tanh activations. Also known as Glorot initialization
+- **[He](https://arxiv.org/abs/1502.01852)**: Designed for ReLU activation functions. Scales weights based on the number of input connections
+- **LeCun**: Designed for SELU activation functions. Classic initialization method that scales weights based on the number of inputs
+
+When training is initiated, the selected strategy automatically initializes all weight matrices in the network. You can also manually apply these strategies to individual weight matrices using the [weight matrix histogram dialog](../arraysMatrices#weight-matrix-histogram-dialog), which provides visual feedback and allows experimentation with different initialization approaches.
 
 ## Stopping Condition
 
