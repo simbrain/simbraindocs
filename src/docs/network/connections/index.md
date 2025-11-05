@@ -33,18 +33,69 @@ You can change this strategy in [Network Preferences](../ui/networkPreferences) 
 
 All connection strategies share these properties for controlling weight polarity and randomization:
 
-- **Excitatory/Inhibitory Ratio**: Percentage of connections that are excitatory vs inhibitory. This setting applies to strategies that use [polarity](../neurons/#polarity) (most strategies). The ratio determines how many of the created connections will have positive (excitatory) vs negative (inhibitory) weights.
+### Excitatory/Inhibitory Ratio
+
+The percentage of connections that should be excitatory vs inhibitory. This setting only affects neurons with Both polarity (the default). Pre-polarized neurons (explicitly set to Excitatory or Inhibitory) will always maintain their polarity regardless of this setting.
+
+How it works:
+- **Non-polar neurons (default)**: The ratio determines how many connections will have positive (excitatory) vs negative (inhibitory) weights
+- **Pre-polarized neurons**: Excitatory neurons always create positive weights; Inhibitory neurons always create negative weights, ignoring the ratio
+- **Mixed populations**: The strategy attempts to achieve the requested ratio using only the non-polar neurons
+
+A few strategies (Radial Gaussian, Radial Probabilistic) use neuron polarity in their connection logic and may ignore this setting. See individual strategy pages for details.
+
+### Weight Randomizers
+
 - **Excitatory Weight Randomizer**: Probability distribution used to randomize excitatory synapse strengths. Enable or disable randomization for excitatory connections.
 - **Inhibitory Weight Randomizer**: Probability distribution used to randomize inhibitory synapse strengths. Enable or disable randomization for inhibitory connections.
 
-Note that weights are created in three steps: first the strategy creates connections with initial strengths, then the excitatory/inhibitory ratio is applied, then the two sets of weights are randomized using their respective distributions.
+Weights are created in three steps: 
+1. The strategy creates connections with initial strengths
+2. The excitatory/inhibitory ratio is applied (for non-polar neurons)
+3. The two sets of weights are randomized using their respective distributions
 
 Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
 
 For more information on how connection strategies interact with weight adjustment, see [Weight Initialization](../weightInitialization).
 
-## Excitatory / Inhibitory Ratio
+## Understanding Neuron Polarity
 
-This panel or dialog changes the ratio of excitatory and inhibitory synapses in a set of weights. A main slider bar determines this percentage of excitatory weights. The two text fields can also be used to set more precise ratios.
+Connection strategies interact with neuron [polarity](../neurons/#polarity) in two ways:
 
-This can be thought of as a way of polarizing a set of weights. This is straightforward in the case of nonpolar neurons, which is more common. But when neurons are excitatory or inhibitory the underlying logic is more complex, and attempts to create the requested ratio in a way that respects the [polarity](../neurons/#polarity) of the neurons.
+### All Strategies Respect Polarity
+
+Every connection strategy automatically respects the polarity of source neurons:
+- Synapses from Excitatory neurons are always positive.
+- Synapses from Inhibitory neurons are always negative.  
+- Synapses from Both polarity neurons (default) follow the excitatory/inhibitory ratio
+
+This happens automatically at the synapse level. You cannot override a neuron's polarity by changing the excitatory/inhibitory ratio.
+
+### Some Strategies Use Polarity
+
+A few strategies use neuron polarity in their connection logic:
+
+- **[Radial Gaussian](radialGaussian)**: Uses separate connection constants for EE, EI, IE, and II connections
+- **[Radial Probabilistic](radialProbabilistic)**: Uses separate probabilities and radii for excitatory and inhibitory connections
+- **[Fixed Degree](fixedDegree)**: Applies polarity during weight initialization
+
+For these strategies, neuron polarity affects not just weight signs but also connection topology.
+
+### Default Behavior (Non-Polar)
+
+Most workflows use non-polar neurons (Both polarity), where the excitatory/inhibitory ratio setting controls the balance of positive and negative weights. This is the simplest and most common usage pattern.
+
+## Excitatory / Inhibitory Ratio Details
+
+The excitatory/inhibitory ratio interface provides a slider and text fields to set the percentage of excitatory connections. 
+
+**Simple Case (Non-Polar Neurons):**
+When all source neurons have Both polarity (the default), this straightforwardly sets what percentage of weights will be positive (excitatory) vs negative (inhibitory).
+
+**Complex Case (Pre-Polarized Neurons):**
+When source neurons have explicit Excitatory or Inhibitory polarity, the strategy attempts to achieve the requested ratio while respecting individual neuron polarities:
+- Pre-polarized neurons always maintain their sign
+- The ratio is achieved using only Both polarity neurons
+- If the requested ratio is impossible (e.g., 100% excitatory when all neurons are Inhibitory), the pre-polarized neurons take precedence
+
+For example, if you have 5 Excitatory neurons, 5 Inhibitory neurons, and 10 Both neurons, and set the ratio to 60% excitatory, the 5 Excitatory neurons contribute 5 positive connections, the 5 Inhibitory neurons contribute 5 negative connections, and the 10 Both neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.

@@ -20,9 +20,16 @@ The transient nature means synapse groups can be created, modified, and deleted 
 
 Synapse groups are associated with a [connection strategy](connections), which holds randomizers and parameters related to the connectivity of the synapse group. This allows you to specify connection parameters such as probability distributions, distance functions, and connectivity patterns. You can make incremental adjustments by modifying parameters and reapplying them (for example, slowly increasing sparsity), and dynamically reconfigure the group by changing connection strategies without recreating the entire group.
 
-## Excitatory/Inhibitory Separation
+## Polarity and Weight Sign Management
 
-Synapse groups automatically handle [polarity](neurons#polarity) management. Synapses are assigned excitatory or inhibitory properties based on source neuron polarity. Group operations respect individual synapse polarities, and the entire group's polarity balance can be adjusted through connection strategy parameters.
+Synapse groups automatically respect source [neuron polarity](neurons#polarity):
+
+- **Automatic polarity enforcement**: Every synapse's weight sign is determined by its source neuron's polarity
+- **Pre-polarized neurons**: Excitatory neurons always create positive weights; Inhibitory neurons always create negative weights
+- **Non-polar neurons (default)**: The connection strategy's excitatory/inhibitory ratio determines weight signs
+- **Mixed populations**: The strategy balances pre-polarized and non-polar neurons to achieve the requested ratio when possible
+
+You can adjust the excitatory/inhibitory ratio through the connection strategy parameters, but pre-polarized neurons will always maintain their polarity. See [Connection Strategies](connections) for more details.
 
 <!-- TODO: Show some pics -->
 

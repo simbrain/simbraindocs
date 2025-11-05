@@ -22,3 +22,9 @@ Creates a fixed number of connections to or from each neuron. For each neuron, t
 - **Radius**: Distance within which to make connections (in pixels). Only visible when Use radius is enabled.
 
 - **Allow self connections**: Whether synapses from neurons to themselves are allowed.
+
+## Polarity Behavior
+
+Fixed Degree applies source neuron polarity during weight initialization, then applies the excitatory/inhibitory ratio to non-polar neurons. This is transparent to users but means the strategy correctly handles both pre-polarized and non-polar neurons.
+
+The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.

@@ -15,3 +15,7 @@ Connects every source neuron to every target neuron. This is the default connect
 
 - **Self-connections allowed**: Whether connections where the source and target are the same neuron are allowed. Only applicable if the source and target neurons overlap.
 - **Bi-directional**: If true, synapses are added in both directions (source→target and target→source).
+
+## Polarity Behavior
+
+This strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.

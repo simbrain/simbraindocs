@@ -33,3 +33,15 @@ The larger any of the constants is relative to the others, the more likely a con
 - **Inh. → inh. constant**: Controls the probability of forming a connection between two inhibitory neurons.
 
 - **No polarity constant**: Governs the probability of forming connections for neurons without explicit [polarity](../neurons/#polarity).
+
+## Polarity Behavior
+
+Radial Gaussian is unique among connection strategies in that it explicitly uses neuron polarity in its connection logic, not just for weight signs. The strategy checks both source and target neuron polarity and uses different connection constants ($$C_{ee}$$, $$C_{ei}$$, $$C_{ie}$$, $$C_{ii}$$) for each combination.
+
+This means:
+- The excitatory/inhibitory ratio setting is ignored (the polarity constants control the ratio)
+- Neurons should be pre-polarized for this strategy to work as intended
+- The four polarity constants let you control connection patterns (e.g., strong E→E connections, weak I→I connections)
+- Weight signs automatically follow source neuron polarity
+
+For non-polar neurons, the No polarity constant is used.

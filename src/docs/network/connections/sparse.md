@@ -28,3 +28,7 @@ For example, if you have 10% density and change to 20%, only the additional 10% 
 - **Equalize efferents**: Whether each source neuron gets exactly the same number of outgoing connections. When enabled, every source neuron will have the same number of synapses emanating from them. For example, with 10 source neurons, 10 target neurons, and 50% density, each source neuron will connect to exactly 5 targets. When disabled, each source connects to approximately 5 targets on average, but some may have 3 and others 7.
 
 - **Allow self connection**: Whether connections where the source and target are the same neuron are allowed. Only applicable if the source and target neuron sets overlap.
+
+## Polarity Behavior
+
+This strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.
