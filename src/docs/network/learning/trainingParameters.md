@@ -49,12 +49,13 @@ Uses learning rate and [momentum](https://en.wikipedia.org/wiki/Stochastic_gradi
 
 ## Update Type
 
-Determines how training examples are presented and when weights are updated.
+Determines how training examples are presented and when weights are updated. The key distinction is between online methods (which apply weight updates immediately after each example) and batch methods (which accumulate gradients across multiple examples before updating weights).
 
-- **Stochastic**: Weights are updated after each randomly selected training example (see [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent))
-- **Epoch**: Weights are updated after processing all training examples in order
-- **Batch**: Weights are updated after processing a fixed-size batch (see [mini-batch gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Iterative_method))
-  - **Batch Size**: Number of examples to process together (only visible when Batch is selected)
+- **Stochastic**: Randomly selects one training example, computes gradients, and immediately updates weights. This is an online method (see [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent))
+- **Sequential Online**: Processes all training examples in sequential order, updating weights immediately after each one. This online approach is required for temporal sequence learning (e.g., SRN networks) where the order of examples matters
+- **Epoch**: Accumulates gradients from all training examples processed in order, then applies the accumulated weight update once. This batch method provides more stable gradients
+- **Batch**: Accumulates gradients from a fixed-size randomly selected batch of examples, then applies the accumulated weight update. This batch method balances stability and computational efficiency (see [mini-batch gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Iterative_method))
+  - **Batch Size**: Number of examples to process together before updating weights (only visible when Batch is selected)
 
 ## Weight Initialization Strategy
 
@@ -100,4 +101,12 @@ Common actions available in training interfaces:
 - **Step**: Runs one iteration of the training algorithm
 - **Play/Stop**: Starts or stops continuous training
 - **Randomize**: Reinitializes network weights and biases using the selected weight initialization strategy
+
+## Data Table Actions
+
+The training and testing data tables support various operations for editing, analyzing, and visualizing training data. See [Tables](../../utilities/tables) for complete documentation of available operations, including:
+- Import/Export CSV
+- Randomization and filling
+- Visualization tools (Box plots, Correlation/Matrix plots, PCA projections)
+- Structural editing (add/remove rows and columns)
 

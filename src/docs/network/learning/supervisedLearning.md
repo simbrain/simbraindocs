@@ -52,5 +52,5 @@ Columns correspond to neurons and rows correspond to training examples. If a net
 
 Each row of the input data table is an input vector, and the corresponding row of the target data table is the desired output vector that should be produced for that input if training is successful.
 
-The training data is viewed in a [table](../../utilities/tables), which provides operations for editing and preparing training data.
+The training data is viewed in a [table](../../utilities/tables), which provides operations for editing, analyzing, and visualizing training data.
 
