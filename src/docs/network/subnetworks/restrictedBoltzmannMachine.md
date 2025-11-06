@@ -9,7 +9,11 @@ nav_order: 65
 
 # Restricted Boltzmann Machine
 
-A Restricted Boltzmann Machine (RBM) is an unsupervised learning model that can learn hidden representations of data. RBMs are a type of generative neural network that can model the probability distribution of input data and generate new samples similar to the training data. They consist of two layers: a visible layer (representing the input data) and a hidden layer (representing learned features), with connections only between layers (no connections within a layer).
+A [Restricted Boltzmann Machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine) (RBM) is an unsupervised learning model that can learn hidden representations of data. RBMs are a type of generative neural network that can model the probability distribution of input data and generate new samples similar to the training data. They consist of two layers: a visible layer (representing the input data) and a hidden layer (representing learned features), with connections only between layers (no connections within a layer).
+
+<img src="/assets/images/rbmNetwork.png" alt="Restricted Boltzmann Machine" style="width: 49%;" />
+
+Example RBM showing the visible layer, hidden layer, and weight matrix connecting them. The interaction box displays the current energy value of the network.
 
 RBMs are particularly useful for:
 - Feature learning and dimensionality reduction
@@ -19,7 +23,16 @@ RBMs are particularly useful for:
 
 The network uses a contrastive divergence algorithm for training, which alternates between positive and negative phases to adjust weights and biases.
 
-<!-- TODO: Add image showing RBM structure -->
+To see an RBM in action, try the `RBM` simulation in the simulations folder (`Simulations > Hebb > RBM`).
+
+## Structure
+
+The RBM consists of:
+- A visible layer (input neurons arranged in a grid)
+- A hidden layer (feature neurons arranged in a grid)
+- A weight matrix with full connectivity between visible and hidden layers (no connections within layers)
+- Bias terms for both visible and hidden layers
+- Training data management for unsupervised learning
 
 ## Algorithm
 
@@ -52,6 +65,27 @@ RBMs implement the `UnsupervisedNetwork` interface and can be trained on dataset
 
 RBMs use the contrastive divergence algorithm for training. The interaction box displays the current energy state of the network, which should generally decrease during training to indicate convergence.
 
+### Training Multiple Patterns
+
+A common workflow for training an RBM is to create a series of patterns and add them to the training dataset before training. Since the visible layer is a neuron array, you can use an [Image World](../../worlds/imageworld) to create and load patterns:
+
+1. Create the RBM network
+2. Right-click on the visible layer and select `Add coupled image world` (this automatically creates and couples an Image World)
+3. Load or create patterns in the Image World (e.g., load images or draw patterns)
+4. For each pattern you want to train on:
+   - Display the pattern in the Image World (it will automatically update the visible layer)
+   - Right-click on the RBM network and select `Add Current Pattern to Training Data` from the context menu
+5. Once all patterns are added, open the training dialog (double-click the interaction box or use `Edit / Train RBM` from the context menu)
+6. In the training dialog, press the `Show Matrix Plot` button to visualize the correlation matrix of your training patterns
+
+The matrix plot shows pairwise correlations between all training patterns (see [Tables](../../utilities/tables#matrix-plot) for more on matrix plots). Unlike Hopfield networks, RBMs can handle more correlated patterns, but examining the correlation structure can still provide insight into the relationships between your training data.
+
+### Training Parameters
+
+RBMs typically require multiple training iterations per pattern. Unlike Hopfield networks which often train with a single iteration, RBMs use iterative gradient descent with contrastive divergence. The number of training iterations depends on the complexity of your patterns and how well you want the network to learn them.
+
+The **learning rate** controls the step size for weight updates during training. Typical values range from 0.01 to 0.1. A higher learning rate leads to faster learning but may cause instability, while a lower learning rate is more stable but requires more training iterations. The learning rate can be adjusted in the network's properties or through the training dialog.
+
 ## Creation / Editing
 
 When creating an RBM, you specify:
@@ -62,14 +96,6 @@ When creating an RBM, you specify:
 
 ### Initial Data
 By default, a random dataset is generated for initial training. You can replace this with your own data through the training interface.
-
-## Network Structure
-
-- Visible Layer: Input neurons arranged in a grid layout with sigmoid activation
-- Hidden Layer: Feature neurons arranged in a grid layout with sigmoid activation  
-- Weight Matrix: Fully connected weights between visible and hidden layers
-- Biases: Both visible and hidden layers have bias terms that are learned during training
-- Energy Display: Shows the current energy state of the network
 
 ## Properties and Parameters
 
