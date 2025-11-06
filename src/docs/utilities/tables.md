@@ -9,7 +9,7 @@ has_children: false
 
 Simbrain tables are spreadsheet-style components used throughout Simbrain to display data and perform numerical operations (randomization, normalization, filling, etc.). Most table operations are applied by selecting cells and using keyboard shortcuts, toolbar buttons, or context menu items.
 
-<img src="/assets/images/table.png" alt="Table" style="width:500px;"/>
+<img src="/assets/images/table.png" alt="Table" style="width:350px;"/>
 
 [Data World](../worlds/dataworld) is a Simbrain component based on tables. Tables are also used in various dialogs and for data visualization throughout the application.
 
@@ -47,7 +47,7 @@ Simbrain tables are spreadsheet-style components used throughout Simbrain to dis
 
 - **<span id="boxplot">Boxplots for Columns</span>**: Create boxplots showing distribution of values (median, quartiles, outliers) for all numeric columns. Opens in a new window.
 
-- **<span id="matrix-plot">Show Matrix Plot</span>**: Create a matrix visualization of pairwise relationships between row vectors using comparison functions (Correlation, Covariance, Cosine Similarity, Euclidean Distance, Dot Product). If rows are selected, only those are compared; otherwise all rows are compared. Useful for understanding high-dimensional data relationships.
+- **<span id="matrix-plot">Show Matrix Plot</span>**: Create a matrix visualization of pairwise relationships between row vectors using comparison functions (Correlation, Covariance, Cosine Similarity, Euclidean Distance, Dot Product). If rows are selected, only those are compared; otherwise all rows are compared. Inspired by R's [corrplot package](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html). Useful for understanding high-dimensional data relationships.
 
 - **<span id="plot-embedding">Plot Word Embedding</span>**: Create a PCA projection plot of table data in 2D or 3D. Each row becomes a point. Row labels are displayed as point labels. Useful for exploring word embeddings and high-dimensional data patterns.
 
