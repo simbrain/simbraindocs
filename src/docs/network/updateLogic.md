@@ -125,7 +125,7 @@ The weight matrix can be updated using a synapse update rule and the PSR matrix 
 
 Thus, for a neuron array,  `update()` iterates through a fan-in of weight matrices, calling `updatePSR()` on each one, and then adding the resulting `psrMatrices` using vector addition to update the neuron's activations. This allows connectionist and spiking input arrays to feed to the same neuron array.
 
-Before we summed PSRs but now we are “summing PSR matrices” and then mutating them. -->
+Before we summed PSRs but now we are ?summing PSR matrices? and then mutating them. -->
 
 # Update actions
 
@@ -133,7 +133,7 @@ At each network iteration a sequence of actions is executed. Usually only one ac
 
 Actions are set using a GUI that is largely the same as in [workspace update](../workspace/workspaceUpdate). 
 
-From `Network > Edit Update Sequence...` the following dialog shows
+From `File > Edit update sequence...` the following dialog shows
 
 <img src="/assets/images/networkUpdateSequence.png" alt="Edit update sequence" style="width:300px;"/>
 
@@ -183,38 +183,50 @@ Since buffered update accumulates the inputs to every node first, and then updat
 
 ## Priority Based Update of Free Neurons
 
-Buffered update is convenient but not always desired. Sometimes we __want__ a network to completely update in one time step. Buffered update makes activation propagate one layer at a time in a layered network, but often what we desire is for one iteration to propagate through all the layers of a network at once. To achieve this we use priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward) works under the hood).
+Buffered update is convenient but not always desired. Buffered update makes activation propagate one layer at a time in a layered network, but often we want activations to propagate through all the neurons and layers of a network one one time step. To achieve this we can use priority-based update (in fact, this is how [feed-forward](subnetworks/feedForward) works under the hood).
 
 Priority update processes models one at a time in a specific order, allowing each model to immediately affect models updated later in the sequence. Each model accumulates its inputs and updates before the next model processes.
 
-Here is the basic algorithm in pseudo code:
+Here is the basic algorithm:
 ```kotlin
 for model in prioritySortedNetworkModels:
 	model.accumulateInputs()
 	model.update()
 ```
-Notice that, unlike with buffered update, we have one single loop rather than two loops. This means each model makes its new state available to models that update later, enabling sequential processing where one layer completes before the next begins.
-
-### Setting Priorities
-
-Each neuron has a priority property that determines its update order. Lower numbers have higher priority and are updated first. The default priority is 0 for all neurons. Priority can be set in the neuron properties dialog (select neurons and press `Cmd/Ctrl+E`).
-
-To view and manage priorities, go to `Network > Show Priority Table`. This displays all network models with their current priorities in an editable table. You can edit priorities by clicking in the priority column and sort by priority to see the update order. To display priority numbers directly on neurons in the network, go to `View > Show Neuron Priorities`.
+Notice that, unlike with buffered update, we have a single loop rather than two loops. This means each model makes its new state available to models that update later, enabling sequential processing.
 
 ### Setting Up Priority Update
 
 To use priority-based update:
 
-1. Go to `File > Edit Update Sequence`
+1. Go to `File > Edit update sequence...`
 2. Remove the "Buffered update" action
 3. Add "Priority update" action
-4. Set neuron priorities (select neurons, press `Cmd/Ctrl+E`, set Priority for each layer)
+4. Set priorities for your network models using the priority table (`View > Show priority table...`) or the property editor
 
-Since priority update only handles neurons, you may need to add manual updates for synapse groups, weight matrices, and other network components as separate actions in the update sequence.
+For example, in a feed-forward network you might set:
+- Input layer neurons: priority 0
+- Hidden layer neurons: priority 1  
+- Output layer neurons: priority 2
 
-Priority update is useful when you need sequential processing where information flows in one direction through layers (e.g., feed-forward networks where input layer priority 0, hidden layer priority 1, output layer priority 2). However, in practice, it's often not needed because relevant subnetworks already update in this way.
 
-Currently priority is only used for neuron update. When priority-based update is used, `Buffered Update` should be removed from the update list, and all other groups, arrays, etc must be manually updated. 
+### Setting Priorities
+
+Each network model (neurons, synapses, neuron groups, etc.) has a priority property that determines its update order. Lower numbers have higher priority and are updated first. The default priority is 0 for all models.
+
+The easiest way to view and manage priorities is through the priority table. Go to `View > Show priority table...` to open the Network Model Priorities dialog:
+
+<img src="/assets/images/networkModelPriorities.png" alt="Network Model Priorities" style="width:400px;"/>
+
+This table shows all network models with their current priorities. You can:
+- View all models: The table displays the name and priority of every network model
+- Edit priorities: Click on any priority value in the Priority column to edit it. When you click on a priority value, the text is automatically selected for easy editing
+- Sort the table: Click on column headers to sort by name or priority. This is useful for seeing which models will update first
+- Save changes: Click OK to apply your priority changes to the network
+
+Priorities can also be set individually in the property editor for any network model (select the model and press `Cmd/Ctrl+E`, then edit the "Update Priority" field).
+
+Priority update is useful when you need sequential processing where information flows in one direction through layers. However, in practice, it's often not needed because relevant subnetworks already update in this way. 
 
 
 # Continuous and Discrete Time Update
@@ -225,14 +237,14 @@ When the network is updated, a `time` variable is updated by adding a `time-step
 
 - **Continuous**: at each iteration time increases by a `time step` that can be set. Time is displayed in milliseconds. This is used when differential equations are numerically integrated. Generally speaking, the smaller the time-step, the more accurate the numerical integration. 
 
-- **Discrete**: at each iteration time increases by 1. Time is displayed as “iterations” (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
+- **Discrete**: at each iteration time increases by 1. Time is displayed as ?iterations? (in the underlying code the system is still updated by a time-step; but in this mode time is displayed by dividing the continuous time by the time-step.)
 
 Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties.
 
 <!-- TODO: Merge below in -->
 <!-- - Basic Iterative (unmarked in the menu above): standard discrete time update, based on iteration of an algorithm.
 
-- Continuous time (marked with a "δt" in the menu above): update is based on numerical integration of a differential equation. Such neurons (or synapses) do not just respond to external inputs but have internal dynamics and an internal state variable that is updated at each time step. Neurons that are continuous have a **time-step** field, described below.
+- Continuous time (marked with a "?t" in the menu above): update is based on numerical integration of a differential equation. Such neurons (or synapses) do not just respond to external inputs but have internal dynamics and an internal state variable that is updated at each time step. Neurons that are continuous have a **time-step** field, described below.
 
 Consider two neuron models: The first performs a weighted sum on the incoming synaptic connections, puts that value through some function which takes in only that net input as an argument, and produces an output. The second performs a weighted sum as well, but this time, the function takes in not only this net input value, but also the "state" (be it the previous net input, activation, or some other value) of the neuron as well. Thus its activation is based not only on its input but its own previous history. In this way we can say that the 2nd neuron has its own internal dynamics. In the first case, the unit of time in the simulation has little or no importance. The activation does not unfold through time and is only dependent on external input to the neuron, thus the question of granularity is irrelevant. This neuron takes in an input and produces an output in a step by step manner. These two cases can be referred to as temporally "discrete" or "continuous" respectively.
 
