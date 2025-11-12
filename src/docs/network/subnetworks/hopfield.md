@@ -46,6 +46,8 @@ The general training process is covered in [Unsupervised Learning](../learning/u
 
 The network learns patterns using Hebbian learning. Binary patterns (0,1) are converted to bipolar (-1,1) before learning is applied. During training and recall, observe the energy value in the interaction box, which decreases as the network settles into stored patterns.
 
+The training dialog provides a step button to train once through the dataset. Unlike SOM and Competitive networks which benefit from repeated iteration with decaying parameters, Hopfield networks typically use single-pass training where patterns are learned in one iteration.
+
 ### Training Multiple Patterns
 
 A common workflow for training a Hopfield network is to create a series of patterns and add them to the training dataset before training:

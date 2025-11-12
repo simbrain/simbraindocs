@@ -19,7 +19,7 @@ Most supervised learning in Simbrain is handled through a training dialog with a
 
 The dialog contains three main areas:
 
-1. **Training controls and parameters** at the top for configuring the training algorithm. See [Training Parameters](trainingParameters) for details on loss functions, optimizers, stopping conditions, and other settings.
+1. **Training controls and parameters** at the top for configuring the training algorithm. See [Training Parameters](trainingParameters) for details on loss functions, optimizers, stopping conditions, and other settings. The iteration counter shows training progress and can be reset to 0 by double-clicking on it.
 
 2. **Training and testing tabs** in the middle showing progress:
    - **Training tab**: Displays training progress including current iteration, error/loss values, and accuracy (if enabled)

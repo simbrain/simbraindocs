@@ -65,6 +65,8 @@ RBMs implement the `UnsupervisedNetwork` interface and can be trained on dataset
 
 RBMs use the contrastive divergence algorithm for training. The interaction box displays the current energy state of the network, which should generally decrease during training to indicate convergence.
 
+The training dialog provides a step button to train once through the dataset. Unlike SOM and Competitive networks which use iterative learning with decaying parameters, RBMs typically process the dataset in discrete training passes.
+
 ### Training Multiple Patterns
 
 A common workflow for training an RBM is to create a series of patterns and add them to the training dataset before training. Since the visible layer is a neuron array, you can use an [Image World](../../worlds/imageworld) to create and load patterns:

@@ -28,5 +28,15 @@ These subnetworks  provide a dialog similar to the [supervised training interfac
 
 Each row represents an input pattern, and columns correspond to input neurons. The network processes these patterns to discover underlying structure without being told what outputs to produce. Unlike supervised learning, there is no target or label data. The network's learning objective is determined by its architecture and learning algorithm rather than by matching desired outputs.
 
+## Training Controls
+
+The training dialog provides several controls:
+
+- **Step button**: Trains once through the entire dataset (one iteration)
+- **Play/Stop button**: For SOM and Competitive networks only, runs training continuously until stopped or max iterations reached. Hopfield and RBM networks use single-pass training and do not have this button.
+- **Randomize button**: Randomizes network weights and resets the iteration counter
+- **Iterations display**: Shows the current iteration count. Double-click on the iterations label to reset the counter to 0 without randomizing weights.
+- **Trainer properties button**: Opens a dialog to configure training parameters like learning rate and max iterations
+
 A common way to train these networks is to create a pattern in the main network and train it directly using the context menu commands. You can use `Train once on current pattern` (keyboard shortcut: `T`) to train for one iteration, or `Train on current pattern...` to specify a number of iterations. You can also add patterns to the training dataset using `Add Current Pattern to Training Data` and then train on the full dataset.
 
