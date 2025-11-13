@@ -76,9 +76,9 @@ These shortcuts work for any component when it has focus:
 
 ### Modifying Values
 
-- **r:** [Randomize](utilities/randomizers) selected objects
+- **r:** [Randomize](utilities/randomizers) selected objects (neurons, weights, neuron groups, subnetworks)
 - **Cmd/Ctrl-B:** Randomize biases of selected neurons
-- **c:** Clear selected neuron activations (set to 0)
+- **c:** Clear selected object activations (set to 0). Works on neurons, neuron groups, and subnetworks
 - **k:** Clear all neuron activations (selects them first, then clears)
 - **Shift-C:** Clear selected neurons and weights (sets weights to 0, use with caution)
 - **Shift-F:** Toggle [clamping](network/neurons/#clamping) on selected neurons

@@ -158,8 +158,8 @@ The Edit Toolbar provides quick access to common editing operations:
 - **Redo**: Redo the last undone action (Cmd/Ctrl-Shift-Z)
 - **Add Neuron**: Create a neuron at the last clicked position (P)
 - **Delete**: Delete currently selected items (Backspace or Delete)
-- **Clear**: Set all selected neurons to 0 (K). For weights, use Shift-C
-- **Randomize**: Set all selected neurons and weights to random values based on their configured randomizers
+- **Clear**: Set all selected object activations to 0 (C). Works on neurons, neuron groups, and subnetworks. For weights, use Shift-C
+- **Randomize**: Randomize selected objects (R). Works on neurons, weights, neuron groups, and subnetworks based on their configured randomizers
 
 ## Additional Keyboard Shortcuts
 

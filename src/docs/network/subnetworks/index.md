@@ -22,6 +22,8 @@ The input nodes of many subnetworks are, by default, clamped. This makes it easi
 
 Right-click on a subnetwork's interaction box to access these common menu items. Specific subnetworks may have additional menu items described on their individual pages.
 
+- **Clear (C):** Clear all activations in the subnetwork (set to 0).
+- **Randomize (R):** Randomize the subnetwork using its specific randomization logic.
 - **Cut:** Copy the subnetwork and delete it.
 - **Copy:** Copy the subnetwork to buffer so it can be pasted.
 - **Rename:** Rename the subnetwork.
