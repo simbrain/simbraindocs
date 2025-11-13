@@ -14,6 +14,8 @@ Connection strategies are rules used to create patterns of connections between s
 
 The fastest way to create connections is using the [1-2 and 1-3 tricks](../buildingBasics#quick-connect-1-2-and-1-3-tricks). See the [Building Basics](../buildingBasics#quick-connect-1-2-and-1-3-tricks) page for a complete explanation.
 
+Tip: After creating connections, the newly created synapses remain selected, allowing you to immediately edit them with `Cmd/Ctrl-E`, randomize them with `R`, or open the [synapse adjustment panel](../synapses/synapseAdjustment) with `Cmd/Ctrl-R`.
+
 ## Connection Methods
 
 Connection strategies can be invoked in several ways:

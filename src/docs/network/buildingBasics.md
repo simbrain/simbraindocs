@@ -43,7 +43,7 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
 
 # Graphical and Color Conventions
 
-Most graphical and color conventions can be customized using the [preference dialog](ui/networkPreferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects.
+Most graphical and color conventions can be customized using the [preference dialog](ui/networkPreferences). Neuron, synapse, neuron array, and other color conventions are discussed on the doc pages for those objects. The precision of displayed activation values and tooltips can be configured in [network preferences](ui/networkPreferences#gui).
 
 # Selecting Objects
 

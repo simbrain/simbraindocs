@@ -73,7 +73,7 @@ In the connectionist (non-spiking) case, the PSR is simply the source activation
 psr = source.activation * strength
 ```
 
-Some neuron update rules apply a synaptic input modifier to the source activation before multiplication. For example, a sigmoidal neuron might apply a sigmoid function to incoming activations.
+(In rare cases, a neuron update rule may apply a synaptic input modifier to the source activation before multiplication. For example, the [Additive (Continuous Hopfield)](neurons/additive) neuron does this, applying a sigmoidal transfer function to each incoming PSR before they are summed, rather than applying it to the total weighted input, as is typical).
 
 In the spiking case, a [spike responder](spikeresponders) is used to update the PSR. Spike responders allow the PSR to vary over time in response to spikes, creating more biologically realistic synaptic dynamics. When a spike occurs, the spike responder updates the PSR according to its own dynamics (for example, causing it to jump up and then decay exponentially).
 
@@ -83,7 +83,7 @@ The same PSR concepts apply to [weight matrices](arraysMatrices) connecting to n
 
 ## Phase 2: Update Models
 
-After all inputs have been accumulated, each network model updates its state. For neurons, this means applying the neuron update rule to compute a new activation based on the accumulated input. For synapses with learning rules, this means updating the synapse strength based on the source and target activations.
+After all inputs have been accumulated, each network model updates its state. For neurons, this is where the accumulated weighted inputs (which are computed the same way across all neuron types) are transformed into new activations using [neuron update rules](neurons/) (which vary widely depending on the type of neuron). For synapses with learning rules, this means updating the synapse strength based on the source and target activations.
 
 The update phase processes models in a specific order to ensure deterministic behavior (see [network model update order](#network-model-update-order) below). Neurons apply their update rules to transform the accumulated input into a new activation. The update rule has access to the input buffer, the current activation, and any state variables specific to that rule (like a recovery variable for Izhikevich neurons). Synapses with local learning rules update their strengths based on information available to them (typically the source and target activations). These are local learning rules because they only use information available at the synapse itself.
 
