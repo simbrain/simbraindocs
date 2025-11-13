@@ -69,14 +69,16 @@ When training is initiated, the selected strategy automatically initializes all 
 
 ## Stopping Condition
 
-Conditions that determine when training automatically stops.
+Training automatically stops when any of the enabled stopping conditions is met. Once training stops, you must press play again to resume.
+
+Max iterations always applies and acts as an upper bound on training duration. Two optional stopping conditions can be enabled independently: error threshold stops training when the training error reaches a target value, while [early stopping](https://en.wikipedia.org/wiki/Early_stopping) prevents overfitting by monitoring test error. Early stopping tracks the best test error seen so far and counts consecutive test evaluations that fail to improve upon it. When test error improves by more than the minimum delta, the counter resets to zero. Each time the counter increments, the network is failing to improve and "trying our patience". When the counter reaches the patience value, training stops.
 
 - **Max Iterations**: Maximum number of training iterations before stopping
-- **Use Error Threshold**: When enabled, stops training when error falls below the specified threshold
+- **Use Error Threshold**: When enabled, stops training when training error falls below the specified threshold
   - **Error Threshold**: Target error value (only visible when Use Error Threshold is checked)
-- **Use [Early Stopping](https://en.wikipedia.org/wiki/Early_stopping)**: When enabled, stops training when test error stops improving (requires test data to be available)
-  - **Early Stopping Patience**: Number of test evaluations to wait for improvement before stopping (only visible when Use Early Stopping is checked)
-  - **Early Stopping Min Delta**: Minimum improvement required to reset patience counter (only visible when Use Early Stopping is checked)
+- **Use Early Stopping**: When enabled, stops training when test error stops improving (requires test data to be available and test configuration to be enabled)
+  - **Early Stopping Patience**: Number of consecutive test evaluations without improvement before stopping. For example, with patience set to 3, training continues as long as test error improves within any 3-evaluation window (only visible when Use Early Stopping is checked)
+  - **Early Stopping Min Delta**: Minimum improvement in test error required to count as progress and reset the patience counter. For example, with min delta set to 0.01, the test error must decrease by at least 0.01 to reset the counter (only visible when Use Early Stopping is checked)
 
 ## Test Configuration
 
