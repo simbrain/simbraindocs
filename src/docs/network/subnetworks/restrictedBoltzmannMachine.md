@@ -123,4 +123,4 @@ Common right-click items are described on the [subnetwork](.) page.
 - **Train on current pattern...:** Opens a dialog to train the RBM on the current visible layer activations for a specified number of iterations.
 - **Train once on current pattern:** Train the RBM on the current visible layer activations for one iteration. Keyboard shortcut: `T`
 - **Edit / Train RBM:** Opens the training dialog to edit and train the RBM.
-- **Randomize:** Randomize weights, biases, and neuron activations. Keyboard shortcut: `R`
+- **Randomize:** Randomize weights, biases, and neuron activations. Keyboard shortcut: `R`. Uses the RBM's built-in randomizers (configurable in the network's properties), not the default randomizers from network preferences.

@@ -37,6 +37,14 @@ Neuron arrays support several operations:
 - **Clear**: Reset all activations to zero
 - **Randomize**: Set activations to random values
 
+## Activation Sequences
+
+Activation sequences represent sequences of activation vectors, stored as matrices where each row is an activation vector at a particular position in the sequence. Unlike neuron arrays which represent a single vector of activations, activation sequences maintain a temporal or positional dimension.
+
+Activation sequences are not directly accessible from the GUI menu system, but they appear in the network view when used in custom simulations like the Tiny Language Model simulation. When visible, they support standard visualization and editing capabilities.
+
+The key difference from neuron arrays is that activation sequences store multiple activation vectors arranged in sequence (a matrix), enabling parallel processing of sequences at different positions, while neuron arrays represent a single vector of activations suitable for standard feedforward and recurrent layers.
+
 ## Weight Matrices
 
 Weight matrices represent connections between neuron arrays or neuron groups. They provide efficient matrix-based computation for large-scale networks and support various learning rules and operations.

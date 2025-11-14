@@ -74,7 +74,7 @@ Common right-click items are described on the [subnetwork](.) page.
 - **Train on current pattern...:** Opens a dialog to train the network on the current pattern for a specified number of iterations.
 - **Train once on current pattern:** Train the Hopfield network using the Hebbian rule to learn the current pattern of activity for one iteration. Keyboard shortcut: `T`
 - **Edit / Train Hopfield:** Opens the training dialog to edit and train the Hopfield network.
-- **Randomize:** Randomize the synaptic weights symmetrically. Keyboard shortcut: `R`
+- **Randomize:** Randomize the synaptic weights symmetrically. Keyboard shortcut: `R`. Uses the Hopfield network's built-in weight randomizer (configurable in the network's properties), not the default weight randomizer from network preferences.
 
 ## Continuous Hopfield Networks
 

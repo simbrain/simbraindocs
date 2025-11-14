@@ -34,7 +34,7 @@ Most of these operations require a [network](network/) window to be in focus (cl
 
 ### Modifying objects
 
-- Press **r** to [randomize](utilities/randomizers) selected objects. Try this several times to see different random values.
+- Press **r** to [randomize](utilities/randomizers) selected objects. Try this several times to see different random values. Note: Some subnetworks (like Hopfield) use their own built-in randomizers instead of the default network preference randomizers.
 - Press **up/down arrows** to increment or decrement activation values of selected neurons.
 - Press **c** to clear selected neuron activations (set to zero). For weights, use **Shift-C**.
 - Press **Shift-F** to toggle [clamping](network/neurons/#clamping) on selected neurons. Clamped neurons don't update.

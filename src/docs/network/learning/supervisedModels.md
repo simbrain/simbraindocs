@@ -13,9 +13,9 @@ An innovative feature in Simbrain 4, the ability to train arbitrary collections 
 
 <img src="/assets/images/supervisedModel.png" style="width:300px;"/>
 
-Using the source-target format, a source set of neurons is connected to a target set of neurons and using `ctrl/command-M` a supervised model is added and it can be trained on the fly. The neurons must be connected by weight matrices of synapse groups. Note: All paths backwards are automatically computed and multiple paths including skip connections can be trained in this way.
+Using the source-target format, a source set of neurons is connected to a target set of neurons and using `ctrl/command-M` a supervised model is added and it can be trained on the fly. The neurons must be connected by weight matrices or synapse groups.
 
-The model transiently wraps around a set of objects using a source and target neuron array, collection, or group (which  must be conneted by intervening weight matrices or synapse groups), and can be used to train them.  Finds the shortest path between source (Red selection) and target (green selection) and sets up backprop between them. 
+Supervised models are lightweight wrappers that automatically find a path from the source to the target through the network connections. The model finds all paths between the source (red selection) and target (green selection), including multiple paths and skip connections, then trains using backpropagation along those paths. All paths are automatically computed and trained simultaneously. 
 
 # How to create a supervised model
 
@@ -27,7 +27,7 @@ The model transiently wraps around a set of objects using a source and target ne
 
 # Apply Immediate Learning
 
-Supervised models support "immediate learning", where you simply make the model, press `L`, and the network learns by one increment, treating the current activations of the source and target as a single training examples. You can watch things happen in real time. Repeatedly press to implement learning.
+Supervised models support "immediate learning", which allows you to instantly train an association between the current source and target activations. Simply create the model, press `L`, and the network learns by one increment, treating the current activations of the source and target as a single training example. You can see the association form visually as the weight matrix colors change with each learning step. Repeatedly press `L` to continue training the association.
 
 # Data Import and Export
 

@@ -159,7 +159,7 @@ The Edit Toolbar provides quick access to common editing operations:
 - **Add Neuron**: Create a neuron at the last clicked position (P)
 - **Delete**: Delete currently selected items (Backspace or Delete)
 - **Clear**: Set all selected object activations to 0 (C). Works on neurons, neuron groups, and subnetworks. For weights, use Shift-C
-- **Randomize**: Randomize selected objects (R). Works on neurons, weights, neuron groups, and subnetworks based on their configured randomizers
+- **Randomize**: Randomize selected objects (R). Works on neurons, weights, neuron groups, and subnetworks. Some subnetworks (like Hopfield, Restricted Boltzmann Machine) use their own built-in randomizers; others use the default randomizers from [network preferences](networkPreferences#randomizers)
 
 ## Additional Keyboard Shortcuts
 

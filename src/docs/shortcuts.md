@@ -76,7 +76,7 @@ These shortcuts work for any component when it has focus:
 
 ### Modifying Values
 
-- **r:** [Randomize](utilities/randomizers) selected objects (neurons, weights, neuron groups, subnetworks). Note: When applied to neuron groups or subnetworks, uses their built-in randomizers. When applied to manually selected weights, uses the weight randomizer configured in [network preferences](network/ui/networkPreferences#randomizers)
+- **r:** [Randomize](utilities/randomizers) selected objects (neurons, weights, neuron groups, subnetworks). The randomizer used depends on what is selected: Subnetworks use the subnetwork's built-in randomizers (configurable in the subnetwork's properties). Manually selected weights or weight matrices or individual neurons or synapses use the weight or activation randomizer configured in [network preferences](network/ui/networkPreferences#randomizers)
 - **Cmd/Ctrl-B:** Randomize biases of selected neurons
 - **c:** Clear selected object activations (set to 0). Works on neurons, neuron groups, and subnetworks
 - **k:** Clear all neuron activations (selects them first, then clears)
