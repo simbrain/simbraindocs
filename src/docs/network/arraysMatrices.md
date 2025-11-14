@@ -28,6 +28,8 @@ Neuron arrays can be displayed in multiple ways:
 
 Toggle between these modes using the right-click menu or the GUI tab in the neuron array dialog.
 
+When displaying a non-square neuron array in grid mode, unused pixels in the rectangular grid are rendered as gray.
+
 ### Array Operations
 
 Neuron arrays support several operations:

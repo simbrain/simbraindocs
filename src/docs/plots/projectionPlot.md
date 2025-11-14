@@ -152,24 +152,24 @@ The default coloring manager. The only coloring corresponds to [hot color](#hot-
 
 ### Decay
 
-When activated, the color saturation moves towards the [hot color](#hot-color) in color space, then if it is not reactivated it decays to the [base color](#base-color).
+When a point is activated, it instantly appears in the [hot color](#hot-color), then gradually fades back to the [base color](#base-color) over a specified number of steps. This creates a "heat trail" effect showing recently visited states.
 
-- **Steps**: How long it takes for the color to decay back to the base color.
+- **Steps**: Number of steps for the color to fully decay from hot color back to base color.
 
 ### Frequency
 
-Colors points so that more frequently visited points move towards a user-specified color.
+Colors points based on how often they have been visited. Points visited more frequently are colored closer to the high frequency color, while less frequently visited points remain closer to the [base color](#base-color). This provides a visual representation of which states the system visits most often.
 
-- **High Frequency Color**: The color that is moved towards as the state is activated more times.
+- **High Frequency Color**: The color that more frequently visited states move towards.
 
 ### Markov
 
-Creates a [Markov process](https://en.wikipedia.org/wiki/Markov_chain) on the underlying data, linking visited points with edges and coloring points according to their connectedness in this structure. The current point will also activate points that it has traveled to in the past, giving a sense of the dynamical structure of a set of data.
+Builds a [Markov process](https://en.wikipedia.org/wiki/Markov_chain) by tracking transitions between states. As the system moves from state to state, this coloring manager records which transitions occur and how often. When viewing the current state, it colors **other points** based on how likely they are to be visited **next**, creating a predictive visualization. Points that the current state frequently transitions to are colored closer to the high probability color, while points rarely or never reached from the current state remain at the [base color](#base-color). This gives immediate visual feedback about which states are probable successors, revealing the dynamical structure of the system.
 
-- **High Probability Color**: Color used for points with high transition probabilities.
+- **High Probability Color**: The color used for points that are likely successors of the current state (i.e., states with high transition probabilities from the current point).
 
 ### Halo
 
-The current point is surrounded by a gradient of color (based on the [hot color](#hot-color)) within a user-specified Euclidean radius in the high dimensional space. The closer points are to the current point, the more saturated they are in the hot color. Gives a sense of where the current point is in the high dimensional space.
+Colors points based on their Euclidean distance from the current point in the **high-dimensional space** (not the 2D projection). Points close to the current state in the original high-dimensional space are colored closer to the [hot color](#hot-color), while points farther away fade to the [base color](#base-color). The gradient is centered on the current point and extends outward to a specified radius. This visualization helps you understand which states are truly similar to the current state in the full high-dimensional space, which may not be obvious from the 2D projection alone.
 
-- **Radius**: Radius of the halo effect in the high-dimensional space.
+- **Radius**: The radius of the halo effect in the high-dimensional space (using Euclidean distance).

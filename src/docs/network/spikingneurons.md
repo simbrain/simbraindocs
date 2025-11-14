@@ -14,9 +14,43 @@ Since spikes are discrete events without a numerical value, some way of converti
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
 
-When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a [PSR](/docs/network/updateLogic.html#PSR).
+When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a [PSR](/docs/network/updateLogic.html#PSR). 
 
-# History and General Comments
+To see how different [spike responders](spikeresponders) produce different PSR shapes, try the spiking neuron [simulation](../simulations/) (`Simulations > Neuroscience > Spiking Neuron`).
+
+## Visualizing Spikes
+
+When synapses are visible in the network panel, they turn yellow when their source neuron spikes, creating a visual effect that makes it easy to see signal propagation through the network (To see spikees in action, try the spiking network [simulation](../simulations/) (`Simulations > Neuroscience > Spiking Network`). However, displaying many synapses can slow down the simulation.
+
+For better performance while still observing spike activity, you have several options:
+
+- **Toggle synapse visibility**: Press `5` or use `View > Free Weights Visible` to hide synapses entirely. This significantly improves performance in large networks.
+- **Show only when spiking**: Enable [Only show synapses when spiking](ui/networkMenu.html#only-show-synapses-when-spiking) to hide synapses by default and only display them briefly when they transmit a spike. This provides an intermediate option between full visibility and complete hiding.
+
+See the [network menus](ui/networkMenu.html) page for more visibility options.
+
+
+## Spike Timing / Implementation Notes
+
+When a spiking neuron fires, two key pieces of information are tracked:
+
+- **Spike state**: A boolean indicating whether the neuron spiked in the current time step
+- **Last spike time**: The simulation time when the neuron most recently spiked
+
+The last spike time is initialized to negative infinity, indicating the neuron has never spiked. This value is updated each time the neuron fires and is used by learning rules like STDP to calculate spike timing differences.
+
+You can access spike information in [scripts](../simulations/):
+
+```kotlin
+if (neuron.isSpike) {
+    println("Neuron spiked at time ${neuron.lastSpikeTime}")
+}
+```
+
+For neuron arrays, spike data is stored as arrays that can be accessed through the array's data holder.
+
+
+# Historical Comments
 
 Historically, there has been a progression from one-dimensional (1D) to two-dimensional (2D) neuron models.
 

@@ -86,7 +86,7 @@ The Actions menu contains special utility operations for networks:
   - Main Toolbar
   - Edit Toolbar
 - **Free Weights Visible**: Toggle visibility of free weights (synapses not in synapse groups) (5)
-- **Only show synapses when spiking**: When enabled, synapses are only drawn while their source neuron is spiking
+- **<span id="only-show-synapses-when-spiking">Only show synapses when spiking</span>**: When enabled, synapses are hidden by default and only appear when their source neuron fires. Synapses briefly appear with a highlight color when spiking, making it easy to see which connections are actively transmitting signals. This is useful for visualizing large spiking networks where showing all connections would clutter the display. This feature is enabled by default in the spiking network simulation (`Simulations > Neuroscience > Spiking Network`).
 - **Show Weight Matrix**: Display the weight matrix viewer
 - **Show Priority Table**: Display the priority table showing neuron update order
 
