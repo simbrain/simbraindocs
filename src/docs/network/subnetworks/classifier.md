@@ -53,7 +53,7 @@ Training and testing data are displayed in interactive tables:
 
 - Input Data: Feature vectors shown as rows in the input table
 - Target Data: Class labels displayed with appropriate randomizers
-- Class Naming: Uses integer coding (Class 1, Class 2, etc.) for output neurons
+- Class Naming: Uses integer coding internally. Output neurons are labeled "Class 1", "Class 2", etc. by default. To use meaningful class names, edit the labels of the output neurons directly (right-click on a neuron and select `Edit > Set label`). These custom labels will appear in the visualization plot legend.
 - Data Editing: Tables support adding, removing, and modifying training examples
 
 ## Training Process
@@ -84,19 +84,21 @@ The visualization plot shows:
 
 - Training Data Points: All training examples plotted and colored by class label
 - Class Boundaries: Visual representation of how the classifier separates different classes
-- Real-time Testing: New data passed through the classifier appears as differently colored dots
-- Interactive Display: Click and explore the data space to understand classification regions
-
-## Troubleshooting Visualization Updates
-
-If the visualization plot doesn't update when new data is passed through:
-
-- Ensure the classifier has been trained on current data
-- Check that the input layer is receiving new data correctly
-- Verify the workspace is updating (try manual update if needed)
-- Confirm the plot window is still active and responsive
+- Real-time Testing: New data passed through the classifier appears as new points in the plot
+- Legend: Shows class names based on output neuron labels
 
 This visualization provides an intuitive and standard way of understanding how the classifier works and how it partitions the input space.
+
+## Plot Update Behavior
+
+The visualization plot has specific update characteristics:
+
+- **New points**: When the workspace updates and the classifier processes input data, new points are added to the plot showing the current classification
+- **Existing data**: The initial training data points shown in the plot are fixed at creation time
+- **After retraining**: If you retrain the classifier with different data or modify training examples, the existing points in the plot will not update to reflect the new model
+- **After changing class names**: If you change the labels of output neurons, the legend in the existing plot will not update
+
+To see updated training data, new classifications of existing data, or updated class names in the visualization, close the current plot window and select `Visualize Classifier` again from the right-click menu.
 
 # Creation Parameters
 
