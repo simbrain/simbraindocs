@@ -164,7 +164,7 @@ Colors points based on how often they have been visited. Points visited more fre
 
 ### Markov
 
-Builds a [Markov process](https://en.wikipedia.org/wiki/Markov_chain) by tracking transitions between states. As the system moves from state to state, this coloring manager records which transitions occur and how often. When viewing the current state, it colors **other points** based on how likely they are to be visited **next**, creating a predictive visualization. Points that the current state frequently transitions to are colored closer to the high probability color, while points rarely or never reached from the current state remain at the [base color](#base-color). This gives immediate visual feedback about which states are probable successors, revealing the dynamical structure of the system.
+Builds a [Markov process](https://en.wikipedia.org/wiki/Markov_chain) by tracking transitions between states. As the system moves from state to state, this coloring manager records which transitions occur and how often. When viewing the current state, it colors other points based on how likely they are to be visited next, creating a predictive visualization. Points that the current state frequently transitions to are colored closer to the high probability color, while points rarely or never reached from the current state remain at the [base color](#base-color). This gives immediate visual feedback about which states are probable successors.
 
 - **High Probability Color**: The color used for points that are likely successors of the current state (i.e., states with high transition probabilities from the current point).
 
