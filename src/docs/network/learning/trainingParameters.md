@@ -87,6 +87,8 @@ Settings for testing the network on validation data during training to monitor g
 - **Enabled**: When checked, the network is periodically tested on validation data during training
 - **Test Frequency**: How often to test on validation data, measured in training iterations (only visible when Enabled is checked)
 
+Note: The testing error signal in the error plot will not appear until the first test evaluation occurs. With the default test frequency of 10, the testing signal appears starting at iteration 10
+
 ## Compute Accuracy
 
 When checked, calculates and displays classification accuracy for networks with [one-hot encoded](https://en.wikipedia.org/wiki/One-hot) targets.
@@ -94,6 +96,8 @@ When checked, calculates and displays classification accuracy for networks with 
 Accuracy is computed per input pattern as follows: If all output neuron activations are within a threshold distance of their target activations, the pattern is counted as "correct." Accuracy is displayed as a percentage: (Number of Correct Patterns / Total Number of Patterns) × 100.
 
 This threshold-based approach provides a practical measure of how well the network matches target patterns, accounting for small numerical variations that don't significantly impact functionality.
+
+Note: If accuracy displays as "N/A", this indicates the target data is not properly one-hot encoded. Accuracy computation requires targets where each pattern has exactly one value of 1.0 and all other values are 0.0, representing a choice between multiple classes. This is appropriate for classification tasks but not for regression tasks where targets are continuous values.
 
 ## Toolbar Actions
 

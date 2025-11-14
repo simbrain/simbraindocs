@@ -69,9 +69,11 @@ PCA or [Principal Component Analysis](https://en.wikipedia.org/wiki/Principal_co
 
 When new points are added to this dataset, the first three points use coordinate projection to the first two coordinates of the dataset.
 
-By default, the PCA algorithm is reused or "refit" each time a new point is added to the plot. However, if freeze space is set to true, the current principal components are used to project to existing components each update.
+By default, the PCA algorithm is refit each time a new point is added to the plot. This means the principal components are recalculated using all existing points plus the new point, and all points are re-projected. While this ensures the projection always uses the optimal axes for the current dataset, it has two drawbacks: it's computationally expensive (especially with many points), and the entire projection can shift as the principal components change, causing all the dots to move around.
 
-- **Freeze Space**: If true, project to existing components each update. If false, refit PCA components each update. 
+- **Freeze Space**: If true, project to existing components each update. If false, refit PCA components each update. When freeze is enabled, a toolbar button (clamp icon) indicates the frozen state.
+
+Freezing the PCA space is highly useful in practice. When freeze is enabled, the principal components are computed once and then held fixed. New points are simply projected onto these fixed axes without refitting. This makes the projection faster and stabilizes the visualization so that existing points stay in place. This is particularly valuable when you want to observe how new incoming data relates to an established structure, without the distraction of the entire plot shifting around. 
 
 ## Sammon Map
 
@@ -102,6 +104,8 @@ t-SNE is iterable, and its behavior depends heavily on its hyperparameters. Pres
 # Menus and Toolbars
 
 ## Toolbar
+- **Projection Method Selector**: Dropdown to choose the projection method (Coordinate, PCA, Sammon, Triangulate, or TSNE).
+- **<span id="freeze-button">Freeze</span>** (clamp icon): Toggle PCA freezing on/off. Only visible when PCA is selected. See [Freeze Space](#principal-component-analysis-pca) for details.
 - **<span id="iterate-button">Iterate</span>**: Run one iteration of an iterable projection method (Sammon, TSNE).
 - **<span id="run-button">Run</span>** (play button): Continuously iterate an iterable projection method.
 - **<span id="stop-button">Stop</span>**: Stop continuous iteration.

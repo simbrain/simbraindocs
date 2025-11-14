@@ -13,13 +13,14 @@ Creates a subset of all possible connections between source and target neurons, 
 
 ## Dynamic Behavior
 
-Unlike other connection strategies that create connections from scratch, Sparse preserves existing connections and makes incremental changes. When applied:
+Unlike other connection strategies that create connections from scratch, Sparse preserves existing connections and makes incremental changes based on the current connection density. When applied:
 
-- If increasing density, new connections are added to existing ones
-- If decreasing density, connections are randomly removed
-- Existing connections are preserved when possible
+- If the target density is higher than current density, new connections are added to reach the target
+- If the target density is lower than current density, connections are randomly removed to reach the target
+- If the target density equals current density, no changes are made
+- Existing connections are always preserved when possible
 
-For example, if you have 10% density and change to 20%, only the additional 10% of connections are created, not all 20%.
+This behavior allows you to incrementally adjust connection density. For example, if you have 10% density and apply Sparse with 20% density, only the additional 10% of connections are created, not all 20%. Running Sparse multiple times with the same density value will not change the network, which allows you to safely adjust upward from the current sparsity level without resetting existing connections.
 
 ## Parameters
 

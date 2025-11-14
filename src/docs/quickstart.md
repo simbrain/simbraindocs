@@ -9,6 +9,16 @@ nav_order: 7
 
 The fastest way to see Simbrain in action is to run pre-built [simulations](simulations/) from the `Simulations` menu. Open one and press play in the workspace toolbar to watch it run. This guide covers basic workflows for building and running networks. For more details on building networks, see [Building Basics](network/buildingBasics). For a comprehensive list of keyboard shortcuts across all components, see the [Keyboard Shortcuts](shortcuts) reference page.
 
+## Info Panels and Onboarding
+
+When you first launch Simbrain, you may see onboarding windows that introduce basic features. These are self-explanatory and can be dismissed. If you want to see them again, use `File > Reset onboarding windows` (this resets all of them, but there arent many).
+
+Many simulations include **sidebar info panels** that explain what the simulation demonstrates and how to interact with it. These panels appear on the side of the workspace and contain helpful documentation specific to each simulation. You can:
+- Toggle the info panel visibility using `View > Show/hide info panel` or the info panel button in the toolbar
+- Control whether info panels appear by default in `File > Workspace preferences > Show info dock by default`
+
+You can keep these sidebar panels visible when exploring simulations; they provide useful context and instructions for understanding what you're seeing.
+
 ## Working with Networks
 
 Most of these operations require a [network](network/) window to be in focus (click on it first).

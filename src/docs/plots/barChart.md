@@ -19,6 +19,9 @@ In this example, notice the first two nodes are negative and last three are posi
 - **Lower Bound**: Minimum value of the y-axis.
 - **Upper Bound**: Maximum value of the y-axis.
 - **Auto Range**: When checked, automatically scales the y-axis so that the largest bar fits inside the window. It can be useful to turn this off to get a better sense of overall changes in magnitude, since while it is on the bars will fill up the window.
+
+When auto range is enabled, the y-axis continuously adjusts to fit the current data. This can make values appear very small while still maintaining their relative proportions, which can create a misleading impression that some values are larger than others when they're actually just scaled differently. A similar issue can occur in [time series plots](timeSeries) where auto-range can make it appear that error is improving when the scale is simply adjusting. Consider turning off auto range when you need to accurately assess absolute magnitudes or compare values across different time periods.
+
 - **Bar Color**: Color of the bars in the chart.
 
 # Menus
