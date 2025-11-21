@@ -143,11 +143,28 @@ val doc = addDocViewer("Documentation Title", """
 
 Both options support full markdown formatting including headers, lists, links, code blocks, and LaTeX math.
 
+### Neurons as Custom Displays
+
+One powerful pattern in Simbrain is using neurons not as traditional neural units, but as visual displays for quantities computed with custom equations or code. This approach is useful when you want to:
+
+- Visualize dynamical systems or mathematical models
+- Display intermediate computations in a cognitive model
+- Show model states that don't correspond to traditional neural activations
+
+The neurons serve as visual indicators that can be monitored in time series plots, coupled to other components, or used in projections, while the actual computation happens in your custom code. This gives you the flexibility of arbitrary computation with the visualization and connectivity benefits of Simbrain's neural network framework.
+
+Some examples:
+
+- `Simulations > Dynamical Systems > Lorenz attractor`: Uses three neurons to display x, y, and z variables from the Lorenz equations, with custom update code computing the differential equations
+- `Simulations > Psychology > Temporal attention network`: Uses neurons to display attention values and decision evidence computed from normalization equations
+- `Simulations > Psychology > Mouse and eye tracking`: Displays lexical, visual, and motor activations computed from custom integration and normalization code
+
+
 ### Custom Update Actions
 
 You can create custom update logic that runs during each simulation step:
 
-#### Workspace-Level Updates
+Workspace-Level Updates:
 
 ```kotlin
 workspace.addUpdateAction("My Custom Action") {
@@ -156,7 +173,7 @@ workspace.addUpdateAction("My Custom Action") {
 }
 ```
 
-#### Network-Level Updates
+Network-Level Updates:
 
 For network-specific custom behavior, add actions directly to the network's update manager:
 
@@ -185,9 +202,9 @@ Custom updates are particularly useful when:
 
 When creating simulations with Odor Worlds, understand these key concepts:
 
-**Window vs World Size**: The `place` command positions and sizes the window, not the underlying world. The world size is determined by the tilemap and can extend beyond the visible window.
+Window vs World Size: The `place` command positions and sizes the window, not the underlying world. The world size is determined by the tilemap and can extend beyond the visible window.
 
-**Setting World Size**:
+Setting World Size:
 ```kotlin
 // Option 1: Match world size to window
 world.tileMap.fitWorldToFrameSize()
@@ -196,7 +213,7 @@ world.tileMap.fitWorldToFrameSize()
 world.tileMap.updateMapSize(20, 18)
 ```
 
-**Viewing**:
+Viewing:
 ```kotlin
 // Zoom to show entire world
 world.fitFrameToWorld()
