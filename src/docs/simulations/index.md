@@ -28,7 +28,7 @@ The best way to understand what's possible is to explore existing simulations us
 
 ## The Basic Workflow
 
-Simulations are written in Kotlin (Java is still supported but being phased out).
+Simulations are written in [Kotlin](https://kotlinlang.org/) (Java is still supported but being phased out).
 
 First, set up your development environment following the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Running-From-Source).
 
@@ -38,7 +38,7 @@ Both steps are straightforward when following existing examples in the codebase.
 
 ## AI-Assisted Development
 
-Modern AI coding assistants like Cursor, GitHub Copilot, or Claude can significantly accelerate simulation development. With access to the Simbrain codebase and existing simulations, you can simply describe what you want to create in natural language and have the AI generate much of the boilerplate code.
+Modern AI coding assistants like [Cursor](https://cursor.sh/), [GitHub Copilot](https://github.com/features/copilot), or [Claude](https://www.anthropic.com/claude) can significantly accelerate simulation development. With access to the Simbrain codebase and existing simulations, you can simply describe what you want to create in natural language and have the AI generate much of the boilerplate code.
 
 For example, you might prompt: "Create a simulation with a feedforward network that learns XOR, display it with a time series plot showing error over time, and add a control panel to adjust learning rate."
 
@@ -54,35 +54,27 @@ Kotlin simulations use the `newSim` function with a `SimulationScope` lambda:
 
 ```kotlin
 val myCustomSimulation = newSim {
-    
     workspace.clearWorkspace()
-    
     // Add components
     val networkComponent = addNetworkComponent("Network")
     val network = networkComponent.network
-    
     // Build your network
     // ... create neurons, connections, etc.
-    
     // Add plots, worlds, or other components
     val timeSeries = addTimeSeriesComponent("Activity", "Series 1")
-    
     // Position components in the GUI
     withGui {
         place(networkComponent, 0, 0, 400, 400)
         place(timeSeries, 410, 0, 400, 400)
     }
-    
     // Create couplings
     with(couplingManager) {
         // ... couple components
     }
-    
     // Optional: Add documentation sidebar
     addSidebarInfo(
         """
         # My Simulation
-        
         Description of what this simulation does...
         """
     )
@@ -95,11 +87,9 @@ Open `RegisteredSimulations.kt` (use `Shift-Shift` in IntelliJ to find it quickl
 
 ```kotlin
 val simulations = dir("Simulations", alphabetical = true) {
-    
     dir("My Category") {
         item("My Simulation Name") { myCustomSimulation }
     }
-    
     // ... other categories
 }
 ```
@@ -116,17 +106,12 @@ Most simulations use `addSidebarInfo` to display documentation in a collapsible 
 addSidebarInfo(
     """
     # My Simulation Title
-    
     Brief description of what this simulation demonstrates.
-    
     ## What to Do
-    
     1. Click Run to start
     2. Try adjusting...
     3. Observe...
-    
     ## Details
-    
     More in-depth explanation...
     """
 )
@@ -139,7 +124,6 @@ Alternatively, to place documentation in its own window, use `addDocViewer`:
 ```kotlin
 val doc = addDocViewer("Documentation Title", """
     # My Simulation
-    
     Detailed explanation with multiple sections...
 """)
 ```
@@ -240,17 +224,13 @@ When you save a workspace, networks, neurons, synapses, worlds, entities, plots,
 
 ```kotlin
 val mySimulation = newSim("my_unique_simulation_id") {
-    
     // Create persistent components
     workspace.clearWorkspace()
     val networkComponent = addNetworkComponent("Network")
     val network = networkComponent.network
-    
     // ... build network, add neurons, etc.
-    
     // Call setup function to add dynamic elements
     setupDynamicElements(workspace)
-    
 }.registerReopenFunction { workspace -> 
     // When reopening, re-add the dynamic elements
     setupDynamicElements(workspace) 
@@ -262,14 +242,11 @@ suspend fun SimulationScope.setupDynamicElements(workspace: Workspace) {
         .filterIsInstance<NetworkComponent>()
         .first()
         .network
-    
     val myNeuron = network.getModelByLabel<Neuron>("My Neuron")
-    
     // Add custom update actions
     network.updateManager.addAction(updateAction("My Update") {
         // Custom logic
     })
-    
     // Add control panels
     withGui {
         createControlPanel("Controls", 0, 0) {
