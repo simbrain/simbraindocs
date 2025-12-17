@@ -26,13 +26,23 @@ Custom simulations in Simbrain allow you to create sophisticated setups with cus
 
 The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
 
-## Prerequisites
+## Basic Setup
 
 1. Set up your development environment following the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Running-From-Source)
 2. Use IntelliJ IDEA as your IDE
 3. Explore existing simulations in `src/main/kotlin/org/simbrain/custom_sims/simulations`
 
 Simulations are written in Kotlin using a functional approach (though Java is still supported but being phased out).
+
+## AI-Assisted Development
+
+Modern AI coding assistants like Cursor, GitHub Copilot, or Claude can significantly accelerate simulation development. With access to the Simbrain codebase and existing simulations, you can simply describe what you want to create in natural language and have the AI generate much of the boilerplate code.
+
+For example, you might prompt: "Create a simulation with a feedforward network that learns XOR, display it with a time series plot showing error over time, and add a control panel to adjust learning rate."
+
+The AI can reference existing patterns from similar simulations and generate appropriate Kotlin code using Simbrain's API.
+
+If there is interest, contact the authors and we will add some prompting and setup suggestions here in these docs.
 
 ## Create Your Simulation File
 
@@ -136,15 +146,13 @@ Both options support full markdown formatting including headers, lists, links, c
 
 ## Best Practices
 
-Start by exploring similar existing simulations. Copy and modify an existing simulation rather than starting from scratch. Make incremental changes and test frequently. Use descriptive variable names and add comments for clarity.
+Start by exploring similar existing simulations. Copy and modify an existing simulation rather than starting from scratch. 
 
 When creating many neurons, use `addNeurons(collection)` instead of calling `addNeuron()` in a loop. See `spikingNetworkSimulation.kt` for efficient network construction patterns.
 
 When adding multiple network models asynchronously, call `.awaitAll()` or `.joinAll()` to ensure GUI setup completes before proceeding. Some operations depend on GUI bounds being properly initialized.
 
 Use `withGui { place(...) }` to position components. Arrange components manually in the GUI first, then capture their positions for your code. Hover over component borders to see coordinates in the status bar.
-
-Creating simulations with AI assistance (like ChatGPT) can accelerate development. Provide the AI with example simulations (e.g., `SpikingNeuronSim.kt`, `RegisteredSimulations.kt`) and describe what you want to build. The AI can generate starter code that you then refine.
 
 
 ## Custom Update Actions
