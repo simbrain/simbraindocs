@@ -26,20 +26,15 @@ Custom simulations in Simbrain allow you to create sophisticated setups with cus
 
 The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
 
-## Basic Setup
-
-1. Set up your development environment following the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Running-From-Source)
-2. We reccomend IntelliJ IDEA as your IDE
-3. Explore existing simulations in `src/main/kotlin/org/simbrain/custom_sims/simulations`
+## The Basic Workflow
 
 Simulations are written in Kotlin (Java is still supported but being phased out).
 
-## The Basic Workflow
+First, set up your development environment following the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Running-From-Source).
 
-The typical workflow involves two main steps: 1. Register your simulation. Add a menu item in the simulations directory (see [Register Your Simulation](#register-your-simulation))
-2. Create your simulation file: Write the actual simulation code (see [Create Your Simulation File](#create-your-simulation-file))
+The typical workflow involves two main steps: 1. Register your simulation. Add a menu item in the simulations directory (see [Register Your Simulation](#register-your-simulation)). 2. Create your simulation file: Write the actual simulation code (see [Create Your Simulation File](#create-your-simulation-file))
 
-Both steps are straightforward when following existing examples in the codebase. The registration step involves adding a few lines to `RegisteredSimulations.kt`, while the simulation file can be created by copying and adapting an existing simulation that's similar to what you want to build.
+Both steps are straightforward when following existing examples in the codebase. The registration step involves adding a few lines to `RegisteredSimulations.kt`, while the simulation file can be created by copying and adapting an existing simulation (see `src/main/kotlin/org/simbrain/custom_sims/simulations`) that's similar to what you want to build. 
 
 ## AI-Assisted Development
 
