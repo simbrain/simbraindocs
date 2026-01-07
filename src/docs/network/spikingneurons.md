@@ -8,13 +8,11 @@ nav_order: 60
 
 # Spiking Neurons
 
-Some types of neuron [update rule](neurons)s produce discrete "spikes" (instantaneous firing events). When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these neurons, the activation (the number in the neuron) is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and typically the activation then drops to a lower value.
+Some types of neuron [update rule](neurons)s produce discrete "spikes" (instantaneous firing events). When they do, the neuron and the lines leading out from it (the "axon") turn a different color (by default yellow). This framework is used to create more biologically realistic simulations. In these models, activation (the number shown in the neuron) is usually interpreted as a voltage potential, and when that number passes a threshold the neuron "fires," and sends a signal to other neurons.
 
-Since spikes are discrete events without a numerical value, some way of converting them into numbers is required (e.g. when a spike arrives at a synapse). This is handled using [spike responders](spikeresponders).
+Since spikes are discrete events without a numerical value, some way of converting them into numbers is required when a spike arrives at a synapse. This is handled using [spike responders](spikeresponders).
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
-
-When the non-responder is used then whatever counts as "activation" in the spiking neuron (whatever shows in the circles representing a node) is treated as a regular activation as multipled by the weight strength to generate a [PSR](/docs/network/updateLogic.html#PSR). 
 
 To see how different [spike responders](spikeresponders) produce different PSR shapes, try the spiking neuron [simulation](../simulations/) (`Simulations > Neuroscience > Spiking Neuron`).
 

@@ -12,17 +12,24 @@ ImageWorld is a tool designed for managing sets of images and using them as inpu
 
 The component can be used to model visual processing, for example retinal processing, or machine learning vision applications. Image World includes powerful drawing tools with configurable brushes, colors, and smoothing options, making it suitable for both handcrafted image creation and imported image processing.
 
-To get a quick sense of how image world works, try running the [simulations](../simulations) in `simulations > Image World`
+To get a quick sense of how image world works, try running the [simulations](../simulations) in `Simulations > Image world`
+
+# Interface Layout
+
+Image World has two toolbars:
+
+- **Top toolbar**: Contains pipeline management controls (add, delete, edit pipelines) and drawing/editing tools (fill, clear, color selection, brush settings)
+- **Bottom toolbar**: Contains image navigation controls (previous/next image, snapshot, delete) and displays the current frame number and output dimensions
 
 # Pipelines and Couplings
 
-Each image in an image album has a raw form that can be viewed by selecting the `Unfiltered` pipeline. One or more **pipelines** can be added to process the raw image. These pipelines consist of a sequence of operations (resize, grayscale conversion, threshold, edge detection, etc.) that transform the image to a specific resolution and format. Pipelines are named in a way that indicates what they do, e.g. `Gray 100x100`, `Color 100x100`, or `Threshold 10x10`. This image gives a sense of how it works:
+Each image in an image album has a raw form that can be viewed by selecting the `Unfiltered` pipeline. One or more pipelines can be added to process the raw image. These pipelines consist of a sequence of operations (resize, grayscale conversion, threshold, edge detection, etc.) that transform the image to a specific resolution and format. Pipelines are named in a way that indicates what they do, e.g. `Gray 100x100`, `Color 100x100`, or `Threshold 10x10`. This image gives a sense of how it works:
 
 <img src="/assets/images/imageWorldFilters.png" alt="Filters" style="width:300px;"/>
 
 The purpose of these pipelines is to allow the image to be [coupled](../workspace/couplings) to a [neuron array](../network/arrasMatrices) or [neuron group or collection](../network/neurongroups) with the appropriate number of neurons.
 
-The **Pipelines** dropdown box at the top of the toolbar can be used to view one of the pipelines and see its impact on the raw image, or to view the unfiltered image. Regardless of which pipeline you are viewing, all remain active, and thus one image can be coupled to a network in multiple ways simultaneously.
+The **Pipelines** dropdown box in the top toolbar can be used to view one of the pipelines and see its impact on the raw image, or to view the unfiltered image. Regardless of which pipeline you are viewing, all remain active, and thus one image can be coupled to a network in multiple ways simultaneously. The output dimensions of the currently selected pipeline are displayed in the bottom toolbar (e.g., "100×100").
 
 Here are a few different pipelines applied to an unfiltered example image:
 
@@ -42,12 +49,14 @@ Several default pipelines are provided when you create a new Image World:
 
 ## Managing Pipelines
 
-The pipeline toolbar at the top of the Image World window provides controls for managing pipelines:
+The top toolbar provides controls for managing pipelines:
 
 - **Pipelines dropdown**: Select which pipeline to view and use for couplings
 - **Add pipeline (+)**: Create a new custom pipeline with a chosen name
 - **Delete pipeline (-)**: Remove the currently selected pipeline (cannot delete the default Unfiltered pipeline)
 - **Edit pipeline (wrench icon)**: Open a dialog to configure the operations in the current pipeline
+
+The default Unfiltered pipeline cannot be edited or deleted. When a pipeline is selected, the edit and delete buttons will be disabled if it's the default pipeline.
 
 ## Available Operations
 
@@ -166,12 +175,14 @@ You can manage these operations using the control buttons:
 
 # Image Album and Image Management
 
-Image World maintains an **image album** - a collection of images that you can navigate through. The bottom toolbar displays the current frame counter (e.g., "1/5" means you're viewing the first of five images) and provides navigation controls:
+Image World maintains an image album, a collection of images that you can navigate through. The bottom toolbar displays the current frame counter (e.g., "1/5" means you're viewing the first of five images), the output dimensions of the current pipeline (e.g., "100×100"), and provides navigation controls:
 
+- **Delete image (-)**: Remove the current image from the album
 - **Previous image**: Move to the previous image in the album (keyboard shortcut: **A**)
 - **Next image**: Move to the next image in the album (keyboard shortcut: **D**)  
 - **Take snapshot (camera icon)**: Add a copy of the current image to the album (keyboard shortcut: **S**)
-- **Delete image (-)**: Remove the current image from the album
+
+The output dimensions display shows the size of the processed image from the currently selected pipeline. Hovering over it displays a tooltip with the full dimensions.
 
 Images can be loaded from files or created directly in Image World. To load images, select `File > Load images...` from the menu. Multiple image files can be selected and loaded simultaneously. Once loaded, you can navigate between them using the arrow buttons or keyboard shortcuts.
 
@@ -179,28 +190,37 @@ The Image Album can store multiple images, allowing you to create sequences for 
 
 # Drawing Tools
 
-Image World includes a full-featured drawing interface that can be used while the [workspace](../workspace) is running. You can draw directly on images by clicking and dragging with the mouse. The drawing toolbar at the bottom provides extensive customization:
+Image World includes a full-featured drawing interface that can be used while the [workspace](../workspace) is running. You can draw directly on images by clicking and dragging with the mouse. The drawing tools are located in the top toolbar and provide extensive customization:
+
+## Canvas Operations
+
+- **Fill**: Fill the entire canvas with the currently selected color (prompts for confirmation)
+- **Clear (eraser icon)**: Clear the canvas by filling it with black pixels (prompts for confirmation)
 
 ## Color Selection
 
-Choose from preset colors using the **color dropdown**:
-- White, Black, Red, Blue, Green, Yellow, Cyan, Magenta, Custom
+The color picker button in the top toolbar displays the current pen color as a small color swatch. Click the button to open a popup panel with color options:
+
+**Preset Colors** (displayed as a grid of color swatches):
+- White, Black, Red, Blue, Green, Yellow
+- Cyan, Magenta, Orange, Pink, Gray, Dark Gray
+
+**Custom Color**: Click the "Custom..." button at the bottom of the popup to open a full color chooser dialog where you can select any RGB color.
 
 **Tip**: Hold **Shift** while drawing to use the inverted color (e.g., black when white is selected).
 
 ## Brush Settings
 
-- **Pen size**: Use the slider to adjust brush size from 1 to 30 pixels. The current size is displayed next to the slider.
-- **Brush shape**: Choose from three brush shapes:
+The brush settings button (pen icon) in the top toolbar opens a popup panel with the following options:
+
+- **Size**: Slider to adjust brush size from 1 to 30 pixels. The current size is displayed next to the slider (e.g., "15px").
+- **Shape**: Dropdown menu to choose from three brush shapes:
   - **Circle**: Round brush (default)
   - **Square**: Square brush for pixel-perfect control
   - **Soft**: Brush with soft, feathered edges for smooth gradients
-- **Smoothing**: Enable the smoothing checkbox for anti-aliased, higher-quality brush strokes. Smoothing quality (Low, Medium, High) can be configured for different performance/quality tradeoffs.
+- **Smoothing**: Checkbox to enable smoothing for anti-aliased, higher-quality brush strokes.
 
-## Canvas Operations
-
-- **Fill**: Fill the entire canvas with the currently selected color
-- **Clear (eraser icon)**: Clear the canvas by filling it with black pixels 
+The popup automatically closes when it loses focus, allowing you to quickly adjust settings and continue drawing. 
 
 # Menu Commands
 

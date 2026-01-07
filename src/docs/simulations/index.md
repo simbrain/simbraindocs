@@ -208,6 +208,17 @@ Some examples:
 - `Simulations > Psychology > Temporal attention network`: Uses neurons to display attention values and decision evidence computed from normalization equations
 - `Simulations > Psychology > Mouse and eye tracking`: Displays lexical, visual, and motor activations computed from custom integration and normalization code
 
+## Working with Image Worlds
+
+When loading images into an Image World programmatically, note that the album starts with a blank canvas at index 0. If you add images and then want to remove this initial blank canvas, you need to explicitly delete it:
+
+```kotlin
+imageAlbum.setFrame(0)
+imageAlbum.deleteCurrentImage()
+```
+
+This affects button indices when navigating images. If you add 5 images and delete the initial blank canvas, your images will be at indices 0-4 rather than 1-5. Plan your button frame indices accordingly. See `attentionAsGain.kt` for an example.
+
 ## Working with Odor Worlds
 
 When creating simulations with Odor Worlds, the `place` command positions and sizes the window, not the underlying world. The world size is determined by the tilemap and can extend beyond the visible window.
