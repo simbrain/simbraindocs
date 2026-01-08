@@ -47,15 +47,15 @@ where $$ISI$$ is the inter-spike interval (time since last spike), $$U$$ is the 
 
 ## Parameters
 
-- **Mean Use**: Fraction of available resources consumed to produce the post-synaptic current. This determines how much of the available synaptic resources are used with each spike.
+- **U**: Fraction of available resources consumed to produce the post-synaptic current. This determines how much of the available synaptic resources are used with each spike.
 
-- **Mean Depression**: Time constant in ms for short-term depression (STD). Higher values produce more STD. Depression models the depletion of synaptic resources with repeated spiking.
+- **D**: Time constant in ms for short-term depression (STD). Higher values produce more STD. Depression models the depletion of synaptic resources with repeated spiking.
 
-- **Mean Facilitation**: Time constant in ms for short-term facilitation (STF). Higher values produce more STF. Facilitation models the accumulation of factors that enhance transmission with repeated spiking.
+- **F**: Time constant in ms for short-term facilitation (STF). Higher values produce more STF. Facilitation models the accumulation of factors that enhance transmission with repeated spiking.
 
 - **Spike Responder**: The underlying spike responder whose jump height is modulated by STP. Currently only Jump and Decay is supported. The STP mechanism sets the maximum response of this responder.
 
-- **U**: Use/Facilitation variable. This state variable tracks the current facilitation level and is visible in the synapse property editor.
+- **u**: Use/Facilitation variable. This state variable tracks the current facilitation level and is visible in the synapse property editor.
 
 - **R**: Depression variable. This state variable tracks the current resource availability and is visible in the synapse property editor.
 
