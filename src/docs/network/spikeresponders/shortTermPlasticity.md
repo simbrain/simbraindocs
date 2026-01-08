@@ -11,11 +11,11 @@ nav_order: 40
 
 Short term plasticity (STP) is a spike responder that models dynamic changes in synaptic strength based on recent spike history. It can simulate both short-term depression (STD) and short-term facilitation (STF), phenomena observed in biological synapses where the effectiveness of synaptic transmission changes depending on recent activity.
 
-This responder is sometimes referred to as UDF for Use, Depression, and Facilitation, after its three main parameters. It adapts the post-synaptic response based on the availability of synaptic resources (depression) and the buildup of facilitation factors.
+This model is sometimes referred to as UDF for Use, Depression, and Facilitation, after its three main parameters. It adapts the post-synaptic response based on the availability of synaptic resources (depression) and the buildup of facilitation factors.
 
 ## Biological Mechanisms
 
-The model implemented here captures two primary biological mechanisms that operate in opposite directions at the presynaptic terminal:
+The model implemented here captures two primary biological mechanisms that operate in opposite directions at the presynaptic terminal.
 
 **Depression** models neurotransmitter depletion. When a neuron fires repeatedly in rapid succession, it progressively depletes its readily available pool of neurotransmitter vesicles. Each action potential releases some fraction of these vesicles, and if the neuron fires again before the vesicles can be replenished, fewer neurotransmitters are available for release. This causes the postsynaptic response to weaken with repeated firing, even though the presynaptic neuron continues to spike. The synapse becomes temporarily less effective until the neurotransmitter pool has time to recover.
 

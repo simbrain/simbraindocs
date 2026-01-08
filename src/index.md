@@ -6,7 +6,7 @@ layout: default
 ---
 # Documentation for Simbrain 4.0
 
-[Simbrain](https://www.simbrain.net) is a tool for building artificial neural networks that has been developed with the philosophy of ease-of-use and intuitive design. We encourage you to simply launch Simbrain and experiment. For in-depth documentation on each aspect of Simbrain follow the links below. For a quick introduction, see the [Quick Start](docs/quickstart) guide. Simbrain is open source and uses the GNU license. For credits click [here](https://simbrain.net/SimbrainCredits.html).
+[Simbrain](https://www.simbrain.net) is a tool for building artificial neural networks that has been developed with the philosophy of ease-of-use and intuitive design. We encourage you to simply launch Simbrain and experiment. For in-depth documentation on each aspect of Simbrain follow the links below. For a quick introduction, see the [Quick Start](docs/quickstart) guide. Simbrain is open source and uses the GNU license. For credits click [here](https://simbrain.net/credits/).
 
 # What's New in 4.0
 
@@ -28,7 +28,7 @@ Use Simbrain [plots](docs/plots) to visualize network activity and other data wi
 Simbrain includes an environment for building custom [simulations](docs/simulations) in kotlin or java. Can be used to create custom simulations, beyond what the built-in GUI tools provide.
 
 # Evolution
-Simbrain includes a framework for [evolving neural netwoks](docs/evolution/).
+Simbrain includes a framework for [evolving neural networks](docs/network/learning/evolution).
 
 # Utilities
 Simbrain [utilities](docs/utilities) include the [Simbrain console](docs/utilities/terminal.html) and [doc viewer](docs/utilities/docviewer.html).
