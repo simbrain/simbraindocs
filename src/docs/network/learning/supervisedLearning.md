@@ -54,3 +54,11 @@ Each row of the input data table is an input vector, and the corresponding row o
 
 The training data is viewed in a [table](../../utilities/tables), which provides operations for editing, analyzing, and visualizing training data.
 
+## Testing
+
+Testing data is used to evaluate how well the network generalizes to unseen examples during training. When test data is provided and [test configuration](trainingParameters#test-configuration) is enabled, the network is periodically evaluated on the test set and the results are displayed in the testing tab.
+
+Testing always evaluates the entire test set in an epoch-based manner, averaging over all test examples. In contrast, training error depends on the selected [update type](trainingParameters#update-type). When training uses batch or stochastic updates, only a subset of examples is processed per iteration, making the training error appear more jagged as it fluctuates based on which examples were selected
+
+The testing error curve typically appears smoother than the training error curve. This happens due to the the fact that testing occurs at regular intervals (controlled by the test frequency parameter), and due to epoch-based update, noted above. This smoothness difference is normal and expected. The smooth test curve provides a stable, reliable measure of generalization performance, while the noisier training curve reflects the iterative nature of the learning process.
+

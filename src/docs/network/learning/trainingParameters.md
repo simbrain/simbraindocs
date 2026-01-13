@@ -87,7 +87,7 @@ Settings for testing the network on validation data during training to monitor g
 - **Enabled**: When checked, the network is periodically tested on validation data during training
 - **Test Frequency**: How often to test on validation data, measured in training iterations (only visible when Enabled is checked)
 
-Note: The testing error signal in the error plot will not appear until the first test evaluation occurs. With the default test frequency of 10, the testing signal appears starting at iteration 10
+Note: The testing error signal in the error plot will not appear until the first test evaluation occurs. With the default test frequency of 10, the testing signal appears starting at iteration 10.
 
 ## Compute Accuracy
 
