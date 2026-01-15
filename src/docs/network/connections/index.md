@@ -24,7 +24,6 @@ Connection strategies can be invoked in several ways:
 - Right-click menu: Select neurons, right-click, and choose from the "Connect neurons" submenu
 - Synapse groups: Connection strategies are associated with synapse groups for organized connections
 
-
 ## Configurable Connection Strategy
 
 When you use the 1-3 trick, Simbrain uses the connection strategy configured in [Network Preferences](../ui/networkPreferences). By default this is [All-to-All](allToAll) with 50% excitatory and 50% inhibitory connections.
@@ -96,3 +95,21 @@ When source neurons have explicit Excitatory or Inhibitory polarity, the strateg
 - If the requested ratio is impossible (e.g., 100% excitatory when all neurons are Inhibitory), the pre-polarized neurons take precedence
 
 For example, if you have 5 Excitatory neurons, 5 Inhibitory neurons, and 10 Both neurons, and set the ratio to 60% excitatory, the 5 Excitatory neurons contribute 5 positive connections, the 5 Inhibitory neurons contribute 5 negative connections, and the 10 Both neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.
+
+## Handling Duplicate Connections
+
+Connection strategies handle existing connections differently depending on the context:
+
+**Free Weights:**
+When applying a connection strategy to free neurons, existing connections are not overwritten. The strategy creates new connections without checking for duplicates. If you want to replace existing connections, you must manually delete them first. This gives you control to incrementally add connections and fine-tune your network.
+
+**Synapse Groups:**
+When applying a connection strategy to a synapse group, all existing synapses in the group are deleted first, and the strategy is applied fresh. This ensures the synapse group always reflects the current strategy settings.
+
+**Sparse Strategy (Special Case):**
+The Sparse strategy is designed to allow incremental adjustments to connection density while preserving existing weights:
+
+- Free weights: Sparse can add new connections or remove existing ones as needed to reach the target density. This is the only strategy that may remove existing free weights.
+- Synapse groups: Sparse maintains awareness of current connections and adjusts them incrementally rather than replacing everything. When increasing density, it adds only the additional connections needed. When decreasing density, it removes connections to reach the target.
+
+This special behavior makes Sparse ideal for iteratively tuning network connectivity without losing carefully configured weights.
