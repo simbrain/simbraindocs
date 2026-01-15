@@ -30,7 +30,7 @@ This behavior allows you to incrementally adjust connection density. For example
 
 - **Allow self connection**: Whether connections where the source and target are the same neuron are allowed. Only applicable if the source and target neuron sets overlap.
 
-- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initialization](../weightInitialization) for options.
+- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initializers](.) for options.
 
 ## Polarity Behavior
 

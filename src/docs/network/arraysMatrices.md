@@ -230,7 +230,7 @@ The bottom section allows you to apply different weight initialization strategie
 
 After applying a strategy, the histogram and statistics update immediately to reflect the new weight distribution. This allows you to experiment with different initialization approaches and see their effects in real-time.
 
-For more information on when to use each strategy, see [Weight Initialization](weightInitialization) and [Training Parameters](learning/trainingParameters#weight-initialization-strategy).
+For more information on when to use each strategy, see [Training Parameters](learning/trainingParameters#weight-initialization-strategy).
 
 ## Randomization and Initialization
 

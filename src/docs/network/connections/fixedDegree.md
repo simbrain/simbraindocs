@@ -23,7 +23,7 @@ Creates a fixed number of connections to or from each neuron. For each neuron, t
 
 - **Allow self connections**: Whether synapses from neurons to themselves are allowed.
 
-- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initialization](../weightInitialization) for options.
+- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initializers](.) for options.
 
 ## Polarity Behavior
 

@@ -8,7 +8,7 @@ nav_order: 90
 
 # Connection Strategies
 
-Connection strategies are rules used to create patterns of connections between source and target groups of neurons. They provide a systematic way to establish synaptic connections with specific properties and patterns. All connection strategies set an [excitatory/inhibitory ratio](#excitatory--inhibitory-ratio) and can randomize weight strengths using probability distributions.
+Connection strategies are rules used to create patterns of connections between source and target groups of neurons. They provide a systematic way to establish synaptic connections with specific properties and patterns. All connection strategies set an [excitatory/inhibitory ratio](#excitatoryinhibitory-ratio) and can randomize weight strengths using probability distributions.
 
 ## Quick Connection Workflow
 
@@ -39,62 +39,51 @@ Connection strategies work in two integrated stages:
 
 This separation allows you to independently control the topology (which neurons connect) and the weight values (how strong those connections are).
 
-## Common Properties
+## Weight Initializers
 
-All connection strategies share these properties:
+After a connection strategy creates synapses, a weight initializer sets their strengths. Three types are available:
 
-### Weight Initializer
+### Constant
 
-Determines how synapse weights are initialized after connections are created. Available options include Constant (fixed values), Random (probability distributions), and Distance-Based (scales by neuron distance). See [Weight Initialization](../weightInitialization) for detailed information about each type.
+Sets all excitatory synapses to a fixed positive value and all inhibitory synapses to a fixed negative value. This is the simplest option and useful when you want uniform connection strengths.
 
-### Excitatory/Inhibitory Ratio
+- **Excitatory Strength**: The strength value for all excitatory synapses (default 1.0)
+- **Inhibitory Strength**: The strength value for all inhibitory synapses (default -1.0)
 
-The percentage of connections that should be excitatory vs inhibitory. This setting only affects neurons with Both polarity (the default). Pre-polarized neurons (explicitly set to Excitatory or Inhibitory) will always maintain their polarity regardless of this setting.
+Use constant initialization when you want simple, uniform connection strengths or plan to adjust weights later through learning rules or manual editing.
 
-How it works:
-- **Non-polar neurons (default)**: The ratio determines how many connections will have positive (excitatory) vs negative (inhibitory) weights
-- **Pre-polarized neurons**: Excitatory neurons always create positive weights; Inhibitory neurons always create negative weights, ignoring the ratio
-- **Mixed populations**: The strategy attempts to achieve the requested ratio using only the non-polar neurons
+### Random
 
-The [Distance Based](distanceBased) strategy can optionally use neuron polarity in its connection logic (polarity mode), where different decay functions are applied based on source and target neuron polarity.
+Initializes synapse weights using probability distributions, allowing for variability in connection strengths.
 
-Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
+- **Randomize Excitatory**: Whether to randomize excitatory connection strengths. When disabled, uses the default excitatory strength (1.0)
+- **Randomize Inhibitory**: Whether to randomize inhibitory connection strengths. When disabled, uses the default inhibitory strength (-1.0)
+- **Excitatory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate excitatory weight values
+- **Inhibitory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate inhibitory weight values
 
-## Understanding Neuron Polarity
+Common distributions include Normal (Gaussian), Uniform, and Exponential. The absolute value of sampled values is used to ensure correct polarity. Use random initialization when you want variability in connection strengths to model biological diversity or avoid symmetries that might affect learning dynamics.
 
-Connection strategies interact with neuron [polarity](../neurons/#polarity) in two ways:
+### Distance-Based
 
-### All Strategies Respect Polarity
+Scales synapse weights based on the spatial distance between source and target neurons. Closer neurons receive stronger connections.
+
+- **Decay Function**: The [decay function](../../utilities/decayFunctions) that determines how weight strength decreases with distance
+- **Base Strength**: The maximum weight strength at the peak distance (typically distance 0)
+
+For each synapse, the final weight is calculated as: `weight = baseStrength × decayFunction(distance)`. Common decay functions include Gaussian (smooth drop-off), Linear (linear decrease), and Step (constant within radius). Use distance-based initialization when modeling spatially organized networks where nearby neurons should have stronger influence.
+
+## Excitatory/Inhibitory Ratio
+
+All connection strategies set the percentage of connections that should be excitatory vs inhibitory. This setting only affects neurons with Both polarity (the default). Pre-polarized neurons (explicitly set to Excitatory or Inhibitory) will always maintain their polarity regardless of this setting.
 
 Every connection strategy automatically respects the polarity of source neurons:
-- Synapses from Excitatory neurons are always positive.
-- Synapses from Inhibitory neurons are always negative.  
+- Synapses from Excitatory neurons are always positive
+- Synapses from Inhibitory neurons are always negative  
 - Synapses from Both polarity neurons (default) follow the excitatory/inhibitory ratio
 
-This happens automatically at the synapse level. You cannot override a neuron's polarity by changing the excitatory/inhibitory ratio.
+When all source neurons have Both polarity (the default), the ratio straightforwardly sets what percentage of weights will be positive (excitatory) vs negative (inhibitory). Most workflows use non-polar neurons, where the excitatory/inhibitory ratio setting controls the balance of positive and negative weights.
 
-### Some Strategies Use Polarity
-
-The [Distance Based](distanceBased) strategy can optionally use neuron polarity in its connection logic when polarity mode is enabled. In this mode, separate decay functions are used for each polarity combination (EE, EI, IE, II), affecting not just weight signs but also connection topology.
-
-### Default Behavior (Non-Polar)
-
-Most workflows use non-polar neurons (Both polarity), where the excitatory/inhibitory ratio setting controls the balance of positive and negative weights. This is the simplest and most common usage pattern.
-
-## Excitatory / Inhibitory Ratio Details
-
-The excitatory/inhibitory ratio interface provides a slider and text fields to set the percentage of excitatory connections. 
-
-**Simple Case (Non-Polar Neurons):**
-When all source neurons have Both polarity (the default), this straightforwardly sets what percentage of weights will be positive (excitatory) vs negative (inhibitory).
-
-**Complex Case (Pre-Polarized Neurons):**
-When source neurons have explicit Excitatory or Inhibitory polarity, the strategy attempts to achieve the requested ratio while respecting individual neuron polarities:
-- Pre-polarized neurons always maintain their sign
-- The ratio is achieved using only Both polarity neurons
-- If the requested ratio is impossible (e.g., 100% excitatory when all neurons are Inhibitory), the pre-polarized neurons take precedence
-
-For example, if you have 5 Excitatory neurons, 5 Inhibitory neurons, and 10 Both neurons, and set the ratio to 60% excitatory, the 5 Excitatory neurons contribute 5 positive connections, the 5 Inhibitory neurons contribute 5 negative connections, and the 10 Both neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.
+When source neurons have explicit Excitatory or Inhibitory polarity, the strategy attempts to achieve the requested ratio while respecting individual neuron polarities. Pre-polarized neurons always maintain their sign, and the ratio is achieved using only Both polarity neurons. For example, if you have 5 Excitatory neurons, 5 Inhibitory neurons, and 10 Both neurons, and set the ratio to 60% excitatory, the 5 Excitatory neurons contribute 5 positive connections, the 5 Inhibitory neurons contribute 5 negative connections, and the 10 Both neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.
 
 ## Handling Duplicate Connections
 
