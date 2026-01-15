@@ -74,16 +74,16 @@ For each synapse, the final weight is calculated as: `weight = baseStrength × d
 
 ## Excitatory/Inhibitory Ratio
 
-All connection strategies set the percentage of connections that should be excitatory vs inhibitory. This setting only affects neurons with Both polarity (the default). Pre-polarized neurons (explicitly set to Excitatory or Inhibitory) will always maintain their polarity regardless of this setting.
+All connection strategies set the percentage of connections that should be excitatory vs inhibitory. This setting only affects nonpolar neurons (the default). Excitatory and inhibitory neurons will always maintain their polarity constraint regardless of this setting.
 
-Every connection strategy automatically respects the polarity of source neurons:
-- Synapses from Excitatory neurons are always positive
-- Synapses from Inhibitory neurons are always negative  
-- Synapses from Both polarity neurons (default) follow the excitatory/inhibitory ratio
+Every connection strategy automatically respects the [polarity](../neurons/#polarity) of source neurons:
+- Synapses from excitatory neurons are always positive
+- Synapses from inhibitory neurons are always negative  
+- Synapses from nonpolar neurons (default) follow the excitatory/inhibitory ratio
 
-When all source neurons have Both polarity (the default), the ratio straightforwardly sets what percentage of weights will be positive (excitatory) vs negative (inhibitory). Most workflows use non-polar neurons, where the excitatory/inhibitory ratio setting controls the balance of positive and negative weights.
+When all source neurons are nonpolar (the default), the ratio straightforwardly sets what percentage of weights will be positive (excitatory) vs negative (inhibitory). Most workflows use nonpolar neurons, where the excitatory/inhibitory ratio setting controls the balance of positive and negative weight signs.
 
-When source neurons have explicit Excitatory or Inhibitory polarity, the strategy attempts to achieve the requested ratio while respecting individual neuron polarities. Pre-polarized neurons always maintain their sign, and the ratio is achieved using only Both polarity neurons. For example, if you have 5 Excitatory neurons, 5 Inhibitory neurons, and 10 Both neurons, and set the ratio to 60% excitatory, the 5 Excitatory neurons contribute 5 positive connections, the 5 Inhibitory neurons contribute 5 negative connections, and the 10 Both neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.
+When source neurons have explicit excitatory or inhibitory polarity, the strategy attempts to achieve the requested ratio while respecting individual neuron polarity constraints. Excitatory and inhibitory neurons always maintain their sign constraint, and the ratio is achieved using only nonpolar neurons. For example, if you have 5 excitatory neurons, 5 inhibitory neurons, and 10 nonpolar neurons, and set the ratio to 60% excitatory, the 5 excitatory neurons contribute 5 positive connections, the 5 inhibitory neurons contribute 5 negative connections, and the 10 nonpolar neurons are split 7 excitatory, 3 inhibitory to achieve 12/20 = 60% overall.
 
 ## Handling Duplicate Connections
 

@@ -65,9 +65,9 @@ The Randomizers tab configures the [probability distributions](../../utilities/r
   
   This randomizer can produce both positive and negative values, potentially changing the polarity of connections. For weight matrices, consider using the [weight matrix histogram dialog](../arraysMatrices#weight-matrix-histogram-dialog) for more specialized initialization strategies.
 
-- **Excitatory randomizer**: Randomizer for all weights from polarized excitatory neurons. Applying this will not change the polarity of a neuron
+- **Excitatory randomizer**: Randomizer for all weights from excitatory neurons. Applying this will not change the polarity constraint of a neuron
 
-- **Inhibitory randomizer**: Randomizer for all weights from polarized inhibitory neurons. Applying this will not change the polarity of a neuron  
+- **Inhibitory randomizer**: Randomizer for all weights from inhibitory neurons. Applying this will not change the polarity constraint of a neuron  
 
 - **Activation randomizer**: Randomizer for initial neuron activation values
 

@@ -10,12 +10,6 @@ nav_order: 110
 
 Synapse groups are collections of synapses linking a source to a target [neuron group or collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
 
-## Transient Wrapper Concept
-
-Synapse groups act as lightweight, transient wrappers around collections of synapses. They provide organizational structure to group related synapses for easier management and enable batch operations to apply changes to all synapses simultaneously. They track relationships between source and target neuron collections and control visibility of individual synapses within the group.
-
-The transient nature means synapse groups can be created, modified, and deleted without affecting the underlying synapse data structure, making them flexible organizational tools.
-
 ## Connection Strategy Integration
 
 Synapse groups are associated with a [connection strategy](connections), which holds randomizers and parameters related to the connectivity of the synapse group. This allows you to specify connection parameters such as probability distributions, distance functions, and connectivity patterns. You can make incremental adjustments by modifying parameters and reapplying them (for example, slowly increasing sparsity), and dynamically reconfigure the group by changing connection strategies without recreating the entire group.
@@ -24,12 +18,13 @@ Synapse groups are associated with a [connection strategy](connections), which h
 
 Synapse groups automatically respect source [neuron polarity](neurons#polarity):
 
-- **Automatic polarity enforcement**: Every synapse's weight sign is determined by its source neuron's polarity
-- **Pre-polarized neurons**: Excitatory neurons always create positive weights; Inhibitory neurons always create negative weights
-- **Non-polar neurons (default)**: The connection strategy's excitatory/inhibitory ratio determines weight signs
-- **Mixed populations**: The strategy balances pre-polarized and non-polar neurons to achieve the requested ratio when possible
+- **Automatic polarity enforcement**: Every synapse's weight sign is determined by its source neuron's polarity constraint
+- **Excitatory neurons**: Always create positive weights
+- **Inhibitory neurons**: Always create negative weights
+- **Nonpolar neurons (default)**: The connection strategy's excitatory/inhibitory ratio determines weight signs
+- **Mixed populations**: The strategy balances excitatory, inhibitory, and nonpolar neurons to achieve the requested ratio when possible
 
-You can adjust the excitatory/inhibitory ratio through the connection strategy parameters, but pre-polarized neurons will always maintain their polarity. See [Connection Strategies](connections) for more details.
+You can adjust the excitatory/inhibitory ratio through the connection strategy parameters, but excitatory and inhibitory neurons will always maintain their polarity constraint. See [Connection Strategies](connections) for more details.
 
 <!-- TODO: Show some pics -->
 

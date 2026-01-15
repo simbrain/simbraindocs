@@ -45,11 +45,24 @@ To make a neuron whose activation value equals its weighted input, use a [linear
 
 ## Polarity
 
-Neurons can be designated as excitatory or inhibitory. When neurons are polarized in this way, their outgoing synapses are set in a way that respects their polarity.
+Neurons can be designated as excitatory or inhibitory. When neurons have explicit polarity set, all their outgoing synapses are constrained to match that polarity.
 
-- **Excitatory neurons**: Boundary of the neuron is red. When outgoing weights are set to a negative value, that value is flipped to become positive (i.e. strength is set using absolute value of whatever value it is set to, for example -5 becomes 5).
-- **Inhibitory neurons**: Boundary of the neuron is blue. When outgoing weights are set to a positive value, that value is flipped to become negative (i.e. strength is set using the negative absolute value of whatever value it is set to, for example 5 becomes -5).
-- **None**: A standard neuron with a black boundary.
+- **Excitatory**: Boundary of the neuron is red. All outgoing weights are forced to be positive. When a weight is set to a negative value, that value is flipped to become positive (i.e. strength is set using absolute value of whatever value it is set to, for example -5 becomes 5).
+- **Inhibitory**: Boundary of the neuron is blue. All outgoing weights are forced to be negative. When a weight is set to a positive value, that value is flipped to become negative (i.e. strength is set using the negative absolute value of whatever value it is set to, for example 5 becomes -5).
+- **None** (default): A standard neuron with a black boundary. No polarity constraint is applied, so outgoing weights can be either positive or negative.
+
+### Understanding Polarity vs Weight Sign
+
+It's important to distinguish between neuron polarity (a property of neurons) and weight sign (a property of individual synapses):
+
+**Neuron Polarity** is a constraint that determines the sign of all outgoing connections from a neuron:
+- Excitatory neurons: all outgoing weights are forced positive
+- Inhibitory neurons: all outgoing weights are forced negative  
+- Nonpolar neurons (default, polarity set to None): no constraint, outgoing weights can be either positive or negative
+
+**Weight Sign** refers to whether an individual synapse strength is positive (excitatory) or negative (inhibitory). For nonpolar neurons, weight signs can be set independently. For excitatory or inhibitory neurons, weight signs are automatically enforced by the neuron's polarity constraint.
+
+When working with [connection strategies](../connections), the excitatory/inhibitory ratio setting controls weight signs for nonpolar neurons. Excitatory and inhibitory neurons always maintain their polarity constraint regardless of this setting.
 
 ## Neuron Timing Types and the Time Step Field
 

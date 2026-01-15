@@ -53,6 +53,6 @@ Each decay function has a base multiplier parameter that scales the overall conn
 
 ## Polarity Behavior
 
-In standard mode, this strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar neurons.
+In standard mode, this strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for nonpolar neurons.
 
-In polarity mode, neuron polarity affects both connection topology and weight signs. The strategy uses different decay functions based on source and target neuron polarity, allowing you to create networks where, for example, excitatory connections are long-range while inhibitory connections are local.
+In polarity mode, neuron polarity affects both connection topology and weight signs. The strategy uses different decay functions based on source and target neuron polarity, allowing you to create networks where, for example, connections from excitatory neurons are long-range while connections from inhibitory neurons are local.

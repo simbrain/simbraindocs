@@ -27,6 +27,6 @@ Creates a fixed number of connections to or from each neuron. For each neuron, t
 
 ## Polarity Behavior
 
-Fixed Degree applies source neuron polarity during weight initialization, then applies the excitatory/inhibitory ratio to non-polar neurons. This is transparent to users but means the strategy correctly handles both pre-polarized and non-polar neurons.
+Fixed Degree applies source neuron polarity during weight initialization, then applies the excitatory/inhibitory ratio to nonpolar neurons. This is transparent to users but means the strategy correctly handles excitatory, inhibitory, and nonpolar neurons.
 
-The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.
+The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for nonpolar neurons. Excitatory and inhibitory neurons always maintain their polarity constraint.

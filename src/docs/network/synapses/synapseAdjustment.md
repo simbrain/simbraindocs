@@ -12,7 +12,7 @@ This is the main dialog for adjusting collections of weights. The dialog is invo
 
 The top part of this dialog shows a [statistics panel](#statistics-panel) for the selected set of synapses. The tabbed panels can be used to adjust the synapses in various ways, in each case by pressing an `Apply` button. Changes are shown immediately in the statistics panel.
 
-Note: If applied to weights whose source neuron is excitatory or inhibitory and thus shows up with a red or blue border (see [polarity](../neurons/#polarity)), changes made in the panel can be be "flipped" to respect that neuron's polarity. Thus, for example, if you set the weights on a fully connected set of inhibitory neurons to a distribution with mean 1, the result will be a distriution of weights with mean -1. 
+Note: If applied to weights whose source neuron is excitatory or inhibitory and thus shows up with a red or blue border (see [polarity](../neurons/#polarity)), changes made in the panel can be "flipped" to respect that neuron's polarity constraint. Thus, for example, if you set the weights on a fully connected set of inhibitory neurons to a distribution with mean 1, the result will be a distribution of weights with mean -1. 
 
 <img src="/assets/images/synapseAdjustmentPanel.png" alt="Synapse Adjustment Panel" style="width:400px;"/>
 
@@ -41,9 +41,9 @@ Remove all synapses whose absolute value is below the provided threshold by pres
 
 Scale all synapse values up or down by changing their strengths as much as the indicated percentage.
 
-## Polarizer
+## E/I Ratio Adjuster
 
-Change the set of weights to have the indicated ratio of excitatory to inhibitory. The polarizer attempts to produce a ratio that is consistent with the polarity of source neurons, if polarized soure neurons are used. See [Excitatory/Inhibitory Ratio](../connections/#excitatoryinhibitory-ratio).
+Change the set of weight signs to have the indicated ratio of excitatory to inhibitory. This tool adjusts the signs of individual synapse strengths (making them positive or negative) to achieve the target ratio. The tool respects the polarity constraints of source neurons: excitatory and inhibitory neurons always maintain their polarity, and the ratio is achieved by adjusting weights from nonpolar neurons. See [Excitatory/Inhibitory Ratio](../connections/#excitatoryinhibitory-ratio).
 
 ## Working with Connection Strategies
 

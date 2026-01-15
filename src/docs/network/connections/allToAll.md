@@ -19,4 +19,4 @@ Connects every source neuron to every target neuron. This is the default connect
 
 ## Polarity Behavior
 
-This strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.
+This strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for nonpolar neurons. Excitatory and inhibitory neurons always maintain their polarity constraint.
