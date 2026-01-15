@@ -31,9 +31,22 @@ When you use the 1-3 trick, Simbrain uses the connection strategy configured in 
 
 You can change this strategy in [Network Preferences](../ui/networkPreferences) to use any available strategy (Sparse, Distance-Based, Fixed Degree, etc.) with your preferred excitatory/inhibitory ratio.
 
+## Two-Stage Connection Process
+
+Connection strategies work in two integrated stages:
+
+1. **Connection Creation**: The strategy determines which neurons to connect based on its algorithm (all-to-all, distance-based, sparse, etc.)
+2. **Weight Initialization**: A weight initializer sets the initial strength values for the created connections
+
+This separation allows you to independently control the topology (which neurons connect) and the weight values (how strong those connections are).
+
 ## Common Properties
 
-All connection strategies share these properties for controlling weight polarity and randomization:
+All connection strategies share these properties:
+
+### Weight Initializer
+
+Determines how synapse weights are initialized after connections are created. Available options include Constant (fixed values), Random (probability distributions), and Distance-Based (scales by neuron distance). See [Weight Initialization](../weightInitialization) for detailed information about each type.
 
 ### Excitatory/Inhibitory Ratio
 
@@ -44,21 +57,9 @@ How it works:
 - **Pre-polarized neurons**: Excitatory neurons always create positive weights; Inhibitory neurons always create negative weights, ignoring the ratio
 - **Mixed populations**: The strategy attempts to achieve the requested ratio using only the non-polar neurons
 
-A few strategies (Radial Gaussian, Radial Probabilistic) use neuron polarity in their connection logic and may ignore this setting. See individual strategy pages for details.
-
-### Weight Randomizers
-
-- **Excitatory Weight Randomizer**: Probability distribution used to randomize excitatory synapse strengths. Enable or disable randomization for excitatory connections.
-- **Inhibitory Weight Randomizer**: Probability distribution used to randomize inhibitory synapse strengths. Enable or disable randomization for inhibitory connections.
-
-Weights are created in three steps: 
-1. The strategy creates connections with initial strengths
-2. The excitatory/inhibitory ratio is applied (for non-polar neurons)
-3. The two sets of weights are randomized using their respective distributions
+The [Distance Based](distanceBased) strategy can optionally use neuron polarity in its connection logic (polarity mode), where different decay functions are applied based on source and target neuron polarity.
 
 Individual strategies may have additional parameters specific to their connection patterns, such as radius, density, or probability settings.
-
-For more information on how connection strategies interact with weight adjustment, see [Weight Initialization](../weightInitialization).
 
 ## Understanding Neuron Polarity
 
@@ -75,13 +76,7 @@ This happens automatically at the synapse level. You cannot override a neuron's 
 
 ### Some Strategies Use Polarity
 
-A few strategies use neuron polarity in their connection logic:
-
-- **[Radial Gaussian](radialGaussian)**: Uses separate connection constants for EE, EI, IE, and II connections
-- **[Radial Probabilistic](radialProbabilistic)**: Uses separate probabilities and radii for excitatory and inhibitory connections
-- **[Fixed Degree](fixedDegree)**: Applies polarity during weight initialization
-
-For these strategies, neuron polarity affects not just weight signs but also connection topology.
+The [Distance Based](distanceBased) strategy can optionally use neuron polarity in its connection logic when polarity mode is enabled. In this mode, separate decay functions are used for each polarity combination (EE, EI, IE, II), affecting not just weight signs but also connection topology.
 
 ### Default Behavior (Non-Polar)
 

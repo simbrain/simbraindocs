@@ -30,6 +30,8 @@ This behavior allows you to incrementally adjust connection density. For example
 
 - **Allow self connection**: Whether connections where the source and target are the same neuron are allowed. Only applicable if the source and target neuron sets overlap.
 
+- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initialization](../weightInitialization) for options.
+
 ## Polarity Behavior
 
 This strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for non-polar (Both polarity) neurons. Pre-polarized Excitatory and Inhibitory neurons always maintain their polarity.

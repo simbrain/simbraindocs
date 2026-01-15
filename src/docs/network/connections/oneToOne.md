@@ -23,6 +23,7 @@ In addition to the examples below, diagonal connections can be formed which tend
 ## Parameters
 
 - **Bi-directional**: If true, synapses are added in both directions (source→target and target→source).
+- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initialization](../weightInitialization) for options.
 
 ## Examples
 

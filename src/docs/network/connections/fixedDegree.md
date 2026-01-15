@@ -23,6 +23,8 @@ Creates a fixed number of connections to or from each neuron. For each neuron, t
 
 - **Allow self connections**: Whether synapses from neurons to themselves are allowed.
 
+- **Weight Initializer**: Determines how synapse strengths are set. See [Weight Initialization](../weightInitialization) for options.
+
 ## Polarity Behavior
 
 Fixed Degree applies source neuron polarity during weight initialization, then applies the excitatory/inhibitory ratio to non-polar neurons. This is transparent to users but means the strategy correctly handles both pre-polarized and non-polar neurons.
