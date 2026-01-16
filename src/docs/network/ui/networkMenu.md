@@ -144,7 +144,7 @@ Toolbars can be toggled on and off using the `View > Toolbars` menu.
 The Main Toolbar controls the edit mode and zoom level:
 
 - **Selection Mode**: Select nodes and weights by clicking or lassoing (default mode)
-- **Wand Mode**: Inject activation to neurons quickly for testing (I). See [wand tool](../buildingBasics#using-the-wand)
+- **Wand Mode**: Inject activation to neurons quickly for testing (D). Press repeatedly to cycle through wand actions. See [wand tool](../buildingBasics#using-the-wand)
 - **Pan Mode**: Pan the view by clicking and dragging
 - **Zoom In**: Zoom in on the network view
 - **Zoom Out**: Zoom out from the network view

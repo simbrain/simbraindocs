@@ -44,7 +44,7 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-A:** Select all objects (alternative)
 - **Escape:** Clear selection and remove source neuron designations
 - **s:** Selection mode (default mode)
-- **i:** Wand mode (quickly inject activation for testing). Think of "I" for inject activation, which is one use of wands
+- **d:** Wand mode (quickly inject activation for testing). Press repeatedly to cycle through wand actions. S and D are adjacent, making it easy to switch between selection and wand modes
 - **t:** Text mode (add text annotations)
 - **f:** Fit camera to screen
 
