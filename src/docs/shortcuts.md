@@ -44,7 +44,7 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-A:** Select all objects (alternative)
 - **Escape:** Clear selection and remove source neuron designations
 - **s:** Selection mode (default mode)
-- **i:** Wand mode (quickly inject activation for testing)
+- **i:** Wand mode (quickly inject activation for testing). Think of "I" for inject activation, which is one use of wands
 - **t:** Text mode (add text annotations)
 - **f:** Fit camera to screen
 
@@ -106,7 +106,6 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-,:** [Network preferences](network/ui/networkPreferences)
 - **Cmd/Ctrl-Z:** [Undo](network/buildingBasics#undoredo-capabilities) last structural change
 - **Cmd/Ctrl-Y** or **Cmd/Ctrl-Shift-Z:** [Redo](network/buildingBasics#undoredo-capabilities) last undone action
-- **S:** Select neurons inside selected neuron groups
 - **Alt-R:** Toggle vertical/horizontal layout for neuron arrays
 - **Alt-D:** Print debug info to console (terminal only)
 - **Shift-I:** Diagonalize selected weight matrices

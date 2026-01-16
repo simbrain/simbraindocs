@@ -169,7 +169,6 @@ Beyond the shortcuts listed above, the following keyboard shortcuts are availabl
 - **Shift + Arrow Keys**: Nudge selected objects in the arrow direction
 - **Escape**: Clear all selections and clear source neurons
 - **Shift-F**: Toggle clamping on selected neurons
-- **S**: Select neurons inside selected neuron groups
 - **Alt-R**: Toggle vertical/horizontal layout for selected neuron arrays
 
 For a complete reference of all network shortcuts and shortcuts for other components, see the [Keyboard Shortcuts](../../shortcuts) page.
