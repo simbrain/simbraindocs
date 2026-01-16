@@ -45,12 +45,10 @@ After a connection strategy creates synapses, a weight initializer sets their st
 
 ### Constant
 
-Sets all excitatory synapses to a fixed positive value and all inhibitory synapses to a fixed negative value. This is the simplest option and useful when you want uniform connection strengths.
+Sets all excitatory synapses to a fixed positive value and all inhibitory synapses to a fixed negative value. 
 
 - **Excitatory Strength**: The strength value for all excitatory synapses (default 1.0)
 - **Inhibitory Strength**: The strength value for all inhibitory synapses (default -1.0)
-
-Use constant initialization when you want simple, uniform connection strengths or plan to adjust weights later through learning rules or manual editing.
 
 ### Random
 
@@ -60,8 +58,6 @@ Initializes synapse weights using probability distributions, allowing for variab
 - **Randomize Inhibitory**: Whether to randomize inhibitory connection strengths. When disabled, uses the default inhibitory strength (-1.0)
 - **Excitatory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate excitatory weight values
 - **Inhibitory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate inhibitory weight values
-
-Common distributions include Normal (Gaussian), Uniform, and Exponential. The absolute value of sampled values is used to ensure correct polarity. Use random initialization when you want variability in connection strengths to model biological diversity or avoid symmetries that might affect learning dynamics.
 
 ### Distance-Based
 
