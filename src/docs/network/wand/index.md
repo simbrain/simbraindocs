@@ -10,14 +10,6 @@ nav_order: 15
 
 The wand tool provides a way to interact with neural networks by painting activation patterns directly onto neurons and synapses. Think of it as a virtual electrode that lets you inject current into a network, or as a digital brush for sculpting neural activity patterns. It provides a fast, intuitive way to set up network states for testing, create training patterns, and dynamically influence running simulations.
 
-The wand is particularly useful for:
-- Quickly setting initial activation patterns
-- Creating patterns to be learned by Hopfield networks and other associative memory models
-- Testing network responses by injecting activation during simulation
-- Debugging network behavior by manually activating specific neurons
-- Creating input patterns for testing classifiers and other trained networks
-- Sculpting synapse strengths by painting over connections
-
 # Activating the Wand
 
 To activate wand mode:
