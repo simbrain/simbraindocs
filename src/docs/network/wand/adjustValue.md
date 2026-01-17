@@ -43,13 +43,7 @@ What property to adjust.
 
 Whether to constrain the result within the target's lower and upper bounds.
 
-## Letter
-
-Single character displayed on the toolbar button when this action is selected.
-
-## Color
-
-Color of the wand cursor when this action is active.
+For [common properties](.#common-properties) like Letter and Color, see the main wand tool page.
 
 # Common Configurations
 

@@ -35,7 +35,11 @@ Once in wand mode:
 2. All objects within the wand radius will be affected according to the selected action
 3. The cursor color indicates which action is currently active
 
-Each neuron or synapse is only affected once per drag operation, preventing repeated application of the same action.
+# Repeated "painting" with a wand
+
+Each neuron or synapse is touched only once per click-and-drag to prevent network objects from being repeatedly updated.
+
+Thus, if you want to apply the action again to the same objects, you need to release the mouse button and click again. Think of it like painting with a brush that marks each spot to avoid double-coating until you lift the brush.
 
 # Wand Actions
 
@@ -44,6 +48,26 @@ The wand uses a palette of configurable actions. Each action defines what happen
 ## Cycling Through Actions
 
 Press `d` repeatedly while in wand mode to cycle through available actions. The cursor color and the toolbar button letter change to reflect the current action.
+
+## Common Properties
+
+All wand actions share these properties:
+
+- **Letter**: Single character displayed on the toolbar button when this action is selected. This provides quick visual identification of the active action.
+
+- **Color**: Color of the wand cursor when this action is active. The cursor changes to this color to provide visual feedback about which action is currently in use.
+
+# Wand Settings
+
+## Wand Radius
+
+The radius controls how many objects are affected by each wand stroke. Adjust it in [network preferences](../ui/networkPreferences#wand-radius).
+
+A larger radius affects more neurons at once, useful for painting broad patterns. A smaller radius provides precision for detailed work.
+
+## Cursor Color
+
+The cursor color automatically matches the selected action's color, providing visual feedback about which action is active.
 
 # Managing the Wand Palette
 
@@ -76,17 +100,3 @@ Use the Import and Export buttons to save and load custom wand palettes as XML f
 - Share palettes between projects
 - Create specialized palettes for different tasks
 - Backup custom configurations
-
-# Wand Settings
-
-## Wand Radius
-
-The radius controls how many objects are affected by each wand stroke. Adjust it in [network preferences](../ui/networkPreferences#wand-radius).
-
-A larger radius affects more neurons at once, useful for painting broad patterns. A smaller radius provides precision for detailed work.
-
-## Cursor Color
-
-The cursor color automatically matches the selected action's color, providing visual feedback about which action is active.
-
-
