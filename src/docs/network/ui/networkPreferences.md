@@ -20,7 +20,7 @@ The Colors tab allows customization of all visual color elements in the network 
 - **Network background color**: Background color of the network canvas
 - **Node hot color**: Color for neurons with high positive activation or excitatory polarity  
 - **Node cool color**: Color for neurons with low/negative activation or inhibitory polarity
-- **Line color**: Default color for lines, borders, and neutral elements
+- **Connection line color**: Color for connections between neurons
 - **Spiking color**: Color used to highlight neurons and connections when spiking
 - **Excitatory color**: Color for excitatory synapses (positive weights)
 - **Inhibitory color**: Color for inhibitory synapses (negative weights)
@@ -39,7 +39,6 @@ The GUI tab controls visual display settings and interface behavior:
 - **Min synapse size**: Minimum visual diameter for synapse circles in pixels
 - **Max synapse size**: Maximum visual diameter for synapse circles in pixels
 - **Visibility threshold**: Hide individual synapses when [synapse groups](../synapsegroups) exceed this number of synapses
-- **Wand radius**: Radius in pixels for the [wand tool](../wand/)
 - **Weight matrix target-source format**: If yes, each row of a [weight matrix](../arraysMatrices) corresponds to an output and each column corresponds to an input. If no (source-target format), each row corresponds to an input and each column corresponds to an output
 - **Matrix image max width/height**: Maximum size of the weight matrix image in pixels in either dimension (width or height)
 

@@ -49,17 +49,9 @@ All wand actions share these properties:
 
 - **Color**: Color of the wand cursor when this action is active. The cursor changes to this color to provide visual feedback about which action is currently in use.
 
-# Wand Settings
+- **Radius**: Radius of the wand effect in screen pixels. Each wand action has its own configurable radius. A larger radius affects more neurons at once, useful for painting broad patterns. A smaller radius provides precision for detailed work. The radius can be edited in the wand palette panel when configuring each action.
 
-## Wand Radius
-
-The radius controls how many objects are affected by each wand stroke. Adjust it in [network preferences](../ui/networkPreferences#wand-radius).
-
-A larger radius affects more neurons at once, useful for painting broad patterns. A smaller radius provides precision for detailed work.
-
-## Cursor Color
-
-The cursor color automatically matches the selected action's color, providing visual feedback about which action is active.
+The cursor color automatically matches the selected action's color, and the cursor size reflects the configured radius.
 
 # Managing the Wand Palette
 

@@ -43,7 +43,7 @@ What property to adjust.
 
 Whether to constrain the result within the target's lower and upper bounds.
 
-For [common properties](.#common-properties) like Letter and Color, see the main wand tool page.
+For [common properties](.#common-properties) like Letter, Color, and Radius, see the main wand tool page.
 
 # Common Configurations
 

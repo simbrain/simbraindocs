@@ -22,7 +22,7 @@ The connection strategy determines which synapses to create and how to initializ
 
 The distance within which to search for neighboring neurons to connect to. Neurons within this radius of the touched neuron become potential connection targets (subject to the connection strategy).
 
-For [common properties](.#common-properties) like Letter and Color, see the main wand tool page.
+For [common properties](.#common-properties) like Letter, Color, and Radius, see the main wand tool page.
 
 # Using Connect to Neighbors
 

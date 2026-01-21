@@ -25,7 +25,7 @@ The connection strategy determines which synapses to create and how to initializ
 
 See the [connection strategies](../../connections/) documentation for more details on each type.
 
-For [common properties](.#common-properties) like Letter and Color, see the main wand tool page.
+For [common properties](.#common-properties) like Letter, Color, and Radius, see the main wand tool page.
 
 # Using Connect From Selection
 
