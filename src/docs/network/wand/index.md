@@ -39,7 +39,7 @@ The wand uses a palette of configurable actions. Each action defines what happen
 
 ## Cycling Through Actions
 
-Press `d` repeatedly while in wand mode to cycle through available actions. The cursor color and the toolbar button letter change to reflect the current action.
+Press `d` repeatedly while in wand mode to cycle forward through available actions. Press `Shift+D` to cycle backward through actions. The cursor color and the toolbar button letter change to reflect the current action.
 
 ## Common Properties
 

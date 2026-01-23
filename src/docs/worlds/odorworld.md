@@ -257,6 +257,20 @@ This can be done using [Tiled](https://www.mapeditor.org/). To start you can ope
 
 Note: when you edit the tilemap in Simbrain these updates can be saved. However you cannot export these changes and then edit in Tiled. That is, workflows from Tiled to Simbrain are possible (keep editing in Tiled and importing to Simbrain), but once you start editing in Simbrain it has to stay in Simbrain.
 
+# Preferences
+
+Odor World has both global preferences and per-world properties.
+
+## Global Preferences
+
+Global preferences apply to all odor worlds in the workspace. Access them via `File > Odor world preferences...` in the main Simbrain menu.
+
+- **Tile map directory**: Default directory for loading tile maps
+
+## World Properties
+
+Each odor world also has local properties that can be set via `File > World Properties` in the odor world menu. These include settings for map boundaries wrapping, object blocking behavior, and camera centering.
+
 # Menu Commands
 
 ## File Menu
@@ -265,9 +279,8 @@ Note: when you edit the tilemap in Simbrain these updates can be saved. However 
 - **Export from xml**: Export (.csv) : Export data to a .csv file (comma
 separated values).
 - **Load Tile Map**: Load premade tile maps
-- **Preferences**: Set preferences for whether you want map boundaries to
-wrap around, objects to block movement, camera centering through 'yes'
-or 'no' options.
+- **Clear Tile Map**: Remove the current tile map
+- **World Properties**: Set local properties for this specific odor world (map boundaries wrapping, object blocking, camera centering)
 - **Rename**: rename world.
 - **Close**: Close the current Odor World.
 
