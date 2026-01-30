@@ -15,7 +15,11 @@ Decay functions return a scaling factor between 0 and 1 based on a given distanc
 
 All decay functions are symmetric around the peak distance. The function reaches its maximum value (scaled by base multiplier) at the peak distance, then decays symmetrically on both sides until reaching 0 at a distance of `dispersion` from the peak.
 
-The function evaluates at any distance value (including negative distances). When peak distance is non-zero, the function creates symmetric shapes centered at the peak: a plateau (step), a triangle (linear), an exponential tent, or a bell curve (Gaussian).
+The function evaluates at any distance value (including negative distances, though this does not occur in practice). When peak distance is non-zero, the function creates symmetric shapes centered at the peak: a plateau (step), a triangle (linear), an exponential tent, or a bell curve (Gaussian).
+
+The figure below illustrates the four decay function types with peak distance = 5 and dispersion = 3. However, in most applications peak distance will be 0, meaning the decay simply falls off from the source location according to one of these patterns.
+
+![Decay Functions Comparison]({{ site.baseurl }}/assets/images/decay_functions.png)
 
 ## Common Properties
 
@@ -42,12 +46,12 @@ For a desired slope m (negative), set dispersion to `-1 / m`.
 
 ## Exponential Decay Function
 
-The Exponential Decay function provides a middle ground between linear and Gaussian decay, with a characteristic exponential falloff pattern. The function reaches its maximum value at peakDistance and decreases exponentially, reaching 0 at both `peakDistance - dispersion` and `peakDistance + dispersion`. This creates a sharper falloff than linear decay while being less smooth than Gaussian decay. When peak distance is non-zero, the symmetric exponential decay on both sides creates a tent-like shape with curved sides.
+The Exponential Decay exhibits a characteristic exponential falloff pattern, truncated at dispersion. The function reaches its maximum value at peakDistance and decreases exponentially, reaching 0 at both `peakDistance - dispersion` and `peakDistance + dispersion`. When peak distance is non-zero, the symmetric exponential decay on both sides creates a tent-like shape with curved sides.
 
 For a desired decay rate lambda, set dispersion to `5.0 / lambda`.
 
 ## Gaussian Decay Function
 
-The Gaussian Decay function models influence using a bell curve, making it ideal for simulating natural falloff patterns such as those found in biology or physics. The function creates a symmetric bell curve centered at peakDistance with smooth, continuous decay and no abrupt cutoffs.
+The Gaussian Decay function models influence using a bell curve, making it ideal for simulating natural falloff patterns such as those found in biology or physics. The function creates a symmetric bell curve centered at peakDistance with smooth, continuous decay within the dispersion range, then truncates to 0 beyond that range.
 
 For a desired standard deviation σ, set dispersion to `2 * σ`. At distance peakDistance + dispersion, the scaling factor is approximately 0.135 (13.5% of peak). At distance peakDistance + dispersion/2 (1 standard deviation), the scaling factor is approximately 0.606 (60.6% of peak).
