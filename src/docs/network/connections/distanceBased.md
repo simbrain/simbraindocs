@@ -56,3 +56,7 @@ Each decay function has a base multiplier parameter that scales the overall conn
 In standard mode, this strategy respects source neuron polarity automatically. The excitatory/inhibitory ratio setting controls the distribution of positive and negative weights for nonpolar neurons.
 
 In polarity mode, neuron polarity affects both connection topology and weight signs. The strategy uses different decay functions based on source and target neuron polarity, allowing you to create networks where, for example, connections from excitatory neurons are long-range while connections from inhibitory neurons are local.
+
+## Computational Neuroscience Context
+
+Distance-dependent connectivity (also called spatially-structured connectivity) is widely used in computational neuroscience to model cortical and hippocampal circuits. Gaussian and exponential distance profiles are commonly used to capture the biological finding that connection probability decreases with distance due to axonal costs and wiring constraints. The polarity mode reflects empirical findings that inhibitory interneurons typically have more local connectivity than excitatory pyramidal cells. For reviews and empirical data, see [Perin et al. (2011)](https://www.pnas.org/doi/10.1073/pnas.1016051108) on cortical microcircuits, [Song et al. (2005)](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0030068) on cortical connectivity statistics, and [Sporns & Betzel (2016)](https://www.annualreviews.org/doi/10.1146/annurev-psych-122414-033634) for broader network perspectives.
