@@ -10,13 +10,13 @@ has_children: false
 
 Creates synapses from each touched neuron to other neurons within a specified radius. This provides a quick way to build local connectivity patterns by painting over neurons.
 
-The action uses a configurable [connection strategy](../../connections/) to determine which synapses to create and how to initialize their weights. Different strategies allow for different patterns of local connectivity.
+The action uses a configurable [connection strategy](../connections/) to determine which synapses to create and how to initialize their weights. Different strategies allow for different patterns of local connectivity.
 
 # Parameters
 
 ## Connection Strategy
 
-The connection strategy determines which synapses to create and how to initialize their weights. See the [connection strategies](../../connections/) documentation for more details on each type.
+The connection strategy determines which synapses to create and how to initialize their weights. See the [connection strategies](../connections/) documentation for more details on each type.
 
 ## Radius
 

@@ -59,7 +59,7 @@ Initializes synapse weights using probability distributions, allowing for variab
 - **Excitatory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate excitatory weight values
 - **Inhibitory Randomizer**: The [probability distribution](../../utilities/randomizers) used to generate inhibitory weight values
 
-When using randomizers, excitatory/inhibitory polarity is enforced by taking the absolute value of each sampled value. Excitatory weights are set to |x| and inhibitory weights to -|x|, where x is the sampled value. This transformation means the observed distribution of weight strengths will differ from the configured distribution, often significantly. For example, a Normal(0, 1) distribution becomes a half-normal distribution. To get expected results, use distributions that naturally produce positive values (like Log-Normal) or adjust your distribution parameters to account for this transformation.
+When using randomizers, excitatory/inhibitory polarity is enforced by taking the absolute value of each sampled value. Excitatory weights are set to \|x\| and inhibitory weights to -\|x\|, where x is the sampled value. This transformation means the observed distribution of weight strengths will differ from the configured distribution, often significantly. For example, a Normal(0, 1) distribution becomes a half-normal distribution. To get expected results, use distributions that naturally produce positive values (like Log-Normal) or adjust your distribution parameters to account for this transformation.
 
 ### Distance-Based
 

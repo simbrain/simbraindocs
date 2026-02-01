@@ -11,6 +11,8 @@ Decay functions determine how the influence of an object decreases as the distan
 
 Decay functions return a scaling factor between 0 and 1 based on a given distance. This factor can be interpreted as a probability or as a strength multiplier. Each decay function defines a different shape for this falloff.
 
+In Simbrain, decay functions are used in [odor world](../worlds/odorworld) for modeling how smells and sensor detection fade with distance, in [distance-based connection strategies](../network/connections/distanceBased) for creating spatially-organized network connectivity patterns, and in various simulations.
+
 ## How Decay Functions Work
 
 All decay functions are symmetric around the peak distance. The function reaches its maximum value (scaled by base multiplier) at the peak distance, then decays symmetrically on both sides until reaching 0 at a distance of `dispersion` from the peak.

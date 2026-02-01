@@ -10,7 +10,7 @@ has_children: false
 
 Creates synapses from currently selected neurons to neurons touched by the wand. This provides a quick way to build specific connectivity patterns by painting connections.
 
-The action uses a configurable [connection strategy](../../connections/) to determine which synapses to create and how to initialize their weights. Different strategies allow for different patterns of connectivity between the source neurons and the painted targets.
+The action uses a configurable [connection strategy](../connections/) to determine which synapses to create and how to initialize their weights. Different strategies allow for different patterns of connectivity between the source neurons and the painted targets.
 
 # Parameters
 
@@ -23,7 +23,7 @@ The connection strategy determines which synapses to create and how to initializ
 - **Sparse**: Creates connections probabilistically based on connection density
 - **Fixed Degree**: Creates a fixed number of connections per source neuron
 
-See the [connection strategies](../../connections/) documentation for more details on each type.
+See the [connection strategies](../connections/) documentation for more details on each type.
 
 For [common properties](.#common-properties) like Letter, Color, and Radius, see the main wand tool page.
 
