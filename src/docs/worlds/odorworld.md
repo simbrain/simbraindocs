@@ -190,6 +190,12 @@ Agents are able to sense specific tile types in a [tile map](#tile-map). The sen
 - **Base Value:** Base activation value before decay is applied
 - **Decay Function:** Determines how the sensor's response diminishes with distance from matching tiles. Configured in a separate dispersion tab.
 
+## 3D View Sensor
+
+Odor World includes a `View3DSensor` that provides a pseudo-3D first-person render from an agent perspective.
+
+See [3D World](3dworld) for setup details, parameters, coupling outputs, and related 3D simulations.
+
 
 # Effectors
 
@@ -295,6 +301,3 @@ enable/disable blocking for each layer
 - **Turn on all trails**: When on, agents leave a trail where they move which allows behavior to be tracked
 - **Turn off all trails**: Stop tracking trails.
 - **Clear all trails**: Remove all visible trails
-
-
-
