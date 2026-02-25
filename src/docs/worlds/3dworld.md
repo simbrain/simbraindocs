@@ -7,7 +7,7 @@ nav_order: 56
 
 # 3D World
 
-`View3DSensor` provides a pseudo-3D first-person rendering of an OdorWorld scene from an agent-centered viewpoint. The approach uses classic [ray casting](https://en.wikipedia.org/wiki/Ray_casting) ideas associated with older ["2.5D" first-person graphics](https://en.wikipedia.org/wiki/2.5D). It is not a separate Simbrain world component. It is a sensor in [Odor World](odorworld) that exposes image-like outputs for coupling. The sensor also renders a configurable wall and sky and so it packs a 3d environment into a single sensor. Shown below is a sensor output showing the first-person image brightness values coupled to an [Image world](imageworld).
+`View3DSensor` provides first-person 3D rendering of an OdorWorld scene from an agent-centered viewpoint using classic [ray casting](https://en.wikipedia.org/wiki/Ray_casting). It is not a separate Simbrain world component. It is a sensor in [Odor World](odorworld) that exposes image-like outputs for coupling. The sensor also renders a configurable wall and sky and so it packs a 3d environment into a single sensor. Shown below is a sensor output showing the first-person image brightness values coupled to an [Image world](imageworld).
 
 ![3D View Sensor rendering example](/assets/images/threedsensor.png)
 
