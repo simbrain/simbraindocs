@@ -65,6 +65,16 @@ A [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution) distribution is 
 
 - **Mean Value**: The discrete value you should expect to see most often. Also called lambda (λ).
 
+## Two valued
+
+A two-valued distribution returns either a lower value or an upper value, based on a specified probability. This is a [Bernoulli](https://en.wikipedia.org/wiki/Bernoulli_distribution)-style distribution over two numeric outcomes.
+
+- **Lower value**: The value returned when the lower outcome is selected.
+
+- **Upper value**: The value returned when the upper outcome is selected.
+
+- **Probability**: Probability of selecting the upper value.
+
 ## Uniform Integer
 
 A discrete uniform distribution that produces integer values with equal probability over a specified range.
