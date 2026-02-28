@@ -37,9 +37,9 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
 
 - **Nudging**: For fine tuning a selection, users can also use the arrow keys (with Shift held down) to nudge selected items. The nudge amount in pixels can be set in the network preferences dialog.
 
-- **Zooming**: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, or the toolbar buttons, which include zoom to fit (fit everything on the page automatically) or reset, which places the zoom level at 1:1. Auto-zoom mode makes things always zoom to fit.
+- **Zooming**: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, toolbar buttons, or the `View > Zoom` menu. `Reset Zoom` sets a fixed 100% scale (1:1). `Auto-zoom` is different: it continuously fits the full network in the window and can be toggled from the toolbar or `View > Zoom > Auto-zoom`.
 
-- **Panning**: To pan press the Cmd/Ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot it should be turned off by double-clicking on the auto-zoom icon. 
+- **Panning**: To pan press the Cmd/Ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot, turn it off using either the auto-zoom toolbar toggle or `View > Zoom > Auto-zoom`.
 
 # Graphical and Color Conventions
 
@@ -227,4 +227,3 @@ Network undo/redo tracks structural changes only. This includes adding and delet
 Changes to neuron activations cannot be undone. Property changes (editing update rules, polarity, labels, or other settings via property dialogs) also cannot be undone. Changes to individual components within subnetworks cannot be undone separately; the subnetwork is treated as a single unit.
 
 The Undo History dialog provides a visual list of all undoable and redoable actions, allowing you to navigate directly to any previous state without stepping through each action sequentially.
-

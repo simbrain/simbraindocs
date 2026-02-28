@@ -82,6 +82,11 @@ The Actions menu contains special utility operations for networks:
 
 ## View Menu
 
+- **Zoom**: Submenu for zoom controls
+  - Zoom In
+  - Zoom Out
+  - Reset Zoom (Cmd/Ctrl-0): Set zoom scale to 100% (1:1) without fitting content
+  - Auto-zoom: Continuously fit the network to the window as objects are added, moved, or removed
 - **Toolbars**: Submenu to toggle toolbar visibility
   - Main Toolbar
   - Edit Toolbar
@@ -148,7 +153,7 @@ The Main Toolbar controls the edit mode and zoom level:
 - **Pan Mode**: Pan the view by clicking and dragging
 - **Zoom In**: Zoom in on the network view
 - **Zoom Out**: Zoom out from the network view
-- **Auto-zoom**: Toggle auto-zoom mode. When enabled, the view automatically fits objects as they are created and moved
+- **Auto-zoom**: Toggle continuous fit-to-window behavior. This is different from Reset Zoom, which sets a fixed 100% scale (also available from `View > Zoom > Auto-zoom`)
 
 ### Edit Toolbar
 
@@ -172,4 +177,3 @@ Beyond the shortcuts listed above, the following keyboard shortcuts are availabl
 - **Alt-R**: Toggle vertical/horizontal layout for selected neuron arrays
 
 For a complete reference of all network shortcuts and shortcuts for other components, see the [Keyboard Shortcuts](../../shortcuts) page.
-
