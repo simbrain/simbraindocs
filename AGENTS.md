@@ -48,6 +48,8 @@ published: true  # Set to false if not available in UI
 - Avoid em dashes (—) between phrases. Use commas, periods, or restructure
 - Avoid headings beyond h3
 - Keep lists minimal and focused
+- In code snippets, prefer existing `org.simbrain.util.SwingUtils.kt` dialog helpers over raw `JOptionPane` setup, and suggest adding a utility helper when one is missing
+- In code snippets, avoid decorative separator comments like `// ── Section ─────────────────`
 
 **What to document:**
 - All `@UserParameter` and `GuiEditable` properties
