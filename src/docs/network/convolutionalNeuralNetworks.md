@@ -10,6 +10,8 @@ nav_order: 125
 
 Convolutional neural networks use tensor layers and spatial connectors to process image-like data. In Simbrain, a CNN is built from [TensorLayer](#tensor-layers) nodes connected by [convolution](#convolution-kernels), [pooling](#pooling), and [flatten](#flattening) connectors. A [ConvolutionalNeuralNetwork](subnetworks/convolutionalNeuralNetwork) subnetwork can wrap the whole pipeline so one network update performs a full forward pass.
 
+Simbrain's visual tools make CNNs easier to inspect than they are in many code-only settings. Tensor layers show their spatial shape and channel contents directly, connector dialogs show how stride and padding change those shapes, kernel views show what each filter is learning, and receptive field tracing shows which input window contributes to a particular downstream activation.
+
 <img src="/assets/images/cnn/cnn_example.png" alt="A Simbrain convolutional neural network connected to an image world" style="width:650px;"/>
 
 ## Creating a CNN
@@ -31,6 +33,8 @@ Pooling stages expose:
 - **Pool Size**: Spatial size of the pooling window.
 - **Stride**: Step size used when moving the pooling window.
 - **Pooling Type**: Max or Average.
+
+A useful way to think about convolution and pooling is that both move a sliding box across the tensor. Kernel size or pool size sets the box size, stride sets how far the box jumps at each step, and padding determines whether that box may extend beyond the original input edge. When stride is smaller than the window, neighboring windows overlap; when it equals the window, they just touch; when it is larger, there are gaps.
 
 ## Tensor Layers
 
@@ -67,6 +71,8 @@ A ConvolutionConnector connects one tensor layer to another using learned kernel
 
 The row labels in the grid correspond to filters, and the column labels correspond to input channels. In single-kernel mode, arrow controls move through filters and channels.
 
+With `Valid` padding the kernel must stay fully inside the input, so spatial dimensions usually shrink and border cells contribute less. With `Same` padding, the input is padded so that stride-1 convolution preserves the spatial height and width; with larger strides, the output is still reduced according to the stride.
+
 ## Pooling
 
 A PoolingConnector downsamples a tensor layer without learned weights. Pooling preserves the number of channels and changes the spatial dimensions according to the pool size and stride.
@@ -74,6 +80,8 @@ A PoolingConnector downsamples a tensor layer without learned weights. Pooling p
 - **Pool Size**: Spatial size of the pooling window.
 - **Stride**: Step size used when moving the pooling window.
 - **Pooling Type**: Max selects the largest activation in the window. Average averages the window.
+
+Pooling in Simbrain is unpadded. This is like `Valid` convolution in that the pool window must fit inside the source tensor. A common setup is `poolSize = stride`, which creates non-overlapping downsampling windows; if the input dimensions do not divide cleanly, leftover border rows or columns are dropped.
 
 ## Flattening
 
@@ -87,7 +95,7 @@ Hovering over tensor activations shows how spatial operations map across layers.
 
 <img src="/assets/images/cnn/forwardTracing.png" alt="Forward receptive field tracing through a convolution connector" style="width:650px;"/>
 
-Forward tracing shows the current kernel or pooling window and the activation it maps to in the next tensor layer. Backward tracing shows the input activations that influence the hovered activation, expanding the receptive field through earlier layers.
+Forward tracing shows the current kernel or pooling-window footprint and the activation it maps to in the next tensor layer. Backward tracing starts from a single activation and shows the source-region footprint that produced it, expanding the receptive field through earlier layers.
 
 <img src="/assets/images/cnn/backwardTracing.png" alt="Backward receptive field tracing through a convolutional neural network" style="width:650px;"/>
 
@@ -112,3 +120,5 @@ CNN training uses the same general training concepts described in [Supervised Le
 - **Stopping Condition**: Optional automatic stopping conditions used while running.
 - **Test Configuration**: Controls periodic evaluation on testing data.
 - **Compute Accuracy**: Computes classification accuracy when targets are one-hot encoded.
+
+When a CNN training dialog creates a default dataset, tensor inputs are initialized with simple synthetic image patterns such as lines, boxes, plus signs, and blobs. Each sample is stored as a flat row sized to the input tensor, but values are placed using the tensor's height, width, and channel indexing so they map directly to TensorLayer activations; targets are one-hot output vectors. For multi-channel tensors, the pattern is drawn strongly in one primary channel and can be ghosted at lower intensity into the other channels.
