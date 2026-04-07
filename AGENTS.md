@@ -41,8 +41,9 @@ published: true  # Set to false if not available in UI
 - Minimize bolding: only for parameter names in lists, menu items, and list labels
 - Don't bold first-use technical terms, algorithm steps, or descriptive prose
 - Use backticks for menu paths: `` `Simulations > Competitive` ``
+- Avoid backticks for entity names in prose, including class names, component names, and model names. Prefer plain text or a link. Reserve inline code for commands, menu paths, file paths, code snippets, URLs, and text that must be copied exactly.
 - Link cross-references: `[tolerance](#tolerance)` not `**Tolerance**`
-- Use Title Case for enum values as shown in UI
+- Use Title Case for enum values as shown in UI, without backticks unless the exact literal value is important
 - Omit label prefixes like "Properties:", "Note:", "Example simulation:"
 - Link to parent pages with `.` not `index.html`
 - Avoid em dashes (—) between phrases. Use commas, periods, or restructure

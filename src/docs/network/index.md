@@ -38,9 +38,15 @@ An alternative to free nodes and weights (and collections of them) is neuron arr
 
 Neuron collections and groups can be linked to neuron arrays with weight matrices or synapse groups.
 
+## Tensor Layers and Convolutional Neural Networks
+
+Tensor layers support image-like arrays with height, width, and channel dimensions. They can be connected by convolution, pooling, and flattening connectors to build convolutional neural networks. See [convolutional neural networks](convolutionalNeuralNetworks).
+
+<img src="/assets/images/cnn/tensor.png" alt="tensor layer" style="width:250px;"/>
+
 ## Subnetworks
 
-These are customized collections of network models (neurons, neuron groups, neuron arrays, etc.) that can be associated with data and other objects, and that are updated in a customized way. Examples include backprop networks and restricted boltzmann machines. See [subnetworks](subnetworks/).
+These are customized collections of network models (neurons, neuron groups, neuron arrays, tensor layers, etc.) that can be associated with data and other objects, and that are updated in a customized way. Examples include backprop networks, convolutional neural networks, and restricted boltzmann machines. See [subnetworks](subnetworks/).
 
 <img src="/assets/images/rbm.png" alt="restricted boltzmann machine" style="width:550px;"/>
 
@@ -50,5 +56,5 @@ These are customized collections of network models (neurons, neuron groups, neur
 - [Network Update](updateLogic) - How networks are updated
 - [Learning](learning/) - Training and learning approaches 
 - [Evolution](learning/evolution) - Evolving neural networks
+- [Convolutional Neural Networks](convolutionalNeuralNetworks) - Tensor layers, kernels, pooling, and tracing
 - [Network Menu](ui/networkMenu) - Menu commands
-
