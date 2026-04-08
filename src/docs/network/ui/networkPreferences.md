@@ -43,7 +43,7 @@ The GUI tab controls visual display settings and interface behavior:
 - **Visibility threshold**: Hide individual synapses when [synapse groups](../synapsegroups) exceed this number of synapses
 - **Weight matrix target-source format**: If yes, each row of a [weight matrix](../arraysMatrices) corresponds to an output and each column corresponds to an input. If no (source-target format), each row corresponds to an input and each column corresponds to an output
 - **Matrix image max width/height**: Maximum size of the weight matrix image in pixels in either dimension (width or height)
-- **Show numeric overlays**: Show numeric values on neuron arrays, weight matrices, tensors, and connectors when zoomed in
+- **Show numeric overlays**: Show numeric values on neuron arrays, weight matrices, tensors, and connectors when zoomed in. The overlay appears only when the cells are large enough on screen, so you may need to zoom in further and disable auto-zoom while inspecting values.
 - **Receptive field trace mode**: Controls how [receptive field trace](../convolutionalNeuralNetworks#receptive-field-tracing) boxes behave on hover. Auto Navigate changes the visible channel or filter to the traced one. Highlight Matched shows traces only when the matching channel is already visible. Highlight All shows trace boxes without switching the current view
 
 ## Model
@@ -77,4 +77,3 @@ The Randomizers tab configures the [probability distributions](../../utilities/r
 - **Bias randomizer**: Randomizer for all neuron biases
 
 Each randomizer can be configured with different probability distributions (Normal, Uniform, Log-Normal, etc.) and their parameters. Click the details button to configure distribution-specific settings.
-

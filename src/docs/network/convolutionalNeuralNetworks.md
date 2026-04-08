@@ -73,6 +73,10 @@ A ConvolutionConnector connects one tensor layer to another using learned kernel
 
 The row labels in the grid correspond to filters, and the column labels correspond to input channels. In single-kernel mode, arrow controls move through filters and channels.
 
+When zoomed in, convolution kernels can display their numeric weight values as overlays, just like tensor activations. This is controlled by the same [Show numeric overlays](ui/networkPreferences#gui) preference.
+
+<img src="/assets/images/cnn/mnist_kernelzoomin.png" alt="Zoomed-in convolution kernel with numeric weight overlays visible" style="width:320px;"/>
+
 With `Valid` padding the kernel must stay fully inside the input, so spatial dimensions usually shrink and border cells contribute less. With `Same` padding, the input is padded so that stride-1 convolution preserves the spatial height and width; with larger strides, the output is still reduced according to the stride.
 
 ## Pooling

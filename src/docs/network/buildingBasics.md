@@ -37,7 +37,7 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
 
 - **Nudging**: For fine tuning a selection, users can also use the arrow keys (with Shift held down) to nudge selected items. The nudge amount in pixels can be set in the network preferences dialog.
 
-- **Zooming**: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, toolbar buttons, or the `View > Zoom` menu. `Reset Zoom` sets a fixed 100% scale (1:1). `Auto-zoom` is different: it continuously fits the full network in the window and can be toggled from the toolbar or `View > Zoom > Auto-zoom`.
+- **Zooming**: To zoom use the mouse-wheel or the pinch-to-zoom gesture on trackpads, toolbar buttons, or the `View > Zoom` menu. `Reset Zoom` sets a fixed 100% scale (1:1). `Auto-zoom` is different: it continuously fits the full network in the window and can be toggled from the toolbar or `View > Zoom > Auto-zoom`. When [Show numeric overlays](ui/networkPreferences#gui) is enabled, zooming in far enough also reveals numeric values on neuron arrays, weight matrices, tensors, and related connectors.
 
 - **Panning**: To pan press the Cmd/Ctrl key while left-clicking and dragging. Note that by default auto-zoom is turned on; if you plan to zoom in and pan a lot, turn it off using either the auto-zoom toolbar toggle or `View > Zoom > Auto-zoom`.
 

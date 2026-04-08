@@ -32,6 +32,17 @@ Toggle between these modes using the right-click menu or the GUI tab in the neur
 
 When displaying a non-square neuron array in grid mode, unused pixels in the rectangular grid are rendered as gray.
 
+### Inspecting Values by Zooming
+
+When [Show numeric overlays](../ui/networkPreferences#gui) is enabled, neuron arrays can display their activation values directly on the network canvas once you zoom in far enough. This is especially useful in grid and image-style views, where each cell can be inspected without opening a separate editor.
+
+<div style="display:flex; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+  <img src="/assets/images/neuronarray_zoomout.png" alt="Neuron array before zooming in, with color blocks but no numeric overlays" style="width:220px;"/>
+  <img src="/assets/images/neuronarray_zoomin.png" alt="Neuron array after zooming in, with numeric activation overlays visible on each cell" style="width:420px;"/>
+</div>
+
+The number of decimal places used in these overlays is controlled by the decimal-place settings in [network preferences](../ui/networkPreferences#gui). If values are not appearing, first check that numeric overlays are enabled, then zoom in further and turn off auto-zoom if it is continuously resizing the view.
+
 ### Array Operations
 
 Neuron arrays support several operations:
@@ -56,6 +67,8 @@ Weight matrices represent connections between neuron arrays or neuron collection
 ### Matrix Structure
 
 Weight matrices have dimensions of target size × source size. Each entry represents the connection strength from a source neuron to a target neuron. The matrix supports both excitatory and inhibitory connections, with automatic masking to separate these connection types.
+
+When [Show numeric overlays](../ui/networkPreferences#gui) is enabled, weight matrices can also show the individual weight values directly on each matrix cell when zoomed in. This makes it easier to inspect learned structure, compare nearby weights, and verify initialization or training changes visually.
 
 ### Matrix Operations
 
