@@ -28,7 +28,7 @@ The best way to understand what's possible is to explore existing simulations us
 
 ## The Basic Workflow
 
-Simulations are written in [Kotlin](https://kotlinlang.org/) (Java is still supported but being phased out).
+Simulations are written in [Kotlin](https://kotlinlang.org/).
 
 First, set up your development environment following the [Simbrain source setup guide](https://github.com/simbrain/simbrain/wiki/Running-From-Source).
 
@@ -43,6 +43,16 @@ Modern AI coding assistants like [Cursor](https://cursor.sh/), [GitHub Copilot](
 For example, you might prompt: "Create a simulation with a feedforward network that learns XOR, display it with a time series plot showing error over time, and add a control panel to adjust learning rate."
 
 The AI can reference existing patterns from similar simulations and generate appropriate Kotlin code using Simbrain's API.
+
+The new `Desktop: View > Show component bounds...` command at the workspace level and `Network: Actions > Show network debug info...` in network windows are especially useful in this workflow. A practical pattern is:
+
+1. Ask the AI to generate a first-pass simulation
+2. Open and visually refine the resulting workspace and network layouts in the GUI
+3. Use `Desktop: View > Show component bounds...` to capture the current workspace component positions and sizes
+4. Use `Network: Actions > Show network debug info...` to inspect the current network state
+5. Copy-paste that output back into the AI chat and ask for a revised version
+
+This gives the AI a structured snapshot of the actual workspace and network after GUI-based adjustments, which is often more useful than describing the layout in prose.
 
 If there is interest, contact the authors and we will add some prompting and setup suggestions here in these docs.
 
@@ -276,7 +286,3 @@ The key pattern is to keep all persistent component creation in the main simulat
 See `RecurrentProjection.kt` for control panel recreation, `ClassicalConditioning.kt` for custom update action restoration, and `SimpleOperant.kt` for another behavioral simulation with custom updates.
 
 Use descriptive, unique simulation IDs to avoid conflicts. Set meaningful labels on network models you'll need to retrieve later. Always test saving and reopening to ensure your dynamic elements are restored correctly.
-
-## Java Simulations (Legacy)
-
-While being phased out, Java simulations are still supported. See `TestSim.java` for the current template. Java simulations require more boilerplate and have less tooling support than Kotlin simulations.

@@ -38,6 +38,8 @@ nav_order: 30
 
 - **Gather windows**: Places all desktop windows in the upper left corner of the desktop and resizes them. Helpful when windows get lost offscreen, or when opening a workspace created on a larger monitor than the one you are using.
 
+- **Show component bounds...**: Open a dialog showing the current positions and sizes of all workspace components. This is useful when laying out a workspace manually and then transferring those bounds into a simulation script or sharing them with an AI assistant; see the fuller workflow discussion in [Simulations and Scripting](../simulations/).
+
 ## Insert
 
 - **Network**: Insert a new [Network](../network/) component into the workspace. Keyboard shortcut: Cmd/Ctrl-N.

@@ -56,10 +56,12 @@ This page describes the menu items, keyboard shortcuts, and toolbar actions avai
 - **Add Neurons**: Add multiple neurons with configurable layout and update rule (N)
 - **Add Neuron Collection**: Add a neuron collection to the network (G)
 - **Add Neuron Array**: Add a neuron array to the network (Y)
+- **Add Tensor Layer**: Add a tensor layer to the network (Shift-T)
 - **Add Classifier**: Add a classifier network
 - **Add Subnetwork**: Submenu with various subnetwork types including:
   - Backprop network
   - Competitive network
+  - Convolutional neural network
   - Feed-forward network
   - Hopfield network
   - Self-organizing map (SOM)
@@ -79,6 +81,7 @@ The Actions menu contains special utility operations for networks:
 - **Fast Sparse**: Create sparse connections between neurons
 - **Prune Weights**: Remove weights below a threshold
 - **Randomize Polarity**: Randomize the polarity of selected neurons
+- **Show Network Debug Info**: Open a dialog with debug information about all network models in the current network. This is useful for inspection and for AI-assisted simulation iteration; see the longer workflow discussion in [Simulations and Scripting](../../simulations/).
 
 ## View Menu
 
@@ -111,6 +114,7 @@ When right-clicking on an empty area of the network panel:
 - **Add Neurons**: Create multiple neurons (N)
 - **Add Neuron Collection**: Create a neuron collection (G)
 - **Add Neuron Array**: Create a neuron array (Y)
+- **Add Tensor Layer**: Create a tensor layer (Shift-T)
 - **Add Classifier**: Create a classifier network
 - **Add Subnetwork**: Submenu with various subnetwork types
 - **Add Text**: Add a text annotation (T)

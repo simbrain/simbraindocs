@@ -22,9 +22,11 @@ The editor automatically selects the appropriate widget based on property type:
 - **Color**: Color picker button
 - **Arrays** (DoubleArray, IntArray, BooleanArray, String Array): Embedded table editors
 - **Matrix**: Embedded table for matrix editing
+- **Tensors**: Embedded tensor editors for multi-dimensional array data such as tensor layer activations, biases, and convolution kernels. Tensor editors use tabs to organize higher-dimensional data, including nested tabs for tensors with multiple non-table axes.
+
 - **Objects** (CopyableObject, EditableObject): Nested editors with type selection dropdown and collapsible details
 
-## Annotation Features
+## Annotation Feature
 
 Properties can be configured using the `@UserParameter` annotation (Java and Kotlin) or the `GuiEditable` delegation (Kotlin only).
 
