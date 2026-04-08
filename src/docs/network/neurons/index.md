@@ -18,7 +18,7 @@ Some rules produce activity generators, which don't respond to inputs, but only 
 
 Some more neuraly realistic rules involve [spiking](../spikingneurons).
 
-Most rules apply to both free neurons and [neuron arrays](../arraysMatrices). A few rules are available for neuron arrays only: [Softmax](softmax) and [Winner Take All](wta). These require knowledge of all activations in the layer simultaneously, which is only possible in the array context.
+Most rules apply to both free neurons and [neuron arrays](../arraysMatrices). A few rules are available for neuron arrays only: [Softmax](../arraysMatrices/softmax) and [Winner Take All](../arraysMatrices/wta). These require knowledge of all activations in the layer simultaneously, which is only possible in the array context.
 
 ## Graphical Conventions
 

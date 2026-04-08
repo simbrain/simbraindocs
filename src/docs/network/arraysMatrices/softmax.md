@@ -2,7 +2,7 @@
 title: Softmax
 layout: default
 grand_parent: Networks
-parent: Neurons
+parent: Neuron Arrays and Weight Matrices
 has_children: false
 ---
 

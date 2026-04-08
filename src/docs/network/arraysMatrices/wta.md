@@ -2,14 +2,14 @@
 title: Winner Take All
 layout: default
 grand_parent: Networks
-parent: Neurons
+parent: Neuron Arrays and Weight Matrices
 has_children: false
 nav_order: 200
 ---
 
 # Winner Take All Rule
 
-The winner-take-all rule is available for [neuron arrays](../arraysMatrices) only. It selects the neuron with the highest input as the winner and sets all others to a lose value.
+The winner-take-all rule is available for [neuron arrays](.) only. It selects the neuron with the highest input as the winner and sets all others to a lose value.
 
 This rule is useful for modeling categorical selection, decision-making, and inhibitory competition where only one output should be active at a time.
 

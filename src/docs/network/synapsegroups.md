@@ -8,7 +8,7 @@ nav_order: 110
 
 # Synapse Groups
 
-Synapse groups are collections of synapses linking a source to a target [neuron collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
+Synapse groups are collections of synapses linking a source to a target [neuron collection](./neuroncollections). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
 
 ## Connection Strategy Integration
 

@@ -88,7 +88,7 @@ Many items in Simbrain have interaction boxes, which look like this:
 
 <img src="/assets/images/interactionBoxes.png" alt="interaction boxes" style="width:300px;"/>
 
-The example shows an interaction box for a [neuron collection](neurongroups) called "NeuronCollection_3"
+The example shows an interaction box for a [neuron collection](neuroncollections) called "NeuronCollection_3"
 
 You can drag things by the interaction box, right-click on them for a context menu, or double-click on them to open a dialog.
 

@@ -2,7 +2,7 @@
 title: Neuron Arrays and Weight Matrices
 layout: default
 parent: Networks
-has_children: false
+has_children: true
 nav_order: 120
 ---
 
@@ -18,7 +18,7 @@ In Simbrain 4 array-based approaches have been incorporated (using [Smile matrix
 
 Neuron arrays are collections of neurons backed by Smile matrices, stored as column vectors. They provide efficient computation for large numbers of neurons while maintaining compatibility with Simbrain's visualization and update systems.
 
-Most [neuron update rules](neurons/) work with neuron arrays. Two rules are available for neuron arrays only: [Softmax](neurons/softmax) (normalizes activations into a probability distribution) and [Winner Take All](neurons/wta) (sets the highest-input neuron to a win value and all others to a lose value). These require simultaneous access to all activations in the layer, which is only possible in the array context.
+Most [neuron update rules](../neurons/) work with neuron arrays. Two rules are available for neuron arrays only: [Softmax](softmax) (normalizes activations into a probability distribution) and [Winner Take All](wta) (sets the highest-input neuron to a win value and all others to a lose value). These require simultaneous access to all activations in the layer, which is only possible in the array context.
 
 ### Display Modes
 
@@ -80,7 +80,7 @@ An array can be inserted into a network window through two methods:
 1. `Insert > Add Neuron Array`
 2. Pressing the keyboard shortcut `Y`
 
-Weight matrices can be added by connecting any two neuron arrays or neuron collections. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
+Weight matrices can be added by connecting any two neuron arrays or neuron collections. The simplest way to connect two objects is using the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
 
 ## Matrix Integration
 
@@ -114,7 +114,7 @@ This factorization allows spike responders to modify individual synaptic respons
 
 ### Spike Response Integration
 
-The PSR matrix can be processed by [spike responders](./spikeresponders.html) before summation, allowing for:
+The PSR matrix can be processed by [spike responders](../spikeresponders.html) before summation, allowing for:
 - Non-linear synaptic responses
 - Temporal dynamics at individual synapses
 - Biologically plausible computation models
@@ -182,9 +182,9 @@ The PSR matrix can be processed by [spike responders](./spikeresponders.html) be
 
 - **Diagonalize**: Create an identity-like diagonal matrix
 
-- **Randomize selection**: Randomize weights using the [default weight randomizer](ui/networkPreferences#randomizers) (R)
+- **Randomize selection**: Randomize weights using the [default weight randomizer](../ui/networkPreferences#randomizers) (R)
 
-- **Randomize symmetric**: Randomize the matrix symmetrically using the [default weight randomizer](ui/networkPreferences#randomizers), ensuring the matrix remains symmetric
+- **Randomize symmetric**: Randomize the matrix symmetrically using the [default weight randomizer](../ui/networkPreferences#randomizers), ensuring the matrix remains symmetric
 
 - **Show weight matrix histogram...**: Open the [weight matrix histogram dialog](#weight-matrix-histogram-dialog) to visualize weight distribution and apply initialization strategies
 
@@ -232,7 +232,7 @@ The bottom section allows you to apply different weight initialization strategie
 
 After applying a strategy, the histogram and statistics update immediately to reflect the new weight distribution. This allows you to experiment with different initialization approaches and see their effects in real-time.
 
-For more information on when to use each strategy, see [Training Parameters](learning/trainingParameters#weight-initialization-strategy).
+For more information on when to use each strategy, see [Training Parameters](../learning/trainingParameters#weight-initialization-strategy).
 
 ## Randomization and Initialization
 
@@ -240,7 +240,7 @@ Weight matrices can be randomized in several ways:
 
 ### Quick Randomization
 
-The `Randomize selection` and `Randomize symmetric` menu items use the [default weight randomizer](ui/networkPreferences#randomizers) configured in network preferences. This randomizer applies to all weights regardless of polarity and can change the sign of weights.
+The `Randomize selection` and `Randomize symmetric` menu items use the [default weight randomizer](../ui/networkPreferences#randomizers) configured in network preferences. This randomizer applies to all weights regardless of polarity and can change the sign of weights.
 
 To use these options:
 1. Right-click the weight matrix
@@ -286,7 +286,7 @@ While weight matrices and synapse groups both represent connections, they have d
 - **Increment amount**: Amount to increment all weights when using keyboard shortcuts
 - **Clamped**: If checked, local learning rules won't be applied (weights can still be manually updated)
 - **Learning rule**: Specifies how weights change during training
-- **Spike responder**: Processes PSR matrix entries, only used if source connector's rule is spiking (see [Spike Responders](./spikeresponders.html))
+- **Spike responder**: Processes PSR matrix entries, only used if source connector's rule is spiking (see [Spike Responders](../spikeresponders.html))
 
 ### Weight Matrix Tab
 
@@ -308,7 +308,7 @@ The weight matrix viewer allows you to view and edit weight values in a tabular 
 - **Use Layer Norm**: If checked, applies layer normalization after each update
 - **Label**: Optional string description for identification
 - **Update Priority**: Determines update order in network (lower numbers update first)
-- **Clamped**: Prevents activation updates (see [clamping](./neurons#clamping))
+- **Clamped**: Prevents activation updates (see [clamping](../neurons#clamping))
 - **Increment**: Amount to increment all activations using keyboard shortcuts
 
 ### GUI Tab
@@ -323,4 +323,4 @@ The weight matrix viewer allows you to view and edit weight values in a tabular 
 - **Update Rule**: Neuron update function (Linear, Sigmoidal, etc.)
 - **State variables**: Rule-specific state variables (depends on selected update rule)
 
-Update rule parameters vary by rule type. For more information on specific update rules, see [neuron update rules](./neurons.html#update-rules).
+Update rule parameters vary by rule type. For more information on specific update rules, see [neuron update rules](../neurons.html#update-rules).

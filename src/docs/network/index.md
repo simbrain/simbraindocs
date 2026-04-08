@@ -22,7 +22,7 @@ Free neurons and synapses are part of "classic" Simbrain, allowing nodes and con
 
 ## Neuron Collections and Synapse Groups
 
-Free neurons and weights can be aggregated into [neuron collections](neurongroups/) and [synapse groups](synapsegroups). Neuron collections are lightweight wrappers that allow neurons to be labeled, moved as a unit, and connected to other layers. They have green interaction boxes; deleting a collection leaves the neurons intact.
+Free neurons and weights can be aggregated into [neuron collections](neuroncollections/) and [synapse groups](synapsegroups). Neuron collections are lightweight wrappers that allow neurons to be labeled, moved as a unit, and connected to other layers. They have green interaction boxes; deleting a collection leaves the neurons intact.
 
 <img src="/assets/images/neuronCollections.png" alt="neuron collections" style="width:300px;"/>
 

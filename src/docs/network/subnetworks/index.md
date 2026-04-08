@@ -8,7 +8,7 @@ nav_order: 130
 
 # Subnetworks
 
-Subnetworks are a special kind of network model that can encompass multiple [neuron collections](../neurongroups), [synapse groups](../synapsegroups), [neuron arrays](../arraysMatrices), [weight matrices](../arraysMatrices), and custom update rules. They appear in the network with an outline around their components and a custom interaction box that shows the subnetwork name.
+Subnetworks are a special kind of network model that can encompass multiple [neuron collections](../neuroncollections), [synapse groups](../synapsegroups), [neuron arrays](../arraysMatrices), [weight matrices](../arraysMatrices), and custom update rules. They appear in the network with an outline around their components and a custom interaction box that shows the subnetwork name.
 
 <!-- TODO: Add image -->
 

@@ -53,7 +53,7 @@ These shortcuts work for any component when it has focus:
 - **p:** Add a single neuron where you last clicked
 - **N:** Open dialog to add multiple neurons at once
 - **Y:** Add [neuron array](network/arraysMatrices) dialog
-- **g:** Create a new [neuron collection](network/neurongroups/) from scratch
+- **g:** Create a new [neuron collection](network/neuroncollections/) from scratch
 - **Cmd/Ctrl-G:** Add selected neurons to a neuron collection
 
 ### Editing and Modifying
