@@ -14,6 +14,8 @@ Workspace preferences can be accessed from File > Workspace preferences... These
 
 These preferences are accessible through the workspace preferences dialog:
 
+- **Show beta simulations**: When enabled, beta simulations are shown in the Simulations menu with "(beta)" appended to their name. Beta simulations are works in progress that may be incomplete or unstable.
+
 - **Show info dock by default**: When enabled, the simulation info panel will be shown by default when opening Simbrain or simulations.
 
 - **Show bottom dock by default**: When enabled, the bottom dock (containing Components, Terminal, and Performance tabs) will be shown by default.

@@ -62,6 +62,7 @@ published: true  # Set to false if not available in UI
 - Default values or ranges (they change)
 - Features not in RULE_LIST or registry
 - Implementation details
+- Specific simulations should not be documented here. The simulations/index.md page provides general info about the simulation framework. Specific simulations are documented internally in the corresponding .kt files.
 
 ## Workflow
 
@@ -90,7 +91,7 @@ published: true  # Set to false if not available in UI
 - Don't document features not in RULE_LIST or registry
 - Don't document default values or ranges
 - Match parameter terminology exactly to code
-- Check that simulations exist in RegisteredSimulations.kt
+- Don't update simulations/index.md or any simulations documentation
 - Don't over-bold text (first-use terms, algorithm steps, descriptive prose)
 - Don't use em dashes between phrases
 - Don't create manual "Available X Types" sections (Jekyll generates TOC)

@@ -28,6 +28,8 @@ The Colors tab allows customization of all visual color elements in the network 
 - **Weight matrix arrow color**: Color for arrows indicating [weight matrix](../arraysMatrices) connections
 - **Weight matrix boundary color**: Color for weight matrix boundaries and outlines
 - **Synapse group arrow color**: Color for arrows indicating [synapse group](../synapsegroups) connections
+- **Receptive field trace color**: Color for forward receptive field trace boxes and connector highlights in [CNNs](../convolutionalNeuralNetworks#receptive-field-tracing)
+- **Backward trace color**: Color for backward receptive field trace boxes and connector highlights
 
 ## GUI
 
@@ -41,6 +43,8 @@ The GUI tab controls visual display settings and interface behavior:
 - **Visibility threshold**: Hide individual synapses when [synapse groups](../synapsegroups) exceed this number of synapses
 - **Weight matrix target-source format**: If yes, each row of a [weight matrix](../arraysMatrices) corresponds to an output and each column corresponds to an input. If no (source-target format), each row corresponds to an input and each column corresponds to an output
 - **Matrix image max width/height**: Maximum size of the weight matrix image in pixels in either dimension (width or height)
+- **Show numeric overlays**: Show numeric values on neuron arrays, weight matrices, tensors, and connectors when zoomed in
+- **Receptive field trace mode**: Controls how [receptive field trace](../convolutionalNeuralNetworks#receptive-field-tracing) boxes behave on hover. Auto Navigate changes the visible channel or filter to the traced one. Highlight Matched shows traces only when the matching channel is already visible. Highlight All shows trace boxes without switching the current view
 
 ## Model
 

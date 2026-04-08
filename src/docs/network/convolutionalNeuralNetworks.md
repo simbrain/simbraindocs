@@ -18,7 +18,7 @@ Simbrain's visual tools make CNNs easier to inspect than they are in many code-o
 
 There are two ways to build a CNN. The [Convolutional Neural Network subnetwork](subnetworks/convolutionalNeuralNetwork) creation dialog steps through the whole architecture in one place: input shape, convolution and pooling stages, dense layers, and output size.
 
-You can also build a CNN outward from an initial tensor layer. Add a tensor layer, right-click it, and use `Add Conv Layer...`, `Add Pool Layer...`, or `Add Flatten Layer` to add the next compatible stage. After flattening to a NeuronArray, continue with outgoing neuron arrays and weight matrices. Once the pipeline reaches the desired output NeuronArray, select the input tensor as the source, select the output NeuronArray as the target, and use `Create convolutional neural network` to wrap the pipeline in a subnetwork.
+You can also build a CNN outward from an initial tensor layer. Add a tensor layer, right-click it, and use `Add Conv Layer...`, `Add Pool Layer...`, or `Add Flatten Layer` to add the next compatible stage. After flattening to a NeuronArray, continue with outgoing neuron arrays and weight matrices. Neuron arrays can be added to the pipeline in the same way as tensor layers: right-click a tensor layer and use `Add Neuron Array` to append a dense layer directly. Once the pipeline reaches the desired output NeuronArray, select the input tensor as the source, select the output NeuronArray as the target, and use `Create convolutional neural network` to wrap the pipeline in a subnetwork.
 
 The tensor-layer list shows each stage and its resulting shape. Convolution stages expose:
 
@@ -49,6 +49,8 @@ A TensorLayer stores activations in height, width, channel order. Tensor layers 
 - **Biases**: Per-element bias values.
 
 The TensorLayer activation functions are part of the tensor/CNN system. They do not reuse ordinary neuron update rules, even when the names are similar. For example, TensorLayer ReLU is separate from the ReLU clipping option described for [Linear](neurons/linear) neurons.
+
+When zoomed in, tensor layers can display numeric activation values as overlays on each cell. This behavior is controlled by the [Show numeric overlays](ui/networkPreferences#gui) preference.
 
 Tensor layers can also be coupled to external components. A single channel can be coupled as a two-dimensional array, and a three-channel tensor can be used as an RGB image source or target.
 
@@ -81,7 +83,7 @@ A PoolingConnector downsamples a tensor layer without learned weights. Pooling p
 - **Stride**: Step size used when moving the pooling window.
 - **Pooling Type**: Max selects the largest activation in the window. Average averages the window.
 
-Pooling in Simbrain is unpadded. This is like `Valid` convolution in that the pool window must fit inside the source tensor. A common setup is `poolSize = stride`, which creates non-overlapping downsampling windows; if the input dimensions do not divide cleanly, leftover border rows or columns are dropped.
+Pooling in Simbrain is unpadded. This is like `Valid` convolution in that the pool window must fit inside the source tensor. A common setup is `poolSize = stride`, which creates non-overlapping downsampling windows; if the input dimensions do not divide cleanly, leftover border rows or columns are dropped. The pooling type can be changed dynamically on an existing pooling connector without rebuilding the network.
 
 ## Flattening
 
