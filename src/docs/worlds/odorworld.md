@@ -42,7 +42,7 @@ Note that the sensor vector depends crucially on the location of the sensory app
 
 ## Coupling to Smell Sensors
 
-Smell sensors are producers in couplings. The current value of a sensor vector (either the whole vector, or one component) are sent to neurons and neuron groups (or other components) in Simbrain. Smell sensors can produce scalar and vector values. Vector values are just the sensor vector that occurs after summing and scaling as described above. Scalar values are particular components of these sensory vectors. Thus "Smell-Left-1" is the name of a scalar producer that will send the value of first component of the left sensor of an agent, and "Smell-Left-2" is the name of a scalar producer that will send the value of third component of that sensor.
+Smell sensors are producers in couplings. The current value of a sensor vector (either the whole vector, or one component) are sent to neurons and neuron collections (or other components) in Simbrain. Smell sensors can produce scalar and vector values. Vector values are just the sensor vector that occurs after summing and scaling as described above. Scalar values are particular components of these sensory vectors. Thus "Smell-Left-1" is the name of a scalar producer that will send the value of first component of the left sensor of an agent, and "Smell-Left-2" is the name of a scalar producer that will send the value of third component of that sensor.
 
 ## Background on Smell
 
@@ -131,7 +131,7 @@ A Hearing sensor is associated with a specific utterance. When a hearing sensor 
 
 Agents can detect their spatial location in the OdorWorld map via grid sensors. The sensor divides a region of the world into a grid of cells, and outputs a vector where one element is active (set to the activation amount) depending on which cell the agent currently occupies. An input neuron coupled with a grid sensor acts like a [place cell](https://en.wikipedia.org/wiki/Place_cell). 
 
-To use grid sensors effectively, create a neuron group with dimensions that match the grid sensor's rows and columns (e.g., a 5x5 grid sensor should be coupled to a 5x5 neuron array).
+To use grid sensors effectively, create a neuron array with dimensions that match the grid sensor's rows and columns (e.g., a 5x5 grid sensor should be coupled to a 5x5 neuron array).
 
 ### Parameters
 

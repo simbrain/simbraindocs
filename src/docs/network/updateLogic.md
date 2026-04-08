@@ -162,9 +162,9 @@ At each network iteration each of these actions is executed in sequence. Some bu
 
 ### Network Model Update Order
 
-Buffering solves some but not all problems with update order. For example, it makes a difference whether a [Hebbian](synapses/hebbian) synapse is updated before or after neuron update. Thus, by default, network models are updated in the following determinate order: Neuron, NeuronGroup, NeuronCollection, NeuronArray, Connector, SynapseGroup, Subnetwork, Synapse, All Others. 
+Buffering solves some but not all problems with update order. For example, it makes a difference whether a [Hebbian](synapses/hebbian) synapse is updated before or after neuron update. Thus, by default, network models are updated in the following determinate order: Neuron, NeuronCollection, NeuronArray, Connector, SynapseGroup, Subnetwork, Synapse, All Others. 
 
-Note that items within [neuron groups](neurongroups/) and [subnetworks](subnetworks/) are updated in a custom manner specific to the group or network. For example, [feedforward](subnetworks/feedForward) networks update the input nodes first, then hidden layers in sequence, then output nodes. To customize even further, [custom simulations](simulations) can be used.
+Note that items within [subnetworks](subnetworks/) are updated in a custom manner specific to the network. For example, [feedforward](subnetworks/feedForward) networks update the input nodes first, then hidden layers in sequence, then output nodes. To customize even further, [custom simulations](simulations) can be used.
 
 ### Why Buffering Matters
 
@@ -202,7 +202,7 @@ To use priority-based update, go to `File > Edit update sequence...`, remove the
 
 ### Setting Priorities
 
-Each network model (neurons, synapses, neuron groups, etc.) has a priority property that determines its update order. Lower numbers have higher priority and are updated first. The default priority is 0 for all models.
+Each network model (neurons, synapses, neuron collections, etc.) has a priority property that determines its update order. Lower numbers have higher priority and are updated first. The default priority is 0 for all models.
 
 The easiest way to view and manage priorities is through the priority table. Go to `View > Show priority table...` to open the Network Model Priorities dialog:
 

@@ -18,6 +18,8 @@ Some rules produce activity generators, which don't respond to inputs, but only 
 
 Some more neuraly realistic rules involve [spiking](../spikingneurons).
 
+Most rules apply to both free neurons and [neuron arrays](../arraysMatrices). A few rules are available for neuron arrays only: [Softmax](softmax) and [Winner Take All](wta). These require knowledge of all activations in the layer simultaneously, which is only possible in the array context.
+
 ## Graphical Conventions
 
 The color of a neuron generally represents the activation of a neuron, with red for "hot" activation above 0, blue for "cool" activation below 0, and white for no activation. The number shown is rounded activation; functionally, however, double precision floating point values are used. This value can be seen by lingering over a neuron for a tooltip or double clicking on it. The number of decimal places displayed in the graphical display and tooltips can be configured in [network preferences](../ui/networkPreferences#gui).
@@ -100,7 +102,7 @@ These fields are common to many different neuron update rules.
 
 Clamped items are not updated on update. However even if clamped, manual adjustment and adjustment via [input tables](../ui/testInputs) (as in training dialogs) is possible. This can be important because without clamping nodes will zero on update. 
 
-In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update its activation. It sits on whatever value it's had. It holds on to current activation. However, the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, [input tables](../ui/testInputs), used in many subnetworks, can modify clamped neurons. The clamp neurons button in neuron group clamps all the neurons in that group.
+In general, a clamped neuron will not change over time; it is "clamped" to its current value. The clamped neuron does not consult its update rule in order to update its activation. It sits on whatever value it's had. It holds on to current activation. However, the clamped neurons values can still be changed by external sources. Manually pressing the up and down buttons will force them to change. Also, [input tables](../ui/testInputs), used in many subnetworks, can modify clamped neurons. The clamp neurons button in a neuron collection clamps all the neurons in that collection.
 
 ## Popup Menu (Selected Neurons)
 

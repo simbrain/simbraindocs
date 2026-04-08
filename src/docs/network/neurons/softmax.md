@@ -12,8 +12,6 @@ The softmax rule converts a vector of values (logits) into a probability distrib
 
 Softmax is only available for neuron arrays (matrix type). It cannot be applied to individual free neurons, as softmax requires knowledge of all inputs in a group to normalize them into a probability distribution. Attempting to apply it to free neurons will result in an error.
 
-Note: There is also a [softmax group](../neurongroups/softmax) that provides an alternative way to achieve softmax behavior by applying softmax normalization after individual neuron updates. The group does not use this rule internally.
-
 ## Algorithm
 
 For a layer with inputs $$x_1, x_2, \ldots, x_n$$ and biases $$b_1, b_2, \ldots, b_n$$, the softmax activation for neuron $$i$$ is:

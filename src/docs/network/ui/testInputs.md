@@ -9,7 +9,7 @@ nav_order: 40
 
 # Input Tables
 
-Input tables make it easy to dynamically create and test input patterns for [neurons](../buildingBasics), [neuron groups](../neurongroups/), and [neuron arrays](../arraysMatrices). The interface provides a spreadsheet-like matrix where each row represents an input pattern and each column corresponds to a neuron. This is particularly useful for systematically testing how networks respond to different inputs, debugging unexpected behavior, and validating trained networks against known patterns.
+Input tables make it easy to dynamically create and test input patterns for [neurons](../buildingBasics), [neuron collections](../neurongroups/), and [neuron arrays](../arraysMatrices). The interface provides a spreadsheet-like matrix where each row represents an input pattern and each column corresponds to a neuron. This is particularly useful for systematically testing how networks respond to different inputs, debugging unexpected behavior, and validating trained networks against known patterns.
 
 To create an input table, right-click on neurons or a layer and choose `Create input table` (for free neurons) or `Input data` (for layers). The table initializes with an identity matrix, providing a convenient starting point that you can then edit. As you work with your network, you can capture interesting activation patterns by right-clicking on a layer and choosing `Add current pattern to input data`, which appends the current activations as a new row. This makes it easy to build up a collection of test cases based on patterns you discover during experimentation.
 

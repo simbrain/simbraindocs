@@ -49,7 +49,7 @@ Append mode is particularly useful when recording an unknown amount of data from
 
 Data World supports both producing and consuming data through couplings:
 
-- **Producing data**: The current row (either as numeric or string values) can be sent to neurons, neuron groups, or other components. Select `Edit > Create DataWorld Coupling` to create producer couplings.
+- **Producing data**: The current row (either as numeric or string values) can be sent to neurons, neuron collections, or other components. Select `Edit > Create DataWorld Coupling` to create producer couplings.
   
 - **Consuming data**: Data from networks or other components can be written into the current row. The write behavior setting determines whether data overwrites the current row or causes the table to grow.
 

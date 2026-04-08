@@ -20,7 +20,7 @@ To get a feel for how Hopfield networks work, try the `Hopfield Patterns` simula
 ## Structure
 
 The Hopfield network consists of:
-- A neuron group with binary neurons
+- A neuron collection with binary neurons
 - A weight matrix with full recurrent connectivity (no self-connections)
 - Training data management for unsupervised learning
 

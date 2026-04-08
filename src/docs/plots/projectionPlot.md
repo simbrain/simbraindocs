@@ -26,7 +26,7 @@ The projection component shown below begins with no datapoints, then plots 54 po
 
 ## Couplings
 
-Data is fed to a projection component using [couplings](/docs/workspace/Couplings.html). The easiest way to create coupled projection component is to right click on the network array, neuron group, or other model you want to plot and select `Plot > Projection Plot`
+Data is fed to a projection component using [couplings](/docs/workspace/Couplings.html). The easiest way to create coupled projection component is to right click on the neuron array, neuron collection, or other model you want to plot and select `Plot > Projection Plot`
 
 ## Addition of New Points
 

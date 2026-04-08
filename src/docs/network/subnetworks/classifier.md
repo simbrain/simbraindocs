@@ -31,7 +31,7 @@ The classifier is implemented as a [subnetwork](.), with:
 
 Note that the arrow between the input and output layer _cannot_ be clicked on, which is different from [weight matrices](../arraysMatrices) and [synapse groups](../synapsegroups), which allow weights to be edited. In the image above note that there is no interaction box on the arrow from the input to the output layer. Machine learning algorithms like these don't use weights directly, but apply mathematical and statistical techniques directly.
 
-Classifiers are first-class components of Simbrain that can interact with other Simbrain components. Because inputs and outputs are just [neuron groups](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
+Classifiers are first-class components of Simbrain that can interact with other Simbrain components. Because inputs and outputs are just [neuron collections](../neurongroups), classifiers can be connected to other Simbrain components. For example, the output of a neural network can be passed into a classifier, and its result sent to another network.
 
 # Training and Testing
 

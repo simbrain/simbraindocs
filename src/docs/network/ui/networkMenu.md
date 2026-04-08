@@ -54,7 +54,7 @@ This page describes the menu items, keyboard shortcuts, and toolbar actions avai
 
 - **Add Neuron**: Add a single neuron to the network (P)
 - **Add Neurons**: Add multiple neurons with configurable layout and update rule (N)
-- **Add Neuron Group**: Add a neuron group to the network (G)
+- **Add Neuron Collection**: Add a neuron collection to the network (G)
 - **Add Neuron Array**: Add a neuron array to the network (Y)
 - **Add Classifier**: Add a classifier network
 - **Add Subnetwork**: Submenu with various subnetwork types including:
@@ -109,7 +109,7 @@ When right-clicking on an empty area of the network panel:
 
 - **Add Neuron**: Create a new neuron at clicked location (P)
 - **Add Neurons**: Create multiple neurons (N)
-- **Add Neuron Group**: Create a neuron group (G)
+- **Add Neuron Collection**: Create a neuron collection (G)
 - **Add Neuron Array**: Create a neuron array (Y)
 - **Add Classifier**: Create a classifier network
 - **Add Subnetwork**: Submenu with various subnetwork types
@@ -163,8 +163,8 @@ The Edit Toolbar provides quick access to common editing operations:
 - **Redo**: Redo the last undone action (Cmd/Ctrl-Shift-Z)
 - **Add Neuron**: Create a neuron at the last clicked position (P)
 - **Delete**: Delete currently selected items (Backspace or Delete)
-- **Clear**: Set all selected object activations to 0 (C). Works on neurons, neuron groups, and subnetworks. For weights, use Shift-C
-- **Randomize**: Randomize selected objects (R). Works on neurons, weights, neuron groups, and subnetworks. Some subnetworks (like Hopfield, Restricted Boltzmann Machine) use their own built-in randomizers; others use the default randomizers from [network preferences](networkPreferences#randomizers)
+- **Clear**: Set all selected object activations to 0 (C). Works on neurons, neuron collections, and subnetworks. For weights, use Shift-C
+- **Randomize**: Randomize selected objects (R). Works on neurons, weights, neuron collections, and subnetworks. Some subnetworks (like Hopfield, Restricted Boltzmann Machine) use their own built-in randomizers; others use the default randomizers from [network preferences](networkPreferences#randomizers)
 
 ## Additional Keyboard Shortcuts
 

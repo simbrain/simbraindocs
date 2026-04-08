@@ -9,21 +9,53 @@ nav_order: 70
 
 # Self-Organizing Map Network
 
-An SOM network is a pre-configured subnetwork containing a [SOM group](../neurongroups/selfOrganizingMap) with an input layer and training interface. The SOM group is where the learning algorithm and parameters are defined.
+A [self-organizing map](https://en.wikipedia.org/wiki/Self-organizing_map) (SOM) is a type of [competitive network](competitive) that learns to represent the structure of input data in a spatially organized way. For example, an SOM exposed to a dataset of different smells will learn to distinguish those smells over time. Importantly, the positions of neurons in the SOM are significant: nearby neurons come to represent similar inputs. In a smell network, one group of neighboring neurons might come to represent different cheese smells, while another group might represent different flower smells.
+
+SOMs serve dual roles in computational neuroscience and machine learning. As a biological model, they illustrate how spatially organized maps representing input space can develop in the brain through unsupervised learning, similar to [topographic maps](https://en.wikipedia.org/wiki/Topographic_map_(neuroanatomy)) found in sensory cortices. As an ML tool, SOMs were historically popular for dimensionality reduction and data visualization, particularly for their ability to preserve topological relationships in the data. While modern deep learning approaches like [autoencoders](https://en.wikipedia.org/wiki/Autoencoder) and [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) have largely superseded SOMs for many applications, SOMs remain valuable for their interpretability and continue to be used in domains where understanding the spatial organization of learned representations is important.
 
 <img src="/assets/images/somNetwork.png" alt="SOM Network" style="width: 70%;" />
 
 From the `Simulations > Competitive > SOM network` simulation. This SOM has been trained to distinguish different smells. Notice that the cheese sensors are near each other and the flower sensors are also grouped together.
 
-For details on the algorithm, parameters, and theory, see the [SOM group](../neurongroups/selfOrganizingMap) page.
-
 ## Structure
 
 The SOM network consists of:
 - An input layer (clamped)
-- A [SOM group](../neurongroups/selfOrganizingMap) arranged in a hexagonal grid
+- A SOM layer (a neuron collection) arranged in a hexagonal grid
 - All-to-all connections from input to SOM layer
 - Training data management for unsupervised learning
+
+## Algorithm
+
+Intuitively, the algorithm works by taking an input, finding the output neuron whose weights most closely match the input (the "winner") and then updating the winning neuron's weights so that they match the inputs more closely. The weights are not only updated on the winning node, but also on other neurons in a neighborhood around the winning node. Over time the learning rate and neighborhood size decrease to 0. Thus the neurons in an SOM correspond to a kind of "map" of the input space, whereby nearby neurons correspond to similar patterns in the input data.
+
+The following algorithm is run on each iteration:
+
+1. Determine the SOM neuron which is closest to the input vector by computing the following for each SOM neuron:
+
+$$
+d(i,j) = \sum_i (w_{ij} - x_j)^2
+$$
+
+where $$ i $$ and $$ j $$ are the dimensions of the weight matrix $$ w $$, and $$ x $$ is the input vector.
+
+2. Update the winning neuron and the neurons in its update neighborhood:
+
+$$
+w_i(t+1) = w_i(t) + \alpha(t)(x - w_i(t))
+$$
+
+where $$ \alpha $$ is the current learning rate.
+
+3. Diminish learning rate and neighborhood size.
+
+The effect of the algorithm is that the SOM neurons become characteristic of the trends of input patterns.
+
+## Initialization
+
+SOMs are initialized by specifying a number of neurons and a layout. The layout is important because the SOM works by updating a winning neuron and neighboring neurons. By default, SOMs use a hexagonal grid layout.
+
+Input connections should be fully connected to the SOM layer. The synapses should be either small or sampled evenly from the subspace spanned by the two largest [principal component](https://en.wikipedia.org/wiki/Principal_component_analysis) eigenvectors.
 
 ## Creation
 
@@ -32,13 +64,18 @@ When creating an SOM network, you specify:
 - **Number of som neurons:** Number of neurons in the SOM layer. These are laid out in a spatial grid.
 - **Number of inputs:** Number of input neurons that will be fully connected to the SOM layer.
 
-For SOM group parameters (learning rate, neighborhood size, decay rates), see the [SOM group](../neurongroups/selfOrganizingMap#parameters) documentation.
+## Parameters
+
+- **Initial learning rate:** The starting learning rate from which all future learning rates are derived. This decreases over time during training.
+- **Initial Neighborhood size:** The starting radius around the winning neuron within which learning takes place. This decreases over time during training.
+- **Learning decay rate:** The rate at which the learning rate decreases after each iteration.
+- **Neighborhood decay rate:** The amount that the neighborhood size decreases after each iteration.
 
 ## Training
 
 Training an SOM network involves specifying a set of input data and then running the algorithm. The general process is covered in [Unsupervised Learning](../learning/unsupervisedLearning). Double-click the interaction box to open the training dialog.
 
-The SOM learns by repeatedly finding the winning neuron (closest to each input) and updating weights in a neighborhood around the winner. Over time, the learning rate and neighborhood size decrease to zero, allowing the map to stabilize. The decreasing learning rate and neighborhood size are shown in the interaction box. See the [SOM group](../neurongroups/selfOrganizingMap#algorithm) documentation for algorithm details.
+The SOM learns by repeatedly finding the winning neuron (closest to each input) and updating weights in a neighborhood around the winner. Over time, the learning rate and neighborhood size decrease to zero, allowing the map to stabilize. The decreasing learning rate and neighborhood size are shown in the interaction box.
 
 ## Right Click Menu
 
@@ -48,6 +85,10 @@ Common right-click items are described on the [subnetwork](.) page.
 - **Train on current pattern...:** Opens a dialog to train the network on the current input pattern for a specified number of iterations.
 - **Train once on current pattern:** Train the network for one iteration on the current input pattern. Keyboard shortcut: `T`
 - **Edit / Train SOM:** Opens the training dialog to train the SOM network.
-- **Randomize:** Randomize synapses connected to the SOM group. Keyboard shortcut: `R`
+- **Randomize:** Randomize synapses connected to the SOM layer. Keyboard shortcut: `R`
 - **Reset SOM Network:** Reset the learning rate and neighborhood size to their initial values.
 - **Recall SOM Memory:** Set the input layer activations to match the weights of the most active SOM neuron.
+
+## References
+
+- Kohonen, Teuvo (1990), The Self Organizing Map, *Proceedings of the IEEE*, 78:9.

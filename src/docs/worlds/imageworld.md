@@ -27,7 +27,7 @@ Each image in an image album has a raw form that can be viewed by selecting the 
 
 <img src="/assets/images/imageWorldFilters.png" alt="Filters" style="width:300px;"/>
 
-The purpose of these pipelines is to allow the image to be [coupled](../workspace/couplings) to a [neuron array](../network/arrasMatrices) or [neuron group or collection](../network/neurongroups) with the appropriate number of neurons.
+The purpose of these pipelines is to allow the image to be [coupled](../workspace/couplings) to a [neuron array](../network/arraysMatrices) or [neuron collection](../network/neurongroups) with the appropriate number of neurons.
 
 The **Pipelines** dropdown box in the top toolbar can be used to view one of the pipelines and see its impact on the raw image, or to view the unfiltered image. Regardless of which pipeline you are viewing, all remain active, and thus one image can be coupled to a network in multiple ways simultaneously. The output dimensions of the currently selected pipeline are displayed in the bottom toolbar (e.g., "100×100").
 

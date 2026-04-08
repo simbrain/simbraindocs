@@ -8,7 +8,7 @@ nav_order: 110
 
 # Synapse Groups
 
-Synapse groups are collections of synapses linking a source to a target [neuron group or collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
+Synapse groups are collections of synapses linking a source to a target [neuron collection](./neurongroups). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
 
 ## Connection Strategy Integration
 
@@ -28,7 +28,7 @@ You can adjust the excitatory/inhibitory ratio through the connection strategy p
 
 <!-- TODO: Show some pics -->
 
-Synapse groups are created in the same way synapses are. See [building basics](buildingBasics). You can select a source neuron group and press `1` and target neuron group and press `3` or use appropriate menu commands.
+Synapse groups are created in the same way synapses are. See [building basics](buildingBasics). You can select a source neuron collection and press `1` and target neuron collection and press `3` or use appropriate menu commands.
 
 ## Synapse Group Properties
 

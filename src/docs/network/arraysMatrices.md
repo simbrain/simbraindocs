@@ -18,6 +18,8 @@ In Simbrain 4 array-based approaches have been incorporated (using [Smile matrix
 
 Neuron arrays are collections of neurons backed by Smile matrices, stored as column vectors. They provide efficient computation for large numbers of neurons while maintaining compatibility with Simbrain's visualization and update systems.
 
+Most [neuron update rules](neurons/) work with neuron arrays. Two rules are available for neuron arrays only: [Softmax](neurons/softmax) (normalizes activations into a probability distribution) and [Winner Take All](neurons/wta) (sets the highest-input neuron to a win value and all others to a lose value). These require simultaneous access to all activations in the layer, which is only possible in the array context.
+
 ### Display Modes
 
 Neuron arrays can be displayed in multiple ways:
@@ -49,7 +51,7 @@ The key difference from neuron arrays is that activation sequences store multipl
 
 ## Weight Matrices
 
-Weight matrices represent connections between neuron arrays or neuron groups. They provide efficient matrix-based computation for large-scale networks and support various learning rules and operations.
+Weight matrices represent connections between neuron arrays or neuron collections. They provide efficient matrix-based computation for large-scale networks and support various learning rules and operations.
 
 ### Matrix Structure
 
@@ -78,7 +80,7 @@ An array can be inserted into a network window through two methods:
 1. `Insert > Add Neuron Array`
 2. Pressing the keyboard shortcut `Y`
 
-Weight matrices can be added by connecting any two neuron arrays or neuron groups. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
+Weight matrices can be added by connecting any two neuron arrays or neuron collections. The simplest way to connect two objects is using the [1-2 trick](./buildingBasics.html#quick-connect-1-2-and-1-3-tricks).
 
 ## Matrix Integration
 
@@ -91,7 +93,7 @@ Simbrain uses efficient matrix operations for array-based computation. This prov
 
 ### Integration with Other Components
 Arrays can connect with other network components:
-- Neuron groups can connect to arrays via weight matrices
+- Neuron collections can connect to arrays via weight matrices
 - Arrays can connect to synapse groups
 - Mixed neuron and array networks are supported 
 

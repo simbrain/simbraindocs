@@ -53,7 +53,7 @@ These shortcuts work for any component when it has focus:
 - **p:** Add a single neuron where you last clicked
 - **N:** Open dialog to add multiple neurons at once
 - **Y:** Add [neuron array](network/arraysMatrices) dialog
-- **g:** Create a new [neuron group](network/neurongroups/) from scratch
+- **g:** Create a new [neuron collection](network/neurongroups/) from scratch
 - **Cmd/Ctrl-G:** Add selected neurons to a neuron collection
 
 ### Editing and Modifying
@@ -76,9 +76,9 @@ These shortcuts work for any component when it has focus:
 
 ### Modifying Values
 
-- **r:** [Randomize](utilities/randomizers) selected objects (neurons, weights, neuron groups, subnetworks). The randomizer used depends on what is selected: Subnetworks use the subnetwork's built-in randomizers (configurable in the subnetwork's properties). Manually selected weights or weight matrices or individual neurons or synapses use the weight or activation randomizer configured in [network preferences](network/ui/networkPreferences#randomizers)
+- **r:** [Randomize](utilities/randomizers) selected objects (neurons, weights, neuron collections, subnetworks). The randomizer used depends on what is selected: Subnetworks use the subnetwork's built-in randomizers (configurable in the subnetwork's properties). Manually selected weights or weight matrices or individual neurons or synapses use the weight or activation randomizer configured in [network preferences](network/ui/networkPreferences#randomizers)
 - **Cmd/Ctrl-B:** Randomize biases of selected neurons
-- **c:** Clear selected object activations (set to 0). Works on neurons, neuron groups, and subnetworks
+- **c:** Clear selected object activations (set to 0). Works on neurons, neuron collections, and subnetworks
 - **k:** Clear all neuron activations (selects them first, then clears)
 - **Shift-C:** Clear selected neurons and weights (sets weights to 0, use with caution)
 - **Shift-F:** Toggle [clamping](network/neurons/#clamping) on selected neurons

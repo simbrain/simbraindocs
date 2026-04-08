@@ -7,7 +7,7 @@ nav_order: 15
 
 # Network
 
-The network component of Simbrain represents a simulated neural circuit. For a quick dive in see the [quick start](../quickstart) or [this video](https://www.youtube.com/watch?v=dvJvY1zVQUE), which contains a series of links to short clips describing common network operations (adding neurons, connecting neurons, editing neuron groups, etc.). 
+The network component of Simbrain represents a simulated neural circuit. For a quick dive in see the [quick start](../quickstart) or [this video](https://www.youtube.com/watch?v=dvJvY1zVQUE), which contains a series of links to short clips describing common network operations (adding neurons, connecting neurons, etc.). 
 
 Networks contain a variety of objects ("network models"), including free-floating neurons and synapses, but also neuron arrays and weight matrices for array-based networks, and other more complex structures. This page contains a brief overview of the main object types.  Most objects can be linked to one another with synapses, synapse groups, or weight matrices. The Simbrain philosophy is to allow for arbitrary combinations of network models. Many tools and utilities exist for organizing, arranging, and training these linked network models.
 
@@ -20,15 +20,11 @@ Free neurons and synapses are part of "classic" Simbrain, allowing nodes and con
 <img src="/assets/images/freeNodes.png" alt="free weights and neurons" style="width:300px;"/>
 
 
-## Neuron Groups, Synapse Groups, and Neuron Collections
+## Neuron Collections and Synapse Groups
 
-Free neurons and weights can be aggregated in various ways but are moved and adjusted _as a group_, via a yellow **interaction box**. See [neuron groups](neurongroups/) and [synapse groups](synapsegroups). 
+Free neurons and weights can be aggregated into [neuron collections](neurongroups/) and [synapse groups](synapsegroups). Neuron collections are lightweight wrappers that allow neurons to be labeled, moved as a unit, and connected to other layers. They have green interaction boxes; deleting a collection leaves the neurons intact.
 
-<img src="/assets/images/neuronGroup.png" alt="neuron group" style="width:300px;"/>
-
-<img src="/assets/images/neuronCollections.png" alt="neuron colletions" style="width:300px;"/>
-
-Note that neuron collections (like supervised models) are transient wrappers. If you delete them the underlying objects remain in place. They have green interaction boxes. In cases where the surrounded objects are dependent on the group they are part of, a yellow interaction box is used.
+<img src="/assets/images/neuronCollections.png" alt="neuron collections" style="width:300px;"/>
 
 ## Neuron Arrays and Weight Matrices
 
@@ -36,7 +32,7 @@ An alternative to free nodes and weights (and collections of them) is neuron arr
 
 <img src="/assets/images/neuronArrayWeightMatrix.png" alt="neuron array and weight matrix" style="width:450px;"/>
 
-Neuron collections and groups can be linked to neuron arrays with weight matrices or synapse groups.
+Neuron collections can be linked to neuron arrays with weight matrices or synapse groups.
 
 ## Tensor Layers and Convolutional Neural Networks
 
@@ -46,7 +42,7 @@ Tensor layers support image-like arrays with height, width, and channel dimensio
 
 ## Subnetworks
 
-These are customized collections of network models (neurons, neuron groups, neuron arrays, tensor layers, etc.) that can be associated with data and other objects, and that are updated in a customized way. Examples include backprop networks, convolutional neural networks, and restricted boltzmann machines. See [subnetworks](subnetworks/).
+These are customized collections of network models (neurons, neuron arrays, tensor layers, etc.) that can be associated with data and other objects, and that are updated in a customized way. Examples include backprop networks, convolutional neural networks, and restricted boltzmann machines. See [subnetworks](subnetworks/).
 
 <img src="/assets/images/rbm.png" alt="restricted boltzmann machine" style="width:550px;"/>
 

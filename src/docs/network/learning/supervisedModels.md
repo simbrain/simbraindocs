@@ -19,7 +19,7 @@ Supervised models are lightweight wrappers that automatically find a path from t
 
 # How to create a supervised model
 
-1. Create two neuron groups, neuron arrays, or neuron collections (henceforth "neurons")
+1. Create two neuron arrays or neuron collections (henceforth "neurons")
 2. Connect them using 1-2 or 1-3
 3. Select the input neurons interaction box and click `1`
 4. Select the target neurons interaction box and right click and select `create supervised model`

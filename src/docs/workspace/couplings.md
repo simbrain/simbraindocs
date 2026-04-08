@@ -13,7 +13,7 @@ A coupling is a one-way informational link between two objects in a Simbrain sim
 ## Quick Coupling via Context Menus
 
 The easiest way to create couplings is through context menu shortcuts:
-- **Right-click on a neuron group** and select `plot activation > bar chart` to couple a neuron group to a bar chart
+- **Right-click on a neuron collection** and select `plot activation > bar chart` to couple a neuron collection to a bar chart
 - **Right-click on components** to see available coupling options in the context menu
 - **Select coupling targets** directly from popup menus without needing to understand attribute details
 
@@ -98,14 +98,14 @@ There are many examples of scalar couplings that can be made. Here are some exam
 
 # Vector Couplings
 
-The basic idea with vector couplings is the same as with scalar couplings, but they involve lists of numbers. In the image shown below, we see that the producer is the whole neuron group (which is interfaced with via the interaction box), and the consumer is the whole histogram component. The coupling takes an activation vector, consisting of the 9 activation values of the network, and sends it to the histogram. As can be seen, two neurons have activations below 0, three have activations between .5 and 1, three have activations of 2, and one has an activation above 2.
+The basic idea with vector couplings is the same as with scalar couplings, but they involve lists of numbers. In the image shown below, we see that the producer is the whole neuron collection (which is interfaced with via the interaction box), and the consumer is the whole histogram component. The coupling takes an activation vector, consisting of the 9 activation values of the network, and sends it to the histogram. As can be seen, two neurons have activations below 0, three have activations between .5 and 1, three have activations of 2, and one has an activation above 2.
 
-These vectors can get huge! Tens of thousands of neuron activations! As with scalar couplings, there are many types of activations that can be made. Here are some examples where the producer is a neuron group:
+These vectors can get huge! Tens of thousands of neuron activations! As with scalar couplings, there are many types of activations that can be made. Here are some examples where the producer is a neuron collection:
 
-- A coupling from one neuron group to another.
-- A coupling from a neuron groups' activations to most types of chart.
-- A coupling from a neuron group to a data world. On each iteration of the workspace the current activations of the neuron group are used to set the value of the current row of the data world. In this way activations can be logged and viewed in realtime.
-- A coupling from a neuron group's activation to text in a [Text World](../worlds/textworld.html). For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
+- A coupling from one neuron collection to another.
+- A coupling from a neuron collection's activations to most types of chart.
+- A coupling from a neuron collection to a data world. On each iteration of the workspace the current activations of the neuron collection are used to set the value of the current row of the data world. In this way activations can be logged and viewed in realtime.
+- A coupling from a neuron collection's activation to text in a [Text World](../worlds/textworld.html). For example, when a vector is close enough to a specific vector (in a vector space) make the word "hello" appear in the text world.
 
 # Coupling Manager
 

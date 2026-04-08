@@ -12,7 +12,7 @@ For an overview of networks and how to build them in Simbrain, see the [building
 
 Basic editing is straightforward, and most actions are meant to be intuitive relative to any standard draw program which involves selecting, copying, and editing with double clicks etc. For the most part you simply left click and drag the selected items (more on selection below). Network models can be lasso selected and the selection edited using the shift key to toggle selection.
 
-One of the advantage of Simbrain is that almost any object can talk to any other object. Neurons can be connected to neurons in neuron groups, or can even communicate with synapses via [couplings](/docs/workspace/couplings.html) or [custom simulations](/docs/simulations/).  Neuron groups, neuron arrays, and neuron collections and most subnetworks can all be linked by either weight matrices or synapse groups.
+One of the advantage of Simbrain is that almost any object can talk to any other object. Neurons can be connected to neurons in neuron collections, or can even communicate with synapses via [couplings](/docs/workspace/couplings.html) or [custom simulations](/docs/simulations/). Neuron arrays, neuron collections, and most subnetworks can all be linked by either weight matrices or synapse groups.
 
 # Creating and Deleting Objects
 
@@ -24,11 +24,11 @@ Most items are created using the `Insert`  menu in the menu bar or in the right-
  
 - **Creating specific types of neurons**: By default, new nodes are linear. To change one or a group just double click on them to edit them. 
  
-- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` (keyboard shortcut `N`) and instantly create an arbitrary number of neurons specified in the Add Neurons window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be laid out (see [layouts](ui/layouts)). There is also a checkbox which will make these neurons be created as a group.
+- **Add neurons dialog**: To create many nodes at once one can go to `Insert > Add Neurons` (keyboard shortcut `N`) and instantly create an arbitrary number of neurons specified in the Add Neurons window. You can determine what type of neurons will be created (this part of the dialog is the same as the neuron dialog) and how they will be laid out (see [layouts](ui/layouts)).
  
 - **Copy / Paste / Duplicate**: Create a node, set its type (as specified above), and then copy and paste or duplicate (Cmd/Ctrl-D) repeatedly.
  
-- **Creating subnetworks or groups of nodes**: Subnetworks are created using `Insert > Add Subnetwork`. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron groups can be created using the `G` command; existing free neurons can be added to a neuron group with `Shift-G`.
+- **Creating subnetworks or collections**: Subnetworks are created using `Insert > Add Subnetwork`. Subnetworks and small groups of neurons can be created, copied, and repeatedly pasted to quickly create many sets of similar elements. Neuron collections can be created using the `g` command; existing free neurons can be added to a neuron collection with `Cmd/Ctrl-G`.
  
 - **Creating synapses or synapse groups**: See [connecting items together](#connect-items).
 
@@ -64,13 +64,13 @@ Note that most selection operations must be done in selection mode, the default 
 <a name="source-target"></a>
 # Source and Target Objects 
 
-One common motif used for several operations in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green). This is used to connect neurons, neuron groups, and neuron arrays together, to visualize weights, and to create supervised models.
+One common motif used for several operations in Simbrain is a source-target operation, where one set of models is designated as source (red), and the other as target (green). This is used to connect neurons, neuron collections, and neuron arrays together, to visualize weights, and to create supervised models.
 
 Here are some source and target neurons which are about to connected in a feed-forward way.
 
 <img src="/assets/images/sourceTarget.png" alt="source-target format" style="width:400px;"/>
 
-This technique is used in connecting neurons, neuron groups, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
+This technique is used in connecting neurons, neuron collections, and neuron arrays together, in using immediate learning, and in other ways. It is one of the few cases where we had to come up with our own new UI innovation, but in our experience it's quite easy to learn and get used to.
 
 Generally there are three things to do, which we call the "1-2 and 1-3 tricks"
 
@@ -88,7 +88,7 @@ Many items in Simbrain have interaction boxes, which look like this:
 
 <img src="/assets/images/interactionBoxes.png" alt="interaction boxes" style="width:300px;"/>
 
-The example shows an interaction box for a [neuron group](neurongroups) called "NeuronGroup_3"
+The example shows an interaction box for a [neuron collection](neurongroups) called "NeuronCollection_3"
 
 You can drag things by the interaction box, right-click on them for a context menu, or double-click on them to open a dialog.
 
@@ -96,7 +96,7 @@ You can drag things by the interaction box, right-click on them for a context me
 
 Some objects like neuron collections and supervised models are transient wrappers around other objects. When they are deleted by their interaction boxes, the objects they wrap are not deleted. They are designated by green interaction boxes.
 
-Other objects like neuron groups and subnetworks are essentially linked to the objects they wrap around. If you select their interaction boxes and delete them, all the objects they contain are also deleted. They are designated by yellow interaction boxes.
+Subnetworks are linked to the objects they wrap. If you select their interaction boxes and delete them, all the objects they contain are also deleted. They are designated by yellow interaction boxes.
 
 Tldr: if the [interaction box](#interaction-boxes) is green, it's "temporary". If it's yellow it's more permanent.
 
@@ -107,7 +107,7 @@ As a result of this neuron collections and supervised models can overlap one ano
 <a id="connect-items"></a>
 # Connecting Items Together 
 
-There are three main ways to connect neurons to other neurons (or to themselves) with synapses. This relies on the concept of [source and target](#source-target) nodes. The same ideas can be used to connect neuron arrays and neuron groups and other structures together.
+There are three main ways to connect neurons to other neurons (or to themselves) with synapses. This relies on the concept of [source and target](#source-target) nodes. The same ideas can be used to connect neuron arrays, neuron collections, and other structures together.
 
 Video instruction on connecting neurons is [here](https://www.youtube.com/watch?v=dvJvY1zVQUE) (6:36 in the building networks video).
 
@@ -123,7 +123,7 @@ To use this method: Select your desired source neuron(s), designate them as sour
 
 What the 1-2 trick does:
 - Free neurons: Connects with All-to-All, 100% excitatory, no self-connections. Press `Shift+2` to allow self-connections.
-- Neuron groups/arrays (Layers): Creates a [weight matrix](arraysMatrices) connection
+- Neuron collections/arrays (Layers): Creates a [weight matrix](arraysMatrices) connection
 
 Note that when creating recurrent connections the same neurons will be both sources and targets. A quick way to make a recurrent network is to make a bunch of nodes and use keyboard commands: `N`, `1`, `Shift+2`, `A`, `R`
 
@@ -133,7 +133,7 @@ To use this method: Select your desired source neuron(s), designate them as sour
 
 What the 1-3 trick does:
 - Free neurons: Uses the [connection strategy](connections/) configured in [Network Preferences](ui/networkPreferences) (default: All-to-All with 50% excitatory/inhibitory)
-- Neuron groups/collections: Creates a [synapse group](synapsegroups) instead of a weight matrix
+- Neuron collections: Creates a [synapse group](synapsegroups) instead of a weight matrix
 
 Use the 1-3 trick when you want more control over connection patterns (e.g., sparse connections, distance-based, or mixed excitatory/inhibitory ratios).
 
@@ -172,7 +172,7 @@ Examples:
 
 # Copy and Paste
 
-Selected items (including neuron groups, but not yet subnetworks) can be copied, cut, and paste similarly to the way they are on most contemporary GUI's. Lasso select groups of items, then fine tune your selection using Shift to add or remove items.
+Selected items (including neuron collections, but not yet subnetworks) can be copied, cut, and paste similarly to the way they are on most contemporary GUI's. Lasso select groups of items, then fine tune your selection using Shift to add or remove items.
 
 Copy, cut, and paste in one of the following ways
 
@@ -204,7 +204,7 @@ Offsets differ sepending on what type of object it is, so that objects are place
 
 ## Custom offsets for paste trails
 
-The default offsets are horizontal and so paste trails occur from left-to right creating horizontal lines of neurons, neuron groups, etc. However, sometimes it's desirable to create, say, a vertical line.  To set a custom offset use option drag. Click on a model, hold down option, and move the model to a custom location relative to the last-created model. A red line is shown indicating what the custom offset will be.
+The default offsets are horizontal and so paste trails occur from left-to right creating horizontal lines of neurons, neuron collections, etc. However, sometimes it's desirable to create, say, a vertical line.  To set a custom offset use option drag. Click on a model, hold down option, and move the model to a custom location relative to the last-created model. A red line is shown indicating what the custom offset will be.
 
 ## State diagram
 
@@ -222,7 +222,7 @@ graph TD;
 
 # <span id="undoredo-capabilities">Undo/Redo Capabilities</span>
 
-Network undo/redo tracks structural changes only. This includes adding and deleting network objects (neurons, synapses, neuron groups, synapse groups, subnetworks, text objects), moving objects, creating connections between neurons and groups, pasting and duplicating objects, and applying layouts to neurons.
+Network undo/redo tracks structural changes only. This includes adding and deleting network objects (neurons, synapses, neuron collections, synapse groups, subnetworks, text objects), moving objects, creating connections between neurons and collections, pasting and duplicating objects, and applying layouts to neurons.
 
 Changes to neuron activations cannot be undone. Property changes (editing update rules, polarity, labels, or other settings via property dialogs) also cannot be undone. Changes to individual components within subnetworks cannot be undone separately; the subnetwork is treated as a single unit.
 

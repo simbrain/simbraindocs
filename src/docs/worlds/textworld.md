@@ -125,7 +125,7 @@ Text World provides several configurable options via `Edit > Preferences`:
 
 Text World supports both producing and consuming data:
 
-- **Producing vectors**: The current token's vector representation can be sent to neurons or neuron groups. Use `Edit > Create TextWorld Coupling` to create producer couplings. The `currentVector` producer sends the embedding vector for the currently selected token.
+- **Producing vectors**: The current token's vector representation can be sent to neurons or neuron collections. Use `Edit > Create TextWorld Coupling` to create producer couplings. The `currentVector` producer sends the embedding vector for the currently selected token.
 
   **Unrecognized tokens**: If the current token was not present in the training document used to build the embedding, a zero vector (all zeros) of the appropriate dimension is produced. This allows the simulation to continue even when encountering unknown tokens.
 

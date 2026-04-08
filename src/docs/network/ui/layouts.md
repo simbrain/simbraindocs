@@ -12,8 +12,8 @@ nav_order: 30
 Layouts are used to organize neurons spatially in a Simbrain network window. They can be applied in several ways:
 
 1. To arrange a group of free neurons by selecting them and choosing a layout from the right-click context menu or the `Edit > Layout` menu
-2. To specify the layout for a neuron group when creating it
-3. To rearrange existing neurons in a neuron group using the group's property dialog
+2. To specify the layout for a neuron collection when creating it
+3. To rearrange existing neurons in a neuron collection using the collection's property dialog
 
 The initial position for a layout corresponds to the last position clicked on screen, or the center of the selected neurons if no position has been set.
 
