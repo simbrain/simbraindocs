@@ -10,6 +10,8 @@ nav_order: 30
 
 Data World is a spreadsheet-based component that sends data to and receives data from other Simbrain components, primarily neural networks. It is closely based on [tables](../utilities/tables) and provides a way to stream tabular data into simulations or record outputs from networks.
 
+<img src="/assets/images/dataworld.png" alt="Data World showing a multi-column table and toolbar controls" style="width:30%;"/>
+
 Data World is commonly used to provide input sequences to neural networks via [couplings](../workspace/couplings). Each row corresponds to an input or output vector, and each column corresponds to a neuron or component in a network. As the workspace updates, the current row advances (or stays static), and data from that row is sent to coupled components or data from components is written to that row.
 
 Most table operations (randomization, fill, etc.) are applied by selecting cells and using menu items, toolbar buttons, or context menus. See [tables](../utilities/tables) for complete documentation of table operations.

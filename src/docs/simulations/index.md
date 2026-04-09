@@ -26,6 +26,10 @@ Custom simulations in Simbrain allow you to create sophisticated setups with cus
 
 The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
 
+Here is an example of a custom simulation built using the framework: `Cognitive Maps > Agent Trails`. It was built using many of the tools and techniques described on this page, including a custom control panel, sidebar documentation, explicit GUI component placement, a network connected to an Odor World and projection plot, couplings between components, and a custom network update action for training the predictor.
+
+<img src="/assets/images/sample_sim.png" alt="Agent Trails simulation with a control panel, network, world, and projection plot" style="width:800px;"/>
+
 ## The Basic Workflow
 
 Simulations are written in [Kotlin](https://kotlinlang.org/).
