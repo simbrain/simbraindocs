@@ -38,6 +38,8 @@ Neuron collections can be linked to neuron arrays with weight matrices or synaps
 
 Tensor layers support image-like arrays with height, width, and channel dimensions. They can be connected by convolution, pooling, and flattening connectors to build convolutional neural networks. See [convolutional neural networks](convolutionalNeuralNetworks).
 
+CNN shape labels use different conventions depending on the object: tensor layers use `H x W x C`, pooling connectors use pool-window size, and convolution connectors use full kernel-bank shape. See [Convolutional Neural Networks](convolutionalNeuralNetworks#shape-notation).
+
 <img src="/assets/images/cnn/tensor.png" alt="tensor layer" style="width:250px;"/>
 
 ## Subnetworks

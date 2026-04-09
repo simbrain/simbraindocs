@@ -14,6 +14,16 @@ Simbrain's visual tools make CNNs easier to inspect than they are in many code-o
 
 <img src="/assets/images/cnn/cnn_example.png" alt="A Simbrain convolutional neural network connected to an image world" style="width:650px;"/>
 
+## Shape Notation
+
+The main shape-ordering difference to remember is this:
+
+- **Tensor layers** use `H x W x C`, meaning height, width, and channels. Example: `28x28x3`.
+- **Convolution kernels** use `O x I x H x W`, meaning output channels, input channels, kernel height, and kernel width. Example: `8x3x3x3`.
+- **Pooling connectors** use `H x W` for the pooling window size. Example: `2x2`.
+
+So the main gotcha is that tensor layers use HWC, while convolution kernels use OIHW.
+
 ## Creating a CNN
 
 There are two ways to build a CNN. The [Convolutional Neural Network subnetwork](subnetworks/convolutionalNeuralNetwork) creation dialog steps through the whole architecture in one place: input shape, convolution and pooling stages, dense layers, and output size.
@@ -54,6 +64,8 @@ When zoomed in, tensor layers can display numeric activation values as overlays 
 
 Tensor layers can also be coupled to external components. A single channel can be coupled as a two-dimensional array, and a three-channel tensor can be used as an RGB image source or target.
 
+Tensor-layer interaction boxes append the tensor's shape using `H x W x C` notation.
+
 ## Convolution Kernels
 
 A ConvolutionConnector connects one tensor layer to another using learned kernels. Kernel weights are arranged by filter and input channel. The connector can show either a single kernel at a time or all kernels in a grid.
@@ -73,6 +85,8 @@ A ConvolutionConnector connects one tensor layer to another using learned kernel
 
 The row labels in the grid correspond to filters, and the column labels correspond to input channels. In single-kernel mode, arrow controls move through filters and channels.
 
+Convolution-connector interaction boxes use the full kernel tensor shape: `filters x inputChannels x kernelH x kernelW`.
+
 When zoomed in, convolution kernels can display their numeric weight values as overlays, just like tensor activations. This is controlled by the same [Show numeric overlays](ui/networkPreferences#gui) preference.
 
 <img src="/assets/images/cnn/mnist_kernelzoomin.png" alt="Zoomed-in convolution kernel with numeric weight overlays visible" style="width:320px;"/>
@@ -86,6 +100,8 @@ A PoolingConnector downsamples a tensor layer without learned weights. Pooling p
 - **Pool Size**: Spatial size of the pooling window.
 - **Stride**: Step size used when moving the pooling window.
 - **Pooling Type**: Max selects the largest activation in the window. Average averages the window.
+
+Pooling-connector interaction boxes use only the pooling-window size, such as `2x2`.
 
 Pooling in Simbrain is unpadded. This is like `Valid` convolution in that the pool window must fit inside the source tensor. A common setup is `poolSize = stride`, which creates non-overlapping downsampling windows; if the input dimensions do not divide cleanly, leftover border rows or columns are dropped. The pooling type can be changed dynamically on an existing pooling connector without rebuilding the network.
 

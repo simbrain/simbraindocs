@@ -9,7 +9,7 @@ nav_order: 40
 
 # Convolutional Neural Network
 
-Convolutional neural networks are documented in the main [Convolutional Neural Networks](../convolutionalNeuralNetworks) page, which covers tensor layers, convolution kernels, pooling, flattening, receptive field tracing, and training.
+Convolutional neural networks are documented in the main [Convolutional Neural Networks](../convolutionalNeuralNetworks) page, which covers tensor layers, convolution kernels, pooling, flattening, receptive field tracing, training, and CNN shape notation used in node labels.
 
 A ConvolutionalNeuralNetwork subnetwork wraps a CNN pipeline so one network update performs a full forward pass through the tensor stages, flatten connector, and dense layers.
 
