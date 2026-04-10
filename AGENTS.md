@@ -49,6 +49,8 @@ published: true  # Set to false if not available in UI
 - Avoid em dashes (—) between phrases. Use commas, periods, or restructure
 - Avoid headings beyond h3
 - Keep lists minimal and focused
+- Prefer narrative prose for exposition. Use lists mainly for parameters, menu or function inventories, step-by-step procedures, or other content that is inherently list-shaped.
+- Avoid bolded bullets for explanatory prose
 - In code snippets, prefer existing `org.simbrain.util.SwingUtils.kt` dialog helpers over raw `JOptionPane` setup, and suggest adding a utility helper when one is missing
 - In code snippets, avoid decorative separator comments like `// ── Section ─────────────────`
 
@@ -115,3 +117,4 @@ Information should flow naturally. State things directly rather than prefixing w
 - [Simbrain Repository](https://github.com/simbrain/simbrain)
 - [Just the Docs Theme](https://just-the-docs.github.io/just-the-docs/)
 - Local dev server: `./dev-server.sh` (from src/)
+- Optional deeper reference: `../doc_sync_guide.md` (if available) for a longer documentation-audit workflow. Treat it as supplemental process guidance, not the primary source of project conventions.

@@ -97,18 +97,10 @@ Weight matrices can be added by connecting any two neuron arrays or neuron colle
 
 ## Matrix Integration
 
-Simbrain uses efficient matrix operations for array-based computation. This provides:
-
-### Benefits
-- Fast computation for large networks
-- Efficient memory usage
-- Modern neural network compatibility
+Simbrain uses efficient matrix operations for array-based computation. This makes large networks faster to compute, uses memory more efficiently, and supports more modern neural-network-style workflows.
 
 ### Integration with Other Components
-Arrays can connect with other network components:
-- Neuron collections can connect to arrays via weight matrices
-- Arrays can connect to synapse groups
-- Mixed neuron and array networks are supported 
+Arrays can connect with other network components. Neuron collections can connect to arrays via weight matrices, arrays can connect to synapse groups, and mixed neuron-and-array networks are supported.
 
 ## PSR Matrix
 
@@ -127,10 +119,7 @@ This factorization allows spike responders to modify individual synaptic respons
 
 ### Spike Response Integration
 
-The PSR matrix can be processed by [spike responders](../spikeresponders.html) before summation, allowing for:
-- Non-linear synaptic responses
-- Temporal dynamics at individual synapses
-- Biologically plausible computation models
+The PSR matrix can be processed by [spike responders](../spikeresponders.html) before summation, which allows non-linear synaptic responses, temporal dynamics at individual synapses, and more biologically plausible computation models.
 
 ## Neuron Array Right Click Menu
 

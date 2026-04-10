@@ -208,19 +208,11 @@ In the code, see `CowGrazing.kt` for details on the parameter format and impleme
 
 ## Neurons as Custom Displays
 
-One powerful pattern in Simbrain is using neurons not as traditional neural units, but as visual displays for quantities computed with custom equations or code. This approach is useful when you want to:
-
-- Visualize dynamical systems or mathematical models
-- Display intermediate computations in a cognitive model
-- Show model states that don't correspond to traditional neural activations
+One powerful pattern in Simbrain is using neurons not as traditional neural units, but as visual displays for quantities computed with custom equations or code. This approach is useful when you want to visualize dynamical systems or mathematical models, display intermediate computations in a cognitive model, or show model states that do not correspond to traditional neural activations.
 
 The neurons serve as visual indicators that can be monitored in time series plots, coupled to other components, or used in projections, while the actual computation happens in your custom code. This gives you the flexibility of arbitrary computation with the visualization and connectivity benefits of Simbrain's neural network framework.
 
-Some examples:
-
-- `Simulations > Dynamical Systems > Lorenz attractor`: Uses three neurons to display x, y, and z variables from the Lorenz equations, with custom update code computing the differential equations
-- `Simulations > Psychology > Temporal attention network`: Uses neurons to display attention values and decision evidence computed from normalization equations
-- `Simulations > Psychology > Mouse and eye tracking`: Displays lexical, visual, and motor activations computed from custom integration and normalization code
+Examples include `Simulations > Dynamical Systems > Lorenz attractor`, which uses three neurons to display x, y, and z variables from the Lorenz equations while custom update code computes the differential equations; `Simulations > Psychology > Temporal attention network`, which uses neurons to display attention values and decision evidence computed from normalization equations; and `Simulations > Psychology > Mouse and eye tracking`, which displays lexical, visual, and motor activations computed from custom integration and normalization code.
 
 ## Working with Image Worlds
 

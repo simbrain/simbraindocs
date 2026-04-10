@@ -29,11 +29,7 @@ For more control over coupling creation:
 
 ![Basic coupling](/assets/images/couplingManager.png)
 
-The coupling manager provides comprehensive coupling control:
-- **Custom couplings**: Create couplings between any compatible attributes
-- **Visibility settings**: Control which attributes are visible for coupling
-- **Many-to-many couplings**: Create multiple couplings simultaneously
-- **Advanced features**: Access specialized coupling options not available in context menus
+The coupling manager provides comprehensive coupling control. It can create custom couplings between any compatible attributes, control which attributes are visible for coupling, create multiple couplings simultaneously, and expose options that are not available from context menus.
 
 Couplings can also be made programmatically in [simulations](../simulations).
 
@@ -48,12 +44,7 @@ A coupling contains a *producer* and *consumer* attribute. These two attributes 
 
 ## Attributes
 
-An attribute is any property of a component that can send or receive values, the "hooks" that make couplings possible. Examples include:
-- Neuron activations
-- Synapse weight strengths  
-- Bar chart bar values
-- Agent sensor readings in virtual worlds
-- Time series data points
+An attribute is any property of a component that can send or receive values, the "hooks" that make couplings possible. Examples include neuron activations, synapse weight strengths, bar chart bar values, agent sensor readings in virtual worlds, and time series data points.
 
 Attributes have a data type: scalar (double), vector (double array), or text (string). Only attributes of the same type can be coupled together.
 
@@ -125,12 +116,10 @@ The following commands are possible in the coupling manager:
 
 The modern coupling system includes several advanced features:
 
-**Priority-Based Coupling**: Attributes have priority values that determine automatic coupling preferences when multiple options are available (this feature applies to scripting notthe GUI )
+**Priority-Based Coupling**: Attributes have priority values that determine automatic coupling preferences when multiple options are available (this feature applies to scripting rather than the GUI).
 
 **Attribute Filtering**: The coupling manager can filter attributes by type, visibility, and other criteria.
 
 **Delete Couplings**: This button deletes all selected couplings from the coupling list.
 
-
-**Set Attribute Visibilities**: This button opens up the **attribute visibility** dialog for the currently selected consumer or producer list.
-
+**Set Attribute Visibilities**: This button opens the attribute visibility dialog for the currently selected consumer or producer list.
