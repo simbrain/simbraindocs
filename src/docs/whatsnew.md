@@ -1,5 +1,5 @@
 ---
-title: What's New in 4.0
+title: What's New in Simbrain 4
 layout: default
 has_children: false
 nav_order: 5
@@ -7,32 +7,35 @@ nav_order: 5
 
 # What's new in Simbrain 4
 
-Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 and 2025. During this time, most of the code was migrated to [Kotlin](https://kotlinlang.org/) and refactored, unit-tests were added, and hundreds of new features were introduced.
+Simbrain 4 is the first major release since Simbrain 3.07. During the long development cycle between those releases, most of the codebase was rewritten or refactored, the project was migrated to [Kotlin](https://kotlinlang.org/), unit tests were added, and many new features were introduced.
+
+This page highlights some of the most important additions since the previous tagged release, with an emphasis on new capabilities users are likely to notice right away.
 
 # Highlights
 
-* Integration of array-based computations throughout the network system, for example via [neuron arrays and weight matrices](network/arraysMatrices).
-* A flexible [supervised learning](network/learning/supervisedModels) framework with multiple optimizers allows training networks on the fly through complex architectures.
-* [Transformer blocks](network/arraysMatrices#transformer-block) and modern ML components (including [GELU](network/neurons/gelu) activation).
-* [Image World](worlds/imageworld) was rewritten with an [image processing pipeline](worlds/imageworld#pipelines-and-couplings) system, [image albums](worlds/imageworld#image-albums), and a [live editor](worlds/imageworld#drawing-and-editing-tools).
-* [Text World](worlds/textworld) merged separate components into a unified NLP environment with [token embeddings](worlds/textworld#token-embeddings), multiple [tokenizers](worlds/textworld#tokenizers) including byte-pair encoding, and language model integration.
-* [Odor World](worlds/odorworld) now functions like a 2D game engine with [tilemaps](worlds/odorworld#tile-map), animated sprites, and new [object sensors](worlds/odorworld#object-sensor).
-* A new [pixel plot](plots/pixelPlot) was introduced for visualizing activation patterns as pixel grids.
-* The [projection plot](plots/projectionPlot) was rewritten with dimensionality reduction techniques (PCA, t-SNE, Sammon mapping) and improved coloring managers.
-* A [neuro-evolutionary](network/learning/evolution) framework was added with evolution simulations for evolving neural networks, virtual robots, and multi-agent systems.
-* A full [simulation environment](simulations/) was introduced with over 70 simulations, replacing the earlier scripting environment.
-* A [classifier](network/subnetworks/classifier) object was added, wrapping the [Smile](https://haifengl.github.io/) machine learning framework.
+* [Neuron arrays, weight matrices, and tensors](network/arraysMatrices) are now deeply integrated into the network system, bringing modern array-based computation into Simbrain's visual workflow.
+* [Convolutional neural networks](network/convolutionalNeuralNetworks) can now be built in the GUI, with tensor displays, kernel views, and receptive-field tracing that make convolutions easier to understand.
+* [Transformer blocks](network/arraysMatrices#transformer-block) and modern ML components such as [GELU](network/neurons/gelu) were added, and Simbrain now includes a working tiny language model that can be trained and visually inspected.
+* The [wand tool](network/wand/) adds a new way to interact with networks by painting activations, inducing spikes, pruning weights, or creating connectivity patterns directly on the canvas.
+* The [connection strategy](network/connections) framework now supports multiple reusable patterns for generating connectivity, including sparse, fixed-degree, distance-based, and one-to-one projections.
+* A flexible [supervised learning](network/learning/supervisedModels) framework supports on-the-fly training through complex pathways with multiple optimizers and initialization strategies.
+* [Odor World](worlds/odorworld) was substantially expanded with tilemaps, animated sprites, additional sensors and effectors, and a lightweight [3D view sensor](worlds/3dworld) for first-person visual tasks.
+* [Image World](worlds/imageworld) was rewritten around an [image processing pipeline](worlds/imageworld#pipelines-and-couplings), with image albums, filters, and a live editor.
+* [Text World](worlds/textworld) now provides a unified NLP environment with token embeddings, multiple tokenizers including byte-pair encoding, and support for language-model-style workflows.
+* A full [simulation environment](simulations/) with dozens of example simulations now replaces the earlier scripting-centered workflow.
 
 
 # Network
 
 * [Undo/redo](network/buildingBasics#undoredo-capabilities) (Finally!)
-* The major change is array-based neural networks, including a carefully developed GUI (see [neuron arrays and matrices](network/arraysMatrices)) for visualizing array and matrix operations in Simbrain's signature intuitive style. Array operations enable matrix-based computations for neuron arrays and weight matrices, with support for batch processing and vectorized operations. Array-only update rules include [Softmax](network/arraysMatrices/softmax) and [Winner Take All](network/arraysMatrices/wta).
-* Introduction of [transformer blocks](network/arraysMatrices#transformer-block) and support for language models.
-* [Supervised models](network/learning/supervisedModels) that allow for using backprop on the fly on a source and target set of neurons or neuron arrays, including through paths of diverging and reconverging weights. The framework includes multiple optimizers (Adam, SGD) and flexible weight initialization strategies.
+* The largest architectural change is support for array- and tensor-based neural networks. [Neuron arrays and weight matrices](network/arraysMatrices) make vectorized computation a first-class part of Simbrain while preserving the interactive visual style of earlier versions. Arrays support multiple display modes, direct inspection by zooming, matrix operations, and array-specific rules such as [Softmax](network/arraysMatrices/softmax) and [Winner Take All](network/arraysMatrices/wta).
+* [Convolutional neural networks](network/convolutionalNeuralNetworks) were added, including tensor layers, convolution and pooling connectors, flattening into dense layers, CNN training dialogs, and receptive-field tracing that shows exactly which input region contributes to a downstream activation.
+* [Transformer blocks](network/arraysMatrices#transformer-block) were added together with support for language-model-style simulations. Simbrain includes a small working language model that can be trained and inspected visually, making concepts like tokenization, embeddings, self-attention, and next-token prediction easier to explore.
+* [Supervised models](network/learning/supervisedModels) allow backpropagation to be applied on the fly between selected source and target layers, including across paths with diverging and reconverging weights. The framework includes multiple optimizers and flexible weight initialization strategies.
+* The [wand tool](network/wand/) provides a fast way to perturb running networks, paint activation patterns, induce spikes, sculpt weights, and dynamically create or prune connections.
 * [Neuron collections](network/neuroncollections) were introduced as a new way of organizing neurons. These are lightweight wrappers on neurons that can overlap.
 * Over 20 [neuron update rules](network/neurons) are now available, including biologically detailed models ([Morris-Lecar](network/neurons/morrisLecar), [Izhikevich](network/neurons/izhikevich), [FitzHugh-Nagumo](network/neurons/fitzhughNagumo)) and modern ML activations like [GELU](network/neurons/gelu) (for transformers), [Kuramoto](network/neurons/kuramoto), and [Allostatic](network/neurons/allostatic).
-* New [connection strategies](network/connections) including [distance-based](network/connections/distanceBased) and [fixed-degree](network/connections/fixedDegree) connections.
+* The [connection strategy](network/connections) system has been expanded so users can generate dense, sparse, one-to-one, recurrent, and spatially organized projections while separately controlling topology, weight initialization, and excitatory / inhibitory ratios.
 * New [subnetwork types](network/subnetworks) including [restricted Boltzmann machines](network/subnetworks/restrictedBoltzmannMachine)
 * A [classifier](network/subnetworks/classifier) object was added, which wraps the [Smile](https://haifengl.github.io/classification.html) machine learning framework. 
 * [Spike responders](network/spikeresponders) were reorganized into a dedicated framework with improved support for modeling synaptic dynamics.
@@ -47,13 +50,14 @@ Simbrain 4.0 involved a complete rewrite of Simbrain that occurred between 2015 
     
 # Odor World
 
-[Odor World](worlds/odorworld) has been significantly rewritten to function as a standard 2D game engine for embodied agent simulations.
+[Odor World](worlds/odorworld) has been significantly rewritten and expanded as a platform for embodied agent simulations.
 
 * Zooming and panning support for navigating larger environments
 * Tilemap system with [Tiled](https://www.mapeditor.org/) editor integration for creating complex worlds
 * Animated sprites for dynamic entity visualization
 * New [object sensor](worlds/odorworld#object-sensor) type provides a simplified alternative to [smell sensors](worlds/odorworld#smell-sensor) for detecting specific entity types by name (e.g., "Swiss cheese") without requiring full vector-based smell source configuration
 * [Sensors and effectors](worlds/odorworld#sensors-and-effectors) for movement (straight movement, turning), speech, hearing, bump detection, and tile sensing enable sophisticated embodied agent behaviors
+* A lightweight [3D view sensor](worlds/3dworld) uses ray casting to create first-person visual inputs that can be coupled directly to arrays and networks, enabling simple 3D perception experiments without a heavyweight 3D engine
 
 # Image World
 
