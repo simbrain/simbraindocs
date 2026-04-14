@@ -8,11 +8,13 @@ nav_order: 125
 
 # Convolutional Neural Networks
 
-Convolutional neural networks use [tensors](https://en.wikipedia.org/wiki/Array_%28data_type%29#Multidimensional_arrays) and spatial connectors to process image-like data. In Simbrain, a CNN is built from [TensorLayer](#tensor-layers) nodes connected by [convolution](https://en.wikipedia.org/wiki/Convolution) and [pooling](https://en.wikipedia.org/wiki/Pooling_layer) connectors, plus [flatten](#flattening) connectors. A [ConvolutionalNeuralNetwork](subnetworks/convolutionalNeuralNetwork) subnetwork can wrap the whole pipeline so one network update performs a full forward pass.
+Convolutional neural networks use [tensors](https://en.wikipedia.org/wiki/Array_%28data_type%29#Multidimensional_arrays) and spatial connectors to process image-like data. In Simbrain, a CNN is built from [TensorLayer](#tensor-layers) nodes connected by [convolution](https://en.wikipedia.org/wiki/Convolution) and [pooling](https://en.wikipedia.org/wiki/Pooling_layer) connectors, plus [flatten](#flattening) connectors. A [ConvolutionalNeuralNetwork](subnetworks/convolutionalNeuralNetwork) subnetwork can wrap the whole pipeline so one network update performs a full forward pass, from image input to class output.
 
-Simbrain's visual tools make CNNs easier to inspect than they are in many code-only settings. Tensor layers show their spatial shape and channel contents directly, connector dialogs show how stride and padding change those shapes, kernel views show what each filter is learning, and receptive field tracing shows which input window contributes to a particular downstream activation.
+Simbrain's visual tools make CNNs easier to inspect than they are in many code-only settings. Tensor layers show their spatial shape and channel contents directly, connector dialogs show how stride and padding change those shapes, and the network view makes it possible to watch activity propagate through progressively more abstract feature maps until the final classification layer responds.
 
-<img src="/assets/images/cnn/cnn_example.png" alt="A Simbrain convolutional neural network connected to an image world" style="width:650px;"/>
+You can inspect tensors slice by slice, scroll through filters in a convolution layer, and hover over a pixel to highlight the upstream or downstream patches that influence it. When a CNN is coupled to Image World, you can also step through source images, edit them, and see the effects propagate through the network in real time.
+
+<img src="/assets/images/cnn/cnn_example.png" alt="A Simbrain convolutional neural network classifying an Image World input" style="width:650px;"/>
 
 ## Shape Notation
 
