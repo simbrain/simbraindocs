@@ -22,7 +22,7 @@ The error metric used during training:
 
 The optimization algorithm for updating weights during training.
 
-### Momentum Optimizer
+### Basic Optimizer
 
 Uses learning rate and [momentum](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Momentum) parameters.
 
@@ -46,6 +46,14 @@ Uses learning rate and [momentum](https://en.wikipedia.org/wiki/Stochastic_gradi
 - **Beta2**: Controls the exponential decay rate for second moment estimates
 - **Weight Decay**: Regularization parameter that prevents overfitting
 - **Learning Rate Decay**: Gradually reduces learning rate during training
+
+## Effective Step Size
+
+Training dialogs display **Effective Step Size**, the root mean square of the optimizer's per-parameter update from the most recent training iteration. It is computed across all updated weights, synapse-group weights, and biases.
+
+This value measures how large the actual parameter update was, not just the configured learning rate. For Adam-family optimizers, the effective step size is often close to the learning rate once training has stabilized. For the Basic Optimizer, it reflects both the learning rate and the current gradient scale, roughly like `learning rate * gradient magnitude`.
+
+Very small values can indicate that the optimizer is barely changing the network. Very large values can indicate unstable updates. In batch modes, gradients are averaged over the batch before the optimizer update is computed, so increasing batch size should not by itself multiply the effective step size.
 
 ## Update Type
 
@@ -115,4 +123,3 @@ The training and testing data tables support various operations for editing, ana
 - Randomization and filling
 - Visualization tools (Box plots, Correlation/Matrix plots, PCA projections)
 - Structural editing (add/remove rows and columns)
-

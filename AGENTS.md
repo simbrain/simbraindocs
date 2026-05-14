@@ -52,7 +52,7 @@ published: true  # Set to false if not available in UI
 - Prefer narrative prose for exposition. Use lists mainly for parameters, menu or function inventories, step-by-step procedures, or other content that is inherently list-shaped.
 - Avoid bolded bullets for explanatory prose
 - In code snippets, prefer existing `org.simbrain.util.SwingUtils.kt` dialog helpers over raw `JOptionPane` setup, and suggest adding a utility helper when one is missing
-- In code snippets, avoid decorative separator comments like `// ── Section ─────────────────`
+- In code snippets, do not use code comment separators of any kind, including `// ----- Section -----`, `// --- Section ---`, `// ========`, or `// ── Section ─────────────────`
 
 **What to document:**
 - All `@UserParameter` and `GuiEditable` properties

@@ -19,10 +19,11 @@ This page highlights some of the most important additions since the previous tag
 * The [wand tool](network/wand/) adds a new way to interact with networks by painting activations, inducing spikes, pruning weights, or creating connectivity patterns directly on the canvas.
 * The [connection strategy](network/connections) framework now supports multiple reusable patterns for generating connectivity, including sparse, fixed-degree, distance-based, and one-to-one projections.
 * A flexible [supervised learning](network/learning/supervisedModels) framework supports on-the-fly training through complex pathways with multiple optimizers and initialization strategies.
+* [Evolution](network/learning/evolution) simulations now include graphical displays of genes and chromosomes, making it easier to see what evolved traits are being expressed.
 * [Odor World](worlds/odorworld) was substantially expanded with tilemaps, animated sprites, additional sensors and effectors, and a lightweight [3D view sensor](worlds/3dworld) for first-person visual tasks.
 * [Image World](worlds/imageworld) was rewritten around an [image processing pipeline](worlds/imageworld#pipelines-and-couplings), with image albums, filters, and a live editor.
 * [Text World](worlds/textworld) now provides a unified NLP environment with token embeddings, multiple tokenizers including byte-pair encoding, and support for language-model-style workflows.
-* A full [simulation environment](simulations/) with dozens of example simulations now replaces the earlier scripting-centered workflow.
+* A full [simulation environment](simulations/) with dozens of example simulations now replaces the earlier scripting-centered workflow, including "beta" simulations hidden initially but exposable for users who want to try in-progress examples.
 
 
 # Network
@@ -57,6 +58,7 @@ This page highlights some of the most important additions since the previous tag
 * Animated sprites for dynamic entity visualization
 * New [object sensor](worlds/odorworld#object-sensor) type provides a simplified alternative to [smell sensors](worlds/odorworld#smell-sensor) for detecting specific entity types by name (e.g., "Swiss cheese") without requiring full vector-based smell source configuration
 * [Sensors and effectors](worlds/odorworld#sensors-and-effectors) for movement (straight movement, turning), speech, hearing, bump detection, and tile sensing enable sophisticated embodied agent behaviors
+* [NPC behaviors](worlds/npcbehaviors) let Odor World entities pursue targets, evade threats, or wander while avoiding obstacles
 * A lightweight [3D view sensor](worlds/3dworld) uses ray casting to create first-person visual inputs that can be coupled directly to arrays and networks, enabling simple 3D perception experiments without a heavyweight 3D engine
 
 # Image World
@@ -77,7 +79,9 @@ This page highlights some of the most important additions since the previous tag
 * Bytepair encoding visualization for understanding subword tokenization using the "show token boundaries" feature
 * Integration with language model workflows through token embeddings
 
+
 # Other
 
 * The preference framework was rewritten
 * The [tables](utilities/tables) and [data world](worlds/dataworld) have been completely rewritten on top of the Smile framework.
+* Windows applications are now signed using [SignPath](https://signpath.io/). Thanks to SignPath for supporting signed Simbrain builds.

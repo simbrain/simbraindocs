@@ -2,7 +2,7 @@
 title: Odor World
 parent: Worlds
 layout: default
-has_children: false
+has_children: true
 nav_order: 55
 ---
 
@@ -21,6 +21,8 @@ Objects that appears in the Odor World window are `odor world entities` with pro
 Odor world entities can be coupled to other Simbrain components, in particular neural networks. Some are more like agents (like mice, people, etc.), some are more like objects, but they can all be edited in the same way.
 
 To get started understanding how agent sensors and effectors work see the [couplings](../workspace/couplings) page.
+
+Entities can also be assigned [NPC behaviors](npcbehaviors) such as pursue, evade, and wander. These behaviors drive movement directly each workspace tick, which is useful for scripted agents, background characters, and comparison agents in embodied simulations.
 
 ## Smell Sources and Stimulus Vectors
 

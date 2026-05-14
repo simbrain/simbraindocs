@@ -9,13 +9,25 @@ nav_order: 30
 
 # Evolving Neural Networks
 
-Simbrain provides a comprehensive framework for evolving neural networks using [evolutionary algorithms](https://en.wikipedia.org/wiki/Evolutionary_algorithm), which is a form of [neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution). To experience these in action, try the EvolveXOR simulation (details below). Unlike other Simbrain features, this framework isn't directly operable via the GUI for building evolutionary simulations with a point-and-click interface. Instead, it comprises a library of functions for creating custom simulations, producing standard interfaces, and resulting in [networks](..), [odor worlds](../../worlds/odorworld), and other familiar Simbrain components. Sample simulations can be accessed from the simulation directory.
+Simbrain provides a comprehensive framework for evolving neural networks using [evolutionary algorithms](https://en.wikipedia.org/wiki/Evolutionary_algorithm), which is a form of [neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution). To experience these in action, try the EvolveXOR simulation or one of the Odor World evolution simulations. Evolution simulations have rich graphical interfaces for running, inspecting, and expressing results, but the evolutionary system itself must currently be built programmatically using the [simulation framework](../../simulations/). There is not yet a point-and-click GUI for designing new evolutionary simulations from scratch. Instead, the framework provides a library for custom simulations that can evolve [networks](..), [odor worlds](../../worlds/odorworld), and other familiar Simbrain components.
 
-Upon opening most evolutionary simulations, an interface appears to customize the evolutionary process, initiated by the "evolve" button. Pressing this button starts an evolutionary algorithm, using interface settings to guide the simulation's creation of a population that evolves across generations. Each generation iterates the population to stabilize simulations, calculate fitness scores, and store results, which are displayed as percentiles of the population. After each generation, a percentage of the population is eliminated, and new simulations with mutated traits of survivors replace them. This process continues until the maximum number of generations is reached or the target fitness/error is achieved. The final generation's best simulation is considered the winner, with its fitness/error score being the simulation's final output.
+Upon opening most evolutionary simulations, a trainer-style interface appears. It can run one generation at a time, run continuously, stop, open evolution properties, and in some simulations express the current best genome in the workspace. Each generation evaluates a population, scores the members, eliminates a portion of the population, and replaces them with mutated offspring of the survivors. This process continues until the maximum number of generations is reached or the target fitness/error is achieved.
 
 This is a sample which shows what the evolution interface looks like, from the `EvolveXOR` simulation.
 
 <img src="/assets/images/basicEvolutionControls.png" alt="Basic evolution interface" style="width:300px;"/>
+
+## Trainer Controls
+
+- **Step**: Evolve one generation.
+- **Run/Stop**: Run evolution continuously or pause it.
+- **Evolution properties**: Edit parameters controlling population size, elimination, evaluation, stopping, and random seed.
+- **Express current best**: Visualize the current best genome in the workspace when the simulation supports it.
+- **Generation**: Current generation number.
+- **Fitness/Error**: Current tracked metric, shown at the configured evaluation percentile.
+- **Fitness plot**: Time series display of the tracked metric over generations.
+
+## Evolution Parameters
 
 - **Population Size**: The number of simulations spawned per generation. This size stays constant throughout the evolution process.
 - **Elimination Ratio**: The percentage of the population eliminated each generation and replaced with mutated offspring of surviving simulations.
@@ -33,6 +45,14 @@ Here is how it works:
 3. **Selection**: Simulations with better fitness scores are more likely to survive (see [evolutionary selection](https://en.wikipedia.org/wiki/Selection_(genetic_algorithm)))
 4. **Reproduction**: Surviving simulations produce offspring with [mutations](https://en.wikipedia.org/wiki/Mutation_(genetic_algorithm))
 5. **Iteration**: Steps 2-4 repeat until a termination condition is met
+
+## Gene and Chromosome Displays
+
+Evolution simulations include a graphical display of the genes and chromosomes in the current best genome. These displays group related genes into sections, show the values that will be expressed into networks or world entities, and can include metadata such as generation or ancestry.
+
+<img src="/assets/images/evolutionTrainerGenomeGui.png" alt="Evolution trainer showing a fitness plot and graphical genome display" style="width:800px;"/>
+
+The display updates as evolution proceeds, so it can be used to inspect which traits are changing across generations. In simulations with an **Express current best** button, the displayed genome can also be expressed into visible Simbrain components, making it easier to connect the abstract gene values to the network or agent they produce.
 
 ## Example Simulations
 
@@ -68,7 +88,7 @@ To create your own evolutionary simulations:
 4. Configure the evolutionary parameters (population size, mutation rates, etc.)
 5. Run the evolution and analyze results
 
-See the custom simulations documentation for implementation details.
+See [Simulations and Scripting](../../simulations/) for implementation details.
 
 ## Advanced Features
 
@@ -88,4 +108,3 @@ Some simulations support optimizing multiple objectives:
 - Speed vs. accuracy trade-offs
 - Energy efficiency vs. performance
 - Robustness vs. specialization
-

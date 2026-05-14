@@ -24,7 +24,7 @@ Custom simulations in Simbrain allow you to create sophisticated setups with cus
 - Custom logging and analysis
 - Interactive demonstrations and experiments
 
-The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their source code and modify simple parameters to understand how they work.
+The best way to understand what's possible is to explore existing simulations using the `simulations` menu. Run several to see different capabilities, then examine their Kotlin source code and modify simple parameters to understand how they work.
 
 Here is an example of a custom simulation built using the framework: `Cognitive Maps > Agent Trails`. It was built using many of the tools and techniques described on this page, including a custom control panel, sidebar documentation, explicit GUI component placement, a network connected to an Odor World and projection plot, couplings between components, and a custom network update action for training the predictor.
 
@@ -109,6 +109,14 @@ val simulations = dir("Simulations", alphabetical = true) {
 ```
 
 Use `dir` to create menu folders and `item` to add individual simulations. The label you provide appears in the menu and can also be used to run the simulation from the command line.
+
+Simulations can be marked as beta while they are still in progress:
+
+```kotlin
+item("My Experimental Simulation", beta = true) { myExperimentalSimulation }
+```
+
+Beta simulations are hidden by default. Enable **Show beta simulations** in [Workspace Preferences](../workspace/preferences) to show them in the Simulations menu with "(beta)" appended to their names.
 
 ## Adding Documentation
 
