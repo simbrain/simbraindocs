@@ -24,6 +24,22 @@ To get started understanding how agent sensors and effectors work see the [coupl
 
 Entities can also be assigned [NPC behaviors](npcbehaviors) such as pursue, evade, and wander. These behaviors drive movement directly each workspace tick, which is useful for scripted agents, background characters, and comparison agents in embodied simulations.
 
+## Entity Parameters
+
+The Main tab of the entity dialog includes general settings for the selected entity.
+
+- **Name**: Label used to identify the entity.
+- **Type**: Entity type, which determines the sprite and basic object type used in the world.
+- **Heading**: Direction the entity is facing.
+- **X**: Horizontal position in the world.
+- **Y**: Vertical position in the world.
+- **Enable Effectors**: Enables or disables the entity's effectors. See [Sensors and Effectors](#sensors-and-effectors).
+- **Enable Sensors**: Enables or disables the entity's sensors. See [Sensors and Effectors](#sensors-and-effectors).
+- **Show Sensors / Effectors**: Shows or hides the entity's sensor and effector nodes in the world view. 
+- **Show Trail**: Shows or hides the path the entity has traveled. Especially useful for braitenberg simulations to study meandering paths.
+- **Draw trail without running workspace**: Continues drawing the trail even when the workspace is not running. This field is enabled when **Show Trail** is on.
+- **Distance per animation frame**: (This field is only shown for entity types that use animated sprites). Controls how far an animated sprite must move before advancing to the next animation frame. Lower values make the animation cycle more quickly as the entity moves, while higher values make the animation cycle more slowly. How this looks also depends on system performance and workspace update speed. On a fast system, an entity can move and animate quickly enough that frame changes are harder to see.
+
 ## Smell Sources and Stimulus Vectors
 
 All non-agent entities in Simbrain are smell sources. Agents are not smell sources by default, but by right clicking on them and selecting Set Smell Sources they can be designated as smell sources.

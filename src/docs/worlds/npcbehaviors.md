@@ -17,13 +17,12 @@ Behaviors are useful for background agents, moving targets, threats, comparison 
 
 ## Common Entity Settings
 
-- **Behavior**: Selects the behavior used by the entity. Options include NoOp, Pursue, Evade, and Wander.
+- **Behavior**: Selects the behavior used by the entity. Options include None, Pursue, Evade, and Wander. None is the default.
 - **Show Steering Debug**: Draws the candidate headings, obstacle feeler hits, and behavior notes used by the steering behavior. This is useful for understanding why an entity chose a particular direction.
-- **Distance per animation frame**: Number of pixels the sprite must move before advancing to the next animation frame. This appears for entity types with multiple animation frames.
 
-## NoOp
+## None
 
-NoOp does not change the entity's movement. Use it when an entity should be moved manually, controlled by effectors, or left stationary.
+None is the default behavior. It does not change the entity's movement, so use it when an entity should be moved manually, controlled by effectors, or left stationary.
 
 ## Pursue
 
