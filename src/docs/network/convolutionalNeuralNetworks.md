@@ -139,7 +139,7 @@ The trace display uses these network preferences:
 
 Right-click the CNN interaction box and select `Train...` to open the CNN training dialog. The training dialog provides step, run, stop, randomize, trainer properties, loss display, optional testing metrics, and an error plot.
 
-CNN training uses the same general training concepts described in [Supervised Learning](learning/supervisedLearning) and [Training Parameters](learning/trainingParameters), but the trainer updates convolution kernels, tensor biases, and dense weights in the CNN pipeline.
+CNN training uses a separate trainer implementation from Simbrain's main supervised-learning tools. It follows the same general training concepts described in [Supervised Learning](learning/supervisedLearning) and [Training Parameters](learning/trainingParameters), but updates convolution kernels, tensor biases, and dense weights in the CNN pipeline directly.
 
 - **Learning Rate**: Learning rate used by Adam updates.
 - **Beta1**: Exponential decay rate for first-moment estimates in Adam.
