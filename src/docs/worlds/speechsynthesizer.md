@@ -4,15 +4,16 @@ layout: default
 parent: Worlds
 has_children: false
 nav_order: 100
-published: false
+published: true
 ---
 
 # Speech Synthesizer
 
 Speech Synthesizer is an experimental world component that produces spoken audio from text, phoneme strings, or articulatory feature vectors. It uses [eSpeak NG](https://github.com/espeak-ng/espeak-ng) for speech output, and can be driven manually or through [couplings](../workspace/couplings). Text couplings can send ordinary text to be pronounced or phoneme strings in [Kirshenbaum notation](https://chromium.googlesource.com/chromiumos/third_party/espeak-ng/+/HEAD/docs/phonemes/kirshenbaum.md). Double-array couplings can send articulatory feature vectors from networks or other components.
 
-To get a feel for the component, use `Simulations > Language > Synthesizer demo`.
+Speech Synthesizer is not yet available as a general-purpose component in the standard component menus, but it can be accessed through simulations.
 
+To get a feel for the component, use `Simulations > Language > Synthesizer demo` or `Simulations > Language > NETtalk`.
 
 # Interface
 
@@ -50,6 +51,18 @@ Phoneme input bypasses ordinary text-to-pronunciation conversion. This is useful
 ## Articulatory Feature Vectors
 
 Feature-vector input is a symbolic speech-code representation, not a raw acoustic signal. The current feature vector has 26 values. The first 21 values describe articulatory properties such as place, manner, voicing, vowel quality, and silence. The last 5 values encode stress or syllable information. This representation is inspired by the [NETtalk reading-aloud model](https://papers.cnl.salk.edu/PDFs/NETtalk_%20A%20Parallel%20Network%20That%20Learns%20to%20Read%20Aloud%201988-3562.pdf) and the [UCI NETtalk corpus](https://archive.ics.uci.edu/dataset/150/connectionist%2Bbench%2Bnettalk%2Bcorpus).
+
+This representation sits between [phonetics](https://en.wikipedia.org/wiki/Phonetics) and [phonology](https://en.wikipedia.org/wiki/Phonology). It is phonological in that the vector identifies abstract sound categories used by a language model, but the categories are named for phonetic properties of speech production, especially [articulatory phonetics](https://en.wikipedia.org/wiki/Articulatory_phonetics). The vector does not model continuous tongue, lip, or acoustic motion. It uses binary features that mark whether a phoneme belongs to a class.
+
+The feature names correspond to broad speech-production categories:
+
+- Labial, dental, alveolar, palatal, velar, and glottal describe [place of articulation](https://en.wikipedia.org/wiki/Place_of_articulation), where the vocal tract is constricted for consonants.
+- Stop, nasal, fricative, affricate, glide, and liquid describe [manner of articulation](https://en.wikipedia.org/wiki/Manner_of_articulation), how airflow is shaped or obstructed.
+- Voiced marks whether the vocal folds vibrate during the sound, the distinction described by [voice](https://en.wikipedia.org/wiki/Voice_(phonetics)).
+- High, medium, low, front, central, and back describe [vowel height](https://en.wikipedia.org/wiki/Vowel_height) and [vowel backness](https://en.wikipedia.org/wiki/Vowel_backness), rough positions of the tongue body for vowels.
+- Tense marks [vowel tenseness](https://en.wikipedia.org/wiki/Tenseness), a contrast between tense and lax vowel qualities in English-like vowel systems.
+- Silent marks a no-sound or continuation position, useful for word boundaries and letters that do not correspond to an audible phoneme.
+- The final stress features, `>`, `<`, `0`, `1`, and `2`, are one-hot markers for syllable or [stress](https://en.wikipedia.org/wiki/Stress_(linguistics)) information from the NETtalk-style corpus.
 
 When a feature vector is received, the synthesizer finds the nearest known phoneme pattern and sends that phoneme to eSpeak NG. This allows neural-network outputs to be interpreted as speech-like symbols, including noisy or intermediate outputs, but the vector itself is not directly converted into a waveform.
 
