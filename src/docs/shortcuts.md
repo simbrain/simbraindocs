@@ -13,6 +13,19 @@ This page provides a comprehensive reference to keyboard shortcuts in Simbrain, 
 
 Component-specific shortcuts only work when that component is in focus. Click on the component window first. Many actions also appear in menus and toolbars where you can hover to see their shortcuts. In this documentation, `Cmd/Ctrl` means the Command key (⌘) on Mac and the Control key on Windows and Linux.
 
+## Most Important Shortcuts
+
+These network shortcuts are the ones worth learning first. See [Useful Sequences](#useful-sequences) for common combinations.
+
+- **p:** Add a neuron where you last clicked
+- **n:** Select all [neurons](network/neurons/)
+- **a:** Select all objects (neurons and weights)
+- **w:** Select all [weights](network/synapses/)
+- **1-2 and 1-3 tricks:** Quick ways to connect neurons. See [Quick-Connect](network/buildingBasics#quick-connect-1-2-and-1-3-tricks)
+- **Spacebar:** Iterate the network once
+- **k:** Clear all neuron activations
+- **s / d:** Selection mode and [wand mode](network/wand/)
+
 ## Desktop and Workspace
 
 These shortcuts work at the desktop level (when no component is focused) or affect the entire [workspace](workspace/):
@@ -46,7 +59,6 @@ These shortcuts work for any component when it has focus:
 - **s:** Selection mode (default mode)
 - **d:** [Wand mode](network/wand/) (paint activation patterns for testing). Press repeatedly to cycle through wand actions. S and D are adjacent, making it easy to switch between selection and wand modes
 - **t:** Text mode (add text annotations)
-- **f:** Fit camera to screen
 
 ### Creating Objects
 
@@ -63,6 +75,8 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-V:** Paste copied items
 - **Cmd/Ctrl-X:** Cut selected items
 - **Cmd/Ctrl-D:** Duplicate selected items
+- **Cmd/Ctrl-Z:** [Undo](network/buildingBasics#undoredo-capabilities) last structural change
+- **Cmd/Ctrl-Y** or **Cmd/Ctrl-Shift-Z:** [Redo](network/buildingBasics#undoredo-capabilities) last undone action
 - **Delete/Backspace:** Delete selected items
 
 ### Connecting Neurons
@@ -104,8 +118,6 @@ These shortcuts work for any component when it has focus:
 - **Cmd/Ctrl-T:** Toggle visibility of selected [synapse groups](network/synapsegroups)
 - **Cmd/Ctrl-M:** Create [supervised model](network/learning/supervisedModels) from selected layers
 - **Cmd/Ctrl-,:** [Network preferences](network/ui/networkPreferences)
-- **Cmd/Ctrl-Z:** [Undo](network/buildingBasics#undoredo-capabilities) last structural change
-- **Cmd/Ctrl-Y** or **Cmd/Ctrl-Shift-Z:** [Redo](network/buildingBasics#undoredo-capabilities) last undone action
 - **Alt-R:** Toggle vertical/horizontal layout for neuron arrays
 - **Alt-D:** Print debug info to console (terminal only)
 - **Shift-I:** Diagonalize selected weight matrices
@@ -138,4 +150,11 @@ See [Image World](worlds/imageworld) for more details.
 See [Text World](worlds/textworld) for more details.
 
 - **Cmd/Ctrl-F:** Find and replace
+
+## Useful Sequences
+
+- p, then [1-2 trick](network/buildingBasics#1-2-trick-quick-default-connections) to connect neurons
+- N, 1, Shift-2, A, R for a quick recurrent network
+- k to clear all activations
+- n or w, then R, C, or arrows, then Spacebar to test
 
