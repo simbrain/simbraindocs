@@ -164,11 +164,11 @@ When multiple objects are edited and have inconsistent properties, this is marke
 
 Examples:
 
-- Set activation values for nodes: The activation value (and hence color) of neurons and the excitatory or inhibitory strength (and hence color and size) of weights can be manually adjusted. To do so, select one or more neurons and weights (both can be adjusted at the same time), and press the up and down arrow keys to increase or decrease these values. The amount increased or decreased is set by the "increment" field. Right and left arrow keys can also be used to increase or decrease these value.
+- Set activation values for nodes: The activation value (and hence color) of neurons and the excitatory or inhibitory strength (and hence color and size) of weights can be manually adjusted. To do so, select one or more neurons and weights (both can be adjusted at the same time), and press the arrow keys (up/right to increase, down/left to decrease). The amount changed is set by the "increment" field.
 - Clearing and randomizing values: Note that while screen items are selected, neuron values can also be set to zero by pressing "C" on the keyboard (weight values are not then set to zero, because this is equivalent to deleting them, which can be done with the delete key). Pressing "R" will randomize all selected screen items, neurons and weights.
 - To clear nodes you select them and press `C`
 - To clear weights you select them and press `Shift-C` (this prevents accidentally clearing them)
-- To clamp nodes or weights use `Cmd/Ctrl-B`
+- To clamp nodes or weights use `Shift-F`
 
 # Copy and Paste
 

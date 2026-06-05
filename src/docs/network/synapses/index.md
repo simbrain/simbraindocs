@@ -43,7 +43,7 @@ These are properties common to all synapses, regardless of type. All of them hav
 
 By [selecting](../buildingBasics#selecting-objects) a set of weights (e.g., by pressing "w", or by lassoing over a group of lines) and pressing certain buttons, those weights' properties can quickly be adjusted.
 
-- **Increment / Decrement**: Press the up and down buttons to adjust synapse strengths. If the up key is pressed, the `increment` amount of a given synapse is added to the current strength. The size of the weight should be visibly changing. Similarly for the down key.
+- **Increment / Decrement**: Press the arrow keys (up/right to increment, down/left to decrement) to adjust synapse strengths.
 - **Randomize**: Press the `r` key or the "dice" button on the toolbar to randomize all selected synapses.
 - **Clear**: Press `c` key or the "eraser" button on the toolbar to clear the post-synaptic response (psr) and delay queue of all selected synapses. This does NOT set synapse strengths to 0.
 - **Hard Clear**: Press `Shift-c` to "hard clear" selected synapses, which clears the psr and delay queue AND sets the strengths to 0.

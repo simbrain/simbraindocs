@@ -23,7 +23,7 @@ This page describes the menu items, keyboard shortcuts, and toolbar actions avai
 ## Edit Menu
 
 - **Undo**: Undo last [structural change](../buildingBasics#undoredo-capabilities) (Cmd/Ctrl-Z)
-- **Redo**: Redo last undone action (Cmd/Ctrl-Shift-Z)
+- **Redo**: Redo last undone action (Cmd/Ctrl-Y or Cmd/Ctrl-Shift-Z)
 - **Undo History**: Show undo history dialog with all undo and redo operations, allowing you to jump to any previous state
 - **Cut**: Cut selected network elements (Cmd/Ctrl-X)
 - **Copy**: Copy selected network elements (Cmd/Ctrl-C)
@@ -39,7 +39,7 @@ This page describes the menu items, keyboard shortcuts, and toolbar actions avai
 - **Connect with Synapse Group**: Connect selected source and target neurons with a synapse group
 - **Layout**: Apply a layout to selected neurons (see [layouts](layouts))
 - **Create Supervised Model**: Create a supervised learning model from selected network elements
-- **Add neurons to collection**: Add selected neurons to a neuron collection (G)
+- **Add neurons to collection**: Add selected neurons to a neuron collection (Cmd/Ctrl-G)
 - **Align**: Submenu with horizontal and vertical alignment options
 - **Space**: Submenu for horizontal and vertical spacing options
 - **Edit Selected Models**: Edit properties of selected models (Cmd/Ctrl-E)
@@ -164,7 +164,7 @@ The Main Toolbar controls the edit mode and zoom level:
 The Edit Toolbar provides quick access to common editing operations:
 
 - **Undo**: Undo the last [structural change](../buildingBasics#undoredo-capabilities) (Cmd/Ctrl-Z)
-- **Redo**: Redo the last undone action (Cmd/Ctrl-Shift-Z)
+- **Redo**: Redo the last undone action (Cmd/Ctrl-Y or Cmd/Ctrl-Shift-Z)
 - **Add Neuron**: Create a neuron at the last clicked position (P)
 - **Delete**: Delete currently selected items (Backspace or Delete)
 - **Clear**: Set all selected object activations to 0 (C). Works on neurons, neuron collections, and subnetworks. For weights, use Shift-C

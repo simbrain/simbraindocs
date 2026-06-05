@@ -139,7 +139,7 @@ The PSR matrix can be processed by [spike responders](../spikeresponders.html) b
 
 - **Toggle line / grid**: Toggle line / grid style (G)
 
-- **Toggle horizontal / vertical layout**: Toggle horizontal / vertical layout (L)
+- **Toggle horizontal / vertical layout**: Toggle horizontal / vertical layout (L or Alt-R)
 
 - **Toggle circle mode**: Toggle activation rendering mode between circle and image (Cmd/Ctrl+Shift+C)
 
