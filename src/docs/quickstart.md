@@ -9,6 +9,8 @@ nav_order: 7
 
 The fastest way to see Simbrain in action is to run pre-built [simulations](simulations/) from the `Simulations` menu. Open one and press play in the workspace toolbar to watch it run. This guide covers basic workflows for building and running networks. For more details on building networks, see [Building Basics](network/buildingBasics). For a comprehensive list of keyboard shortcuts across all components, see the [Keyboard Shortcuts](shortcuts) reference page.
 
+If you are going to invest time in learning one thing, we suggest the [keyboard shortcuts](shortcuts). They are extremely useful and a preferred way to do things in Simbrain.
+
 ## Info Panels and Onboarding
 
 When you first launch Simbrain, you may see onboarding windows that introduce basic features. These are self-explanatory and can be dismissed. If you want to see them again, use `File > Reset onboarding windows` (this resets all of them, but there arent many).
