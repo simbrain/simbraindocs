@@ -127,6 +127,8 @@ Hovering over tensor activations shows how spatial operations map across layers.
 
 Forward tracing shows the current kernel or pooling-window footprint and the activation it maps to in the next tensor layer. Backward tracing starts from a single activation and shows the source-region footprint that produced it, expanding the receptive field through earlier layers.
 
+When [Thumbnail Strip](#tensor-layers) is enabled, clicking a thumbnail selects the tensor channel shown in the main panel. In [Kernel Grid View](#convolution-kernels), receptive-field tracing outlines the kernels corresponding to that selected channel. For a source tensor, it highlights a column because that input channel is processed by one kernel from every output filter. For a target tensor, it highlights a row because that output channel is produced by one filter containing one kernel for every input channel. These outlines are available only in Kernel Grid View, and their colors and navigation behavior are controlled by [network preferences](ui/networkPreferences).
+
 <img src="/assets/images/cnn/backwardTracing.png" alt="Backward receptive field tracing through a convolutional neural network" style="width:650px;"/>
 
 The trace display uses these network preferences:
