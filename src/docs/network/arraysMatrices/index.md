@@ -263,9 +263,9 @@ The histogram dialog is particularly useful when setting up networks for machine
 
 ## Differences with Synapse Groups
 
-Weight matrices and synapse groups both represent connections, but they are targeted at different use cases. Weight matrices emphasize speed and array-based computation, so they are the better choice for large, dense layers and for operations that treat the connection as a single matrix, such as spectral analysis or whole-matrix learning updates.
+Weight matrices and [synapse groups](../synapsegroups) both represent connections, but they are targeted at different use cases. Weight matrices emphasize speed and array-based computation, so they are the better choice for large, dense layers and for operations that treat the connection as a single matrix, such as spectral analysis or whole-matrix learning updates.
 
-Synapse groups are more appropriate when you want to work with individual connections. They support properties like per-synapse variation, delays, sparser patterns of connectivity, and a wider range of connection-level learning behaviors. They are often useful in computational neuroscience simulations.
+Synapse groups are more appropriate when you want to work with individual connections. They are managed bundles of synapses between neuron collections, and support properties like per-synapse variation, delays, sparser patterns of connectivity, and a wider range of connection-level learning behaviors. They are often useful in computational neuroscience simulations.
 
 
 ## Weight Matrix Dialog Options

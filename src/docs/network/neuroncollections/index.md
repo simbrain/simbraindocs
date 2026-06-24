@@ -8,13 +8,13 @@ nav_order: 100
 
 # Neuron Collections
 
-A neuron collection is a lightweight grouping of free neurons. Collections allow neurons to be labeled, moved as a unit, connected to other layers via weight matrices or synapse groups, and coupled to other Simbrain components.
+A neuron collection is a lightweight grouping of free neurons. Simbrain uses collection for this kind of loose grouping: the neurons remain ordinary, individually editable neurons, while the collection provides a shared handle for labeling, moving, connecting, and coupling them.
 
 <img src="/assets/images/neuronCollections.png" alt="neuron collections" style="width:300px;"/>
 
 Collections are flexible: neurons can belong to multiple collections simultaneously, and neurons within a collection can use different update rules. Create a collection by pressing `g` to add a new collection from scratch, or select existing neurons and press `Cmd/Ctrl+G` to wrap them in a collection. Collections have a green interaction box. Deleting a collection leaves the neurons intact.
 
-Neuron collections can be connected to other collections, neuron arrays, and subnetworks using [weight matrices](../arraysMatrices) or [synapse groups](../synapsegroups). Use the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for matrix-based connections or the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for individual synapse management.
+Neuron collections can be connected to other collections, neuron arrays, and subnetworks using [weight matrices](../arraysMatrices) or [synapse groups](../synapsegroups). Synapse groups connect neuron collections using individual synapses; weight matrices provide a faster matrix-based connection. Use the [1-2 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for matrix-based connections or the [1-3 trick](../buildingBasics.html#quick-connect-1-2-and-1-3-tricks) for individual synapse management.
 
 ## Edit Dialog
 

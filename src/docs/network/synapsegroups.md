@@ -8,7 +8,13 @@ nav_order: 110
 
 # Synapse Groups
 
-Synapse groups are collections of synapses linking a source to a target [neuron collection](./neuroncollections). In a large network, operating on synapses individually would be impractical; synapse groups offer a way to manipulate all synapses in a group at once.
+Synapse groups are managed sets of synapses connecting a source [neuron collection](./neuroncollections) to a target neuron collection. Each synapse still links individual neurons, while the group provides a single object for creating, editing, visualizing, and enabling or disabling the whole connection.
+
+## When to Use Synapse Groups
+
+Synapse groups and [weight matrices](arraysMatrices) both represent connections between layers, but they are targeted at different use cases. Use a synapse group when you want the connection to remain a set of individual synapses, especially for sparse connectivity, neuron polarity constraints, delays, per-synapse behavior, or computational neuroscience models.
+
+Use a weight matrix when speed and array-based computation are more important, or when you want operations that treat the connection as a single matrix, such as spectral analysis, whole-matrix initialization, or machine-learning-style updates.
 
 ## Connection Strategy Integration
 
@@ -67,5 +73,4 @@ The synapse group dialog contains four tabs, each of which links to another comp
 - **Toggle synapse visibility**: Toggles whether individual synapses in the group are visible
 
 - **Couplings**: Create couplings to send or receive data from other Simbrain components (see [couplings](../../workspace/couplings.html))
-
 
