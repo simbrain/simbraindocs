@@ -14,7 +14,7 @@ Synapse groups are managed sets of synapses connecting a source [neuron collecti
 
 Synapse groups and [weight matrices](arraysMatrices) both represent connections between layers, but they are targeted at different use cases. Use a synapse group when you want the connection to remain a set of individual synapses, especially for sparse connectivity, neuron polarity constraints, delays, per-synapse behavior, or computational neuroscience models.
 
-Use a weight matrix when speed and array-based computation are more important, or when you want operations that treat the connection as a single matrix, such as spectral analysis, whole-matrix initialization, or machine-learning-style updates.
+Use a weight matrix when speed and array-based computation are more important, or when you want operations that treat the connection as a single matrix, such as spectral analysis, whole-matrix initialization, or machine-learning-style updates (with a synapse group a matrix representation is available which supports all these operations, but the structure itself is not shown as a matrix or as easy to reason about as a matrix).
 
 ## Connection Strategy Integration
 
