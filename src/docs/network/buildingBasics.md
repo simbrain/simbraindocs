@@ -188,7 +188,11 @@ Copy, cut, and paste in one of the following ways:
 
 Smart copy/paste makes it easy to build repeated structures. Copy neurons or groups, paste them, move the pasted items to set the spacing, then paste again. New pasted items follow the same offset, creating a paste trail.
 
-The default paste trail is horizontal, creating left-to-right lines of neurons, neuron collections, or other copied items. To create a custom paste trail, paste an object, hold Option while dragging it to a new relative position, then paste again. A red line shows the offset that future pasted items will use.
+The default paste trail is horizontal, creating left-to-right lines of neurons, neuron collections, or other copied items.
+
+### Option-drag for custom paste trails
+
+To create a custom paste trail, paste an object, hold Option while dragging it to a new relative position, then paste again. A red line shows the offset that future pasted items will use.
 
 When not using a paste trail, new objects are created at the last position clicked on screen.
 
