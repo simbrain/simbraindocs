@@ -8,7 +8,7 @@ nav_order: 100
 
 # Neuron Collections
 
-A neuron collection is a lightweight grouping of free neurons. Simbrain uses collection for this kind of loose grouping: the neurons remain ordinary, individually editable neurons, while the collection provides a shared handle for labeling, moving, connecting, and coupling them.
+A neuron collection is a lightweight grouping of free neurons. The term "collection" is meant to connote a loose aggregation. The collection provides a shared handle for labeling, moving, connecting, and coupling, but there are no constraints on the neurons themselves or how they are updated.
 
 <img src="/assets/images/neuronCollections.png" alt="neuron collections" style="width:300px;"/>
 

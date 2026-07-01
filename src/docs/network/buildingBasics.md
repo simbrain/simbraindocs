@@ -170,45 +170,31 @@ Examples:
 - To clear weights you select them and press `Shift-C` (this prevents accidentally clearing them)
 - To clamp nodes or weights use `Shift-F`
 
+# Wand Tool
+
+The [wand tool](wand/) is an alternate interaction mode for painting activity, changing values, creating connections, and pruning weights directly on the network canvas.
+
 # Copy and Paste
 
-Selected items (including neuron collections, but not yet subnetworks) can be copied, cut, and paste similarly to the way they are on most contemporary GUI's. Lasso select groups of items, then fine tune your selection using Shift to add or remove items.
+Selected items (including neuron collections, but not yet subnetworks) can be copied, cut, and pasted similarly to the way they are in most contemporary GUIs. Lasso select groups of items, then fine tune your selection using Shift to add or remove items.
 
-Copy, cut, and paste in one of the following ways
+Copy, cut, and paste in one of the following ways:
 
 1. Use standard keyboard shortcuts: control-C (copy), control-X (cut), control-V (paste).
 2. Use the network menu and select copy, cut, or paste.
-3. Right-click on one of the selected items and select copy or cut
+3. Right-click on one of the selected items and select copy or cut.
 
-Smart copy/paste: Copy neurons, paste, move, and re-paste, and the new paste?s follow the rule (see placement manager and paste trails below). In this way you can quickly build big networks.
+## Smart copy/paste
 
-# Wand Tool
+Smart copy/paste makes it easy to build repeated structures. Copy neurons or groups, paste them, move the pasted items to set the spacing, then paste again. New pasted items follow the same offset, creating a paste trail.
 
-The [wand tool](wand/) provides a way to interact with neural networks by painting activation patterns directly onto neurons and synapses. It can be thought of as a virtual electrode for injecting current or a digital brush for sculpting neural activity.
+The default paste trail is horizontal, creating left-to-right lines of neurons, neuron collections, or other copied items. To create a custom paste trail, paste an object, hold Option while dragging it to a new relative position, then paste again. A red line shows the offset that future pasted items will use.
 
-The wand supports multiple configurable actions including activating, inhibiting, randomizing neurons, adjusting synapse strengths, and creating connections. Press `d` repeatedly to cycle through available actions.
+When not using a paste trail, new objects are created at the last position clicked on screen.
 
-See the [wand tool](wand/) page for complete documentation.
+## Implementation details
 
-# Placement Manager and Paste Trails
-
-Manages intelligent placement of network models in the GUI. Often we want to create sets of neurons in a line from a specific points. This can be customized in Simbrain.
-
-The system works via two modes:
-
-1. Click mode: Objects are placed wherever you last clicked on screen.
-
-2. Offset mode. Additional objects are at an offset from the last placed object. This allows "paste trails" to be created.
-
-Offsets differ sepending on what type of object it is, so that objects are placed at a nice offset from one another.
-
-## Custom offsets for paste trails
-
-The default offsets are horizontal and so paste trails occur from left-to right creating horizontal lines of neurons, neuron collections, etc. However, sometimes it's desirable to create, say, a vertical line.  To set a custom offset use option drag. Click on a model, hold down option, and move the model to a custom location relative to the last-created model. A red line is shown indicating what the custom offset will be.
-
-## State diagram
-
-Here is a state diagram explaining how the system works:
+Paste trails use two placement states:
 
 ```mermaid
 graph TD;
