@@ -37,6 +37,8 @@ published: true  # Set to false if not available in UI
 ---
 ```
 
+- When an existing sidebar's child pages are alphabetized by `nav_order`, preserve that ordering when adding a page. Choose an order value that places the new title alphabetically without renumbering unrelated pages.
+
 **Formatting:**
 - Minimize bolding: only for parameter names in lists, menu items, and list labels
 - Don't bold first-use technical terms, algorithm steps, or descriptive prose

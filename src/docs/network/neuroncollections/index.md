@@ -47,6 +47,6 @@ Additional tabs provide access to:
 - **Input data...**: Open the input data dialog
 - **Add current pattern to input data...**: Add current activations to the input data table
 - **Plot**: Create a plot of the collection's activations over time
-- **Add coupled image world**: Create an image world coupled to this collection
+- **Add coupled image world**: Creates an image world coupled to this collection and clamps its neurons so they can clearly display image input. Clamping can lead to unexpected behavior. **Note:** If you later remove the image world, you may need to unclamp the neurons. You can also create the coupling manually using [Add inputs](../../workspace/couplings#add-inputs-and-set-activation).
 - **Record activations**: Record activation values to a CSV file
 - **Send Vector Coupling To / Receive Vector Coupling from**: Create [couplings](../../workspace/couplings) to or from other Simbrain components

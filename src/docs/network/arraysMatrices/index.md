@@ -43,6 +43,14 @@ When [Show numeric overlays](../ui/networkPreferences#gui) is enabled, neuron ar
 
 The number of decimal places used in these overlays is controlled by the decimal-place settings in [network preferences](../ui/networkPreferences#gui). If values are not appearing, first check that numeric overlays are enabled, then zoom in further and turn off auto-zoom if it is continuously resizing the view.
 
+### Editing Individual Cells
+
+When an array, weight matrix, or activation sequence is displayed as cells, click a cell to select it. Shift-click to add or remove cells from the selection. Opening the selected object's edit dialog then edits the selected values together instead of the whole object.
+
+Selected cells can also be randomized with `Randomize selection`. The [wand](../wand/) can adjust selected array activations, matrix weights, or activation-sequence values directly on the canvas. These actions support undo and redo.
+
+Hover over a cell to trace it through connected arrays and matrices. The resulting highlights make it easier to see the source and target values associated with a particular activation or weight.
+
 ### Array Operations
 
 Neuron arrays support several operations:
@@ -161,7 +169,7 @@ The PSR matrix can be processed by [spike responders](../spikeresponders.html) b
 
 - **Plot Biases**: Plot neuron biases across available graph types
 
-- **Add coupled image world**: Couples an image world to this neuron array
+- **Add coupled image world**: Couples an image world to this neuron array and clamps the array so it can clearly display image input. Clamping can lead to unexpected behavior. **Note:** If you later remove the image world, you may need to unclamp the array. You can also create the coupling manually using [Add inputs](../../workspace/couplings#add-inputs-and-set-activation).
 
 - **Record Activations**: Start recording activations to a data world
 

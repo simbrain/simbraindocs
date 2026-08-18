@@ -9,13 +9,13 @@ nav_order: 5
 
 Simbrain 4 is the first major release since Simbrain 3.07. During the long development cycle between those releases, most of the codebase was rewritten or refactored, the project was migrated to [Kotlin](https://kotlinlang.org/), unit tests were added, and many new features were introduced.
 
-This page highlights some of the most important additions since the previous tagged release, with an emphasis on new capabilities users are likely to notice right away.
+This page highlights some of the most important additions and changes, with an emphasis on new capabilities users are likely to notice right away.
 
 # Highlights
 
 * [Neuron arrays, weight matrices, and tensors](network/arraysMatrices) are now deeply integrated into the network system, bringing modern array-based computation into Simbrain's visual workflow.
 * [Convolutional neural networks](network/convolutionalNeuralNetworks) can now be built in the GUI, with tensor displays, kernel views, and receptive-field tracing that make convolutions easier to understand.
-* [Transformer blocks](network/arraysMatrices#transformer-block) and modern ML components such as [GELU](network/neurons/gelu) were added, and Simbrain now includes a working tiny language model that can be trained and visually inspected.
+* Language models were added, including a pretrained LFM2.5 model that can run locally and a small trainable model that can be inspected visually.
 * The [wand tool](network/wand/) adds a new way to interact with networks by painting activations, inducing spikes, pruning weights, or creating connectivity patterns directly on the canvas.
 * The [connection strategy](network/connections) framework now supports multiple reusable patterns for generating connectivity, including sparse, fixed-degree, distance-based, and one-to-one projections.
 * A flexible [supervised learning](network/learning/supervisedModels) framework supports on-the-fly training through complex pathways with multiple optimizers and initialization strategies.
@@ -29,9 +29,9 @@ This page highlights some of the most important additions since the previous tag
 # Network
 
 * [Undo/redo](network/buildingBasics#undoredo-capabilities) (Finally!)
-* The largest architectural change is support for array- and tensor-based neural networks. [Neuron arrays and weight matrices](network/arraysMatrices) make vectorized computation a first-class part of Simbrain while preserving the interactive visual style of earlier versions. Arrays support multiple display modes, direct inspection by zooming, matrix operations, and array-specific rules such as [Softmax](network/arraysMatrices/softmax) and [Winner Take All](network/arraysMatrices/wta).
+* The largest architectural change is support for array- and tensor-based neural networks. [Neuron arrays and weight matrices](network/arraysMatrices) make vectorized computation a first-class part of Simbrain while preserving the interactive visual style of earlier versions. Arrays support multiple display modes, direct inspection by zooming, direct cell selection and editing, tracing through connected arrays and matrices, matrix operations, and array-specific rules such as [Softmax](network/arraysMatrices/softmax) and [Winner Take All](network/arraysMatrices/wta).
 * [Convolutional neural networks](network/convolutionalNeuralNetworks) were added, including tensor layers, convolution and pooling connectors, flattening into dense layers, CNN training dialogs, and receptive-field tracing that shows exactly which input region contributes to a downstream activation.
-* [Transformer blocks](network/arraysMatrices#transformer-block) were added together with support for language-model-style simulations. Simbrain includes a small working language model that can be trained and inspected visually, making concepts like tokenization, embeddings, self-attention, and next-token prediction easier to explore.
+* [Transformer blocks](network/arraysMatrices#transformer-block) were added together with support for language-model-style simulations. Simbrain includes a small working language model that can be trained and inspected visually, making concepts like tokenization, embeddings, self-attention, and next-token prediction easier to explore. A pretrained LFM2.5 language model can now run locally with a Text World context window, and a Teaching Transformer makes the operations of a small trainable transformer visible on the network canvas.
 * [Supervised models](network/learning/supervisedModels) allow backpropagation to be applied on the fly between selected source and target layers, including across paths with diverging and reconverging weights. The framework includes multiple optimizers and flexible weight initialization strategies.
 * The [wand tool](network/wand/) provides a fast way to perturb running networks, paint activation patterns, induce spikes, sculpt weights, and dynamically create or prune connections.
 * [Neuron collections](network/neuroncollections) were introduced as a new way of organizing neurons. These are lightweight wrappers on neurons that can overlap.
@@ -47,6 +47,7 @@ This page highlights some of the most important additions since the previous tag
 * The [projection plot](plots/projectionPlot) was rewritten with support for dimensionality reduction techniques (PCA, t-SNE, Sammon mapping) to visualize high-dimensional network dynamics. New coloring managers enable better visualization of temporal patterns and data relationships.
 * [Time series plots](plots/timeSeries) were updated with improved auto-range capacities for better tracking of dynamic data ranges.
 * [Raster plots](plots/rasterPlot) were updated with improved spike visualization and performance.
+* A [heat map](plots/heatMap) displays continuous vector values over time as color, complementing the spike-oriented raster plot.
 * Other plot types ([bar charts](plots/barChart), [histograms](plots/histogram), [pie charts](plots/pieChart)) remain available for data analysis.
     
 # Odor World
@@ -83,5 +84,6 @@ This page highlights some of the most important additions since the previous tag
 # Other
 
 * The preference framework was rewritten
+* Light, dark, and system themes now apply to the application, network canvas, charts, icons, and windows.
 * The [tables](utilities/tables) and [data world](worlds/dataworld) have been completely rewritten on top of the Smile framework.
 * Windows applications are now signed using [SignPath](https://signpath.io/). Thanks to SignPath for supporting signed Simbrain builds.

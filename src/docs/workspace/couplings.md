@@ -48,13 +48,17 @@ An attribute is any property of a component that can send or receive values, the
 
 Attributes have a data type: scalar (double), vector (double array), or text (string). Only attributes of the same type can be coupled together.
 
-### Coupling to Neurons
+### Add Inputs and Set Activation
 
-When coupling to neurons, it's recommended to use the add inputs consumer rather than setting activation directly. The "add inputs" attribute accumulates multiple incoming values (see [network update](/docs/network/updateLogic)), while setting activation directly overwrites the previous value. Coupling from neuron activations (e.g., to plots) works either way.
+When coupling to a neuron or neuron array, choose the consumer based on whether the target is clamped.
 
-You can view and modify which attributes are visible in the coupling manager using the "Set Attribute Visibilities" button.
+- **Add inputs**: Adds the incoming value to the target's input buffer, where it is combined with inputs from other couplings and network connections. Use this for unclamped neurons and arrays, which update normally using their update rules.
+
+- **Set activation**: Directly sets the target's activation. An unclamped neuron or array will overwrite that activation when it next updates, so this is not suitable for an unclamped target. Use it for clamped neurons and arrays when a coupling is expected to provide their activation.
 
 ## Attribute Visibility
+
+You can view and modify which attributes are visible in the coupling manager using the "Set Attribute Visibilities" button.
 
 Not all attributes are automatically visible in the coupling manager, menus, and context menus. Since components can have hundreds of potential attributes (consider every property of every neuron and synapse in a network), only a subset are visible by default to avoid overwhelming the interface.
 
