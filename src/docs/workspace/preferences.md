@@ -16,6 +16,8 @@ These preferences are accessible through the workspace preferences dialog:
 
 - **Theme**: A [theme](https://developer.android.com/design/ui/mobile/guides/styles/themes) is a coordinated set of visual choices, such as colors and fonts, that determines Simbrain's overall appearance. Choose System, Light, or Dark.
 
+- **Repaint rate limit (fps)**: Fastest rate at which running simulations repaint. Faster update loops continue at full speed without repainting every update, while manual stepping and slower simulations still repaint on every update.
+
 - **Show beta simulations**: When enabled, beta simulations are shown in the Simulations menu with "(beta)" appended to their name. Beta simulations are works in progress that may be incomplete or unstable.
 
 - **Show info dock by default**: When enabled, the simulation info panel will be shown by default when opening Simbrain or simulations.

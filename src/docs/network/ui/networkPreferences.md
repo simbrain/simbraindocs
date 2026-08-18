@@ -44,6 +44,9 @@ The GUI tab controls visual display settings and interface behavior:
 - **Weight matrix target-source format**: If yes, each row of a [weight matrix](../arraysMatrices) corresponds to an output and each column corresponds to an input. If no (source-target format), each row corresponds to an input and each column corresponds to an output
 - **Matrix image max width/height**: Maximum size of the weight matrix image in pixels in either dimension (width or height)
 - **Show numeric overlays**: Show numeric values on neuron arrays, weight matrices, tensors, and connectors when zoomed in. The overlay appears only when the cells are large enough on screen, so you may need to zoom in further and disable auto-zoom while inspecting values.
+- **Show synapse strength labels**: Show numeric strength values on individual synapses when zoomed in
+- **Synapse strength decimal places**: Number of decimal places to display in synapse strength labels
+- **Synapse label min screen size**: Minimum on-screen synapse-circle diameter before a strength label is shown
 - **Receptive field trace mode**: Controls how [receptive field trace](../convolutionalNeuralNetworks#receptive-field-tracing) boxes behave on hover. Auto Navigate changes the visible channel or filter to the traced one. Highlight Matched shows traces only when the matching channel is already visible. Highlight All shows trace boxes without switching the current view
 
 ## Model

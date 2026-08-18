@@ -72,7 +72,7 @@ The training dialog provides a step button to train once through the dataset. Un
 A common workflow for training an RBM is to create a series of patterns and add them to the training dataset before training. Since the visible layer is a neuron array, you can use an [Image World](../../worlds/imageworld) to create and load patterns:
 
 1. Create the RBM network
-2. Right-click on the visible layer and select `Add coupled image world` (this automatically creates and couples an Image World, and clamps the layer so it can display the image input).
+2. Right-click on the visible layer and select `Add image world` (this automatically creates and couples an Image World, and clamps the layer so it can display the image input).
 
    **Note:** If you later remove the image world, you may need to unclamp the array. You can also create the coupling manually using [Add inputs](../../workspace/couplings#add-inputs-and-set-activation).
 3. Load or create patterns in the Image World (e.g., load images or draw patterns)

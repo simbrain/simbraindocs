@@ -36,9 +36,9 @@ When there is a vertical cluster, that means many neurons spiked at the same tim
 - **<span id="fixed-width">Fixed Width</span>**: If true, the raster window never extends beyond the window size. If false, all data to date are plotted (which can start to consume quite a bit of memory).
 - **<span id="spike-threshold">Spike Threshold</span>**: Threshold used to determine spiking with non-spiking neurons. For non-spiking neurons, activation above this value is treated as a spike.
 
-# Panel Buttons
+# Panel Controls
 - **Add**: Add a raster plot series to the plot. Multiple raster plots, shown in different colors, can be superimposed.
-- **Remove**: Remove a raster plot series from the plot.
+- **Legend remove control**: Click the `✕` beside a series in the legend to remove that series.
 - **Clear Graph Data**: Clear all data.
 - **Show Graph Properties** (gear icon): Open preferences dialog.
 

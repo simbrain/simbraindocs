@@ -46,6 +46,8 @@ nav_order: 30
 
 - **New plot > Bar Chart**: Insert a new [Bar Chart](../plots/barChart).
 
+- **New plot > Heat Map**: Insert a new [Heat Map](../plots/heatMap).
+
 - **New plot > Histogram**: Insert a new [Histogram](../plots/histogram).
 
 - **New plot > Pie Chart**: Insert a new [Pie Chart](../plots/pieChart).

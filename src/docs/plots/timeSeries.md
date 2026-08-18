@@ -12,10 +12,10 @@ A [time series plot](https://en.wikipedia.org/wiki/Time_series) allows you to tr
 
 <img src="../../assets/images/timeSeries.png" style="width:500px;"/> <br />
 
-# Panel Buttons
+# Panel Controls
 
 - **Add**: Add a time series to the plot.
-- **Remove**: Remove a time series from the plot.
+- **Legend remove control**: Click the `✕` beside a series in the legend to remove that series.
 - **Clear Graph Data**: Clear all data from the plot.
 - **Show Graph Properties**: Open the properties menu for the plot.
 

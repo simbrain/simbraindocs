@@ -169,7 +169,7 @@ The PSR matrix can be processed by [spike responders](../spikeresponders.html) b
 
 - **Plot Biases**: Plot neuron biases across available graph types
 
-- **Add coupled image world**: Couples an image world to this neuron array and clamps the array so it can clearly display image input. Clamping can lead to unexpected behavior. **Note:** If you later remove the image world, you may need to unclamp the array. You can also create the coupling manually using [Add inputs](../../workspace/couplings#add-inputs-and-set-activation).
+- **Add image world**: Couples an image world to this neuron array and clamps the array so it can clearly display image input. Clamping can lead to unexpected behavior. **Note:** If you later remove the image world, you may need to unclamp the array. You can also create the coupling manually using [Add inputs](../../workspace/couplings#add-inputs-and-set-activation).
 
 - **Record Activations**: Start recording activations to a data world
 
