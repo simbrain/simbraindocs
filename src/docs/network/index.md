@@ -54,5 +54,6 @@ These are customized collections of network models (neurons, neuron arrays, tens
 - [Network Update](updateLogic) - How networks are updated
 - [Learning](learning/) - Training and learning approaches 
 - [Evolution](learning/evolution) - Evolving neural networks
+- [Language Models](languageModels) - Language-model simulations and their visual diagrams
 - [Convolutional Neural Networks](convolutionalNeuralNetworks) - Tensor layers, kernels, pooling, and tracing
 - [Network Menu](ui/networkMenu) - Menu commands
