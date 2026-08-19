@@ -8,7 +8,7 @@ nav_order: 200
 
 # Language Models
 
-Language models, which encompass [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) like ChatGPT, use the modern [transformer architecture](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) to generate natural language. Simbrain includes two LLM simulations that make a model's running computation visible on the network canvas.
+Language models, which encompass [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) like ChatGPT, use the modern [transformer architecture](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) to generate natural language. Simbrain includes two LLM [simulations](../simulations) that make a model's running computation visible on the network canvas.
 
 `Simulations > Language > Tiny Language Model` is a small GPT-style transformer for learning. It begins untrained, so you can choose your own text, train it, and run it to generate text and observe how it works.
 
@@ -69,7 +69,7 @@ This section defines the main interface elements.
 - **<img src="/assets/images/llm/glyphs/op-split.svg" alt="Split heads glyph" style="width:24px; vertical-align:middle;"/> Split heads**: Divides a representation into independent attention heads.
 - **<img src="/assets/images/llm/glyphs/op-merge.svg" alt="Merge heads glyph" style="width:24px; vertical-align:middle;"/> Merge heads**: Recombines attention heads for the output projection.
 - **<img src="/assets/images/llm/glyphs/op-cache-write.svg" alt="Cache-write glyph" style="width:24px; vertical-align:middle;"/> Update attention memory**: In LFM2, this arrow-into-a-tray glyph splits the current key or value vector into head segments and appends them as a new row in the key/value cache. Later tokens attend to those cached rows.
-- **[Q, K, and V routes](https://arxiv.org/abs/1706.03762)**: Wq, Wk, and Wv are learned projections. Their output tiles are query, key, and value. Query and key form attention scores; softmax normalizes them; those weights mix the values.
+- **Q, K, and V routes**: Wq, Wk, and Wv are learned projections. Their output tiles are query, key, and value. Query and key form attention scores; softmax normalizes them; those weights mix the values.
 
   <img src="/assets/images/llm/qkv-connectors.png" alt="Close view of query, key, and value projection connectors, their weights, operation glyphs, tensor tiles, and the attention deck" style="width:800px;"/>
 
@@ -130,5 +130,3 @@ Right-click a language model's header to open its context menu. Both models prov
 - **Layer depth**: Controls depth cards behind stacked tensor tiles.
   - **Show cards**: Shows the layered-card cue behind each tensor stack.
   - **Current layer only**: Hides the cards and shows only the selected layer.
-- **Locate weights...**: Selects a folder containing the model's `model.safetensors` weights file and `tokenizer.json` file when the weights are not loaded.
-- **Download weights (LFM2.5-230M)...**: Downloads and caches the pretrained model weights when they are not already available locally.
