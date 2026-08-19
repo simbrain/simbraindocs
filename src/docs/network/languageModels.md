@@ -89,3 +89,46 @@ This section defines the main interface elements.
   <img src="/assets/images/llm/next-token-probabilities-top.png" alt="Ranked next-token probability card with its top candidates and red selected token" style="width:280px;"/>
 
 - **Step walks and gradients**: In the tiny language model, right-click the header to train or step a forward pass or training step one operation at a time. The active operation glows, future tiles dim, and a training walk can show gradients flowing backward. In LFM2, running the workspace processes the Context Window and generates text one token at a time.
+
+## Menus and Dialogs
+
+Right-click a language model's header to open its context menu. Both models provide the standard `Cut`, `Copy`, `Paste`, `Duplicate`, and `Delete` commands, plus `Rename...` to change the header label and a `Couplings` submenu for connecting the model to other workspace components.
+
+### Tiny Language Model
+
+- **Edit Tiny Language Model...**: Opens the model settings dialog.
+  - **Learning rate**: Sets the Adam optimizer's step size during training.
+  - **Sampling temperature**: Makes next-token probabilities sharper below 1 or more evenly spread above 1 before sampling.
+  - **Diagram scale**: Changes the size and spacing of tensor tiles without changing the size of labels and operation glyphs.
+  - **Sampling strategy**: Chooses how the next token is selected. Greedy always selects the most likely token, Top K samples from the *k* most likely tokens, and Top P samples from the smallest group of tokens whose combined probability reaches *p*.
+- **Train...**: Opens the training dialog. `Train` runs repeated training iterations, `Stop` ends a running training session, and `Step` runs one iteration. The dialog also shows the iteration count, loss, accuracy when available, the number of training windows, and a loss plot.
+- **Step forward pass one op**: Runs one operation in the current forward pass. The active glyph glows and tiles not yet computed are dimmed. Shortcut: `F`.
+- **Step training one op**: Walks one complete training step one operation at a time, first forward and then backward through the gradients. Shortcut: `B`.
+- **Finish current step walk**: Completes the remainder of an operation-by-operation forward or training walk. Shortcut: `Shift-B`.
+- **Clear context window**: Clears the model's current token context. Also clear the coupled Text Inputs document for a full reset, because its text is supplied again on the next workspace step.
+- **Show last training gradients**: Replaces tiles with the gradients written during the most recent training step where available. It becomes available after a training step has calculated gradients.
+
+### Pretrained LFM2 Language Model
+
+- **Edit LFM2.5-230M...**: Opens the generation settings dialog.
+  - **Prompt mode**: Completion continues the Context Window verbatim. Chat interprets it as a conversation and generates the model's reply.
+  - **Tokens to generate**: Limits generated tokens beyond the supplied context. A value of 0 permits generation until the context window is full.
+  - **Temperature**: Controls the softmax temperature before sampling. Lower values favor more likely tokens, while higher values increase variation.
+  - **Probability card candidates**: Sets how many of the highest-probability next tokens appear in the canvas probability card.
+  - **Sampling strategy**: Chooses Greedy, Top K, or Top P sampling. Greedy selects the most likely token, Top K samples among the *k* most likely tokens, and Top P samples from the smallest group whose combined probability reaches *p*.
+  - **Stop at end of text**: Ends generation when the model produces its end-of-text token. Chat mode always stops at this token.
+  - **Pause workspace when the run ends**: Pauses the workspace when generation stops because of an end-of-text token, a full context window, or the token limit, so the Context Window can be edited.
+- **Clear context window**: Clears the model's token context. Also clear the coupled Context Window document for a full reset, because its text is supplied again on the next workspace step.
+- **Logit lens**: Shows or hides the predicted-token readout at each residual-stream depth. Turning it off avoids an extra vocabulary-sized projection for each readout and can speed the display.
+- **Token history**: Controls the display record of earlier token activations.
+  - **Show**: Records and displays every token's activations.
+  - **Ghost**: Fades past-token rows, leaving the current token's activations and the model's caches prominent.
+  - **Off**: Displays only the current token and retains no history. Changing layers is faster; switching back to Show or Ghost reconstructs the history.
+- **Inactive limb**: Controls the branch that the selected hybrid-model layer does not use.
+  - **Ghost**: Leaves the unused attention or convolution branch faintly visible for orientation.
+  - **Hide**: Removes the unused branch so only the selected layer's anatomy is shown.
+- **Layer depth**: Controls depth cards behind stacked tensor tiles.
+  - **Show cards**: Shows the layered-card cue behind each tensor stack.
+  - **Current layer only**: Hides the cards and shows only the selected layer.
+- **Locate weights...**: Selects a folder containing the model's `model.safetensors` weights file and `tokenizer.json` file when the weights are not loaded.
+- **Download weights (LFM2.5-230M)...**: Downloads and caches the pretrained model weights when they are not already available locally.
