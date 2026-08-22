@@ -15,7 +15,7 @@ SOMs serve dual roles in computational neuroscience and machine learning. As a b
 
 <img src="/assets/images/somNetwork.png" alt="SOM Network" style="width: 70%;" />
 
-From the `Simulations > Competitive > SOM network` simulation. This SOM has been trained to distinguish different smells. Notice that the cheese sensors are near each other and the flower sensors are also grouped together.
+From the `Simulations > Competitive > SOM Network (Smell)` simulation. This SOM has been trained to distinguish different smells. Notice that the cheese sensors are near each other and the flower sensors are also grouped together.
 
 ## Structure
 

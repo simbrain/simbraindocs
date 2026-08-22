@@ -17,7 +17,7 @@ This approach allows for 3d simulations without a heavyweight 3d library, which 
 
 Conceptually, the sensor asks: if the camera were at this location, facing this heading, with this field of view, what would it see? It then uses [ray casting](https://en.wikipedia.org/wiki/Ray_casting) in the 2D world to estimate visible walls, floor, and sprites and reconstruct a first-person image from that point of view. Internally this is rendered as a [buffered image](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) with [RGBA channels](https://en.wikipedia.org/wiki/RGBA_color_model).
 
-To get a feel for how this works, try the 3d sims in `Simulations > Vision'.
+To get a feel for how this works, try `Simulations > Vision > 3D Navigation and Image World`, `3D Object Recognition`, or `3D Navigation and Lateral Inhibition`.
 
 ## Sensor Parameters
 

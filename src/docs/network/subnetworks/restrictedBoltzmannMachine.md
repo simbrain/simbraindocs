@@ -23,7 +23,7 @@ RBMs are particularly useful for:
 
 The network uses a contrastive divergence algorithm for training, which alternates between positive and negative phases to adjust weights and biases.
 
-To see an RBM in action, try the `RBM` simulation in the simulations folder (`Simulations > Hebb > RBM`).
+To see an RBM in action, try the `Restricted Boltzmann machine` simulation in the simulations folder (`Simulations > Hopfield and Boltzmann > Restricted Boltzmann machine`).
 
 ## Structure
 

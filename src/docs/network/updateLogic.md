@@ -155,7 +155,7 @@ From `File > Edit update sequence...` the following dialog shows
 
 <img src="/assets/images/networkUpdateSequence.png" alt="Edit update sequence" style="width:300px;"/>
 
-At each network iteration each of these actions is executed in sequence. Some built-in actions can be added from the GUI using the `Add action` button. Update order can be adjusted using the other buttons or by dragging items on the screen. In this case, the default `Buffered update` is called followed by a custom action that was created in a script (this is the `Simulations > Cognitive Maps > Agent Trails` script).
+At each network iteration each of these actions is executed in sequence. Some built-in actions can be added from the GUI using the `Add action` button. Update order can be adjusted using the other buttons or by dragging items on the screen. In this case, the default `Buffered update` is called followed by a custom action that was created in a script (this is the `Simulations > Cognitive maps > Agent trails` script).
 
 
 
@@ -230,4 +230,3 @@ Consider two neuron models. The first performs a weighted sum on the incoming sy
 Practically speaking even the continuous case is technically discrete as we choose some level of temporal granularity. This is a necessity of simulating temporally continuous situations on a computer which can only consider discrete states. The practice of simulating continuous time on a discrete machine is a major topic in numerical analysis and far beyond the scope of this documentation. The important point is that in complex neuron models with internal states the notion of when things happen and how long they take to happen becomes important, and we simulate that fundamental temporal continuity by choosing typically very small but meaningful and quantified discretized time-steps.
 
 Neuron update rules are associated with a time type. Any time a single continuous update rule is used in a network, time is automatically changed to continuous. This can however be overridden by manually adjusting time type in the network properties. If there is a single continuous neuron or synapse in a simulation, the network panel will display time in seconds. Otherwise time is displayed in iterations.
-

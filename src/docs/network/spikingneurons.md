@@ -14,7 +14,7 @@ Since spikes are discrete events without a numerical value, some way of converti
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="spiking vs. nonspiking" style="width:500px; border: 2px solid black;"/>
 
-To see how different [spike responders](spikeresponders) produce different PSR shapes, try the spiking neuron [simulation](../simulations/) (`Simulations > Neuroscience > Spiking Neuron`).
+To see a [spike responder](spikeresponders) in action and get a sense of how PSRs work, try `Simulations > Neuroscience > Spike responders`.
 
 ## Visualizing Spikes
 
@@ -101,4 +101,3 @@ The following spiking neuron update rules are available in Simbrain:
 - [Morris-Lecar](/docs/network/neurons/morrisLecar.html)
 - [Spiking Threshold](/docs/network/neurons/spikingThreshold.html)
 - [Stochastic Spike Generator](/docs/network/neurons/stochastic.html)
-

@@ -12,7 +12,7 @@ In Simbrain all action potentials are modelled as Dirac delta functions, the Dir
 
 <img src="/assets/images/spikingNonSpiking.gif" alt="Spiking and non-spiking neurons" style="width:500px; border: 2px solid black;"/>
 
-The top right neuron in the image here shows a spike responder in action. When the neuron that connects to it spikes, the spike responder produces a 1 which then decays to zero (see Jump and Decay). To reproduce this comparison, use `Simulations > Neuroscience > Spiking and non-spiking`.
+The top right neuron in the image here shows a spike responder in action. When the neuron that connects to it spikes, the spike responder produces a 1 which then decays to zero (see Jump and Decay). To see this spike response in Simbrain, use `Simulations > Neuroscience > Spiking neuron`.
 
 All spike responders use the incoming weight as a "jump height".
 

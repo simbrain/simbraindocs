@@ -15,7 +15,7 @@ A discrete [Hopfield network](http://www.scholarpedia.org/article/Hopfield_netwo
 
 Example Hopfield network showing the neuron grid and weight matrix. The interaction box displays the current energy value of the network.
 
-To get a feel for how Hopfield networks work, try the `Hopfield Patterns` simulation in the simulations folder (`Simulations > Hebb > Hopfield Patterns`).
+To get a feel for how Hopfield networks work, try the `Hopfield patterns` simulation in the simulations folder (`Simulations > Hopfield and Boltzmann > Hopfield patterns`).
 
 ## Structure
 
@@ -79,4 +79,3 @@ Common right-click items are described on the [subnetwork](.) page.
 ## Continuous Hopfield Networks
 
 To create a continuous Hopfield network, use a set of [Additive neurons](../neurons/additive) in a standard network. These can be connected appropriately and trained by using [Hebbian synapses](../synapses/hebbian). The user then clamps all neurons, iterates to train the synapses, then clamps all weights. On clamping, see the [toolbar documentation](../../workspace/toolbars).
-

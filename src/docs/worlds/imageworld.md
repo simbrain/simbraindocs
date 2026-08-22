@@ -12,7 +12,7 @@ ImageWorld is a tool designed for managing sets of images and using them as inpu
 
 The component can be used to model visual processing, for example retinal processing, or machine learning vision applications. Image World includes powerful drawing tools with configurable brushes, colors, and smoothing options, making it suitable for both handcrafted image creation and imported image processing.
 
-To get a quick sense of how image world works, try running the [simulations](../simulations) in `Simulations > Image world`
+To get a quick sense of how Image World works, try `Simulations > Vision > Simple drawings (10 x 10)`.
 
 # Interface Layout
 

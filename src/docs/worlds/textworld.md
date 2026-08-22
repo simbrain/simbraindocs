@@ -12,7 +12,7 @@ Text World transforms text into numbers and numbers into text, primarily for mod
 
 The component uses [token embeddings](https://en.wikipedia.org/wiki/Word_embedding) that associate text tokens with vector representations, which can be coupled to neural networks and other components via [couplings](../workspace/couplings).
 
-Example simulations: See `Simulations > Language models` for demonstrations of Text World functionality.
+To see Text World in use, try `Simulations > Language > Tiny Language Model` or `Simulations > Language > (Beta) Pretrained Language Model (LFM2.5)`.
 
 <img src="/assets/images/textWorld.png" alt="Text World" style="width:500px;"/>
 
@@ -186,6 +186,4 @@ The editor provides several actions:
 - **Extract embedding from current text**: Generate token embedding from current text
 - **Word embedding editor**: [Word embedding editor...](#word-embedding-editor)
 - **Text World Preferences**: [Preferences](#preferences)
-
-
 

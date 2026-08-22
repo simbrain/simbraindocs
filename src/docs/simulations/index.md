@@ -220,7 +220,7 @@ One powerful pattern in Simbrain is using neurons not as traditional neural unit
 
 The neurons serve as visual indicators that can be monitored in time series plots, coupled to other components, or used in projections, while the actual computation happens in your custom code. This gives you the flexibility of arbitrary computation with the visualization and connectivity benefits of Simbrain's neural network framework.
 
-Examples include `Simulations > Dynamical Systems > Lorenz attractor`, which uses three neurons to display x, y, and z variables from the Lorenz equations while custom update code computes the differential equations; `Simulations > Psychology > Temporal attention network`, which uses neurons to display attention values and decision evidence computed from normalization equations; and `Simulations > Psychology > Mouse and eye tracking`, which displays lexical, visual, and motor activations computed from custom integration and normalization code.
+Examples include `Simulations > Dynamical systems > Lorenz attractor`, which uses three neurons to display x, y, and z variables from the Lorenz equations while custom update code computes the differential equations; `Simulations > Psychology > Temporal attention network`, which uses neurons to display attention values and decision evidence computed from normalization equations; and `Simulations > Psychology > Mouse and eye tracking`, which displays lexical, visual, and motor activations computed from custom integration and normalization code.
 
 ## Working with Image Worlds
 
