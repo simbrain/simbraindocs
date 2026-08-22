@@ -10,7 +10,9 @@ nav_order: 80
 
 In Simbrain all action potentials are modelled as Dirac delta functions, the Dirac delta function is 1 at exactly 0 and 0 for all other values on $$(-\infty, \infty)$$. This just means that they are instantaneous in time and that insofar as the neuron that emitted the spike is concerned no spike is more or less powerful than another. However, this is problematic because everything takes some amount of time, and so spike responders exist as a generic term for any function which assigns a temporally extended value to an instantaneous pre-synaptic spike. Generally speaking (and by default) all synapses originating at a spiking neuron have a spike responder and use that spike responder to determine how strongly they should impact their target neuron.
 
-The top right neuron in the image here shows a spike responder in action. When the neuron that connects to it spikes, the spike responder produces a 1 which then decays to zero (see Jump and Decay).
+<img src="/assets/images/spikingNonSpiking.gif" alt="Spiking and non-spiking neurons" style="width:500px; border: 2px solid black;"/>
+
+The top right neuron in the image here shows a spike responder in action. When the neuron that connects to it spikes, the spike responder produces a 1 which then decays to zero (see Jump and Decay). To reproduce this comparison, use `Simulations > Neuroscience > Spiking and non-spiking`.
 
 All spike responders use the incoming weight as a "jump height".
 
