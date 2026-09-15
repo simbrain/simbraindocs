@@ -40,5 +40,3 @@ As temperature approaches 0, softmax approaches argmax (selecting only the maxim
 ## Parameters
 
 - **Temperature:** Controls the entropy of the output distribution. See the temperature section above for detailed explanation.
-
-For all other parameters, see [common neuron properties](../neurons#common-neuron-properties).
