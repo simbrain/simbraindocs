@@ -10,6 +10,10 @@ nav_order: 50
 
 At the bottom of the Simbrain desktop is a dock panel (invisible by default; to view it go to View > Bottom dock or use the toolbar button) that contains tabs for monitoring and controlling the workspace.
 
+## Terminal
+
+A command line for inspecting, building, and running simulations. See the [terminal documentation](../utilities/terminal.html) for more information.
+
 ## Components
 
 A list of the [components](components) in the workspace. Each row corresponds to one component and contains these columns:
@@ -18,10 +22,6 @@ A list of the [components](components) in the workspace. Each row corresponds to
 - **Type**: Shows the kind of workspace component (network, bar chart, time series, etc).
 - **GuiOn**: A checkbox to enable (default) or disable the component's GUI. Disabling this will visually remove the component from the workspace, which can improve performance by lowering computational time and memory usage.
 - **Update On**: A checkbox to enable (default) or disable updating of the component. If this option is not selected, the component will not update when the workspace is iterated (see [Updates](update) for more information).
-
-## Terminal
-
-A command line for inspecting, building, and running simulations. See the [terminal documentation](../utilities/terminal.html) for more information.
 
 ## Performance
 
