@@ -9,7 +9,9 @@ has_children: false
 
 The Simbrain terminal is a command line for inspecting, building, and running simulations. It is available in the Terminal tab of the bottom dock, and as a Console component using the console button in the toolbar. Each console window keeps its own location in the workspace.
 
-Enter `help` for a list of commands and `help <command>` for details and examples. The up and down arrows move through previous commands, Tab completes commands, paths, property names, and values, and pasting several lines runs them in order. A command that takes a while shows its progress above the prompt, and Esc cancels it.
+A Console window is part of the workspace, so it closes when a simulation or workspace file is opened. Use the Terminal tab, which stays open, for anything that opens a simulation.
+
+Enter `help` for a list of commands and `help <command>` for details and examples. Each example is a comment saying what it does, followed by the commands, so examples can be copied and pasted back in to run them. The up and down arrows move through previous commands, Tab completes commands, paths, property names, and values, and pasting several lines runs them in order. A command that takes a while shows its progress above the prompt, and Esc cancels it.
 
 ## Language
 
