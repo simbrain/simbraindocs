@@ -9,9 +9,9 @@ has_children: false
 
 The Simbrain terminal is a command line for inspecting, building, and running simulations. It is available in the Terminal tab of the bottom dock, and as a Console component using the console button in the toolbar. Each console window keeps its own location in the workspace.
 
-A Console window is part of the workspace, so it closes when a simulation or workspace file is opened. Use the Terminal tab, which stays open, for anything that opens a simulation.
+A Console window is part of the workspace, so it would close when a simulation or workspace file is opened. Opening one from a Console window therefore runs in the Terminal tab instead, which stays open.
 
-Enter `help` for a list of commands and `help <command>` for details and examples. Each example is a comment saying what it does, followed by the commands, so examples can be copied and pasted back in to run them. The up and down arrows move through previous commands, Tab completes commands, paths, property names, and values, and pasting several lines runs them in order. A command that takes a while shows its progress above the prompt, and Esc cancels it.
+Enter `help` for a list of commands and `help <command>` for details. In the usage shown, `<x>` must be given and `[x]` is optional. Enter `examples` for an example of each command, or `examples <command>` for all of a command's examples. Each example is a comment saying what it does, followed by the commands, so examples can be copied and pasted back in to run them. The up and down arrows move through previous commands, Tab completes commands, paths, property names, and values, and pasting several lines runs them in order. A command that takes a while shows its progress above the prompt, and Ctrl+C or Esc cancels it. With nothing running, Ctrl+C clears what has been typed, or copies selected text.
 
 ## Language
 
@@ -55,6 +55,7 @@ Output can be filtered by adding `| grep` and some text, as in `show net1/Neuron
 - **sims**, **sim**: List simulations and open one.
 - **open**, **save**: Open or save a workspace file.
 - **source**: Run the commands in a text file.
+- **examples**: Show examples to copy and paste.
 - **cls**: Clear the screen.
 
 ## File Menu
