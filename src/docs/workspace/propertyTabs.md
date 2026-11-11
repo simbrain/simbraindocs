@@ -21,7 +21,7 @@ A list of the [components](components) in the workspace. Each row corresponds to
 
 ## Terminal
 
-A Beanshell terminal providing command-line access to Simbrain's features. You can use this to interact with the workspace, components, and other Simbrain objects programmatically. See the [console documentation](../utilities/terminal.html) and [simulations](../simulations) for more information.
+A command line for inspecting, building, and running simulations. See the [terminal documentation](../utilities/terminal.html) for more information.
 
 ## Performance
 
